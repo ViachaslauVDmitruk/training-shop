@@ -1,0 +1,90 @@
+.header__top {
+  background-color: black;
+}
+
+.header__bottom {
+  background-color: #ffff;
+}
+
+.header-top__columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-top__img {
+  height: 14px;
+  opacity: 0.8;
+}
+
+.header-top-info__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-top-info__list li {
+  margin: 0px 0px 0px 29px;
+}
+
+.header-top-info__list li:first-child {
+  margin: 0;
+}
+
+.header-top-info__link {
+  display: inline-block;
+  color: #ffff;
+  opacity: 0.8;
+  padding: 0px 0px 0px 22px;
+  font-family: Spartan;
+  font-weight: 500;
+  line-height: 12px;
+  font-size: 11px;
+  margin: 6px 0px;
+}
+
+.link_phone {
+  background: url(/src/components/Header/img/phone2.svg) no-repeat;
+  background-size: 14px;
+  position: left;
+}
+
+.link_clock {
+  background: url(/src/components/Header/img/clock2.svg) no-repeat;
+  background-size: 14px;
+}
+
+.link_marker {
+  background: url(/src/components/Header/img/location-marker2.svg) no-repeat;
+  background-size: 14px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0.05em;
+}
+
+.header-top-social__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-top-social__list li {
+  margin: 0px 0px 0px 10px;
+}
+
+.header-top-social__list li:first-child {
+  margin: 0;
+}
