@@ -3,6 +3,10 @@ import facebook from './img/social/facebook01.svg';
 import twitter from './img/social/logo-twitter01.svg';
 import insta from './img/social/instagram01.svg';
 import pinterest from './img/social/logo-pinterest01.svg';
+import search from './img/header/search01.svg';
+import globe from './img/header/globe01.svg';
+import shoppingbag from './img/header/shoppingbag01.svg';
+import user from './img/header/user01.svg';
 
 function Header() {
 	return (
@@ -51,7 +55,60 @@ function Header() {
 						</div>
 					</div>
 				</div>
-				<div className="header__bottom"></div>
+				<div className="header__bottom">
+					<div className="container">
+						<div className="header-bottom__columns">
+							<div className="header-bottom__column">
+								<div className="header-bottom__home">
+									<a href="" className="header-home__link">CleverShop</a>
+								</div>
+							</div>
+							<div className="header-bottom__column">
+								<nav className="header-bottom__menu">
+									<ul className="header-bottom-menu__list">
+										<li>
+											<a href="" className="header-bottom-menu__link">About Us</a>
+										</li>
+										<li>
+											<a href="" className="header-bottom-menu__link">Women</a>
+										</li>
+										<li>
+											<a href="" className="header-bottom-menu__link">Men</a>
+										</li>
+										<li>
+											<a href="" className="header-bottom-menu__link">Beauty</a>
+										</li>
+										<li>
+											<a href="" className="header-bottom-menu__link">Accessories</a>
+										</li>
+										<li>
+											<a href="" className="header-bottom-menu__link">Blog</a>
+										</li>
+										<li>
+											<a href="" className="header-bottom-menu__link">Contact</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+							<div className="header-bottom__column">
+								<div className="header-bottom-icons">
+									<div className="header-bottom__icon">
+										<img src={search} alt="" />
+									</div>
+									<div className="header-bottom__icon">
+										<img src={globe} alt="" />
+									</div>
+									<div className="header-bottom__icon">
+										<img src={user} alt="" />
+									</div>
+									<div className="header-bottom__icon">
+										<img src={shoppingbag} alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 			</div>
 		</div>

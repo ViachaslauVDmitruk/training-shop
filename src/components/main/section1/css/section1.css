@@ -1,0 +1,101 @@
+.content__items {
+  margin: 32px 0px 0px 0px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 200px 260px;
+      grid-template-rows: 200px 260px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 30px;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+}
+
+.content-items__item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content-items__item_big {
+  grid-column: span 2;
+  grid-row: span 2;
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.content-items__item_medium {
+  grid-column: span 2;
+}
+
+.content-items-item__slider {
+  position: absolute;
+  top: 39%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content-items-item__link {
+  display: block;
+  position: absolute;
+  top: 39%;
+  background-color: #ffff;
+  border-radius: 4px;
+  font-family: Spartan;
+  text-transform: uppercase;
+  color: #121212;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 13px 24px;
+}
+
+.content-items-item-slider__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ffff;
+  border-radius: 4px;
+  font-family: Spartan;
+  font-weight: 600;
+  color: #121212;
+  margin: 0px 62px;
+  padding: 0px 32px;
+}
+
+.content-items-item-link__title {
+  margin: 24px 0px 14px;
+  opacity: 0.4;
+  font-size: 12px;
+  line-height: 13px;
+}
+
+.content-items-item-link__text {
+  font-size: 22px;
+  line-height: 25px;
+  margin: 0px 0px 24px 0px;
+}
