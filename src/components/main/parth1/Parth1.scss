@@ -1,6 +1,6 @@
 .content {
+	margin: 32px 15px 0px 15px;
 	&__items {
-		margin: 32px 0px 0px 0px;
 		display: grid;
 		grid-template-rows: 200px 260px;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -44,11 +44,17 @@
 		border-radius: 4px;
 		font-family: Spartan;
 		text-transform: uppercase;
+		text-align: center;
 		color: #121212;
 		font-weight: 600;
 		font-size: 14px;
 		line-height: 22px;
 		padding: 13px 24px;
+		:hover {
+			transition: 0.5;
+			width: 100%;
+			text-align: center;
+		}
 	}
 }
 

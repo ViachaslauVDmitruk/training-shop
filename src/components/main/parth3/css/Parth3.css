@@ -1,0 +1,124 @@
+.Parth3 {
+  margin: 92px 0px 0px 0px;
+}
+
+.navigate__memu {
+  margin: 0px 15px 48px 15px;
+}
+
+.navigate-menu__columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navigate-menu__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navigate-menu__links li {
+  margin: 0px 32px 0px 0px;
+}
+
+.navigate-menu__links li :hover {
+  font-weight: 500;
+  opacity: 1;
+}
+
+.navigate-menu__links li:last-child {
+  margin: 0;
+}
+
+.navigate-menu-colum {
+  color: #121212;
+}
+
+.navigate-menu-colum__title {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.navigate-menu__link {
+  display: block;
+  color: #121212;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+
+/*---------------woman------------------*/
+.parth__woman {
+  margin: 0px 15px 0px 15px;
+}
+
+.woman__items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (255px)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 255px);
+  row-gap: 30px;
+}
+
+.woman__button {
+  height: 48px;
+  width: 100%;
+  display: block;
+  margin: 48px 0px 0px 0px;
+  background: #f8f8f8;
+  border: 2px solid #f8f8f8;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  margin: 48px 0px 0px 0px;
+}
+
+.woman-item__title {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+  opacity: 0.6;
+  margin: 16px 0px 0px 0px;
+}
+
+.woman-item__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 12px 0px 0px 0px;
+}
+
+.woman-item-box__cost {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.woman-item-box__grade img {
+  height: 14px;
+}

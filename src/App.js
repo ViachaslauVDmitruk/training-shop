@@ -1,11 +1,12 @@
 import './App.css';
 import Header from './components/Header/Header';
-import Section1 from './components/main/section1/section1';
+import Main from './components/main/Main';
+
 function App() {
 	return (
 		<div className="wrapper">
 			<Header />
-			<Section1 />
+			<Main />
 		</div>
 	);
 }

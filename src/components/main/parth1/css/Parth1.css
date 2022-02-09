@@ -1,5 +1,8 @@
+.content {
+  margin: 32px 15px 0px 15px;
+}
+
 .content__items {
-  margin: 32px 0px 0px 0px;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 200px 260px;
@@ -57,11 +60,19 @@
   border-radius: 4px;
   font-family: Spartan;
   text-transform: uppercase;
+  text-align: center;
   color: #121212;
   font-weight: 600;
   font-size: 14px;
   line-height: 22px;
   padding: 13px 24px;
+}
+
+.content-items-item__link :hover {
+  -webkit-transition: 0.5;
+  transition: 0.5;
+  width: 100%;
+  text-align: center;
 }
 
 .content-items-item-slider__content {

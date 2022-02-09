@@ -3,6 +3,8 @@
 *:after {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	font-family: Spartan;
+	font-weight: 400;
 }
 
 :focus,
@@ -55,4 +57,13 @@ a:hover {
 .container {
 	max-width: 1140px;
 	margin: 0 auto;
+}
+.header {
+	grid-area: "header";
+}
+.main {
+	grid-area: "main";
+}
+.footer {
+	grid-column: "footer";
 }
