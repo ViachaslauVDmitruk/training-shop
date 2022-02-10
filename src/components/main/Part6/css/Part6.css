@@ -1,1 +1,115 @@
-/* No CSS */
+.Part6 {
+  padding: 96px 0px 0px 0px;
+}
+
+.part6__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 15px 0px 15px;
+  padding: 0px 0px 46px 0px;
+}
+
+.part6__columns {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  margin: 0px 15px 0px 15px;
+}
+
+.part6-top__title {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: 0.06em;
+}
+
+.part6-top__link {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+
+.part6-column__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.part6-column-content__info {
+  position: relative;
+  max-width: 302px;
+  max-height: 125px;
+  overflow: hidden;
+  top: -46px;
+  background-color: #ffff;
+  padding: 0px 16px 0px 16px;
+}
+
+.part6-column-content__info:hover {
+  max-height: none;
+  top: -93px;
+}
+
+.part6-info__title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 24px 0px 12px 0px;
+}
+
+.part6-info-text__main {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  opacity: 0.8;
+  margin: 0px 0px 25px;
+}
+
+.part6-info-text__date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.part6-info-date__date {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 13px;
+  opacity: 0.6;
+}
+
+.part6-info-readmore__link {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}

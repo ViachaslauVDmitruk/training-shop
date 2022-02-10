@@ -50,13 +50,13 @@ textarea {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	-webkit-input-placeholder: none;
 }
 
 /*--------------------*/
 .wrapper {
 	display: grid;
 	min-height: 100vh;
+	overflow: hidden;
 	grid-template-areas:
 		"header"
 		"main"
