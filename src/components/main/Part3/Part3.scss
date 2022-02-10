@@ -1,11 +1,8 @@
 .Parth3 {
-	margin: 92px 0px 0px 0px;
-}
-.container {
 }
 .navigate {
 	&__memu {
-		margin: 0px 15px 48px 15px;
+		margin: 92px 15px 48px 15px;
 	}
 }
 .navigate-menu {
@@ -57,15 +54,15 @@
 }
 /*---------------woman------------------*/
 .parth {
-	&__woman {
+	&__clothes {
 		margin: 0px 15px 0px 15px;
 	}
 }
-.woman {
+.parth3 {
 	&__items {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, 255px);
-		row-gap: 30px;
+		gap: 30px;
 	}
 	&__button {
 		height: 48px;
@@ -82,11 +79,11 @@
 		margin: 48px 0px 0px 0px;
 	}
 }
-.woman-items {
+.parth3-items {
 	&__item {
 	}
 }
-.woman-item {
+.parth3-item {
 	&__img {
 	}
 
@@ -106,7 +103,7 @@
 		margin: 12px 0px 0px 0px;
 	}
 }
-.woman-item-box {
+.parth3-item-box {
 	&__cost {
 		font-weight: 700;
 		font-size: 14px;

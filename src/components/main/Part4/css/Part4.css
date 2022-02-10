@@ -1,0 +1,65 @@
+.Parth4 {
+  padding: 96px 0px 96px 0px;
+}
+
+.parth4__columns {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  margin: 0px 15px 0px 15px;
+}
+
+.parth4-columns__column {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content-items-item__link {
+  display: block;
+  position: absolute;
+  background-color: #ffff;
+  border-radius: 4px;
+}
+
+.content-items-item__link:hover {
+  width: 100%;
+  text-align: center;
+  border-radius: 0;
+}
+
+.content-link__toptext {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin: 6px 0px 8px 0px;
+}
+
+.content-link__bottomtext {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+}
+
+.content-link__bottomtext span {
+  color: #e91e63;
+  opacity: 1;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+}

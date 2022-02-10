@@ -1,4 +1,4 @@
-import './css/Parth1.css';
+import './css/Part1.css';
 import img01 from './img/01.jpg';
 import img02 from './img/02.jpg';
 import img03 from './img/03.jpg';
@@ -6,7 +6,7 @@ import img04 from './img/04.jpg';
 import arrL from './img/ArrowL.png';
 import arrR from './img/ArrowR.png';
 
-function Parth1() {
+function Part1() {
 	return (
 		<div className="container">
 			<section className="content">
@@ -52,4 +52,4 @@ function Parth1() {
 	);
 }
 
-export default Parth1;
+export default Part1;

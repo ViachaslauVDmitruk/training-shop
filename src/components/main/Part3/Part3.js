@@ -1,4 +1,4 @@
-import './css/Parth3.css';
+import './css/Part3.css';
 import starYellow from './img/icons/starYellow.png';
 import starGrey from './img/icons/starGrey.png';
 
@@ -130,7 +130,7 @@ const navMenuLink = [
 	{ link: "MOSTVIEWED" },
 	{ link: "FEATURED PRODUCTS" },
 ]
-function Parth3() {
+function Part3() {
 	return (
 		<div className="Parth3">
 			<div className="container">
@@ -148,16 +148,16 @@ function Parth3() {
 						</div>
 					</div>
 				</div>
-				<div className="parth__woman">
-					<div className="woman__items">
-						{cardWoman.map(item => <div className="woman-items__item">
-							<div className="woman-item__img">
+				<div className="parth__clothes">
+					<div className="parth3__items">
+						{cardWoman.map(item => <div className="parth3-items__item">
+							<div className="parth3-item__img">
 								<img src={item.imgCard} alt="" />
 							</div>
-							<div className="woman-item__title">{item.title}</div>
-							<div className="woman-item__box">
-								<dvi className="woman-item-box__cost">{item.cost}</dvi>
-								<div className="woman-item-box__grade">
+							<div className="parth3-item__title">{item.title}</div>
+							<div className="parth3-item__box">
+								<dvi className="parth3-item-box__cost">{item.cost}</dvi>
+								<div className="parth3-item-box__grade">
 									<img src={starYellow} alt="" />
 									<img src={starYellow} alt="" />
 									<img src={starYellow} alt="" />
@@ -168,14 +168,51 @@ function Parth3() {
 						</div>)}
 
 					</div>
-					<button className="woman__button">
+					<button className="parth3__button">
 						SEE ALL
 					</button>
 				</div>
+				<div className="navigate__memu">
+					<div className="navigate-menu__columns">
+						<div className="navigate-menu__column">
+							<div className="navigate-menu-colum__title">MEN'S</div>
+						</div>
+						<div className="navigate-menu__column">
+							<nav className="navigate-menu__list">
+								<ul className="navigate-menu__links">
+									{navMenuLink.map(item => <li ><a className='navigate-menu__link' href="">{item.link}</a></li>)}
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<div className="parth__clothes">
+					<div className="parth3__items">
+						{cardMan.map(item => <div className="parth3-items__item">
+							<div className="parth3-item__img">
+								<img src={item.imgCard} alt="" />
+							</div>
+							<div className="parth3-item__title">{item.title}</div>
+							<div className="parth3-item__box">
+								<dvi className="parth3-item-box__cost">{item.cost}</dvi>
+								<div className="parth3-item-box__grade">
+									<img src={starYellow} alt="" />
+									<img src={starYellow} alt="" />
+									<img src={starYellow} alt="" />
+									<img src={starYellow} alt="" />
+									<img src={starGrey} alt="" />
+								</div>
+							</div>
+						</div>)}
 
+					</div>
+					<button className="parth3__button">
+						SEE ALL
+					</button>
+				</div>
 			</div>
 		</div>
 	);
 }
 
-export default Parth3;
+export default Part3;

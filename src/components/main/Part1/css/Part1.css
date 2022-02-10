@@ -55,7 +55,6 @@
 .content-items-item__link {
   display: block;
   position: absolute;
-  top: 39%;
   background-color: #ffff;
   border-radius: 4px;
   font-family: Spartan;
@@ -68,11 +67,10 @@
   padding: 13px 24px;
 }
 
-.content-items-item__link :hover {
-  -webkit-transition: 0.5;
-  transition: 0.5;
+.content-items-item__link:hover {
   width: 100%;
   text-align: center;
+  border-radius: 0;
 }
 
 .content-items-item-slider__content {

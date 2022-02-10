@@ -1,4 +1,4 @@
-import './css/Parth2.css';
+import './css/Part2.css';
 import iconTruck from './img/truck01.svg';
 import refresh from './img/refresh01.svg';
 import supporticon from './img/support01.svg';
@@ -27,7 +27,7 @@ const advantage = [
 	},
 ]
 
-function Parth2() {
+function Part2() {
 	return (
 		<section className="advantage">
 			<div className="container">
@@ -55,4 +55,4 @@ function Parth2() {
 	);
 }
 
-export default Parth2;
+export default Part2;

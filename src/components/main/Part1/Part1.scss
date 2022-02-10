@@ -39,7 +39,7 @@
 	&__link {
 		display: block;
 		position: absolute;
-		top: 39%;
+
 		background-color: #ffff;
 		border-radius: 4px;
 		font-family: Spartan;
@@ -50,10 +50,10 @@
 		font-size: 14px;
 		line-height: 22px;
 		padding: 13px 24px;
-		:hover {
-			transition: 0.5;
+		&:hover {
 			width: 100%;
 			text-align: center;
+			border-radius: 0;
 		}
 	}
 }

@@ -1,9 +1,5 @@
-.Parth3 {
-  margin: 92px 0px 0px 0px;
-}
-
 .navigate__memu {
-  margin: 0px 15px 48px 15px;
+  margin: 92px 15px 48px 15px;
 }
 
 .navigate-menu__columns {
@@ -63,19 +59,19 @@
 }
 
 /*---------------woman------------------*/
-.parth__woman {
+.parth__clothes {
   margin: 0px 15px 0px 15px;
 }
 
-.woman__items {
+.parth3__items {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (255px)[auto-fit];
       grid-template-columns: repeat(auto-fit, 255px);
-  row-gap: 30px;
+  gap: 30px;
 }
 
-.woman__button {
+.parth3__button {
   height: 48px;
   width: 100%;
   display: block;
@@ -91,7 +87,7 @@
   margin: 48px 0px 0px 0px;
 }
 
-.woman-item__title {
+.parth3-item__title {
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
@@ -100,7 +96,7 @@
   margin: 16px 0px 0px 0px;
 }
 
-.woman-item__box {
+.parth3-item__box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,12 +109,12 @@
   margin: 12px 0px 0px 0px;
 }
 
-.woman-item-box__cost {
+.parth3-item-box__cost {
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
 }
 
-.woman-item-box__grade img {
+.parth3-item-box__grade img {
   height: 14px;
 }
