@@ -2,29 +2,22 @@
 	&__top {
 		background-color: black;
 	}
-
 	&__bottom {
 		background-color: #ffff;
 	}
 }
-
 .header-top {
 	&__columns {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin: 0px 15px;
 	}
-
 	&__column {
 	}
-
 	&__info {
 	}
-
 	&__social {
 	}
-
 	&__img {
 		height: 14px;
 		opacity: 0.8;
@@ -41,7 +34,6 @@
 			}
 		}
 	}
-
 	&__link {
 		display: inline-block;
 		color: #ffff;
@@ -61,12 +53,10 @@
 		background-size: 14px;
 		position: left;
 	}
-
 	&_clock {
 		background: url(/src/components/Header/img/clock2.svg) no-repeat;
 		background-size: 14px;
 	}
-
 	&_marker {
 		background: url(/src/components/Header/img/location-marker2.svg) no-repeat;
 		background-size: 14px;
@@ -76,12 +66,10 @@
 		letter-spacing: 0.05em;
 	}
 }
-
 .header-top-social {
 	&__list {
 		display: flex;
 		align-items: center;
-
 		li {
 			margin: 0px 0px 0px 10px;
 			&:first-child {
@@ -89,7 +77,6 @@
 			}
 		}
 	}
-
 	&__link {
 	}
 }
@@ -99,19 +86,14 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin: 0px 15px;
 	}
-
 	&__column {
 	}
-
 	&__home {
 		margin: 15px 0px 19px 0px;
 	}
-
 	&__menu {
 	}
-
 	&__icon {
 		margin: 0px 24px 0px 0px;
 		&:last-child {
@@ -139,7 +121,6 @@
 			}
 		}
 	}
-
 	&__link {
 		font-size: 14px;
 		line-height: 16px;

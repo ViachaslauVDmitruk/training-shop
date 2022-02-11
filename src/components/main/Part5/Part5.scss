@@ -57,13 +57,17 @@
 	display: block;
 	width: 100%;
 	height: 100%;
-	background-color: #f8f8f8;
+	background: #f8f8f8;
 	border: none;
 	text-align: center;
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 18px;
 	color: black;
+	&::placeholder {
+		color: #121212;
+		opacity: 0.4;
+	}
 }
 .input:focus::placeholder {
 	opacity: 0;

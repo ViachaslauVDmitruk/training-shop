@@ -1,5 +1,5 @@
 .navigate__memu {
-  margin: 92px 15px 48px 15px;
+  margin: 92px 0px 48px 0px;
 }
 
 .navigate-menu__columns {
@@ -59,10 +59,6 @@
 }
 
 /*---------------woman------------------*/
-.parth__clothes {
-  margin: 0px 15px 0px 15px;
-}
-
 .parth3__items {
   display: -ms-grid;
   display: grid;

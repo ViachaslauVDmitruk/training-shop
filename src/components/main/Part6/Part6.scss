@@ -1,5 +1,5 @@
 .Part6 {
-	padding: 96px 0px 0px 0px;
+	padding: 96px 0px 90px 0px;
 }
 
 .part6 {
@@ -7,7 +7,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin: 0px 15px 0px 15px;
 		padding: 0px 0px 46px 0px;
 	}
 
@@ -15,7 +14,6 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		column-gap: 30px;
-		margin: 0px 15px 0px 15px;
 	}
 
 	&__column {
@@ -30,15 +28,16 @@
 	}
 
 	&__link {
+	}
+}
+.part6-top-link {
+	&__view {
 		font-weight: 500;
 		font-size: 12px;
 		line-height: 13px;
 		letter-spacing: 0.06em;
 		opacity: 0.6;
-	}
-}
-.part6-top-link {
-	&__view {
+		color: #121212;
 	}
 }
 .part6-column {

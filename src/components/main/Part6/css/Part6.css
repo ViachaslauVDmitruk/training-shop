@@ -1,5 +1,5 @@
 .Part6 {
-  padding: 96px 0px 0px 0px;
+  padding: 96px 0px 90px 0px;
 }
 
 .part6__top {
@@ -12,7 +12,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0px 15px 0px 15px;
   padding: 0px 0px 46px 0px;
 }
 
@@ -23,7 +22,6 @@
       grid-template-columns: 1fr 1fr 1fr;
   -webkit-column-gap: 30px;
           column-gap: 30px;
-  margin: 0px 15px 0px 15px;
 }
 
 .part6-top__title {
@@ -33,12 +31,13 @@
   letter-spacing: 0.06em;
 }
 
-.part6-top__link {
+.part6-top-link__view {
   font-weight: 500;
   font-size: 12px;
   line-height: 13px;
   letter-spacing: 0.06em;
   opacity: 0.6;
+  color: #121212;
 }
 
 .part6-column__content {

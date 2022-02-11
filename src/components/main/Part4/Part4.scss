@@ -6,7 +6,6 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		column-gap: 30px;
-		margin: 0px 15px 0px 15px;
 	}
 }
 .parth4-columns {
@@ -17,14 +16,12 @@
 		align-items: center;
 	}
 }
-
 .content-items-item {
 	&__link {
 		display: block;
 		position: absolute;
 		background-color: #ffff;
 		border-radius: 4px;
-
 		&:hover {
 			width: 100%;
 			text-align: center;
@@ -32,12 +29,10 @@
 		}
 	}
 }
-
 .parth4-column {
 	&__img {
 	}
 }
-
 .content-link {
 	&__toptext {
 		font-weight: 600;
@@ -48,14 +43,12 @@
 		opacity: 0.6;
 		margin: 6px 0px 8px 0px;
 	}
-
 	&__bottomtext {
 		font-style: normal;
 		font-weight: 600;
 		font-size: 16px;
 		line-height: 18px;
 		letter-spacing: 0.06em;
-
 		span {
 			color: #e91e63;
 			opacity: 1;
