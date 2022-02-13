@@ -19,6 +19,10 @@
 		text-align: center;
 		min-width: 340px;
 		margin: 0px 96px 96px 96px;
+		@media (max-width: 960px) {
+			margin: 0px 25px 25px 25px;
+			min-width: 300px;
+		}
 	}
 }
 .center-column {
@@ -29,8 +33,11 @@
 		opacity: 0.4;
 		text-transform: uppercase;
 		margin: 80px 0px 16px 0px;
+		@media (max-width: 960px) {
+			font-size: 10px;
+			margin: 25px 0px 14px 0px;
+		}
 	}
-
 	&__offer {
 		font-weight: 600;
 		font-size: 26px;
@@ -42,15 +49,24 @@
 			font-weight: 600;
 			color: #e91e63;
 		}
+		@media (max-width: 960px) {
+			font-size: 20px;
+			margin: 0px 0px 16px 0px;
+		}
 	}
-
 	&__form {
 		height: 64px;
 		margin: 0px 0px 24px 0px;
+		@media (max-width: 960px) {
+			height: 40px;
+			margin: 0px 0px 16px 0px;
+		}
 	}
-
 	&__button {
 		height: 64px;
+		@media (max-width: 960px) {
+			height: 40px;
+		}
 	}
 }
 .input {
@@ -87,7 +103,6 @@
 		opacity: 0.9;
 	}
 }
-
 .parth5-images {
 	&__item {
 	}
@@ -99,13 +114,18 @@
 		order: 1;
 		top: -25px;
 		left: -260px;
+		@media (max-width: 740px) {
+			display: none;
+		}
 	}
-
 	&_man {
 		z-index: 3;
 		position: absolute;
 		order: 3;
 		top: -15px;
 		right: -200px;
+		@media (max-width: 740px) {
+			display: none;
+		}
 	}
 }

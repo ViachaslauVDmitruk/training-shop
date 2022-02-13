@@ -5,16 +5,20 @@ import Part3 from './Part3/Part3';
 import Part4 from './Part4/Part4';
 import Part5 from './Part5/Part5';
 import Part6 from './Part6/Part6';
+import ClothesWoman from './ClothesType/Woman';
+import ClothesMan from './ClothesType/Man';
 
 function Main() {
 	return (
 		<div className="main">
 			<Part1 />
 			<Part2 />
-			{/* <Part3 />
+			<ClothesWoman />
+			<ClothesMan />
+			{/* <Part3 /> */}
 			<Part4 />
 			<Part5 />
-			<Part6 /> */}
+			{/* <Part6 /> */}
 		</div>
 	);
 }

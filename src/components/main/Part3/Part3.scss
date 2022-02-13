@@ -3,24 +3,38 @@
 .navigate {
 	&__memu {
 		margin: 92px 0px 48px 0px;
+		@media (max-width: 830px) {
+			margin: 30px 0px 20px 0px;
+		}
 	}
 }
 .navigate-menu {
 	&__columns {
 		display: flex;
 		justify-content: space-between;
+		@media (max-width: 830px) {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
 	}
-
 	&__column {
 	}
-
 	&__list {
 	}
-
 	&__links {
 		display: flex;
 		align-items: center;
+		@media (max-width: 600px) {
+			flex-direction: column;
+		}
 		li {
+			@media (max-width: 600px) {
+				margin: 0px 0px 10px 0px;
+				&:last-child {
+					margin: 0;
+				}
+			}
 			:hover {
 				font-weight: 500;
 				opacity: 1;
@@ -35,12 +49,16 @@
 .navigate-menu-colum {
 	color: #121212;
 	&__title {
+		color: #121212;
 		font-weight: 600;
 		font-size: 22px;
 		line-height: 25px;
 		display: flex;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
+		@media (max-width: 830px) {
+			margin: 0px 0px 20px 0px;
+		}
 	}
 }
 .navigate-menu__link {
@@ -65,7 +83,7 @@
 	}
 	&__button {
 		height: 48px;
-		width: 100%;
+		min-width: 100%;
 		display: block;
 		margin: 48px 0px 0px 0px;
 		background: #f8f8f8;
@@ -78,14 +96,11 @@
 		margin: 48px 0px 0px 0px;
 	}
 }
-.parth3-items {
-	&__item {
-	}
+.card-item {
 }
 .parth3-item {
 	&__img {
 	}
-
 	&__title {
 		font-weight: normal;
 		font-size: 14px;
@@ -94,7 +109,6 @@
 		opacity: 0.6;
 		margin: 16px 0px 0px 0px;
 	}
-
 	&__box {
 		display: flex;
 		align-items: center;
@@ -107,8 +121,8 @@
 		font-weight: 700;
 		font-size: 14px;
 		line-height: 16px;
+		color: #121212;
 	}
-
 	&__grade {
 		img {
 			height: 14px;

@@ -19,19 +19,15 @@ function Part5() {
 					<div className="center-column__button">
 						<button type="submit" class="center-column-button__btn">Subscribe</button>
 					</div>
-
 				</div>
 				<div className="parth5-images__item item_woman">
-					<img src={img01} alt="" />
+					<img src={img01} alt="img01" />
 				</div>
 				<div className="parth5-images__item item_man">
-					<img src={img02} alt="" />
+					<img src={img02} alt="img02" />
 				</div>
 			</div>
-
-
 		</div>
-
 	);
 }
 
