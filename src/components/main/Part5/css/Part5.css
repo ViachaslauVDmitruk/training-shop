@@ -168,7 +168,7 @@
   left: -260px;
 }
 
-@media (max-width: 740px) {
+@media (max-width: 965px) {
   .item_woman {
     display: none;
   }
@@ -184,7 +184,7 @@
   right: -200px;
 }
 
-@media (max-width: 740px) {
+@media (max-width: 9650px) {
   .item_man {
     display: none;
   }

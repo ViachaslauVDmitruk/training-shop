@@ -17,17 +17,17 @@ function Part6() {
 					<div className="part6__column">
 						<div className="part6-column__content">
 							<div className="part6-column-content__image">
-								<img src={img01} alt="" />
+								<img src={img01} alt="img01" />
 							</div>
-							<div className="part6-column-content__info">
-								<div className="part6-info__title">The Easiest Way to Break</div>
-								<div className="part6-info__text">
-									<div className="part6-info-text__main">But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</div>
-									<div className="part6-info-text__date">
-										<div className="part6-info-date__date">April 6, 2032</div>
-										<div className="part-info-date__readmore">
-											<a href="" className="part6-info-readmore__link">Read more</a>
-										</div>
+						</div>
+						<div className="part6-column-content__info">
+							<div className="part6-info__title">The Easiest Way to Break</div>
+							<div className="part6-info__text">
+								<div className="part6-info-text__main">But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</div>
+								<div className="part6-info-text__date">
+									<div className="part6-info-date__date">April 6, 2032</div>
+									<div className="part-info-date__readmore">
+										<a href="#" className="part6-info-readmore__link">Read more</a>
 									</div>
 								</div>
 							</div>
@@ -36,17 +36,17 @@ function Part6() {
 					<div className="part6__column">
 						<div className="part6-column__content">
 							<div className="part6-column-content__image">
-								<img src={img02} alt="" />
+								<img src={img02} alt="img02" />
 							</div>
-							<div className="part6-column-content__info">
-								<div className="part6-info__title">The Easiest Way to Break</div>
-								<div className="part6-info__text">
-									<div className="part6-info-text__main">But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</div>
-									<div className="part6-info-text__date">
-										<div className="part6-info-date__date">April 6, 2032</div>
-										<div className="part-info-date__readmore">
-											<a href="" className="part6-info-readmore__link">Read more</a>
-										</div>
+						</div>
+						<div className="part6-column-content__info">
+							<div className="part6-info__title">The Easiest Way to Break</div>
+							<div className="part6-info__text">
+								<div className="part6-info-text__main">But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</div>
+								<div className="part6-info-text__date">
+									<div className="part6-info-date__date">April 6, 2032</div>
+									<div className="part-info-date__readmore">
+										<a href="#" className="part6-info-readmore__link">Read more</a>
 									</div>
 								</div>
 							</div>
@@ -55,17 +55,17 @@ function Part6() {
 					<div className="part6__column">
 						<div className="part6-column__content">
 							<div className="part6-column-content__image">
-								<img src={img03} alt="" />
+								<img src={img03} alt="img03" />
 							</div>
-							<div className="part6-column-content__info">
-								<div className="part6-info__title">The Easiest Way to Break</div>
-								<div className="part6-info__text">
-									<div className="part6-info-text__main">But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</div>
-									<div className="part6-info-text__date">
-										<div className="part6-info-date__date">April 6, 2032</div>
-										<div className="part-info-date__readmore">
-											<a href="" className="part6-info-readmore__link">Read more</a>
-										</div>
+						</div>
+						<div className="part6-column-content__info">
+							<div className="part6-info__title">The Easiest Way to Break</div>
+							<div className="part6-info__text">
+								<div className="part6-info-text__main">But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was bor</div>
+								<div className="part6-info-text__date">
+									<div className="part6-info-date__date">April 6, 2032</div>
+									<div className="part-info-date__readmore">
+										<a href="#" className="part6-info-readmore__link">Read more</a>
 									</div>
 								</div>
 							</div>
