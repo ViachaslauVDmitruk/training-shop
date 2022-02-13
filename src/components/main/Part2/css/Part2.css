@@ -23,6 +23,22 @@
           justify-content: center;
 }
 
+@media (max-width: 600px) {
+  .adventage-menu__items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .adventage-menu__items li {
+    width: 250px;
+    margin: 0px 0px 15px 0px;
+  }
+  .adventage-menu__items li:last-child {
+    margin: 0;
+  }
+}
+
 .advantage-menu-items__icon img {
   height: 40px;
   padding: 5px;

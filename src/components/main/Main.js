@@ -10,8 +10,8 @@ function Main() {
 	return (
 		<div className="main">
 			<Part1 />
-			{/* <Part2 />
-			<Part3 />
+			<Part2 />
+			{/* <Part3 />
 			<Part4 />
 			<Part5 />
 			<Part6 /> */}
