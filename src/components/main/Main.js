@@ -18,7 +18,7 @@ function Main() {
 			{/* <Part3 /> */}
 			<Part4 />
 			<Part5 />
-			{/* <Part6 /> */}
+			<Part6 />
 		</div>
 	);
 }
