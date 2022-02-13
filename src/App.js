@@ -1,3 +1,4 @@
+import { Link, HashRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/main/Main';
@@ -9,7 +10,7 @@ function App() {
 			<div div className="wrapper" >
 				<Header />
 				<Main />
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</div >
 	);

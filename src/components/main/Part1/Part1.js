@@ -12,40 +12,57 @@ function Part1() {
 			<section className="content">
 				<div className="content__items">
 					<div className="content-items__item content-items__item_big">
-						<div className='content-items-item__img'>
+						<div className="content-items-item__image">
 							<img src={img01} alt="img01" />
-						</div>
-						<div className="content-items-item__slider">
-							<div className="content-block__arrow">
-								<img src={arrL} alt="arrL" />
-							</div>
-							<div className="content-items-item-slider__content">
-								<div className="content-items-item-link__title">BUNNER</div>
-								<div className="content-items-item-link__text">YOUR TITLE TEXT</div>
-							</div>
-							<div className="content-block__arrow">
-								<img src={arrR} alt="arrR" />
+							<div className="content-slider">
+								<div className="content-items-item__slider">
+									{/* <div className="content-block__arrow">
+											<img src={arrL} alt="arrL" />
+										</div> */}
+									<div className="content-items-item-slider__content">
+										<div className="content-items-item-link__title">BUNNER</div>
+										<div className="content-items-item-link__text">YOUR TITLE TEXT</div>
+									</div>
+									{/* <div className="content-block__arrow">
+										<img src={arrR} alt="arrR" />
+									</div> */}
+								</div>
 							</div>
 						</div>
 					</div>
+
 					<div className="content-items__item">
-						<div className='content-items-item__img'>
-							<img src={img02} alt="img02" />
+						<div className="content-items__columns">
+
+							<div className="content-column__item">
+								<div className="content-column-item__little">
+									<div className="content-column-item-little__image">
+										<img src={img02} alt="img02" />
+										<div className="content-items-block-link">
+											<a href="#" className="content-items-item__link">Woman</a>
+										</div>
+									</div>
+								</div>
+
+								<div className="content-column-item__little">
+									<div className="content-column-item-little__image">
+										<img src={img03} alt="img03" />
+										<div className="content-items-block-link">
+											<a href="#" className="content-items-item__link">Men</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div className="content-column__middle">
+								<img src={img04} alt="img04" />
+								<div className="content-items-block-link">
+									<a href="#" className="content-items-item__link">Accessories</a>
+								</div>
+							</div>
 						</div>
-						<a href="" className="content-items-item__link">WOMAN</a>
 					</div>
-					<div className="content-items__item">
-						<div className='content-items-item__img'>
-							<img src={img03} alt="03" />
-						</div>
-						<a href="" className="content-items-item__link">MAN</a>
-					</div>
-					<div className="content-items__item content-items__item_medium">
-						<div className='content-items-item__img'>
-							<img src={img04} alt="img04" />
-						</div>
-						<a href="" className="content-items-item__link">Accessories</a>
-					</div>
+
 				</div>
 			</section>
 		</div>

@@ -126,7 +126,7 @@
 }
 
 .footer__center {
-  padding: 40px 0px 0px 0px;
+  padding: 40px 0px 40px 0px;
 }
 
 .footer-center__columns {
@@ -164,7 +164,7 @@
   margin: 0px 8px 0px 0px;
 }
 
-.menu-item {
+.footer-menu-item {
   font-weight: 400;
   font-size: 12px;
   line-height: 34px;

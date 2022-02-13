@@ -3,19 +3,114 @@
 }
 
 .content__items {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 200px 260px;
-      grid-template-rows: 200px 260px;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-  row-gap: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-column-gap: 30px;
           column-gap: 30px;
 }
 
+@media (max-width: 760px) {
+  .content__items {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 .content-items__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+}
+
+@media (max-width: 760px) {
+  .content-items__item {
+    margin: 0px 0px 10px 0px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+}
+
+.content-items__columns {
+  height: 100%;
+}
+
+.content-items-item__image {
   position: relative;
+  padding: 0px 0px 90.743% 0px;
+}
+
+.content-column__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  margin: 0px 0px 30px 0px;
+}
+
+@media (max-width: 760px) {
+  .content-column__item {
+    margin: 0px 0px 10px 0px;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+}
+
+.content-column__middle {
+  position: relative;
+  padding: 0px 0px 48.15% 0px;
+}
+
+.content-column-item__little {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+}
+
+.content-column-item-little__image {
+  position: relative;
+  padding: 0px 0px 78.435% 0px;
+}
+
+.content-items-item__image img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.content-column-item__little img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.content-column__middle img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.content-items-block-link {
+  position: absolute;
+  height: 100%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,20 +122,34 @@
           align-items: center;
 }
 
-.content-items__item_big {
-  grid-column: span 2;
-  grid-row: span 2;
-  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+.content-items-item__link {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  padding: 13px 24px;
+  border-radius: 4px;
 }
 
-.content-items__item_medium {
-  grid-column: span 2;
+.content-slider {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .content-items-item__slider {
-  position: absolute;
-  top: 39%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,27 +159,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.content-items-item__link {
-  display: block;
-  position: absolute;
-  background-color: #ffff;
-  border-radius: 4px;
-  font-family: Spartan;
-  text-transform: uppercase;
-  text-align: center;
-  color: #121212;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 22px;
-  padding: 13px 24px;
-}
-
-.content-items-item__link:hover {
-  width: 100%;
-  text-align: center;
-  border-radius: 0;
 }
 
 .content-items-item-slider__content {
@@ -92,7 +180,6 @@
   font-family: Spartan;
   font-weight: 600;
   color: #121212;
-  margin: 0px 62px;
   padding: 0px 32px;
 }
 
@@ -106,5 +193,13 @@
 .content-items-item-link__text {
   font-size: 22px;
   line-height: 25px;
+  font-weight: 600;
   margin: 0px 0px 24px 0px;
+}
+
+@media (max-width: 960px) {
+  .content-items-item-link__text {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
