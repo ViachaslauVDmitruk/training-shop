@@ -111,6 +111,9 @@
   -ms-grid-columns: (255px)[auto-fit];
       grid-template-columns: repeat(auto-fit, 255px);
   gap: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .parth3__button {

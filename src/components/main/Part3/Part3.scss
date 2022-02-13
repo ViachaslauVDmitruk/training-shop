@@ -80,6 +80,7 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fit, 255px);
 		gap: 30px;
+		justify-content: center;
 	}
 	&__button {
 		height: 48px;

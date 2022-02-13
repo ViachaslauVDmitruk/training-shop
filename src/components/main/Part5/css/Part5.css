@@ -184,7 +184,7 @@
   right: -200px;
 }
 
-@media (max-width: 9650px) {
+@media (max-width: 965px) {
   .item_man {
     display: none;
   }

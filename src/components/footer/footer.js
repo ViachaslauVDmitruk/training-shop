@@ -23,13 +23,6 @@ import imgcontact02 from './img/contact/02.png';
 import imgcontact03 from './img/contact/03.png';
 import imgcontact04 from './img/contact/04.png';
 
-// const imageContact = [
-// 	{ img: imgcontact01 },
-// 	{ img: imgcontact02 },
-// 	{ img: imgcontact03 },
-// 	{ img: imgcontact04 },
-// ]
-
 const imageLogo = [
 	{ logo: img01, },
 	{ logo: img02, },
@@ -134,23 +127,23 @@ function Footer() {
 						</div>
 						<nav className="footer-top__social">
 							<ul className='footer-top-social__list'>
-								<li><a href="" className="footer-top-social__link">
-									<img src={facebook} className="footer-top__img" alt="" />
+								<li><a href="#" className="footer-top-social__link">
+									<img src={facebook} className="footer-top__img" alt="facebook" />
 								</a>
 								</li>
 								<li>
-									<a href="" className="footer-top-social__link">
-										<img src={twitter} className="footer-top__img" alt="" />
+									<a href="#" className="footer-top-social__link">
+										<img src={twitter} className="footer-top__img" alt="twitter" />
 									</a>
 								</li>
 								<li>
-									<a href="" className="footer-top-social__link">
-										<img src={insta} className="footer-top__img" alt="" />
+									<a href="#" className="footer-top-social__link">
+										<img src={insta} className="footer-top__img" alt="insta" />
 									</a>
 								</li>
 								<li>
-									<a href="" className="footer-top-social__link">
-										<img src={pinterest} className="footer-top__img" alt="" />
+									<a href="#" className="footer-top-social__link">
+										<img src={pinterest} className="footer-top__img" alt="pinterest" />
 									</a>
 								</li>
 							</ul>
@@ -190,7 +183,7 @@ function Footer() {
 						<div className="footer-bottom__column">
 							<div className="footer-bottom-columns__logo">
 								{imageLogo.map(item => <div className="fotter-bottomn__image">
-									<img src={item.logo} alt="" />
+									<img src={item.logo} alt="logo" />
 								</div>)}
 							</div>
 						</div>

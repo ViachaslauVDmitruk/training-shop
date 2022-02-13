@@ -11,6 +11,11 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@media (max-width: 965px) {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 	&__title {
 		font-weight: 600;
@@ -24,9 +29,23 @@
 		display: flex;
 		justify-content: space-between;
 		width: 520px;
-		height: 32px;
+		@media (max-width: 965px) {
+			margin: 15px 0px 15px 0px;
+		}
+		@media (max-width: 660px) {
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+		}
 	}
 	&__button {
+		display: block;
+		height: 32px;
+		margin: 0px 12px 0px;
+		@media (max-width: 660px) {
+			height: 32px;
+			margin: 0 auto;
+		}
 	}
 	&__social {
 	}
@@ -37,7 +56,12 @@
 .footer-top-form {
 	&__input {
 		display: block;
-		width: 400px;
+		width: 100%;
+		height: 32px;
+		@media (max-width: 660px) {
+			margin: 0px 0px 15px 0px;
+			height: 32px;
+		}
 	}
 }
 .footer__input {
@@ -99,6 +123,11 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
 		gap: 30px;
+		@media (max-width: 660px) {
+			grid-template-columns: repeat(auto-fit, minmax(100px) 1fr);
+			gap: 10px;
+			justify-content: center;
+		}
 	}
 	&__column {
 	}
@@ -150,6 +179,9 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@media (max-width: 660px) {
+			flex-direction: column-reverse;
+		}
 	}
 	&__column {
 		font-weight: 500;
@@ -172,6 +204,9 @@
 	&__logo {
 		display: flex;
 		align-items: center;
+		@media (max-width: 660px) {
+			display: none;
+		}
 	}
 }
 .fotter-bottomn {
