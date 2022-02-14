@@ -78,17 +78,16 @@
 		padding: 32px 0px 0px 0px;
 	}
 }
-
 .product-info {
 	&__columns {
 		display: flex;
-		@media (max-width: 680px) {
+		@media (max-width: 690px) {
 			flex-wrap: wrap;
 		}
 	}
-
 	&__column {
-		flex: 1 1 50%;
+		@media (max-width: 960px) {
+		}
 	}
 }
 .product-image {
@@ -96,11 +95,9 @@
 		display: flex;
 		column-gap: 16px;
 	}
-
 	&__column {
 		height: 100%;
 	}
-
 	&__big {
 		img {
 			display: block;
@@ -122,7 +119,6 @@
 		justify-content: space-between;
 		flex: 1 1 auto;
 	}
-
 	&__image {
 		img {
 			display: block;
@@ -154,7 +150,6 @@
 .product-info {
 	&__column {
 	}
-
 	&__parametrs {
 		border-bottom: 2px solid #e6e6e6;
 	}
@@ -175,17 +170,14 @@
 		align-items: center;
 		margin: 0px 0px 32px 0px;
 	}
-
 	&__sizes {
 		display: flex;
 		margin: 0px 0px 16px 0px;
 	}
-
 	&__type-sizes {
 		display: flex;
 		margin: 0px 0px 12px 0px;
 	}
-
 	&__guide {
 		display: flex;
 		align-items: center;
@@ -202,7 +194,6 @@
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
 	}
-
 	&__color {
 		margin: 0px 0px 0px 8px;
 		font-weight: 600;
@@ -216,7 +207,6 @@
 	&__columns {
 		display: flex;
 	}
-
 	&__column {
 		margin: 0px 16px 0px 0px;
 		&:last-child {
@@ -241,7 +231,6 @@
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
 	}
-
 	&__size {
 		font-weight: 600;
 		font-size: 12px;
@@ -255,13 +244,11 @@
 		display: flex;
 		align-items: center;
 	}
-
 	&__column {
 		display: flex;
 		width: 40px;
 		height: 40px;
 	}
-
 	&__block {
 		align-items: center;
 		justify-content: center;
@@ -291,7 +278,6 @@
 			opacity: 0.6;
 		}
 	}
-
 	&__text {
 		font-weight: 500;
 		font-size: 12px;
@@ -299,5 +285,158 @@
 		color: #121212;
 		opacity: 0.6;
 		margin: 0px 0px 0px 6px;
+	}
+}
+.product-info {
+	&__cost {
+		display: flex;
+		align-items: center;
+		border-bottom: 2px solid #e6e6e6;
+	}
+	&__addcard {
+		font-weight: 500;
+		font-size: 13px;
+		line-height: 15px;
+		background-color: #121212;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #ffffff;
+		opacity: 0.9;
+		padding: 17px 24px;
+	}
+}
+.product-info-cost {
+	&__block {
+		font-weight: 700;
+		font-size: 22px;
+		line-height: 36px;
+		text-transform: uppercase;
+		color: #121212;
+	}
+	&__row {
+		display: flex;
+		align-items: center;
+		margin: 32px 0px 32px 24px;
+	}
+}
+.protuct-info-cost {
+	&__image {
+		width: 40px;
+		height: 40px;
+		text-align: center;
+		margin: 0px 0px 0px 16px;
+		display: flex;
+		align-items: center;
+		img {
+			display: block;
+			margin: auto;
+		}
+	}
+}
+.product-info {
+	&__services {
+		margin: 32px 0px 32px 0px;
+	}
+}
+.services {
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		@media (max-width: 480px) {
+			flex-wrap: wrap;
+		}
+	}
+}
+.services-row {
+	&__column {
+		display: flex;
+		align-items: center;
+		margin: 0px 10px 0px 0px;
+		&:last-child {
+			margin: 0;
+		}
+		@media (max-width: 480px) {
+			flex: 1 1 50%;
+			margin: 0px 0px 10px 0px;
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+}
+.services-row-column {
+	&__image {
+		opacity: 0.6;
+	}
+	&__text {
+		margin: 0px 0px 0px 6px;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 18px;
+		display: flex;
+		align-items: center;
+		color: #121212;
+		opacity: 0.6;
+	}
+}
+.product-info {
+	&__guaranted {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0px 0px 23px 0px;
+	}
+}
+.product-info-guaranted {
+	&__text {
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 18px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #121212;
+		margin: 0px 24px 0px 0px;
+	}
+	&__line {
+		background-color: #e6e6e6;
+		height: 2px;
+		width: 100%;
+		max-width: 275px;
+	}
+}
+.product-info {
+	&__payservices {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding: 0px 0px 32px 0px;
+		border-bottom: 2px solid #e6e6e6;
+	}
+}
+.product-info-payservices {
+	&__logo {
+		padding: 0px 5px;
+	}
+}
+.product-info {
+	&__description {
+		margin: 32px 0px 0px 0px;
+		border-bottom: 2px solid #e6e6e6;
+	}
+}
+.product-info-description {
+	&__text {
+		font-weight: 600;
+		font-size: 12px;
+		line-height: 18px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #121212;
+		opacity: 0.6;
+		margin: 0px 0px 32px 0px;
 	}
 }

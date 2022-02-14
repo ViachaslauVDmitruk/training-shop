@@ -114,17 +114,11 @@
   display: flex;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 690px) {
   .product-info__columns {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-}
-
-.product-info__column {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
 }
 
 .product-image__columns {
@@ -354,4 +348,200 @@
   color: #121212;
   opacity: 0.6;
   margin: 0px 0px 0px 6px;
+}
+
+.product-info__cost {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+.product-info__addcard {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  background-color: #121212;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  padding: 17px 24px;
+}
+
+.product-info-cost__block {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 36px;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+.product-info-cost__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 32px 0px 32px 24px;
+}
+
+.protuct-info-cost__image {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin: 0px 0px 0px 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.protuct-info-cost__image img {
+  display: block;
+  margin: auto;
+}
+
+.product-info__services {
+  margin: 32px 0px 32px 0px;
+}
+
+.services__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+  .services__row {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.services-row__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 10px 0px 0px;
+}
+
+.services-row__column:last-child {
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .services-row__column {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%;
+    margin: 0px 0px 10px 0px;
+  }
+  .services-row__column:last-child {
+    margin: 0;
+  }
+}
+
+.services-row-column__image {
+  opacity: 0.6;
+}
+
+.services-row-column__text {
+  margin: 0px 0px 0px 6px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.product-info__guaranted {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0px 0px 23px 0px;
+}
+
+.product-info-guaranted__text {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  margin: 0px 24px 0px 0px;
+}
+
+.product-info-guaranted__line {
+  background-color: #e6e6e6;
+  height: 2px;
+  width: 100%;
+  max-width: 275px;
+}
+
+.product-info__payservices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0px 0px 32px 0px;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+.product-info-payservices__logo {
+  padding: 0px 5px;
+}
+
+.product-info__description {
+  margin: 32px 0px 0px 0px;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+.product-info-description__text {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.6;
+  margin: 0px 0px 32px 0px;
 }

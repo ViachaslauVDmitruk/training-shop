@@ -20,6 +20,27 @@ import paramtype01 from '../img/productcolor/01.jpg';
 import paramtype02 from '../img/productcolor/02.jpg';
 import paramtype03 from '../img/productcolor/03.jpg';
 import paramtype04 from '../img/productcolor/04.jpg';
+import heart from '../img/heart.png';
+import scale from '../img/scale.png';
+import delivery from '../img/delivery.png';
+import exchange from '../img/exchange.png';
+import letter from '../img/letter.png';
+import logo01 from '../img/logo/01.png';
+import logo02 from '../img/logo/02.png';
+import logo03 from '../img/logo/03.png';
+import logo04 from '../img/logo/04.png';
+import logo05 from '../img/logo/05.png';
+import logo06 from '../img/logo/06.png';
+import logo07 from '../img/logo/07.png';
+const logo = [
+	{ img: logo01, },
+	{ img: logo02, },
+	{ img: logo03, },
+	{ img: logo04, },
+	{ img: logo05, },
+	{ img: logo06, },
+	{ img: logo07, },
+]
 
 function ProductPage() {
 	return (
@@ -168,10 +189,56 @@ function ProductPage() {
 									</div>
 									<div className="product-info-parametrs__guide">
 										<div className="parametrs-guide__image">
-											<img src={sizeguide} alt="" />
+											<img src={sizeguide} alt="sizeguide" />
 										</div>
 										<div className="parametrs-guide__text">Size guide</div>
 									</div>
+								</div>
+								<div className="product-info__cost">
+									<div className="product-info-cost__block">$379.99</div>
+									<div className="product-info-cost__row">
+										<buttom className="product-info__addcard">Add to card</buttom>
+										<div className="protuct-info-cost__image">
+											<img src={heart} alt="heart" />
+										</div>
+										<div className="protuct-info-cost__image">
+											<img src={scale} alt="scale" />
+										</div>
+									</div>
+								</div>
+								<div className="product-info__services">
+									<div className="services__row">
+										<div className="services-row__column">
+											<div className="services-row-column__image">
+												<img src={delivery} alt="delivery" />
+											</div>
+											<div className="services-row-column__text">Shipping & Delivery</div>
+										</div>
+										<div className="services-row__column">
+											<div className="services-row-column__image">
+												<img src={exchange} alt="exchange" />
+											</div>
+											<div className="services-row-column__text">Returns & Exchanges</div>
+										</div>
+										<div className="services-row__column">
+											<div className="services-row-column__image">
+												<img src={letter} alt="letter" />
+											</div>
+											<div className="services-row-column__text">Ask a question</div>
+										</div>
+									</div>
+								</div>
+								<div className="product-info__guaranted">
+									<div className="product-info-guaranted__text">guaranteed safe checkout</div>
+									<div className="product-info-guaranted__line"></div>
+								</div>
+								<div className="product-info__payservices">
+									{logo.map(item => <div className="product-info-payservices__logo">
+										<img src={item.img} alt="" />
+									</div>)}
+								</div>
+								<div className="product-info__description">
+									<div className="product-info-description__text">DESCRIPTION</div>
 								</div>
 							</div>
 						</div>
