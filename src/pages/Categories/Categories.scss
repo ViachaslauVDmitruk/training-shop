@@ -1,0 +1,131 @@
+.categories {
+	&__top-block {
+		background-color: #f8f8f8;
+	}
+}
+.categories-top-block {
+	&__links {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+.link-home {
+	margin: 7px 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.link-home {
+	&__title {
+		font-weight: 500;
+		font-size: 11px;
+		line-height: 18px;
+		color: #121212;
+		opacity: 0.6;
+	}
+	&__image {
+		margin: 0px 6px;
+	}
+	&__categoties {
+		font-weight: 500;
+		font-size: 11px;
+		line-height: 18px;
+	}
+}
+.link-share {
+	&__items {
+		display: flex;
+	}
+}
+.link-share-item {
+	&__image {
+		opacity: 0.6;
+	}
+	&__title {
+		font-weight: 500;
+		font-size: 11px;
+		line-height: 18px;
+		color: #121212;
+		opacity: 0.6;
+		margin: 0px 0px 0px 6px;
+	}
+}
+.categories-top-block {
+	&__title {
+		background-color: #f8f8f8;
+		padding: 10px 0px 24px 0px;
+		font-weight: 600;
+		font-size: 26px;
+		line-height: 36px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #121212;
+		text-align: center;
+	}
+}
+.filter-block {
+	padding: 36px 0px;
+}
+.filter-block-items {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.filter-item-filter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 12px;
+}
+.filter-item {
+	&__image {
+	}
+	&__title {
+		font-weight: 500;
+		font-size: 13px;
+		line-height: 15px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #121212;
+		opacity: 0.6;
+	}
+	&__view {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 24px;
+	}
+	&__select {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+.fiter-item-view {
+	&__image {
+	}
+}
+.filter-item-select {
+	&__title {
+		font-weight: 500;
+		font-size: 13px;
+		line-height: 15px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #121212;
+		opacity: 0.6;
+	}
+	&__image {
+		margin: 0px 0px 0px 4px;
+	}
+}
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 255px);
+	gap: 30px;
+	justify-content: center;
+}
+.card-area {
+	padding: 0px 0px 178px 0px;
+}

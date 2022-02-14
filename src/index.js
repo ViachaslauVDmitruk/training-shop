@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CategoriesWoman from './pages/Categories/CategoriesWoman';
+import CategoriesMan from './pages/Categories/CategoriesMan';
+import ProductPage from './pages/ProductPage/ProductPage';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		{/* <App /> */}
+		{/* <CategoriesWoman /> */}
+		{/* <CategoriesMan /> */}
+		<ProductPage />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
