@@ -1,18 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CategoriesWoman from './pages/Categories/CategoriesWoman';
-import CategoriesMan from './pages/Categories/CategoriesMan';
-import ProductPage from './pages/ProductPage/ProductPage';
+// import CategoriesWoman from './pages/Categories/CategoriesWoman';
+// import CategoriesMan from './pages/Categories/CategoriesMan';
+// import ProductPage from './pages/ProductPage/ProductPage';
+import Home from './pages/Home';
+// import Part1 from '../src/components/main/Part1/Part1'
+// import Main from '../src/components/main/Main';
+
 
 ReactDOM.render(
 	<React.StrictMode>
 		{/* <App /> */}
 		{/* <CategoriesWoman /> */}
 		{/* <CategoriesMan /> */}
-		<ProductPage />
+		{/* <ProductPage /> */}
+		<Home />
+		{/* <Part1 /> */}
+		{/* <Main /> */}
 	</React.StrictMode>,
 	document.getElementById('root')
 );

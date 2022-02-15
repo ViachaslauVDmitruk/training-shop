@@ -132,7 +132,7 @@ const navMenuLink = [
 ]
 function Part3() {
 	return (
-		<div className="Parth3">
+		<div className="Part3">
 			<div className="container">
 				<div className="navigate__memu">
 					<div className="navigate-menu__columns">
@@ -152,7 +152,7 @@ function Part3() {
 					<div className="parth3__items">
 						{cardWoman.map(item => <div className="parth3-items__item">
 							<div className="parth3-item__img">
-								<img src={item.imgCard} alt="" />
+								<img src={item.imgCard} alt="imgCard" />
 							</div>
 							<div className="parth3-item__title">{item.title}</div>
 							<div className="parth3-item__box">
@@ -190,7 +190,7 @@ function Part3() {
 					<div className="parth3__items">
 						{cardMan.map(item => <div className="parth3-items__item">
 							<div className="parth3-item__img">
-								<img src={item.imgCard} alt="" />
+								<img src={item.imgCard} alt="imgCard" />
 							</div>
 							<div className="parth3-item__title">{item.title}</div>
 							<div className="parth3-item__box">

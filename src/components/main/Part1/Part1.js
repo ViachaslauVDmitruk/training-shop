@@ -3,8 +3,8 @@ import img01 from './img/01.jpg';
 import img02 from './img/02.jpg';
 import img03 from './img/03.jpg';
 import img04 from './img/04.jpg';
-import arrL from './img/ArrowL.png';
-import arrR from './img/ArrowR.png';
+// import arrL from './img/ArrowL.png';
+// import arrR from './img/ArrowR.png';
 
 function Part1() {
 	return (
@@ -30,10 +30,8 @@ function Part1() {
 							</div>
 						</div>
 					</div>
-
 					<div className="content-items__item">
 						<div className="content-items__columns">
-
 							<div className="content-column__item">
 								<div className="content-column-item__little">
 									<div className="content-column-item-little__image">
@@ -43,7 +41,6 @@ function Part1() {
 										</div>
 									</div>
 								</div>
-
 								<div className="content-column-item__little">
 									<div className="content-column-item-little__image">
 										<img src={img03} alt="img03" />
@@ -53,7 +50,6 @@ function Part1() {
 									</div>
 								</div>
 							</div>
-
 							<div className="content-column__middle">
 								<img src={img04} alt="img04" />
 								<div className="content-items-block-link">
@@ -62,7 +58,6 @@ function Part1() {
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</section>
 		</div>

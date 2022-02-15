@@ -1,4 +1,4 @@
-import { Link, HashRouter as Router, Route } from 'react-router-dom';
+// import { Link, HashRouter as Router, Route } from 'react-router-dom';
 import './css/Categories.css';
 import '../../components/main/Part3/css/Part3.css';
 import Header from "../../components/Header/Header";
@@ -23,7 +23,7 @@ function CategoriesWoman() {
 							<div className="link-home">
 								<div className="link-home__title">Home</div>
 								<div className="link-home__image">
-									<img src={arrowblack} alt="" />
+									<img src={arrowblack} alt="arrowblack" />
 								</div>
 								<div className="link-home__categoties">Woman</div>
 							</div>
@@ -42,22 +42,22 @@ function CategoriesWoman() {
 						<div className="filter-block-items">
 							<div className="filter-item-filter">
 								<div className="filter-item__image">
-									<img src={filter} alt="" />
+									<img src={filter} alt="filter" />
 								</div>
 								<div className="filter-item__title">Filter</div>
 							</div>
 							<div className="filter-item__view">
 								<div className="fiter-item-view__image">
-									<img src={viewlist} alt="" />
+									<img src={viewlist} alt="viewlist" />
 								</div>
 								<div className="fiter-item-view__image">
-									<img src={viewgrid} alt="" />
+									<img src={viewgrid} alt="viewgrid" />
 								</div>
 							</div>
 							<div className="filter-item__select">
 								<div className="filter-item-select__title">BESTSELLERS</div>
 								<div className="filter-item-select__image">
-									<img src={arrowdown} alt="" />
+									<img src={arrowdown} alt="arrowdown" />
 								</div>
 							</div>
 						</div>

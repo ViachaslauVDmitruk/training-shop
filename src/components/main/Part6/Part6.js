@@ -10,7 +10,7 @@ function Part6() {
 				<div className="part6__top">
 					<div className="part6-top__title">LATEST FROM BLOG</div>
 					<div className="part6-top__link">
-						<a href="" className="part6-top-link__view">see all</a>
+						<a href="#" className="part6-top-link__view">see all</a>
 					</div>
 				</div>
 				<div className="part6__columns">

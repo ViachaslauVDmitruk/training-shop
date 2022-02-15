@@ -41,7 +41,7 @@ function Header() {
 							<div className="header-top__column">
 								<nav className="header-top__social">
 									<ul className='header-top-social__list'>
-										<li><a href="" className="header-top-social__link">
+										<li><a href="#" className="header-top-social__link">
 											<img src={facebook} className="header-top__img" alt="facebook" />
 										</a>
 										</li>

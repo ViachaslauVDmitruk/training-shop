@@ -1,11 +1,10 @@
-import { Link, HashRouter as Router, Route } from 'react-router-dom';
+// import { Link, HashRouter as Router, Route } from 'react-router-dom';
 import './css/ProductPage.css';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/footer/footer';
 import CardItemOne from '../../components/CardItem/CardItemOne';
 
 import share from '../img/share.png';
-import arrowdown from '../img/arrowdown.png';
 import arrowblack from '../img/arrowblack.png';
 import StarYellow from '../img/starYellow.png';
 import arrowsliderup from '../img/arrowsliderup.png';
@@ -67,7 +66,6 @@ const cardWoman = [
 		imgCard: cardwoman04,
 	},
 ]
-
 const logo = [
 	{ img: logo01, },
 	{ img: logo02, },
@@ -80,7 +78,6 @@ const logo = [
 
 function ProductPage() {
 	return (
-
 		<div className="wrapper">
 			<Header />
 			<div className="main">
@@ -90,7 +87,7 @@ function ProductPage() {
 							<div className="link-home">
 								<div className="link-home__title">Home</div>
 								<div className="link-home__image">
-									<img src={arrowblack} alt="" />
+									<img src={arrowblack} alt="arrowblack" />
 								</div>
 								<div className="link-home__categoties">Women</div>
 							</div>
@@ -147,10 +144,10 @@ function ProductPage() {
 										<div className="product-image-slider__vertical">
 											<div className="product-image-slider-vertical__arrows">
 												<div className="vertical-arrows__image">
-													<img src={arrowsliderup} alt="" />
+													<img src={arrowsliderup} alt="arrowsliderup" />
 												</div>
 												<div className="vertical-arrows__image">
-													<img src={arrowsliderdown} alt="" />
+													<img src={arrowsliderdown} alt="arrowsliderdown" />
 												</div>
 											</div>
 											<div className="product-image-slider-vertical__image">
@@ -269,7 +266,7 @@ function ProductPage() {
 								</div>
 								<div className="product-info__payservices">
 									{logo.map(item => <div className="product-info-payservices__logo">
-										<img src={item.img} alt="" />
+										<img src={item.img} alt="img" />
 									</div>)}
 								</div>
 								<div className="product-info__description">
@@ -306,7 +303,7 @@ function ProductPage() {
 										</div>
 										<div className="product-info-reviews-row__write">
 											<div className="product-info-write__image">
-												<img src={write} alt="" />
+												<img src={write} alt="write" />
 											</div>
 											<div className="product-info-write__text">Write a review</div>
 										</div>
@@ -372,10 +369,10 @@ function ProductPage() {
 							<div className="product-related-slider__title">RELATED PRODUCTS</div>
 							<div className="product-related-slider__arrows">
 								<div className="line-arrows__image">
-									<img src={arrowleft} alt="" />
+									<img src={arrowleft} alt="arrowleft" />
 								</div>
 								<div className="line-arrows__image">
-									<img src={arrowright} alt="" />
+									<img src={arrowright} alt="arrowright" />
 								</div>
 							</div>
 						</div>
@@ -387,8 +384,6 @@ function ProductPage() {
 			</div>
 			<Footer />
 		</div>
-
-
 	);
 }
 export default ProductPage;

@@ -68,17 +68,17 @@ function CardItemMan() {
 		<Router>
 			{cardMan.map(item => <Link to={`/${ClothesMan}/${item.id}`} className="cards-item" data-test-id={`clothes-card-${ClothesMan}`}>
 				<div className="parth3-item__img">
-					<img src={item.imgCard} alt="" />
+					<img src={item.imgCard} alt="imgCard" />
 				</div>
 				<div className="parth3-item__title">{item.title}</div>
 				<div className="parth3-item__box">
 					<dvi className="parth3-item-box__cost">{item.cost}</dvi>
 					<div className="parth3-item-box__grade">
-						<img src={starYellow} alt="" />
-						<img src={starYellow} alt="" />
-						<img src={starYellow} alt="" />
-						<img src={starYellow} alt="" />
-						<img src={starGrey} alt="" />
+						<img src={starYellow} alt="starYellow" />
+						<img src={starYellow} alt="starYellow" />
+						<img src={starYellow} alt="starYellow" />
+						<img src={starYellow} alt="starYellow" />
+						<img src={starGrey} alt="starGrey" />
 					</div>
 				</div>
 			</Link>)}

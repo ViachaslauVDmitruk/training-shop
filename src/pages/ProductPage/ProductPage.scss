@@ -25,7 +25,6 @@
 			height: 10px;
 		}
 	}
-
 	&__text {
 		margin: 0px 0px 0px 6px;
 		font-weight: 500;
@@ -65,7 +64,6 @@
 		color: #121212;
 		opacity: 0.6;
 	}
-
 	&__number {
 		font-weight: 700;
 		font-size: 11px;
@@ -86,6 +84,7 @@
 		}
 	}
 	&__column {
+		flex: 1 0 50%;
 		@media (max-width: 960px) {
 		}
 	}
@@ -138,7 +137,6 @@
 }
 .slider-line {
 	position: absolute;
-
 	display: flex;
 	justify-content: space-between;
 }
@@ -455,7 +453,6 @@
 		color: #121212;
 		margin: 32px 0px;
 	}
-
 	&__item {
 		display: flex;
 		font-weight: 500;
@@ -492,21 +489,18 @@
 		color: #121212;
 		margin: 32px 0px;
 	}
-
 	&__row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		margin: 0px 0px 12px 0px;
 	}
-
 	&__private {
 	}
 }
 .reviews {
 	&__image {
 	}
-
 	&__text {
 	}
 }
@@ -522,7 +516,6 @@
 			height: 18px;
 		}
 	}
-
 	&__text {
 		font-weight: 500;
 		font-size: 12px;
@@ -537,13 +530,11 @@
 .product-info-reviews-private {
 	&__block {
 	}
-
 	&__title {
 		display: flex;
 		justify-content: space-between;
 		margin: 0px 0px 12px 0px;
 	}
-
 	&__text {
 		font-weight: normal;
 		font-size: 14px;
@@ -621,7 +612,6 @@
 			line-height: 22px;
 		}
 	}
-
 	&__arrows {
 		display: flex;
 	}

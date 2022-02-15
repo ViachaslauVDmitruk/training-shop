@@ -10,7 +10,7 @@ import cardwoman05 from '../main/Part3/img/woman/05.jpg';
 import cardwoman06 from '../main/Part3/img/woman/06.jpg';
 import cardwoman07 from '../main/Part3/img/woman/07.jpg';
 import cardwoman08 from '../main/Part3/img/woman/08.jpg';
-import CategoriesWoman from '../../pages/Categories/CategoriesWoman';
+// import CategoriesWoman from '../../pages/Categories/CategoriesWoman';
 import ClothesWoman from '../main/ClothesType/Woman';
 
 const cardWoman = [
@@ -70,17 +70,17 @@ function CardItemWoman() {
 		<Router>
 			{cardWoman.map(item => <Link to={`/${ClothesWoman}/${item.id}`} className="cards-item" data-test-id={`clothes-card-${ClothesWoman}`}>
 				<div className="parth3-item__img">
-					<img src={item.imgCard} alt="" />
+					<img src={item.imgCard} alt="imgCard" />
 				</div>
 				<div className="parth3-item__title">{item.title}</div>
 				<div className="parth3-item__box">
 					<dvi className="parth3-item-box__cost">{item.cost}</dvi>
 					<div className="parth3-item-box__grade">
-						<img src={starYellow} alt="" />
-						<img src={starYellow} alt="" />
-						<img src={starYellow} alt="" />
-						<img src={starYellow} alt="" />
-						<img src={starGrey} alt="" />
+						<img src={starYellow} alt="starYellow" />
+						<img src={starYellow} alt="starYellow" />
+						<img src={starYellow} alt="starYellow" />
+						<img src={starYellow} alt="starYellow" />
+						<img src={starGrey} alt="starGrey" />
 					</div>
 				</div>
 			</Link>)}

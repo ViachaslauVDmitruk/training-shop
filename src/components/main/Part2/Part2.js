@@ -36,7 +36,7 @@ function Part2() {
 						<ul className='adventage-menu__items'>
 							{advantage.map(item => <li key={item.id}>
 								<div className="advantage-menu-items__icon">
-									<img src={item.imgScr} alt="" />
+									<img src={item.imgScr} alt="imgSrc" />
 								</div>
 								<div className="advantage-menu-items__columns">
 									<div className="advantage-column__title">

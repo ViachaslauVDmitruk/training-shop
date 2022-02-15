@@ -7,8 +7,6 @@ import ProductPage from '../../pages/ProductPage/ProductPage';
 function CardItemOne(props) {
 	return (
 		<Router>
-
-
 			<Link to={`/${ProductPage}/${props.id}`} className="cards-item" data-test-id={`clothes-card-${props.id}`}>
 				<div className="parth3-item__img">
 					<img src={props.imgCard} alt="imgCard" />
@@ -25,8 +23,6 @@ function CardItemOne(props) {
 					</div>
 				</div>
 			</Link>
-
-
 		</Router>
 	)
 }
