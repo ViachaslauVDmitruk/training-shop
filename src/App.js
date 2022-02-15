@@ -3,7 +3,7 @@ import './App.css';
 import Home from './pages/Home';
 import CategoriesMan from './pages/Categories/CategoriesMan';
 import CategoriesWoman from './pages/Categories/CategoriesWoman';
-import ProductPage from './pages/ProductPage/ProductPage';
+// import ProductPage from './pages/ProductPage/ProductPage';
 
 function App() {
 	return (
