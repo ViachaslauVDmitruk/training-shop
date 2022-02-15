@@ -1,5 +1,6 @@
 // import { Link, HashRouter as Router, Route } from 'react-router-dom';
 import './css/ProductPage.css';
+import '../Categories/css/Categories.css'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/footer/footer';
 import CardItemOne from '../../components/CardItem/CardItemOne';
