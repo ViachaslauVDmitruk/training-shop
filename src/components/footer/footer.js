@@ -127,22 +127,22 @@ function Footer() {
 						</div>
 						<nav className="footer-top__social">
 							<ul className='footer-top-social__list'>
-								<li><a href="#" className="footer-top-social__link">
+								<li><a href="/" className="footer-top-social__link">
 									<img src={facebook} className="footer-top__img" alt="facebook" />
 								</a>
 								</li>
 								<li>
-									<a href="#" className="footer-top-social__link">
+									<a href="/" className="footer-top-social__link">
 										<img src={twitter} className="footer-top__img" alt="twitter" />
 									</a>
 								</li>
 								<li>
-									<a href="#" className="footer-top-social__link">
+									<a href="/" className="footer-top-social__link">
 										<img src={insta} className="footer-top__img" alt="insta" />
 									</a>
 								</li>
 								<li>
-									<a href="#" className="footer-top-social__link">
+									<a href="/" className="footer-top-social__link">
 										<img src={pinterest} className="footer-top__img" alt="pinterest" />
 									</a>
 								</li>

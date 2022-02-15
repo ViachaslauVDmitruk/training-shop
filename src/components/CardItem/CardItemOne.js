@@ -1,4 +1,4 @@
-import { Link, HashRouter as Router, Route } from 'react-router-dom';
+import { Link, HashRouter as Router } from 'react-router-dom';
 import '../main/Part3/css/Part3.css'
 import starYellow from '../main/Part3/img/icons/starYellow.png';
 import starGrey from '../main/Part3/img/icons/starGrey.png';

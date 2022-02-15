@@ -1,4 +1,4 @@
-import { Link, HashRouter as Router, Route } from 'react-router-dom';
+import { Link, HashRouter as Router } from 'react-router-dom';
 import './css/header.css';
 import facebook from './img/social/facebook01.svg';
 import twitter from './img/social/logo-twitter01.svg';
@@ -32,31 +32,31 @@ function Header() {
 										<li>
 											<a href="tel:375291002030" className="header-top-info__link link_phone">+375 29 100 20 30</a></li>
 										<li>
-											<a href="#" className="header-top-info__link link_marker">Belarus, Gomel, Lange 17</a></li>
+											<a href="/" className="header-top-info__link link_marker">Belarus, Gomel, Lange 17</a></li>
 										<li>
-											<a href="#" className="header-top-info__link link_clock">All week 24/7</a></li>
+											<a href="/" className="header-top-info__link link_clock">All week 24/7</a></li>
 									</ul>
 								</nav>
 							</div>
 							<div className="header-top__column">
 								<nav className="header-top__social">
 									<ul className='header-top-social__list'>
-										<li><a href="#" className="header-top-social__link">
+										<li><a href="/" className="header-top-social__link">
 											<img src={facebook} className="header-top__img" alt="facebook" />
 										</a>
 										</li>
 										<li>
-											<a href="#" className="header-top-social__link">
+											<a href="/" className="header-top-social__link">
 												<img src={twitter} className="header-top__img" alt="twitter" />
 											</a>
 										</li>
 										<li>
-											<a href="#" className="header-top-social__link">
+											<a href="/" className="header-top-social__link">
 												<img src={insta} className="header-top__img" alt="insta" />
 											</a>
 										</li>
 										<li>
-											<a href="#" className="header-top-social__link">
+											<a href="/" className="header-top-social__link">
 												<img src={pinterest} className="header-top__img" alt="pinterest" />
 											</a>
 										</li>

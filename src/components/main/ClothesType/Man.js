@@ -1,4 +1,4 @@
-import { Link, HashRouter as Router, Route } from 'react-router-dom';
+import { Link, HashRouter as Router } from 'react-router-dom';
 import '../Part3/css/Part3.css'
 import starYellow from '../Part3/img/icons/starYellow.png';
 import starGrey from '../Part3/img/icons/starGrey.png';
@@ -82,7 +82,7 @@ function ClothesMan() {
 							<div className="navigate-menu__column">
 								<nav className="navigate-menu__list">
 									<ul className="navigate-menu__links">
-										{navMenuLink.map(item => <li ><a className='navigate-menu__link' href="#">{item.link}</a></li>)}
+										{navMenuLink.map(item => <li ><a className='navigate-menu__link' href="/">{item.link}</a></li>)}
 									</ul>
 								</nav>
 							</div>

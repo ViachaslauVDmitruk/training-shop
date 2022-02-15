@@ -37,7 +37,7 @@ function Part1() {
 									<div className="content-column-item-little__image">
 										<img src={img02} alt="img02" />
 										<div className="content-items-block-link">
-											<a href="#" className="content-items-item__link">Woman</a>
+											<a href="/" className="content-items-item__link">Woman</a>
 										</div>
 									</div>
 								</div>
@@ -45,7 +45,7 @@ function Part1() {
 									<div className="content-column-item-little__image">
 										<img src={img03} alt="img03" />
 										<div className="content-items-block-link">
-											<a href="#" className="content-items-item__link">Men</a>
+											<a href="/" className="content-items-item__link">Men</a>
 										</div>
 									</div>
 								</div>
@@ -53,7 +53,7 @@ function Part1() {
 							<div className="content-column__middle">
 								<img src={img04} alt="img04" />
 								<div className="content-items-block-link">
-									<a href="#" className="content-items-item__link">Accessories</a>
+									<a href="/" className="content-items-item__link">Accessories</a>
 								</div>
 							</div>
 						</div>

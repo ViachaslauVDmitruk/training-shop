@@ -142,7 +142,7 @@ function Part3() {
 						<div className="navigate-menu__column">
 							<nav className="navigate-menu__list">
 								<ul className="navigate-menu__links">
-									{navMenuLink.map(item => <li ><a className='navigate-menu__link' href="#">{item.link}</a></li>)}
+									{navMenuLink.map(item => <li ><a className='navigate-menu__link' href="/">{item.link}</a></li>)}
 								</ul>
 							</nav>
 						</div>
@@ -180,7 +180,7 @@ function Part3() {
 						<div className="navigate-menu__column">
 							<nav className="navigate-menu__list">
 								<ul className="navigate-menu__links">
-									{navMenuLink.map(item => <li ><a className='navigate-menu__link' href="#">{item.link}</a></li>)}
+									{navMenuLink.map(item => <li ><a className='navigate-menu__link' href="/">{item.link}</a></li>)}
 								</ul>
 							</nav>
 						</div>

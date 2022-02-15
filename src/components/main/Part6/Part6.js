@@ -10,7 +10,7 @@ function Part6() {
 				<div className="part6__top">
 					<div className="part6-top__title">LATEST FROM BLOG</div>
 					<div className="part6-top__link">
-						<a href="#" className="part6-top-link__view">see all</a>
+						<a href="/" className="part6-top-link__view">see all</a>
 					</div>
 				</div>
 				<div className="part6__columns">
@@ -27,7 +27,7 @@ function Part6() {
 								<div className="part6-info-text__date">
 									<div className="part6-info-date__date">April 6, 2032</div>
 									<div className="part-info-date__readmore">
-										<a href="#" className="part6-info-readmore__link">Read more</a>
+										<a href="/" className="part6-info-readmore__link">Read more</a>
 									</div>
 								</div>
 							</div>
@@ -46,7 +46,7 @@ function Part6() {
 								<div className="part6-info-text__date">
 									<div className="part6-info-date__date">April 6, 2032</div>
 									<div className="part-info-date__readmore">
-										<a href="#" className="part6-info-readmore__link">Read more</a>
+										<a href="/" className="part6-info-readmore__link">Read more</a>
 									</div>
 								</div>
 							</div>
@@ -65,7 +65,7 @@ function Part6() {
 								<div className="part6-info-text__date">
 									<div className="part6-info-date__date">April 6, 2032</div>
 									<div className="part-info-date__readmore">
-										<a href="#" className="part6-info-readmore__link">Read more</a>
+										<a href="/" className="part6-info-readmore__link">Read more</a>
 									</div>
 								</div>
 							</div>
