@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import CategoriesWoman from './pages/Categories/CategoriesWoman';
 // import CategoriesMan from './pages/Categories/CategoriesMan';
