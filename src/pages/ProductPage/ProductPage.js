@@ -1,6 +1,8 @@
 import { Link, HashRouter as Router, Route } from 'react-router-dom';
 import './css/ProductPage.css';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/footer/footer';
+import CardItemOne from '../../components/CardItem/CardItemOne';
 
 import share from '../img/share.png';
 import arrowdown from '../img/arrowdown.png';
@@ -32,6 +34,40 @@ import logo04 from '../img/logo/04.png';
 import logo05 from '../img/logo/05.png';
 import logo06 from '../img/logo/06.png';
 import logo07 from '../img/logo/07.png';
+import write from '../img/write.png';
+
+import cardwoman01 from '../img/cardimage/01.jpg';
+import cardwoman02 from '../img/cardimage/02.jpg';
+import cardwoman03 from '../img/cardimage/03.jpg';
+import cardwoman04 from '../img/cardimage/04.jpg';
+
+const cardWoman = [
+	{
+		id: 1,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman01,
+	},
+	{
+		id: 2,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman02,
+	},
+	{
+		id: 3,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman03,
+	},
+	{
+		id: 4,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman04,
+	},
+]
+
 const logo = [
 	{ img: logo01, },
 	{ img: logo02, },
@@ -44,6 +80,7 @@ const logo = [
 
 function ProductPage() {
 	return (
+
 		<div className="wrapper">
 			<Header />
 			<div className="main">
@@ -135,15 +172,13 @@ function ProductPage() {
 											<img src={imagebig} alt="imagebig" />
 										</div>
 										{/* <div className="slider-line">
-
-											<div className="slider-line-arrows__image">
-												<img src={arrowleft} alt="arrowleft" />
-											</div>
-											<div className="slider-line-arrows__image">
-												<img src={arrowright} alt="arrowright" />
-											</div>
-
-										</div> */}
+												<div className="slider-line-arrows__image">
+													<img src={arrowleft} alt="arrowleft" />
+												</div>
+												<div className="slider-line-arrows__image">
+													<img src={arrowright} alt="arrowright" />
+												</div>
+											</div> */}
 									</div>
 								</div>
 							</div>
@@ -240,12 +275,119 @@ function ProductPage() {
 								<div className="product-info__description">
 									<div className="product-info-description__text">DESCRIPTION</div>
 								</div>
+								<div className="product-info__additional">
+									<div className="product-info-additional__title">ADDITIONAL INFORMATION</div>
+									<div className="product-info-additional__item">Color: <span>Blue, White, Black, Grey</span></div>
+									<div className="product-info-additional__item">Size: <span>XS, S, M, L</span></div>
+									<div className="product-info-additional__item">Material:	<span>100% Polyester</span></div>
+								</div>
+								<div className="product-info__reviews">
+									<div className="product-info-reviews__title">
+										Reviews
+									</div>
+									<div className="product-info-reviews__row">
+										<div className="reviews">
+											<div className="reviews__image">
+												<img src={StarYellow} alt="staryellow" />
+											</div>
+											<div className="reviews__image">
+												<img src={StarYellow} alt="staryellow" />
+											</div>
+											<div className="reviews__image">
+												<img src={StarYellow} alt="staryellow" />
+											</div>
+											<div className="reviews__image">
+												<img src={StarYellow} alt="staryellow" />
+											</div>
+											<div className="reviews__image">
+												<img src={StarYellow} alt="staryellow" />
+											</div>
+											<div className="reviews__text">2 Reviews</div>
+										</div>
+										<div className="product-info-reviews-row__write">
+											<div className="product-info-write__image">
+												<img src={write} alt="" />
+											</div>
+											<div className="product-info-write__text">Write a review</div>
+										</div>
+									</div>
+									<div className="product-info-reviews__private">
+										<div className="product-info-reviews-private__block">
+											<div className="product-info-reviews-private__title">
+												<div className="product-info-reviews-private-title__name">Oleh Chabanov</div>
+												<div className="reviews revers">
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__text text-revers">3 months ago</div>
+												</div>
+											</div>
+											<div className="product-info-reviews-private__text">On the other hand, we denounce with righteous indignation and like men who are so beguiled and demoralized by the charms of pleasure of the moment</div>
+										</div>
+									</div>
+									<div className="product-info-reviews__private">
+										<div className="product-info-reviews-private__block">
+											<div className="product-info-reviews-private__title">
+												<div className="product-info-reviews-private-title__name">ShAmAn design</div>
+												<div className="reviews revers">
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__text text-revers">2 months ago</div>
+												</div>
+											</div>
+											<div className="product-info-reviews-private__text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti</div>
+										</div>
+									</div>
+								</div>
 							</div>
+						</div>
+					</div>
+					<div className="product__related">
+						<div className="product-related__slider">
+							<div className="product-related-slider__title">RELATED PRODUCTS</div>
+							<div className="product-related-slider__arrows">
+								<div className="line-arrows__image">
+									<img src={arrowleft} alt="" />
+								</div>
+								<div className="line-arrows__image">
+									<img src={arrowright} alt="" />
+								</div>
+							</div>
+						</div>
+						<div className="product-related__grid">
+							{cardWoman.map(item => <CardItemOne id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
 						</div>
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</div>
+
 
 	);
 }
