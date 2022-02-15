@@ -1,7 +1,7 @@
 // import { Link, HashRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-// import CategoriesMan from './pages/Categories/CategoriesMan';
+// import Home from './pages/Home';
+import CategoriesMan from './pages/Categories/CategoriesMan';
 // import CategoriesWoman from './pages/Categories/CategoriesWoman';
 // import ProductPage from './pages/ProductPage/ProductPage';
 
@@ -15,7 +15,9 @@ function App() {
 				<Route parth="/woman" component={CategoriesWoman}></Route>
 				<Route parth="/man" component={CategoriesMan}></Route>
 			</Router> */}
-			<Home />
+			<CategoriesMan />
+			{/* <ProductPage /> */}
+			{/* <Home /> */}
 		</div >
 	);
 }
