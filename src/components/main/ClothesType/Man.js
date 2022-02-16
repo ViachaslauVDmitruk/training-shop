@@ -87,7 +87,7 @@ function ClothesMan() {
 				</div>
 				<div className="parth__clothes">
 					<div className="parth3__items">
-						{cardMan.map(item => <CardItem id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
+						{cardMan.map(item => <CardItem key={item.id} id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
 					</div>
 					<button className="parth3__button">
 						SEE ALL

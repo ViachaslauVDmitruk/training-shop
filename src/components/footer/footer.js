@@ -1,4 +1,3 @@
-// import { Link, HashRouter as Router, Route } from 'react-router-dom';
 import './css/footer.css';
 import FooterCategories from './FooterCategories';
 import FooterInformation from './FooterInformation';
@@ -111,7 +110,7 @@ const footerContactUs = [
 ]
 function Footer() {
 	return (
-		<div className="footer">
+		<div className='footer' data-test-id='footer'>
 			<div className="footer__top">
 				<div className="container">
 					<div className="footer-top__columns">
@@ -168,7 +167,6 @@ function Footer() {
 						</div>
 						<div className="footer-center__column">
 							<div className="footer-column__title">Information</div>
-
 							{footerContactUs.map(item => <FooterContactUs key={item.id} id={item.id} link={item.link} img={item.image} />)}
 						</div>
 					</div>
