@@ -10,8 +10,6 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path='/:type' element={<Clothes />}></Route>
-				{/* <Route path='/women' element={<CategoriesWoman />}></Route> */}
-				{/* <Route path='/men' element={<CategoriesMan />}></Route> */}
 				<Route path='/:type/:id' element={<ProductPage />}></Route>
 			</Routes>
 		</div >

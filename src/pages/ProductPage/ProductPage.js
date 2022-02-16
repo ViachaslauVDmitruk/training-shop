@@ -1,5 +1,5 @@
 import './css/ProductPage.css';
-import '../Categories/css/Categories.css'
+import '../Categories/css/Clothes.css'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/footer/footer';
 import CardItem from '../../components/CardItem/CardItem';

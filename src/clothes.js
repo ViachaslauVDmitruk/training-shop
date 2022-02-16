@@ -66,8 +66,8 @@ let clothes = {
 			cost: "$ 30.00",
 			imgCard: cardman08,
 		},
-
 	],
+
 	women: [
 		{
 			id: 1,
@@ -117,13 +117,10 @@ let clothes = {
 			cost: "$ 30.00",
 			imgCard: cardwoman08,
 		},
-
 	]
 };
 
 function getItem(productType, id) {
-	console.log(productType, id);
-	console.log(clothes);
 	return clothes[productType.toLowerCase()].find(item => item.id === id);
 }
 
@@ -131,5 +128,5 @@ function getItemsByType(productType) {
 	return clothes[productType.toLowerCase()];
 }
 
-
 export { clothes, getItem, getItemsByType };
+

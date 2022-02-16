@@ -1,4 +1,4 @@
-import '../pages/Categories/css/Categories.css';
+import '../pages/Categories/css/Clothes.css';
 import './main/Part3/css/Part3.css';
 import Header from "./Header/Header";
 import Footer from './footer/footer';
