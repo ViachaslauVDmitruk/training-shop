@@ -21,7 +21,7 @@ const headerNavMenu = [
 
 function Header() {
 	return (
-		<div className="header" data-test-id='header'>
+		<div className='header' data-test-id='header'>
 			<div className="header__top">
 				<div className="container">
 					<div className="header-top__columns">
@@ -73,7 +73,7 @@ function Header() {
 								</div>
 							</div>
 							<div className="header-bottom__column number-2">
-								<div className='menu' data-tesе-id='menu'>
+								<div className='menu' data-test-id='menu'>
 									<ul className="header-bottom-menu__list">
 										{headerNavMenu.map(item => <li key={item.id}><Link to={`/${item.link}`} className='menu-item' data-test-id={`menu-link-${item.link}`}>{item.link}</Link></li>)}
 									</ul>
