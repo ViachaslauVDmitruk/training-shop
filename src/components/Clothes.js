@@ -17,7 +17,7 @@ function Clothes() {
 	let items = getItemsByType(type);
 
 	return (
-		<div className='clothes' data-test-id={`clothes-${type}`}>
+		<div className='products-page' data-test-id={`products-page-${type}`}>
 			<div className="wrapper">
 				<Header />
 				<div className="main">

@@ -14,7 +14,7 @@ function ClothesWoman() {
 	let related = getItemsByType('women');
 
 	return (
-		<div className='clothes' data-test-id={`clothes-${ClothesWoman}`}>
+		<div className='clothes' data-test-id={`clothes-${'women'}`}>
 			<div className="container">
 				<div className="navigate__memu">
 					<div className="navigate-menu__columns">
