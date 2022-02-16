@@ -8,7 +8,7 @@ function FooterContactUs(props) {
 					<div className="footer-column-menu-item__image">
 						<img src={props.img} alt="img" />
 					</div>
-					<Link key={props.id} to={`/${props.link}`} className='footer-menu-item' data-test-id={`menu-link-${props.link}`}>{props.link}
+					<Link key={props.id} to={`/${props.link.toLowerCase()}`} className='footer-menu-item' data-test-id={`menu-link-${props.link.toLowerCase()}`}>{props.link}
 					</Link>
 				</div>
 			</nav>

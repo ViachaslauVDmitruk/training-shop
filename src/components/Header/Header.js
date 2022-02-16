@@ -75,7 +75,7 @@ function Header() {
 							<div className="header-bottom__column number-2">
 								<div className='menu' data-test-id='menu'>
 									<ul className="header-bottom-menu__list">
-										{headerNavMenu.map(item => <li key={item.id}><Link to={`/${item.link}`} className='menu-item' data-test-id={`menu-link-${item.link}`}>{item.link}</Link></li>)}
+										{headerNavMenu.map(item => <li key={item.id}><Link to={`/${item.link.toLowerCase()}`} className='menu-item' data-test-id={`menu-link-${item.link.toLowerCase()}`}>{item.link}</Link></li>)}
 									</ul>
 								</div>
 							</div>
