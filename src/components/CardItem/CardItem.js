@@ -5,7 +5,7 @@ import starGrey from '../main/Part3/img/icons/starGrey.png';
 
 function CardItem(props) {
 	return (
-		<Link key={props.id} to={`/product/${props.id}`} className='cards-item' data-test-id={`clothes-card-${props.id}`}>
+		<Link to={`/${props.productType}/${props.id}`} className='cards-item' data-test-id={`clothes-card-${props.productType}`}>
 			<div className="parth3-item__img">
 				<img src={props.imgCard} alt="imgCard" />
 			</div>
