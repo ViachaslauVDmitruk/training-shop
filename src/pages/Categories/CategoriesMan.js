@@ -2,7 +2,7 @@ import './css/Categories.css';
 import '../../components/main/Part3/css/Part3.css';
 import Header from "../../components/Header/Header";
 import Footer from '../../components/footer/footer';
-import CardItemOne from '../../components/CardItem/CardItemOne';
+import CardItem from '../../components/CardItem/CardItem';
 import filter from '../img/filter.png';
 import viewlist from '../img/viewlist.png';
 import viewgrid from '../img/viewgrid.png';
@@ -123,7 +123,7 @@ function CategoriesMan() {
 				<div className="container">
 					<div className="card-area">
 						<div className="card-grid">
-							{cardMan.map(item => <CardItemOne id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
+							{cardMan.map(item => <CardItem id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
 						</div>
 					</div>
 				</div>

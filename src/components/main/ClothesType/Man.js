@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../Part3/css/Part3.css'
-import CardItemOne from '../../CardItem/CardItemOne';
+import CardItem from '../../CardItem/CardItem';
 import cardman01 from '../Part3/img/man/01.jpg';
 import cardman02 from '../Part3/img/man/02.jpg';
 import cardman03 from '../Part3/img/man/03.jpg';
@@ -87,7 +87,7 @@ function ClothesMan() {
 				</div>
 				<div className="parth__clothes">
 					<div className="parth3__items">
-						{cardMan.map(item => <CardItemOne id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
+						{cardMan.map(item => <CardItem id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
 					</div>
 					<button className="parth3__button">
 						SEE ALL

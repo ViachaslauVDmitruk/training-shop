@@ -3,7 +3,7 @@ import './css/ProductPage.css';
 import '../Categories/css/Categories.css'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/footer/footer';
-import CardItemOne from '../../components/CardItem/CardItemOne';
+import CardItem from '../../components/CardItem/CardItem';
 
 import share from '../img/share.png';
 import arrowblack from '../img/arrowblack.png';
@@ -230,7 +230,7 @@ function ProductPage() {
 								<div className="product-info__cost">
 									<div className="product-info-cost__block">$379.99</div>
 									<div className="product-info-cost__row">
-										<buttom className="product-info__addcard">Add to card</buttom>
+										<button className="product-info__addcard">Add to card</button>
 										<div className="protuct-info-cost__image">
 											<img src={heart} alt="heart" />
 										</div>
@@ -266,7 +266,7 @@ function ProductPage() {
 									<div className="product-info-guaranted__line"></div>
 								</div>
 								<div className="product-info__payservices">
-									{logo.map(item => <div className="product-info-payservices__logo">
+									{logo.map(item => <div key={item.logo} className="product-info-payservices__logo">
 										<img src={item.img} alt="img" />
 									</div>)}
 								</div>
@@ -378,7 +378,7 @@ function ProductPage() {
 							</div>
 						</div>
 						<div className="product-related__grid">
-							{cardWoman.map(item => <CardItemOne id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
+							{cardWoman.map(item => <CardItem id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
 						</div>
 					</div>
 				</div>

@@ -3,7 +3,7 @@ import '../main/Part3/css/Part3.css'
 import starYellow from '../main/Part3/img/icons/starYellow.png';
 import starGrey from '../main/Part3/img/icons/starGrey.png';
 
-function CardItemOne(props) {
+function CardItem(props) {
 	return (
 		<Link key={props.id} to={`/product/${props.id}`} className="cards-item" data-test-id={`clothes-card-${props.id}`}>
 			<div className="parth3-item__img">
@@ -23,4 +23,4 @@ function CardItemOne(props) {
 		</Link>
 	)
 }
-export default CardItemOne;
+export default CardItem;
