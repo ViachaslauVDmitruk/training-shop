@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/training-shop/static/css/main.5f86040f.css",
-    "main.js": "/training-shop/static/js/main.f60e0c32.js",
+    "main.js": "/training-shop/static/js/main.8b429ecb.js",
     "static/js/787.47ca6e30.chunk.js": "/training-shop/static/js/787.47ca6e30.chunk.js",
     "static/media/01.png": "/training-shop/static/media/01.45f56053b659a2d2bdd8.png",
     "static/media/01.jpg": "/training-shop/static/media/01.d1e39f07d01a071d35f3.jpg",
@@ -30,11 +30,11 @@
     "static/media/facebook01.svg": "/training-shop/static/media/facebook01.fb30c0176ba506cd7bd08c620036c538.svg",
     "static/media/shoppingbag01.svg": "/training-shop/static/media/shoppingbag01.cddc071bd5dc6b49753aabb593ec8cec.svg",
     "main.5f86040f.css.map": "/training-shop/static/css/main.5f86040f.css.map",
-    "main.f60e0c32.js.map": "/training-shop/static/js/main.f60e0c32.js.map",
+    "main.8b429ecb.js.map": "/training-shop/static/js/main.8b429ecb.js.map",
     "787.47ca6e30.chunk.js.map": "/training-shop/static/js/787.47ca6e30.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5f86040f.css",
-    "static/js/main.f60e0c32.js"
+    "static/js/main.8b429ecb.js"
   ]
 }
