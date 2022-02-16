@@ -19,6 +19,7 @@ import cardman05 from './img/man/05.jpg';
 import cardman06 from './img/man/06.jpg';
 import cardman07 from './img/man/07.jpg';
 import cardman08 from './img/man/08.jpg';
+import { Link } from 'react-router-dom';
 
 const cardWoman = [
 	{
@@ -156,7 +157,7 @@ function Part3() {
 							</div>
 							<div className="parth3-item__title">{item.title}</div>
 							<div className="parth3-item__box">
-								<dvi className="parth3-item-box__cost">{item.cost}</dvi>
+								<div className="parth3-item-box__cost">{item.cost}</div>
 								<div className="parth3-item-box__grade">
 									<img src={starYellow} alt="" />
 									<img src={starYellow} alt="" />
@@ -194,7 +195,7 @@ function Part3() {
 							</div>
 							<div className="parth3-item__title">{item.title}</div>
 							<div className="parth3-item__box">
-								<dvi className="parth3-item-box__cost">{item.cost}</dvi>
+								<div className="parth3-item-box__cost">{item.cost}</div>
 								<div className="parth3-item-box__grade">
 									<img src={starYellow} alt="" />
 									<img src={starYellow} alt="" />

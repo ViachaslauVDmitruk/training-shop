@@ -3,23 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import CategoriesWoman from './pages/Categories/CategoriesWoman';
-// import CategoriesMan from './pages/Categories/CategoriesMan';
-// import ProductPage from './pages/ProductPage/ProductPage';
-// import Home from './pages/Home';
-// import Part1 from '../src/components/main/Part1/Part1'
-// import Main from '../src/components/main/Main';
-
+import { HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
-		{/* <CategoriesWoman /> */}
-		{/* <CategoriesMan /> */}
-		{/* <ProductPage /> */}
-		{/* <Home /> */}
-		{/* <Part1 /> */}
-		{/* <Main /> */}
+		<HashRouter>
+			<App />
+		</HashRouter>
 	</React.StrictMode>,
 	document.getElementById('root')
 );

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './css/Part1.css';
 import img01 from './img/01.jpg';
 import img02 from './img/02.jpg';
@@ -37,7 +38,7 @@ function Part1() {
 									<div className="content-column-item-little__image">
 										<img src={img02} alt="img02" />
 										<div className="content-items-block-link">
-											<a href="/" className="content-items-item__link">Woman</a>
+											<Link to='/women' className="content-items-item__link">Women</Link>
 										</div>
 									</div>
 								</div>
@@ -45,7 +46,7 @@ function Part1() {
 									<div className="content-column-item-little__image">
 										<img src={img03} alt="img03" />
 										<div className="content-items-block-link">
-											<a href="/" className="content-items-item__link">Men</a>
+											<Link to='/men' className="content-items-item__link">Men</Link>
 										</div>
 									</div>
 								</div>

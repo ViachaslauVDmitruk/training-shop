@@ -1,4 +1,4 @@
-import { Link, HashRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../main/Part3/css/Part3.css'
 import starYellow from '../main/Part3/img/icons/starYellow.png';
 import starGrey from '../main/Part3/img/icons/starGrey.png';
@@ -65,14 +65,14 @@ const cardMan = [
 
 function CardItemMan() {
 	return (
-		<Router>
-			{cardMan.map(item => <Link to={`/${ClothesMan}/${item.id}`} className="cards-item" data-test-id={`clothes-card-${ClothesMan}`}>
+		<>
+			{cardMan.map(item => <Link to={`/product/${item.id}`} key={item.id} className="cards-item" data-test-id={`clothes-card-${ClothesMan}`}>
 				<div className="parth3-item__img">
 					<img src={item.imgCard} alt="imgCard" />
 				</div>
 				<div className="parth3-item__title">{item.title}</div>
 				<div className="parth3-item__box">
-					<dvi className="parth3-item-box__cost">{item.cost}</dvi>
+					<div className="parth3-item-box__cost">{item.cost}</div>
 					<div className="parth3-item-box__grade">
 						<img src={starYellow} alt="starYellow" />
 						<img src={starYellow} alt="starYellow" />
@@ -82,7 +82,7 @@ function CardItemMan() {
 					</div>
 				</div>
 			</Link>)}
-		</Router>
+		</>
 	)
 }
 

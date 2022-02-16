@@ -1,16 +1,73 @@
-// import { Link, HashRouter as Router, Route } from 'react-router-dom';
 import './css/Categories.css';
 import '../../components/main/Part3/css/Part3.css';
 import Header from "../../components/Header/Header";
 import Footer from '../../components/footer/footer';
-
+import CardItemOne from '../../components/CardItem/CardItemOne';
 import filter from '../img/filter.png';
 import viewlist from '../img/viewlist.png';
 import viewgrid from '../img/viewgrid.png';
 import share from '../img/share.png';
 import arrowdown from '../img/arrowdown.png';
 import arrowblack from '../img/arrowblack.png';
-import CardItemWoman from '../../components/CardItem/CadrItemWoman';
+import cardwoman01 from '../../components/main/Part3/img/woman/01.jpg';
+import cardwoman02 from '../../components/main/Part3/img/woman/02.jpg';
+import cardwoman03 from '../../components/main/Part3/img/woman/03.jpg';
+import cardwoman04 from '../../components/main/Part3/img/woman/04.jpg';
+import cardwoman05 from '../../components/main/Part3/img/woman/05.jpg';
+import cardwoman06 from '../../components/main/Part3/img/woman/06.jpg';
+import cardwoman07 from '../../components/main/Part3/img/woman/07.jpg';
+import cardwoman08 from '../../components/main/Part3/img/woman/08.jpg';
+
+const cardWoman = [
+	{
+		id: 1,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman01,
+	},
+	{
+		id: 2,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman02,
+	},
+	{
+		id: 3,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman03,
+	},
+	{
+		id: 4,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman04,
+	},
+	{
+		id: 5,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman05,
+	},
+	{
+		id: 6,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman06,
+	},
+	{
+		id: 7,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman07,
+	},
+	{
+		id: 8,
+		title: "Women's tracksuit Q109",
+		cost: "$ 30.00",
+		imgCard: cardwoman08,
+	},
+]
 
 function CategoriesWoman() {
 	return (
@@ -66,7 +123,7 @@ function CategoriesWoman() {
 				<div className="container">
 					<div className="card-area">
 						<div className="card-grid">
-							<CardItemWoman />
+							{cardWoman.map(item => <CardItemOne id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
 						</div>
 					</div>
 				</div>

@@ -13,11 +13,11 @@ function Part5() {
 						And <span>Get 10% Off</span>
 					</div>
 					<div className="center-column__form">
-						<input autocomplete="off" type="text" name="form[]" placeholder="Enter your email"
+						<input autoComplete="off" type="text" name="form[]" placeholder="Enter your email"
 							className="input" />
 					</div>
 					<div className="center-column__button">
-						<button type="submit" class="center-column-button__btn">Subscribe</button>
+						<button type="submit" className="center-column-button__btn">Subscribe</button>
 					</div>
 				</div>
 				<div className="parth5-images__item item_woman">
