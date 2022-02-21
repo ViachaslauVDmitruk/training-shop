@@ -7,7 +7,7 @@
 	&__items {
 		display: flex;
 		column-gap: 30px;
-		@media (max-width: 760px) {
+		@media (max-width: 996px) {
 			flex-wrap: wrap;
 			justify-content: center;
 		}
@@ -16,7 +16,7 @@
 .content-items {
 	&__item {
 		flex: 0 1 50%;
-		@media (max-width: 760px) {
+		@media (max-width: 996px) {
 			margin: 0px 0px 10px 0px;
 			flex: 1 1 100%;
 		}
@@ -40,7 +40,7 @@
 		justify-content: space-between;
 		column-gap: 30px;
 		margin: 0px 0px 30px 0px;
-		@media (max-width: 760px) {
+		@media (max-width: 996px) {
 			margin: 0px 0px 10px 0px;
 			column-gap: 10px;
 		}

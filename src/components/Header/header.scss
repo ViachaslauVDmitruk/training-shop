@@ -4,6 +4,9 @@
 	}
 	&__bottom {
 		background-color: #ffff;
+		@media (max-width: 996px) {
+			background-color: #e4e3e3;
+		}
 	}
 }
 .header-top {
@@ -87,24 +90,19 @@
 }
 /*----------------header-bottom---------------------*/
 .header-bottom {
+	@media (max-width: 996px) {
+		background-color: #eb1515;
+	}
+}
+.header-bottom {
 	&__columns {
 		display: flex;
 		justify-content: space-between;
 		flex-direction: row;
 		align-items: center;
 
-		@media (max-width: 970px) {
-			justify-content: center;
-			flex-wrap: wrap;
-			.header-bottom__column.number-1 {
-				order: 1;
-			}
-			.header-bottom__column.number-2 {
-				order: 3;
-			}
-			.header-bottom__column.number-3 {
-				order: 2;
-			}
+		@media (max-width: 996px) {
+			justify-content: space-between;
 		}
 	}
 	&__column {
@@ -122,7 +120,7 @@
 			margin: 0;
 		}
 		@media (max-width: 640px) {
-			margin: 0px 12px 0px 0px;
+			margin: 0px 8px 0px 0px;
 			&:last-child {
 				margin: 0;
 			}
@@ -149,12 +147,10 @@
 				margin: 0;
 			}
 		}
-		@media (max-width: 640px) {
-			flex-wrap: wrap;
-			li {
-				text-align: center;
-				flex: 1 0 33.333%;
-			}
+		@media (max-width: 996px) {
+			flex-direction: column;
+			height: 100%;
+			justify-content: space-around;
 		}
 	}
 }
@@ -166,4 +162,68 @@
 .header-bottom-icons {
 	padding: 0px 10px 0px 0px;
 	display: flex;
+}
+/*--------------menu-burger---------------*/
+.burger-menu-btn {
+	width: 20px;
+	height: 18px;
+	position: relative;
+	cursor: pointer;
+	display: none;
+	@media (max-width: 996px) {
+		display: block;
+	}
+}
+.burger-menu-btn::before {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 2px;
+	top: 0;
+	background-color: #121212;
+}
+
+.burger-menu-btn span {
+	position: absolute;
+	width: 20px;
+	height: 2px;
+	top: 8px;
+	background-color: #121212;
+}
+
+.burger-menu-btn::after {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 2px;
+	bottom: 0;
+	background-color: #121212;
+}
+.burger-menu-btn.visible::before {
+	transform: rotate(45deg);
+	top: 8px;
+}
+.burger-menu-btn.visible span {
+	transform: scale(0);
+}
+.burger-menu-btn.visible::after {
+	transform: rotate(-45deg);
+	bottom: 8px;
+}
+
+.header-bottom__column.number-2 {
+	@media (max-width: 996px) {
+		position: absolute;
+		top: 100px;
+		z-index: 50;
+		display: flex;
+		width: 100%;
+		height: 550px;
+		background-color: rgba(228, 227, 227, 0.8);
+		transform: translateX(-110%);
+	}
+}
+.header-bottom__column.number-2.visible {
+	transform: translateX(0);
+	transition: all, 0.4s;
 }

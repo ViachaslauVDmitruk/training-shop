@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import { ReactPropTypes } from 'react';
 import './css/header.css';
 import facebook from './img/social/facebook01.svg';
 import twitter from './img/social/logo-twitter01.svg';
@@ -8,6 +10,7 @@ import search from './img/header/search01.svg';
 import globe from './img/header/globe01.svg';
 import shoppingbag from './img/header/shoppingbag01.svg';
 import user from './img/header/user01.svg';
+import { useState } from 'react';
 
 const headerNavMenu = [
 	{ id: 1, link: "About Us", },
@@ -20,6 +23,11 @@ const headerNavMenu = [
 ]
 
 function Header() {
+	const [isMenuOpen, toggleMenu] = useState(false);
+	function toggleMenuMode() {
+		toggleMenu(!isMenuOpen);
+	}
+
 	return (
 		<div className='header' data-test-id='header'>
 			<div className="header__top">
@@ -64,38 +72,46 @@ function Header() {
 						</div>
 					</div>
 				</div>
-				<div className="header__bottom">
-					<div className="container">
-						<div className="header-bottom__columns">
-							<div className="header-bottom__column number-1">
-								<div className="header-bottom__home">
-									<Link to='/' className='header-nav-logo' data-test-id='header-logo-link'>CleverShop</Link>
-								</div>
-							</div>
-							<div className="header-bottom__column number-2">
-								<div className='menu' data-test-id='menu'>
-									<ul className="header-bottom-menu__list">
-										{headerNavMenu.map(item => <li key={item.id}><Link to={`/${item.link.toLowerCase()}`} className='menu-item' data-test-id={`menu-link-${item.link.toLowerCase()}`}>{item.link}</Link></li>)}
-									</ul>
-								</div>
-							</div>
-							<div className="header-bottom__column number-3">
-								<div className="header-bottom-icons">
-									<div className="header-bottom__icon">
-										<img src={search} alt="search" />
-									</div>
-									<div className="header-bottom__icon">
-										<img src={globe} alt="globe" />
-									</div>
-									<div className="header-bottom__icon">
-										<img src={user} alt="user" />
-									</div>
-									<div className="header-bottom__icon">
-										<img src={shoppingbag} alt="shoppingbag" />
-									</div>
-								</div>
+
+			</div>
+			<div className="header__bottom">
+				<div className="container">
+					<div className="header-bottom__columns">
+						<div className="header-bottom__column number-1">
+							<div className="header-bottom__home">
+								<Link to='/' className='header-nav-logo' data-test-id='header-logo-link'>CleverShop</Link>
 							</div>
 						</div>
+						<div className={classNames("header-bottom__column number-2", { visible: isMenuOpen })} onClick={() => toggleMenu(false)} >
+							<div className='menu' data-test-id='burger-menu'>
+								<ul className="header-bottom-menu__list">
+									{headerNavMenu.map(item => <li key={item.id}><Link to={`/${item.link.toLowerCase()}`} className='menu-item' data-test-id={`menu-link-${item.link.toLowerCase()}`}>{item.link}</Link></li>)}
+								</ul>
+							</div>
+						</div>
+						<div className="header-bottom__column number-3">
+							<div className="header-bottom-icons">
+								<div className="header-bottom__icon">
+									<img src={search} alt="search" />
+								</div>
+								<div className="header-bottom__icon">
+									<img src={globe} alt="globe" />
+								</div>
+								<div className="header-bottom__icon">
+									<img src={user} alt="user" />
+								</div>
+								<div className="header-bottom__icon">
+									<img src={shoppingbag} alt="shoppingbag" />
+								</div>
+								<div data-test-id='burger-menu-btn' className={classNames('burger-menu-btn', { visible: isMenuOpen })}
+									onClick={toggleMenuMode}
+								>
+									<span></span>
+								</div>
+							</div>
+
+						</div>
+
 					</div>
 				</div>
 			</div>
