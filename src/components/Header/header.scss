@@ -1,4 +1,7 @@
 .header {
+	grid-area: "header";
+}
+.header {
 	&__top {
 		background-color: black;
 	}
@@ -162,6 +165,10 @@
 .header-bottom-icons {
 	padding: 0px 10px 0px 0px;
 	display: flex;
+	align-items: center;
+	img {
+		display: block;
+	}
 }
 /*--------------menu-burger---------------*/
 .burger-menu-btn {

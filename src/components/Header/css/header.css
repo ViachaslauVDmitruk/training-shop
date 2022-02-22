@@ -1,3 +1,7 @@
+.header {
+  grid-area: "header";
+}
+
 .header__top {
   background-color: black;
 }
@@ -213,6 +217,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-bottom-icons img {
+  display: block;
 }
 
 /*--------------menu-burger---------------*/
