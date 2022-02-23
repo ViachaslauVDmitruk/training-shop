@@ -7,15 +7,8 @@ import CardItem from '../../components/CardItem/CardItem';
 import share from '../img/share.png';
 import arrowblack from '../img/arrowblack.png';
 import StarYellow from '../img/starYellow.png';
-import arrowsliderup from '../img/arrowsliderup.png';
-import arrowsliderdown from '../img/arrowsliderdown.png';
 import arrowleft from '../img/arrowleft.png';
 import arrowright from '../img/arrowright.png';
-import slidervertical01 from '../img/slidervertical/01.jpg';
-import slidervertical02 from '../img/slidervertical/02.jpg';
-import slidervertical03 from '../img/slidervertical/03.jpg';
-import slidervertical04 from '../img/slidervertical/04.jpg';
-import imagebig from '../img/imagebig.jpg';
 import sizeguide from '../img/sizeguide.png';
 import paramtype01 from '../img/productcolor/01.jpg';
 import paramtype02 from '../img/productcolor/02.jpg';
@@ -37,6 +30,7 @@ import write from '../img/write.png';
 
 import { getItem, getItemsByType } from '../../clothes';
 import { useParams } from 'react-router-dom';
+import SliderProduct from '../../components/sliderproduct/SliderProduct';
 
 const logo = [
 	{ img: logo01, },
@@ -117,43 +111,7 @@ function ProductPage(props) {
 							<div className="product-info__columns">
 								<div className="product-info__column">
 									<div className="product-image__columns">
-										<div className="product-image__column">
-											<div className="product-image-slider__vertical">
-												<div className="product-image-slider-vertical__arrows">
-													<div className="vertical-arrows__image">
-														<img src={arrowsliderup} alt="arrowsliderup" />
-													</div>
-													<div className="vertical-arrows__image">
-														<img src={arrowsliderdown} alt="arrowsliderdown" />
-													</div>
-												</div>
-												<div className="product-image-slider-vertical__image">
-													<img src={slidervertical01} alt="slidervertical01" />
-												</div>
-												<div className="product-image-slider-vertical__image">
-													<img src={slidervertical02} alt="slidervertical02" />
-												</div>
-												<div className="product-image-slider-vertical__image">
-													<img src={slidervertical03} alt="slidervertical03" />
-												</div>
-												<div className="product-image-slider-vertical__image">
-													<img src={slidervertical04} alt="slidervertical04" />
-												</div>
-											</div>
-										</div>
-										<div className="product-image__column big">
-											<div className="product-image__big">
-												<img src={imagebig} alt="imagebig" />
-											</div>
-											{/* <div className="slider-line">
-													<div className="slider-line-arrows__image">
-														<img src={arrowleft} alt="arrowleft" />
-													</div>
-													<div className="slider-line-arrows__image">
-														<img src={arrowright} alt="arrowright" />
-													</div>
-												</div> */}
-										</div>
+										<SliderProduct />
 									</div>
 								</div>
 								<div className="product-info__column rigth">

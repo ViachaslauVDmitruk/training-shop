@@ -1,11 +1,8 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "../../App.css";
-// import required modules
 import { Navigation } from "swiper";
 import img01 from '../main/Part1/img/01.jpg';
 
