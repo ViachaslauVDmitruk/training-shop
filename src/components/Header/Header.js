@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { ReactPropTypes } from 'react';
+// import { ReactPropTypes } from 'react';
 import './css/header.css';
 import facebook from './img/social/facebook01.svg';
 import twitter from './img/social/logo-twitter01.svg';
