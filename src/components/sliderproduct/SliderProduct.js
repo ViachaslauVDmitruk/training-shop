@@ -1,6 +1,5 @@
 import "../../App.css";
 import "./css/SliderProduct.css"
-import '../../../node_modules/swiper/modules/navigation/css/navigation.css';
 import "./css/SliderProduct.css";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -64,7 +63,7 @@ function SliderProduct() {
 						spaceBetween={16}
 						slidesPerView={4}
 						freeMode={true}
-						navigation={true}
+						// navigation={true}
 						navigation={{
 							nextEl: '.vertical-arrows-up',
 							prevEl: '.vertical-arrows-down',
