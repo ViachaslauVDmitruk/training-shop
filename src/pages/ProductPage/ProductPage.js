@@ -2,7 +2,6 @@ import './css/ProductPage.css';
 import '../Categories/css/Clothes.css'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/footer/footer';
-import CardItem from '../../components/CardItem/CardItem';
 
 import share from '../img/share.png';
 import arrowblack from '../img/arrowblack.png';
@@ -28,9 +27,10 @@ import logo06 from '../img/logo/06.png';
 import logo07 from '../img/logo/07.png';
 import write from '../img/write.png';
 
-import { getItem, getItemsByType } from '../../clothes';
+import { getItem } from '../../clothes';
 import { useParams } from 'react-router-dom';
 import SliderProduct from '../../components/sliderproduct/SliderProduct';
+import SliderRelated from '../../components/sliderrelared/SliderRelated';
 
 const logo = [
 	{ img: logo01, },
@@ -45,7 +45,7 @@ const logo = [
 function ProductPage(props) {
 	let { type, id } = useParams();
 	let item = getItem(type, parseInt(id));
-	let related = getItemsByType(type).slice(0, 4);
+	// let related = getItemsByType(type).slice(0, 5);
 
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
@@ -303,17 +303,15 @@ function ProductPage(props) {
 							<div className="product-related__slider">
 								<div className="product-related-slider__title">RELATED PRODUCTS</div>
 								<div className="product-related-slider__arrows">
-									<div className="line-arrows__image">
+									<div className="line-arrows__image prev">
 										<img src={arrowleft} alt="arrowleft" />
 									</div>
-									<div className="line-arrows__image">
+									<div className="line-arrows__image next">
 										<img src={arrowright} alt="arrowright" />
 									</div>
 								</div>
 							</div>
-							<div className="product-related__grid">
-								{related.map(item => <CardItem key={item.id} productType={type} id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
-							</div>
+							<SliderRelated />
 						</div>
 					</div>
 				</div>
