@@ -31,19 +31,19 @@ function SliderProduct() {
 					className="product-page mySwiper2"
 				>
 					<SwiperSlide>
-						<img src={img01} />
+						<img src={img01} alt="img01" />
 					</SwiperSlide>
 					<SwiperSlide>
-						<img src={img01} />
+						<img src={img01} alt="img01" />
 					</SwiperSlide>
 					<SwiperSlide>
-						<img src={img01} />
+						<img src={img01} alt="img01" />
 					</SwiperSlide>
 					<SwiperSlide>
-						<img src={img01} />
+						<img src={img01} alt="img01" />
 					</SwiperSlide>
 					<SwiperSlide>
-						<img src={img01} />
+						<img src={img01} alt="img01" />
 					</SwiperSlide>
 				</Swiper>
 			</div>
@@ -73,19 +73,19 @@ function SliderProduct() {
 						className="mySwiper"
 					>
 						<SwiperSlide>
-							<img src={img01} />
+							<img src={img01} alt="img01" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<img src={img01} />
+							<img src={img01} alt="img01" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<img src={img01} />
+							<img src={img01} alt="img01" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<img src={img01} />
+							<img src={img01} alt="img01" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<img src={img01} />
+							<img src={img01} alt="img01" />
 						</SwiperSlide>
 					</Swiper>
 				</div>
