@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import SliderMain from '../../slidermain/SliderMain';
 import './css/Part1.css';
-
 import img02 from './img/02.jpg';
 import img03 from './img/03.jpg';
 import img04 from './img/04.jpg';
