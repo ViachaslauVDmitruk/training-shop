@@ -149,6 +149,11 @@
 	&__image {
 	}
 }
+.left {
+	@media (max-width: 530px) {
+		display: none;
+	}
+}
 /*------------------product-info-rigth-----------------------*/
 .product-info {
 	&__column {

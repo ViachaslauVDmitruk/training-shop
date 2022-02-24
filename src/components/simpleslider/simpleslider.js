@@ -4,17 +4,25 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import "./styles.css";
 
 // import required modules
-import { Navigation } from "swiper";
+import { Pagination } from "swiper";
 
-function SliderRelated() {
+export default function App() {
 	return (
 		<>
-			<Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+			<Swiper
+				slidesPerView={3}
+				spaceBetween={30}
+				pagination={{
+					clickable: true,
+				}}
+				modules={[Pagination]}
+				className="mySwiper"
+			>
 				<SwiperSlide>Slide 1</SwiperSlide>
 				<SwiperSlide>Slide 2</SwiperSlide>
 				<SwiperSlide>Slide 3</SwiperSlide>
@@ -28,4 +36,3 @@ function SliderRelated() {
 		</>
 	);
 }
-export default SliderRelated;

@@ -20,13 +20,9 @@
 
 .mySwiper {
 	max-height: 515px;
-	box-sizing: border-box;
+	width: 100%;
+	object-fit: cover;
 }
-/* @media (max-width: 890px) {
-	.mySwiper {
-		max-height: 700px;
-	}
-} */
 
 .mySwiper .swiper-slide img {
 	width: 100%;

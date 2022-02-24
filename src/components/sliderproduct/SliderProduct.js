@@ -12,7 +12,6 @@ import img01 from './img/imagebig.jpg';
 import arrowsliderup from '../..//pages/img/arrowsliderup.png';
 import arrowsliderdown from '../../pages/img/arrowsliderdown.png';
 
-
 function SliderProduct() {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	return (
@@ -64,7 +63,6 @@ function SliderProduct() {
 						spaceBetween={16}
 						slidesPerView={4}
 						freeMode={true}
-						// navigation={true}
 						navigation={{
 							nextEl: '.vertical-arrows-up',
 							prevEl: '.vertical-arrows-down',

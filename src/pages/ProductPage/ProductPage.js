@@ -45,7 +45,6 @@ const logo = [
 function ProductPage(props) {
 	let { type, id } = useParams();
 	let item = getItem(type, parseInt(id));
-	// let related = getItemsByType(type).slice(0, 5);
 
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
@@ -311,7 +310,9 @@ function ProductPage(props) {
 									</div>
 								</div>
 							</div>
-							<SliderRelated />
+							<div className='product-related-slider-slider'>
+								<SliderRelated />
+							</div>
 						</div>
 					</div>
 				</div>

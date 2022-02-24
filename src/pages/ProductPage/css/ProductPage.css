@@ -211,6 +211,12 @@
           justify-content: space-between;
 }
 
+@media (max-width: 530px) {
+  .left {
+    display: none;
+  }
+}
+
 /*------------------product-info-rigth-----------------------*/
 .product-info__parametrs {
   border-bottom: 2px solid #e6e6e6;
