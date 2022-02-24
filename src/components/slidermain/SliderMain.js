@@ -8,7 +8,11 @@ import img01 from '../main/Part1/img/01.jpg';
 
 function SliderMain() {
 	return (
-		<Swiper navigation={true} modules={[Navigation]} className="content-items-item__image"
+		<Swiper
+			data-test-id='main-slider'
+			navigation={true}
+			modules={[Navigation]}
+			className="content-items-item__image"
 		>
 			<SwiperSlide>
 				<img src={img01} alt="img01" />

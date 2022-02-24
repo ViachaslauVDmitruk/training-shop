@@ -19,6 +19,7 @@ function SliderProduct() {
 		<>
 			<div className="product-image__column big">
 				<Swiper
+					data-test-id='prodct-slider'
 					style={{
 						"--swiper-navigation-color": "#121212",
 						"--swiper-pagination-color": "#121212",

@@ -18,18 +18,33 @@
 	align-items: center;
 }
 
-.slider-ralated {
-	// max-height: 515px;
-	box-sizing: border-box;
-}
-
-.slider-ralated .swiper-slide img {
-	width: 100%;
+.slider-related .swiper-slide {
+	display: block;
+	max-width: 100%;
 	height: 100%;
-	// opacity: 0.4;
 	object-fit: cover;
 }
 
-.slider-ralated .swiper-slide-thumb-active img {
-	opacity: 1;
+/*-------------------------*/
+.card-item {
+	&__image {
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}
+
+.parth3-item-box {
+	&__cost {
+	}
+
+	&__grade {
+		display: flex;
+		img {
+			display: block;
+		}
+	}
 }
