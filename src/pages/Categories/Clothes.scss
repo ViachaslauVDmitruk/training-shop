@@ -148,3 +148,37 @@
 .card-area {
 	padding: 0px 0px 178px 0px;
 }
+/*---------------filter-columns---------------*/
+.filter-main {
+	display: none;
+}
+.filter-main.visible {
+	display: block;
+	background-color: #f8f8f8;
+	margin: 0px 0px 32px 0px;
+	&__items {
+	}
+}
+.filter-main-columns {
+	display: flex;
+	justify-content: space-between;
+	&__column {
+		flex: 1 1 25%;
+		padding: 0px 0px 0px 42px;
+		margin: 24px 0px 29px 0px;
+	}
+}
+.filter-main-column {
+	&__title {
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 22px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #121212;
+	}
+}
+.filter-main-items {
+	&__item {
+	}
+}

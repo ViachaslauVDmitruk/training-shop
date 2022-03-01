@@ -13,7 +13,6 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
-import Filter from './Filter/Filter';
 
 function Clothes() {
 	let { type } = useParams();
@@ -54,10 +53,7 @@ function Clothes() {
 							<div className="filter-block-items">
 								<div className={classNames('filter-item-filter', { visible: isMenuOpen })}
 									onClick={toggleMenuMode}>
-									{/* <div className="filter-item__image">
-										<img src={filter} alt="filter" />
-									</div> */}Filter
-									{/* <div className="filter-item__title">Filter</div> */}
+									Filter
 								</div>
 								<div className="filter-item__view">
 									<div className="fiter-item-view__image">
@@ -74,8 +70,47 @@ function Clothes() {
 									</div>
 								</div> */}
 							</div>
+							<div className={classNames("filter-main", { visible: isMenuOpen })} onClick={() => toggleMenu(false)}>
+								<div className="filter-main-columns">
+									<div className="filter-main-columns__column">
+										<div className="filter-main-column__title">
+											Color
+										</div>
+										<div className="filter-main__items">
+											<div className="filter-main-items__item">
+											</div>
+										</div>
+									</div>
+									<div className="filter-main-columns__column">
+										<div className="filter-main-column__title">
+											Size
+										</div>
+										<div className="filter-main__items">
+											<div className="filter-main-items__item">
+											</div>
+										</div>
+									</div>
+									<div className="filter-main-columns__column">
+										<div className="filter-main-column__title">
+											Brand
+										</div>
+										<div className="filter-main__items">
+											<div className="filter-main-items__item">
+											</div>
+										</div>
+									</div>
+									<div className="filter-main-columns__column">
+										<div className="filter-main-column__title">
+											Prise
+										</div>
+										<div className="filter-main__items">
+											<div className="filter-main-items__item">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<Filter />
 					</div>
 					<div className="container">
 						<div className="card-area">
