@@ -10,11 +10,18 @@ import arrowdown from '../pages/img/arrowdown.png';
 import arrowblack from '../pages/img/arrowblack.png'
 import { getItemsByType } from '../clothes';
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
 
 function Clothes() {
 	let { type } = useParams();
 	let items = getItemsByType(type);
+
+	const [isMenuOpen, toggleMenu] = useState(false);
+	function toggleMenuMode() {
+		toggleMenu(!isMenuOpen);
+	}
 
 	return (
 		<div className='products-page' data-test-id={`products-page-${type}`}>
@@ -44,11 +51,12 @@ function Clothes() {
 					<div className="filter-block">
 						<div className="container">
 							<div className="filter-block-items">
-								<div className="filter-item-filter">
-									<div className="filter-item__image">
+								<div className={classNames('filter-item-filter', { visible: isMenuOpen })}
+									onClick={toggleMenuMode}>
+									{/* <div className="filter-item__image">
 										<img src={filter} alt="filter" />
-									</div>
-									<div className="filter-item__title">Filter</div>
+									</div> */}Filter
+									{/* <div className="filter-item__title">Filter</div> */}
 								</div>
 								<div className="filter-item__view">
 									<div className="fiter-item-view__image">
@@ -58,12 +66,12 @@ function Clothes() {
 										<img src={viewgrid} alt="viewgrid" />
 									</div>
 								</div>
-								<div className="filter-item__select">
+								{/* <div className="filter-item__select">
 									<div className="filter-item-select__title">BESTSELLERS</div>
 									<div className="filter-item-select__image">
 										<img src={arrowdown} alt="arrowdown" />
 									</div>
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</div>
