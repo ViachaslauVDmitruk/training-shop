@@ -27,10 +27,10 @@ import logo06 from '../img/logo/06.png';
 import logo07 from '../img/logo/07.png';
 import write from '../img/write.png';
 
-import { getItem } from '../../clothes';
 import { useParams } from 'react-router-dom';
 import SliderProduct from '../../components/sliderproduct/SliderProduct';
 import SliderRelated from '../../components/sliderrelared/SliderRelated';
+import { getItem } from '../../products';
 
 const logo = [
 	{ img: logo01, },
@@ -44,8 +44,8 @@ const logo = [
 
 function ProductPage(props) {
 	let { type, id } = useParams();
-	let item = getItem(type, parseInt(id));
-
+	// let item = getItem(type, parseInt(id));
+	let item = getItem(type, id);
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
@@ -68,7 +68,7 @@ function ProductPage(props) {
 									<div className="link-share-item__title">Share</div>
 								</div>
 							</div>
-							<div className="categories-top-block__title product-name">{item.title}</div>
+							<div className="categories-top-block__title product-name">{item.name}</div>
 							<div className="product-availability">
 								<div className="reviews">
 									<div className="reviews__image">
@@ -161,7 +161,7 @@ function ProductPage(props) {
 										</div>
 									</div>
 									<div className="product-info__cost">
-										<div className="product-info-cost__block">{item.cost}</div>
+										<div className="product-info-cost__block">{item.price}</div>
 										<div className="product-info-cost__row">
 											<button className="product-info__addcard">Add to card</button>
 											<div className="protuct-info-cost__image">

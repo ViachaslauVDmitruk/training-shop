@@ -5,10 +5,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper";
-import { getItemsByType } from "../../clothes";
+// import { getItemsByType } from "../../clothes";
 import { useParams } from "react-router-dom";
 import starYellow from '../main/Part3/img/icons/starYellow.png';
 import starGrey from '../main/Part3/img/icons/starGrey.png';
+import { getItemsByType } from "../../products";
 
 function SliderRelated(props) {
 	let { type } = useParams();
@@ -50,7 +51,7 @@ function SliderRelated(props) {
 					{related.map(item => <SwiperSlide key={item.id} id={item.id}>
 						<div className="card-slider">
 							<div className="card-item__image">
-								<img src={item.imgCard} alt="imgCard" />
+								<img src={`https://training.cleverland.by/shop${item.images[0].url}`} alt="imgCard" />
 							</div>
 							<div className="parth3-item__title">{item.title}</div>
 							<div className="parth3-item__box">

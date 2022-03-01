@@ -2,21 +2,22 @@ import '../pages/Categories/css/Clothes.css';
 import './main/Part3/css/Part3.css';
 import Header from "./Header/Header";
 import Footer from './footer/footer';
-import filter from '../pages/img/filter.png';
 import viewlist from '../pages/img/viewlist.png';
 import viewgrid from '../pages/img/viewgrid.png';
 import share from '../pages/img/share.png';
-import arrowdown from '../pages/img/arrowdown.png';
+// import arrowdown from '../pages/img/arrowdown.png';
 import arrowblack from '../pages/img/arrowblack.png'
-import { getItemsByType } from '../clothes';
+// import { getItemsByType } from '../clothes';
+
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
+import { getItemsByType } from '../products';
 
 function Clothes() {
 	let { type } = useParams();
-	let items = getItemsByType(type);
+	let items = getItemsByType(type).slice(0, 8);
 
 	const [isMenuOpen, toggleMenu] = useState(false);
 	function toggleMenuMode() {
@@ -115,7 +116,7 @@ function Clothes() {
 					<div className="container">
 						<div className="card-area">
 							<div className="card-grid">
-								{items.map(item => <CardItem productType={type} key={item.id} id={item.id} title={item.title} cost={item.cost} imgCard={item.imgCard} />)}
+								{items.map(item => <CardItem productType={type} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} />)}
 							</div>
 						</div>
 					</div>

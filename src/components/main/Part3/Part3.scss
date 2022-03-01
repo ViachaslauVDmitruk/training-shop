@@ -100,7 +100,12 @@
 .card-item {
 }
 .parth3-item {
-	&__img {
+	&__image {
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
 	}
 	&__title {
 		text-align: left;
