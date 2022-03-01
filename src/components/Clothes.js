@@ -13,6 +13,7 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
+import Filter from './Filter/Filter';
 
 function Clothes() {
 	let { type } = useParams();
@@ -74,6 +75,7 @@ function Clothes() {
 								</div> */}
 							</div>
 						</div>
+						<Filter />
 					</div>
 					<div className="container">
 						<div className="card-area">

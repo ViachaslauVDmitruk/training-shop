@@ -65,19 +65,16 @@
 	}
 }
 .filter-block {
-	padding: 36px 0px;
 }
 .filter-block-items {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin: 36px 0px;
 }
 .filter-item-filter {
 	display: flex;
 	align-items: center;
-	// justify-content: center;
-	// column-gap: 12px;
-
 	background: url(/public/img/icons/filter.png) no-repeat;
 	background-size: 21.5px;
 	font-weight: 500;
