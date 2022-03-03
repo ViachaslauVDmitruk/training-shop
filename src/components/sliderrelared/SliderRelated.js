@@ -13,7 +13,7 @@ import { getItemsByType } from "../../products";
 
 function SliderRelated(props) {
 	let { type } = useParams();
-	let related = getItemsByType(type).slice(0, 8);
+	let related = getItemsByType(type).slice(0);
 	return (
 		<>
 			<div className="slider-related-box" >

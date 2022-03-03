@@ -161,7 +161,7 @@ function ProductPage(props) {
 										</div>
 									</div>
 									<div className="product-info__cost">
-										<div className="product-info-cost__block">{item.price}</div>
+										<div className="product-info-cost__block">$ {item.price}</div>
 										<div className="product-info-cost__row">
 											<button className="product-info__addcard">Add to card</button>
 											<div className="protuct-info-cost__image">
@@ -208,9 +208,9 @@ function ProductPage(props) {
 									</div>
 									<div className="product-info__additional">
 										<div className="product-info-additional__title">ADDITIONAL INFORMATION</div>
-										<div className="product-info-additional__item">Color: <span>Blue, White, Black, Grey</span></div>
-										<div className="product-info-additional__item">Size: <span>XS, S, M, L</span></div>
-										<div className="product-info-additional__item">Material:	<span>100% Polyester</span></div>
+										<div className="product-info-additional__item">Color: {item.images.map(item => <span key={item.id}>{item.color}</span>)} </div>
+										<div className="product-info-additional__item">Size: <span key={item.id}>{item.sizes.join(', ')}</span></div>
+										<div className="product-info-additional__item">Material:	<span key={item.id}>{item.material}</span></div>
 									</div>
 									<div className="product-info__reviews">
 										<div className="product-info-reviews__title">
@@ -242,33 +242,36 @@ function ProductPage(props) {
 												<div className="product-info-write__text">Write a review</div>
 											</div>
 										</div>
-										<div className="product-info-reviews__private">
-											<div className="product-info-reviews-private__block">
-												<div className="product-info-reviews-private__title">
-													<div className="product-info-reviews-private-title__name">Oleh Chabanov</div>
-													<div className="reviews revers">
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__text text-revers">3 months ago</div>
+										{item.reviews.map(item => <div className="product-info-reviews__private" key={item.id}>
+
+											<div className="product-info-reviews-private__title">
+												<div className="product-info-reviews-private-title__name">{item.name}</div>
+												<div className="reviews revers">
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
 													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__image">
+														<img src={StarYellow} alt="staryellow" />
+													</div>
+													<div className="reviews__text text-revers">3 months ago</div>
 												</div>
-												<div className="product-info-reviews-private__text">On the other hand, we denounce with righteous indignation and like men who are so beguiled and demoralized by the charms of pleasure of the moment</div>
 											</div>
-										</div>
-										<div className="product-info-reviews__private">
+											<div className="product-info-reviews-private__text">
+												{item.text}
+											</div>
+
+										</div>)}
+
+										{/* <div className="product-info-reviews__private">
 											<div className="product-info-reviews-private__block">
 												<div className="product-info-reviews-private__title">
 													<div className="product-info-reviews-private-title__name">ShAmAn design</div>
@@ -293,7 +296,7 @@ function ProductPage(props) {
 												</div>
 												<div className="product-info-reviews-private__text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti</div>
 											</div>
-										</div>
+										</div> */}
 									</div>
 								</div>
 							</div>

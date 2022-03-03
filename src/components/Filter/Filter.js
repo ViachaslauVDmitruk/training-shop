@@ -1,12 +1,17 @@
 import { useState } from "react";
 import classNames from 'classnames';
 import './css/Filter.css'
+import { getItemsByType } from "../../products";
 
 function Filter() {
 	const [isMenuOpen, toggleMenu] = useState(false);
 	function toggleMenuMode() {
 		toggleMenu(!isMenuOpen);
 	}
+	let item = getItemsByType(type);
+	console.log(item.images);
+	console.log(item);
+	console.log(getItemsByType);
 	return (
 
 		<div className={classNames("filter", { visible: isMenuOpen })} onClick={() => toggleMenu(false)}>
@@ -18,8 +23,11 @@ function Filter() {
 								Color
 							</div>
 							<div className="filter-main__items">
-								<div className="filter-main-items__item">
-								</div>
+								{item.images.map(item => <div key={item.id} className="filter-main-items__item">
+									<input type="checkbox" id={item.color} name={item.color}
+										checked />
+									<label for="scales">{item.color}</label>
+								</div>)}
 							</div>
 						</div>
 						<div className="filter-main-columns__column">

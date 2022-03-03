@@ -23,12 +23,20 @@
 	width: 100%;
 	object-fit: cover;
 }
+.mySwiper .swiper-slide {
+	// height: 114px;
+	// display: none;
+}
 
 .mySwiper .swiper-slide img {
+	display: block;
 	width: 100%;
 	height: 100%;
+	// height: auto;
+	// width: 94px;
+	// height: 114px;
 	opacity: 0.4;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .mySwiper .swiper-slide-thumb-active img {
@@ -41,6 +49,7 @@
 .mySwiper2 .swiper-slide img {
 	display: block;
 	width: 100%;
-	height: auto;
-	object-fit: contain;
+	object-fit: cover;
+	max-width: 448px;
+	max-height: 560px;
 }

@@ -11,9 +11,14 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 import img01 from './img/imagebig.jpg';
 import arrowsliderup from '../..//pages/img/arrowsliderup.png';
 import arrowsliderdown from '../../pages/img/arrowsliderdown.png';
+import { getItem } from "../../products";
+import { useParams } from "react-router-dom";
 
 function SliderProduct() {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
+	let { type, id } = useParams();
+	let items = getItem(type, id);
+	console.log(items)
 	return (
 		<>
 			<div className="product-image__column big">
@@ -30,21 +35,7 @@ function SliderProduct() {
 					modules={[FreeMode, Navigation, Thumbs]}
 					className="product-page mySwiper2"
 				>
-					<SwiperSlide>
-						<img src={img01} alt="img01" />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src={img01} alt="img01" />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src={img01} alt="img01" />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src={img01} alt="img01" />
-					</SwiperSlide>
-					<SwiperSlide>
-						<img src={img01} alt="img01" />
-					</SwiperSlide>
+					{items.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
 				</Swiper>
 			</div>
 			<div className="product-image__column left">
@@ -71,21 +62,22 @@ function SliderProduct() {
 						modules={[FreeMode, Navigation, Thumbs]}
 						className="mySwiper"
 					>
+						{items.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
 						<SwiperSlide>
 							<img src={img01} alt="img01" />
 						</SwiperSlide>
-						<SwiperSlide>
+						{/* <SwiperSlide>
 							<img src={img01} alt="img01" />
-						</SwiperSlide>
-						<SwiperSlide>
+						</SwiperSlide> */}
+						{/* <SwiperSlide>
 							<img src={img01} alt="img01" />
-						</SwiperSlide>
-						<SwiperSlide>
+						</SwiperSlide> */}
+						{/* <SwiperSlide>
 							<img src={img01} alt="img01" />
-						</SwiperSlide>
-						<SwiperSlide>
+						</SwiperSlide> */}
+						{/* <SwiperSlide>
 							<img src={img01} alt="img01" />
-						</SwiperSlide>
+						</SwiperSlide> */}
 					</Swiper>
 				</div>
 			</div>

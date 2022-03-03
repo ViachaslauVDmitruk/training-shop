@@ -2,17 +2,13 @@ import { Link } from 'react-router-dom';
 import '../Part3/css/Part3.css';
 import { getItemsByType } from '../../../products';
 import CardItem from '../../CardItem/CardItem';
-// import { getItemsByType } from '../../../clothes';
+import { MAIN_CLOTHES_BLOCK_MENU } from '../../../particular';
+import { useState } from 'react';
 
-const navMenuLink = [
-	{ link: "NEW ARRIVALS", },
-	{ link: "SPECIAL" },
-	{ link: "BESTSELLERS" },
-	{ link: "MOSTVIEWED" },
-	{ link: "FEATURED PRODUCTS" },
-]
 function ClothesWoman() {
-	let related = getItemsByType('women').slice(0, 8);
+	let related = getItemsByType('women').slice(0);
+	let [particular, setParticular] = useState(MAIN_CLOTHES_BLOCK_MENU[0].particularName);
+	let particularMode = related.filter(item => item.particulars[particular] === true);
 
 	return (
 		<div className='clothes' data-test-id={`clothes-${'women'}`}>
@@ -25,7 +21,7 @@ function ClothesWoman() {
 						<div className="navigate-menu__column">
 							<nav className="navigate-menu__list">
 								<ul className="navigate-menu__links">
-									{navMenuLink.map(item => <li key={item.link}><a className='navigate-menu__link' href="/">{item.link}</a></li>)}
+									{MAIN_CLOTHES_BLOCK_MENU.map(item => <li key={item.particularName} onClick={() => setParticular(item.particularName)} > <div className='navigate-menu__link' >{item.name}</div></li>)}
 								</ul>
 							</nav>
 						</div>
@@ -33,14 +29,14 @@ function ClothesWoman() {
 				</div>
 				<div className="parth__clothes">
 					<div className="parth3__items">
-						{related.map(item => <CardItem productType={'women'} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} />)}
+						{particularMode.map(item => <CardItem productType={'women'} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} />)}
 					</div>
 					<button className="parth3__button">
 						SEE ALL
 					</button>
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 }
 

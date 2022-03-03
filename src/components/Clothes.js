@@ -17,13 +17,13 @@ import { getItemsByType } from '../products';
 
 function Clothes() {
 	let { type } = useParams();
-	let items = getItemsByType(type).slice(0, 8);
+	let items = getItemsByType(type).slice(0);
 
 	const [isMenuOpen, toggleMenu] = useState(false);
 	function toggleMenuMode() {
 		toggleMenu(!isMenuOpen);
 	}
-
+	console.log(items)
 	return (
 		<div className='products-page' data-test-id={`products-page-${type}`}>
 			<div className="wrapper">
@@ -78,8 +78,13 @@ function Clothes() {
 											Color
 										</div>
 										<div className="filter-main__items">
-											<div className="filter-main-items__item">
-											</div>
+											{/* <div className="filter-main-items__item">
+											</div> */}
+											{/* {items.images.map(item => <div key={item.id} className="filter-main-items__item">
+												<input type="checkbox" id={item.color} name={item.color}
+													checked />
+												<label for="scales">{item.color}</label>
+											</div>)} */}
 										</div>
 									</div>
 									<div className="filter-main-columns__column">
