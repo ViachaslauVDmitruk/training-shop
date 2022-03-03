@@ -10,7 +10,7 @@ import arrowblack from '../pages/img/arrowblack.png'
 // import { getItemsByType } from '../clothes';
 
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
 import { getItemsByType } from '../products';
@@ -18,12 +18,36 @@ import { getItemsByType } from '../products';
 function Clothes() {
 	let { type } = useParams();
 	let items = getItemsByType(type).slice(0);
+	let [colorCheck, setColorCheck] = useState(null);
+	let [sizeCheck, setSizeCheck] = useState(null);
+	let [brandCheck, setBrandCheck] = useState(null);
+	let [price, setPriceCheck] = useState(null);
 
-	const [isMenuOpen, toggleMenu] = useState(false);
-	function toggleMenuMode() {
-		toggleMenu(!isMenuOpen);
+	const [isFilterOpen, toggleFilter] = useState(false);
+	function toggleFilterMode() {
+		toggleFilter(!isFilterOpen);
 	}
 	console.log(items)
+	let arrColor = [];
+	let arrSize = [];
+	let arrBrand = [];
+
+	items.forEach(item => {
+		item.images.forEach(item => {
+			if (!arrColor.includes(item.color)) {
+				arrColor.push(item.color)
+			}
+		});
+		if (!arrBrand.includes(item.brand)) {
+			arrBrand.push(item.brand);
+		};
+		item.sizes.forEach(item => {
+			if (!arrSize.includes(item)) {
+				arrSize.push(item)
+			}
+		});
+	})
+
 	return (
 		<div className='products-page' data-test-id={`products-page-${type}`}>
 			<div className="wrapper">
@@ -52,8 +76,8 @@ function Clothes() {
 					<div className="filter-block">
 						<div className="container">
 							<div className="filter-block-items">
-								<div className={classNames('filter-item-filter', { visible: isMenuOpen })}
-									onClick={toggleMenuMode}>
+								<div className={classNames('filter-item-filter', { visible: isFilterOpen })}
+									onClick={toggleFilterMode}>
 									Filter
 								</div>
 								<div className="filter-item__view">
@@ -64,27 +88,18 @@ function Clothes() {
 										<img src={viewgrid} alt="viewgrid" />
 									</div>
 								</div>
-								{/* <div className="filter-item__select">
-									<div className="filter-item-select__title">BESTSELLERS</div>
-									<div className="filter-item-select__image">
-										<img src={arrowdown} alt="arrowdown" />
-									</div>
-								</div> */}
 							</div>
-							<div className={classNames("filter-main", { visible: isMenuOpen })} onClick={() => toggleMenu(false)}>
+							<div className={classNames("filter-main", { visible: isFilterOpen })}>
 								<div className="filter-main-columns">
 									<div className="filter-main-columns__column">
 										<div className="filter-main-column__title">
 											Color
 										</div>
 										<div className="filter-main__items">
-											{/* <div className="filter-main-items__item">
-											</div> */}
-											{/* {items.images.map(item => <div key={item.id} className="filter-main-items__item">
-												<input type="checkbox" id={item.color} name={item.color}
-													checked />
-												<label for="scales">{item.color}</label>
-											</div>)} */}
+											{arrColor.map(item => <div key={item} className="filter-main-items__item">
+												<input type="checkbox" />
+												<label>{item}</label>
+											</div>)}
 										</div>
 									</div>
 									<div className="filter-main-columns__column">
@@ -92,8 +107,10 @@ function Clothes() {
 											Size
 										</div>
 										<div className="filter-main__items">
-											<div className="filter-main-items__item">
-											</div>
+											{arrSize.map(item => <div key={item} className="filter-main-items__item">
+												<input type="checkbox" />
+												<label>{item}</label>
+											</div>)}
 										</div>
 									</div>
 									<div className="filter-main-columns__column">
@@ -101,8 +118,10 @@ function Clothes() {
 											Brand
 										</div>
 										<div className="filter-main__items">
-											<div className="filter-main-items__item">
-											</div>
+											{arrBrand.map(item => <div key={item} className="filter-main-items__item">
+												<input type="checkbox" />
+												<label >{item}</label>
+											</div>)}
 										</div>
 									</div>
 									<div className="filter-main-columns__column">

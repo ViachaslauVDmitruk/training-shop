@@ -153,10 +153,12 @@
 	display: none;
 }
 .filter-main.visible {
+	max-height: 318px;
 	display: block;
 	background-color: #f8f8f8;
 	margin: 0px 0px 32px 0px;
 	&__items {
+		overflow: scroll;
 	}
 }
 .filter-main-columns {
@@ -179,6 +181,8 @@
 	}
 }
 .filter-main-items {
+	max-height: 290px;
+	overflow: scroll;
 	&__item {
 	}
 }
