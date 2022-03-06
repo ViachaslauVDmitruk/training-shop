@@ -6,7 +6,7 @@ import { MAIN_CLOTHES_BLOCK_MENU } from '../../../particular';
 import { useState } from 'react';
 
 function ClothesMan(props) {
-	let related = getItemsByType('men').slice(0);
+	let related = getItemsByType('men');
 	let [particular, setParticular] = useState(MAIN_CLOTHES_BLOCK_MENU[0].particularName);
 	let particularMode = related.filter(item => item.particulars[particular] === true);
 

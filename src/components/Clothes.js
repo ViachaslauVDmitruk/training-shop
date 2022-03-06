@@ -5,34 +5,65 @@ import Footer from './footer/footer';
 import viewlist from '../pages/img/viewlist.png';
 import viewgrid from '../pages/img/viewgrid.png';
 import share from '../pages/img/share.png';
-// import arrowdown from '../pages/img/arrowdown.png';
 import arrowblack from '../pages/img/arrowblack.png'
-// import { getItemsByType } from '../clothes';
-
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
 import { getItemsByType } from '../products';
 
+
 function Clothes() {
 	let { type } = useParams();
-	let items = getItemsByType(type).slice(0);
-	let [colorCheck, setColorCheck] = useState(null);
-	let [sizeCheck, setSizeCheck] = useState(null);
-	let [brandCheck, setBrandCheck] = useState(null);
-	let [price, setPriceCheck] = useState(null);
+	let allClothes = getItemsByType(type);
+	// console.log('productParam', productsParam);
+	let [items, setItems] = useState(getItemsByType(type));
+	// let [itemsFiltered, setItemsFiltered] = useState(getItemsByType(type));
+	let [colorCheck, setColorCheck] = useState([]);
+	let [sizeCheck, setSizeCheck] = useState([]);
+	let [brandCheck, setBrandCheck] = useState([]);
+	let [priceCheck, setPriceCheck] = useState([]);
+	let arrColor = [];
+	let arrSize = [];
+	let arrBrand = [];
+	let arrPrice = [
+		{
+			id: 1,
+			min: 1500,
+		},
+		{
+			id: 2,
+			min: 1000,
+			max: 1500,
+		},
+		{
+			id: 3,
+			min: 650,
+			max: 1000,
+		},
+		{
+			id: 4,
+			min: 300,
+			max: 650,
+		},
+		{
+			id: 5,
+			min: 70,
+			max: 300,
+		},
+		{
+			id: 6,
+			min: 5,
+			max: 70,
+		},
+	];
 
 	const [isFilterOpen, toggleFilter] = useState(false);
 	function toggleFilterMode() {
 		toggleFilter(!isFilterOpen);
 	}
-	console.log(items)
-	let arrColor = [];
-	let arrSize = [];
-	let arrBrand = [];
 
-	items.forEach(item => {
+	allClothes.forEach(item => {
 		item.images.forEach(item => {
 			if (!arrColor.includes(item.color)) {
 				arrColor.push(item.color)
@@ -46,7 +77,90 @@ function Clothes() {
 				arrSize.push(item)
 			}
 		});
-	})
+	});
+
+	function handleColorCheck(color) {
+		if (colorCheck.includes(color)) {
+			colorCheck = colorCheck.filter(item => item !== color);
+		} else {
+			colorCheck = [...colorCheck, color];
+		}
+		setColorCheck(colorCheck);
+	}
+	function handleSizeCheck(size) {
+		if (sizeCheck.includes(size)) {
+			sizeCheck = sizeCheck.filter(item => item !== size);
+		} else {
+			sizeCheck = [...sizeCheck, size];
+		}
+		setSizeCheck(sizeCheck);
+		console.log("size", sizeCheck)
+	}
+	function handleBrandCheck(brand) {
+		if (brandCheck.includes(brand)) {
+			brandCheck = brandCheck.filter(item => item !== brand);
+		} else {
+			brandCheck = [...brandCheck, brand];
+		}
+		setBrandCheck(brandCheck);
+		console.log("brand check", brandCheck)
+	}
+	// function handlePriceCheck(price) {
+	// 	if (priceCheck.includes(price)) {
+	// 		priceCheck = priceCheck.filter(item => item !== price);
+	// 	} else {
+	// 		priceCheck = [...priceCheck, price];
+	// 	}
+	// 	setPriceCheck(priceCheck);
+	// }
+
+
+
+
+	useEffect(() => {
+		console.log('start useEffect');
+		setItems(() => {
+			items = allClothes.filter((cloth) => {
+				let isSelected = false;
+				// cloth.images.forEach((image) => {
+				// 	if (colorCheck.length == 0 || colorCheck.includes(image.color)) {
+				// 		isSelected = true;
+				// 	};
+				// });
+				console.log('brand', cloth.brand);
+				console.log(brandCheck.includes(cloth.brand));
+				isSelected =
+					cloth.images.some((image) => {
+						return colorCheck.length == 0 || colorCheck.includes(image.color);
+					})
+					&&
+					cloth.sizes.some((size) => {
+						return sizeCheck.length == 0 || sizeCheck.includes(size);
+					})
+					&&
+					(brandCheck.length == 0 || brandCheck.includes(cloth.brand))
+
+				return isSelected;
+			});
+
+
+
+			// items = items.filter((cloth) => {
+			// 	let isSelected = false;
+			// 	isSelected = priceCheck.some((price) => {
+			// 		let isSelectedMax = price.max && cloth.price <= price.max || !price.max;
+			// 		let isSelectedMin = price.min && cloth.price >= price.min || !price.min;
+
+			// 		return isSelectedMax && isSelectedMin;
+			// 	});
+
+			// 	return isSelected;
+			// });
+
+			return items;
+		})
+	}, [colorCheck, sizeCheck, brandCheck, priceCheck]);
+
 
 	return (
 		<div className='products-page' data-test-id={`products-page-${type}`}>
@@ -96,8 +210,8 @@ function Clothes() {
 											Color
 										</div>
 										<div className="filter-main__items">
-											{arrColor.map(item => <div key={item} className="filter-main-items__item">
-												<input type="checkbox" />
+											{arrColor.map(item => <div key={item} className="filter-main-items__item" >
+												<input type="checkbox" onChange={() => handleColorCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
 										</div>
@@ -108,7 +222,7 @@ function Clothes() {
 										</div>
 										<div className="filter-main__items">
 											{arrSize.map(item => <div key={item} className="filter-main-items__item">
-												<input type="checkbox" />
+												<input type="checkbox" onChange={() => handleSizeCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
 										</div>
@@ -119,7 +233,7 @@ function Clothes() {
 										</div>
 										<div className="filter-main__items">
 											{arrBrand.map(item => <div key={item} className="filter-main-items__item">
-												<input type="checkbox" />
+												<input type="checkbox" onChange={() => handleBrandCheck(item)} value={item} />
 												<label >{item}</label>
 											</div>)}
 										</div>
@@ -129,8 +243,10 @@ function Clothes() {
 											Prise
 										</div>
 										<div className="filter-main__items">
-											<div className="filter-main-items__item">
-											</div>
+											{arrPrice.map(item => <div key={item.id} className="filter-main-items__item">
+												<input type="checkbox" />
+												<label >${item.min} - ${item.max}</label>
+											</div>)}
 										</div>
 									</div>
 								</div>
