@@ -12,13 +12,10 @@ import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
 import { getItemsByType } from '../products';
 
-
 function Clothes() {
 	let { type } = useParams();
 	let allClothes = getItemsByType(type);
-	// console.log('productParam', productsParam);
 	let [items, setItems] = useState(getItemsByType(type));
-	// let [itemsFiltered, setItemsFiltered] = useState(getItemsByType(type));
 	let [colorCheck, setColorCheck] = useState([]);
 	let [sizeCheck, setSizeCheck] = useState([]);
 	let [brandCheck, setBrandCheck] = useState([]);
@@ -114,14 +111,10 @@ function Clothes() {
 		setPriceCheck(priceCheck);
 	}
 
-
-
-
 	useEffect(() => {
 		setItems(() => {
 			items = allClothes.filter((cloth) => {
 				let isSelected = false;
-
 				isSelected =
 					cloth.images.some((image) => {
 						return colorCheck.length == 0 || colorCheck.includes(image.color);
@@ -145,7 +138,6 @@ function Clothes() {
 			return items;
 		})
 	}, [colorCheck, sizeCheck, brandCheck, priceCheck]);
-
 
 	return (
 		<div className='products-page' data-test-id={`products-page-${type}`}>
