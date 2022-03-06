@@ -105,30 +105,23 @@ function Clothes() {
 		setBrandCheck(brandCheck);
 		console.log("brand check", brandCheck)
 	}
-	// function handlePriceCheck(price) {
-	// 	if (priceCheck.includes(price)) {
-	// 		priceCheck = priceCheck.filter(item => item !== price);
-	// 	} else {
-	// 		priceCheck = [...priceCheck, price];
-	// 	}
-	// 	setPriceCheck(priceCheck);
-	// }
+	function handlePriceCheck(price) {
+		if (priceCheck.some(item => item.id === price.id)) {
+			priceCheck = priceCheck.filter(item => item.id !== price.id);
+		} else {
+			priceCheck = [...priceCheck, price];
+		}
+		setPriceCheck(priceCheck);
+	}
 
 
 
 
 	useEffect(() => {
-		console.log('start useEffect');
 		setItems(() => {
 			items = allClothes.filter((cloth) => {
 				let isSelected = false;
-				// cloth.images.forEach((image) => {
-				// 	if (colorCheck.length == 0 || colorCheck.includes(image.color)) {
-				// 		isSelected = true;
-				// 	};
-				// });
-				console.log('brand', cloth.brand);
-				console.log(brandCheck.includes(cloth.brand));
+
 				isSelected =
 					cloth.images.some((image) => {
 						return colorCheck.length == 0 || colorCheck.includes(image.color);
@@ -139,23 +132,15 @@ function Clothes() {
 					})
 					&&
 					(brandCheck.length == 0 || brandCheck.includes(cloth.brand))
+					&&
+					(priceCheck.some((price) => {
+						let isSelectedMax = price.max && cloth.price <= price.max || !price.max;
+						let isSelectedMin = price.min && cloth.price >= price.min || !price.min;
 
+						return isSelectedMax && isSelectedMin;
+					}) || priceCheck == 0)
 				return isSelected;
 			});
-
-
-
-			// items = items.filter((cloth) => {
-			// 	let isSelected = false;
-			// 	isSelected = priceCheck.some((price) => {
-			// 		let isSelectedMax = price.max && cloth.price <= price.max || !price.max;
-			// 		let isSelectedMin = price.min && cloth.price >= price.min || !price.min;
-
-			// 		return isSelectedMax && isSelectedMin;
-			// 	});
-
-			// 	return isSelected;
-			// });
 
 			return items;
 		})
@@ -244,7 +229,7 @@ function Clothes() {
 										</div>
 										<div className="filter-main__items">
 											{arrPrice.map(item => <div key={item.id} className="filter-main-items__item">
-												<input type="checkbox" />
+												<input type="checkbox" onChange={() => handlePriceCheck(item)} value={item} />
 												<label >${item.min} - ${item.max}</label>
 											</div>)}
 										</div>
