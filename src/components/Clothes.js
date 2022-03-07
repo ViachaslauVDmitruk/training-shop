@@ -56,6 +56,8 @@ function Clothes() {
 	];
 
 	const [isFilterOpen, toggleFilter] = useState(false);
+	const [itemsFound, setItemsFound] = useState(false);
+
 	function toggleFilterMode() {
 		toggleFilter(!isFilterOpen);
 	}
@@ -91,7 +93,6 @@ function Clothes() {
 			sizeCheck = [...sizeCheck, size];
 		}
 		setSizeCheck(sizeCheck);
-		console.log("size", sizeCheck)
 	}
 	function handleBrandCheck(brand) {
 		if (brandCheck.includes(brand)) {
@@ -100,7 +101,6 @@ function Clothes() {
 			brandCheck = [...brandCheck, brand];
 		}
 		setBrandCheck(brandCheck);
-		console.log("brand check", brandCheck)
 	}
 	function handlePriceCheck(price) {
 		if (priceCheck.some(item => item.id === price.id)) {
@@ -136,7 +136,12 @@ function Clothes() {
 			});
 
 			return items;
-		})
+		});
+		if (colorCheck.length || sizeCheck.length || brandCheck.length || priceCheck.length) {
+			setItemsFound(true);
+		} else {
+			setItemsFound(false);
+		}
 	}, [colorCheck, sizeCheck, brandCheck, priceCheck]);
 
 	return (
@@ -168,7 +173,7 @@ function Clothes() {
 						<div className="container">
 							<div className="filter-block-items">
 								<div className={classNames('filter-item-filter', { visible: isFilterOpen })}
-									onClick={toggleFilterMode}>
+									onClick={toggleFilterMode} >
 									Filter
 								</div>
 								<div className="filter-item__view">
@@ -228,12 +233,29 @@ function Clothes() {
 									</div>
 								</div>
 							</div>
+							<div className={classNames("filter-found", { visible: itemsFound })}>
+								<div className="filter-found__number">
+									{items.length} items Found
+								</div>
+								{colorCheck.map(item => <div key={item} className="filter-found__color">
+									Color: {item}
+								</div>)}
+								{sizeCheck.map(item => <div key={item} className="filter-found__size">
+									Size: {item}
+								</div>)}
+								{brandCheck.map(item => <div key={item} className="filter-found__brand">
+									Brand: {item}
+								</div>)}
+								{priceCheck.map(item => <div key={item.id} className="filter-found__brand">
+									Price: ${item.min} - ${item.max}
+								</div>)}
+							</div>
 						</div>
 					</div>
 					<div className="container">
 						<div className="card-area">
 							<div className="card-grid">
-								{items.map(item => <CardItem productType={type} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} />)}
+								{items.map(item => <CardItem productType={type} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} discount={item.discount} />)}
 							</div>
 						</div>
 					</div>
