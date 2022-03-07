@@ -31,6 +31,10 @@ ul {
 ul li {
 	list-style-type: none;
 }
+li {
+	list-style-type: none;
+}
+
 a:focus,
 a:active {
 	outline: none;
@@ -61,4 +65,8 @@ textarea {
 	max-width: 1140px;
 	margin: 0 auto;
 	padding: 0px 15px 0px 15px;
+}
+/*-------------rating-block----------*/
+.rating-block {
+	display: flex;
 }

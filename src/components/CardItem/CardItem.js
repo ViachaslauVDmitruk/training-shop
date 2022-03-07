@@ -3,20 +3,18 @@ import '../main/Part3/css/Part3.css'
 import starYellow from '../main/Part3/img/icons/starYellow.png';
 import starGrey from '../main/Part3/img/icons/starGrey.png';
 import classNames from 'classnames';
+import Rating from '../rating/rating';
 
 function CardItem(props) {
 	let isDiscount;
 	function discountMode() {
 		if (props.discount) {
 			isDiscount = true;
-			console.log('true duscount', isDiscount)
 		} else {
 			isDiscount = false;
-			console.log('false duscount', isDiscount);
 		}
 	};
 
-	console.log('discount', props.discount);
 	return (
 		<Link to={`/${props.productType}/${props.id}`} className='cards-item' data-test-id={`clothes-card-${props.productType}`}>
 			<div className="parth3-item__image">
@@ -27,11 +25,12 @@ function CardItem(props) {
 			<div className="parth3-item__box">
 				<div className="parth3-item-box__cost">{`${'$'} ${props.cost}`}</div>
 				<div className="parth3-item-box__grade">
+					{/* <img src={starYellow} alt="starYellow" />
 					<img src={starYellow} alt="starYellow" />
 					<img src={starYellow} alt="starYellow" />
 					<img src={starYellow} alt="starYellow" />
-					<img src={starYellow} alt="starYellow" />
-					<img src={starGrey} alt="starGray" />
+					<img src={starGrey} alt="starGray" /> */}
+					<Rating ratingProps={props.rating} />
 				</div>
 			</div>
 		</Link>

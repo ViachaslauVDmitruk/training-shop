@@ -111,6 +111,15 @@ function Clothes() {
 		setPriceCheck(priceCheck);
 	}
 
+	// function resetFilter() {
+	// isFilterOpen = false;
+	// itemsFound = false;
+	// priceCheck = [];
+	// sizeCheck = [];
+	// colorCheck = [];
+	// brandCheck = [];
+	// }
+
 	useEffect(() => {
 		setItems(() => {
 			items = allClothes.filter((cloth) => {
@@ -141,8 +150,8 @@ function Clothes() {
 			setItemsFound(true);
 		} else {
 			setItemsFound(false);
-		}
-	}, [colorCheck, sizeCheck, brandCheck, priceCheck]);
+		};
+	}, [colorCheck, sizeCheck, brandCheck, priceCheck, type]);
 
 	return (
 		<div className='products-page' data-test-id={`products-page-${type}`}>
@@ -255,7 +264,7 @@ function Clothes() {
 					<div className="container">
 						<div className="card-area">
 							<div className="card-grid">
-								{items.map(item => <CardItem productType={type} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} discount={item.discount} />)}
+								{items.map(item => <CardItem productType={type} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} discount={item.discount} rating={item.rating} />)}
 							</div>
 						</div>
 					</div>
