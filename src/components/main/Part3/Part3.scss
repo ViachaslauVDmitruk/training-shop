@@ -101,6 +101,7 @@
 }
 .parth3-item {
 	&__image {
+		position: relative;
 		img {
 			width: 100%;
 			height: 100%;
@@ -122,6 +123,22 @@
 		justify-content: space-between;
 		margin: 12px 0px 0px 0px;
 	}
+}
+.discount-block {
+	display: none;
+}
+.discount-block.visible {
+	display: block;
+	position: absolute;
+	background: #e91e63;
+	color: #f8f8f8;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 13px;
+	text-align: center;
+	padding: 9px 8px;
+	top: 0;
+	left: 0;
 }
 
 .parth3-item-box {

@@ -29,7 +29,7 @@ function ClothesMan(props) {
 				</div>
 				<div className="parth__clothes">
 					<div className="parth3__items">
-						{particularMode.map(item => <CardItem productType={'men'} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} />)}
+						{particularMode.map(item => <CardItem productType={'men'} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} discount={item.discount} />)}
 					</div>
 					<button className="parth3__button">
 						SEE ALL
