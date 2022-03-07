@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 import '../main/Part3/css/Part3.css'
-import starYellow from '../main/Part3/img/icons/starYellow.png';
-import starGrey from '../main/Part3/img/icons/starGrey.png';
 import classNames from 'classnames';
 import Rating from '../rating/rating';
 
@@ -25,11 +23,6 @@ function CardItem(props) {
 			<div className="parth3-item__box">
 				<div className="parth3-item-box__cost">{`${'$'} ${props.cost}`}</div>
 				<div className="parth3-item-box__grade">
-					{/* <img src={starYellow} alt="starYellow" />
-					<img src={starYellow} alt="starYellow" />
-					<img src={starYellow} alt="starYellow" />
-					<img src={starYellow} alt="starYellow" />
-					<img src={starGrey} alt="starGray" /> */}
 					<Rating ratingProps={props.rating} />
 				</div>
 			</div>

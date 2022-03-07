@@ -31,6 +31,7 @@ import { useParams } from 'react-router-dom';
 import SliderProduct from '../../components/sliderproduct/SliderProduct';
 import SliderRelated from '../../components/sliderrelared/SliderRelated';
 import { getItem } from '../../products';
+import Rating from '../../components/rating/rating';
 
 const logo = [
 	{ img: logo01, },
@@ -44,8 +45,8 @@ const logo = [
 
 function ProductPage(props) {
 	let { type, id } = useParams();
-	// let item = getItem(type, parseInt(id));
 	let item = getItem(type, id);
+	console.log("itemrating", item.rating);
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
@@ -59,7 +60,7 @@ function ProductPage(props) {
 									<div className="link-home__image">
 										<img src={arrowblack} alt="arrowblack" />
 									</div>
-									<div className="link-home__categoties">Women</div>
+									<div className="link-home__categoties">{type.toUpperCase()}</div>
 								</div>
 								<div className="link-share__items">
 									<div className="link-share-item__image">
@@ -72,21 +73,8 @@ function ProductPage(props) {
 							<div className="product-availability">
 								<div className="reviews">
 									<div className="reviews__image">
-										<img src={StarYellow} alt="staryellow" />
+										<Rating ratingProps={item.rating} />
 									</div>
-									<div className="reviews__image">
-										<img src={StarYellow} alt="staryellow" />
-									</div>
-									<div className="reviews__image">
-										<img src={StarYellow} alt="staryellow" />
-									</div>
-									<div className="reviews__image">
-										<img src={StarYellow} alt="staryellow" />
-									</div>
-									<div className="reviews__image">
-										<img src={StarYellow} alt="staryellow" />
-									</div>
-									<div className="reviews__text">2 Reviews</div>
 								</div>
 								<div className="avilability__rows">
 									<div className="avilability-row">
@@ -219,21 +207,9 @@ function ProductPage(props) {
 										<div className="product-info-reviews__row">
 											<div className="reviews">
 												<div className="reviews__image">
-													<img src={StarYellow} alt="staryellow" />
+													<Rating ratingProps={item.rating} />
 												</div>
-												<div className="reviews__image">
-													<img src={StarYellow} alt="staryellow" />
-												</div>
-												<div className="reviews__image">
-													<img src={StarYellow} alt="staryellow" />
-												</div>
-												<div className="reviews__image">
-													<img src={StarYellow} alt="staryellow" />
-												</div>
-												<div className="reviews__image">
-													<img src={StarYellow} alt="staryellow" />
-												</div>
-												<div className="reviews__text">2 Reviews</div>
+												<div className="reviews__text">{item.reviews.length} reviews</div>
 											</div>
 											<div className="product-info-reviews-row__write">
 												<div className="product-info-write__image">
@@ -248,6 +224,10 @@ function ProductPage(props) {
 												<div className="product-info-reviews-private-title__name">{item.name}</div>
 												<div className="reviews revers">
 													<div className="reviews__image">
+														{/* <img src={StarYellow} alt="staryellow" /> */}
+														<Rating ratingProps={item.rating} />
+													</div>
+													{/* <div className="reviews__image">
 														<img src={StarYellow} alt="staryellow" />
 													</div>
 													<div className="reviews__image">
@@ -258,10 +238,7 @@ function ProductPage(props) {
 													</div>
 													<div className="reviews__image">
 														<img src={StarYellow} alt="staryellow" />
-													</div>
-													<div className="reviews__image">
-														<img src={StarYellow} alt="staryellow" />
-													</div>
+													</div> */}
 													<div className="reviews__text text-revers">3 months ago</div>
 												</div>
 											</div>
