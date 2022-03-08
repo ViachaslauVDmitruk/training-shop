@@ -20,6 +20,7 @@ function Clothes() {
 	let [sizeCheck, setSizeCheck] = useState([]);
 	let [brandCheck, setBrandCheck] = useState([]);
 	let [priceCheck, setPriceCheck] = useState([]);
+
 	let arrColor = [];
 	let arrSize = [];
 	let arrBrand = [];
@@ -56,13 +57,20 @@ function Clothes() {
 		},
 	];
 
+	function resetFilter() {
+		toggleFilter(false);
+		setItemsFound(false);
+		setPriceCheck(priceCheck = []);
+		setSizeCheck(sizeCheck = []);
+		setColorCheck(colorCheck = []);
+		setBrandCheck(brandCheck = []);
+	}
 	const [isFilterOpen, toggleFilter] = useState(false);
 	const [itemsFound, setItemsFound] = useState(false);
 
 	function toggleFilterMode() {
 		toggleFilter(!isFilterOpen);
-	}
-
+	};
 	allClothes.forEach(item => {
 		item.images.forEach(item => {
 			if (!arrColor.includes(item.color)) {
@@ -78,7 +86,6 @@ function Clothes() {
 			}
 		});
 	});
-
 	function handleColorCheck(color) {
 		if (colorCheck.includes(color)) {
 			colorCheck = colorCheck.filter(item => item !== color);
@@ -86,7 +93,7 @@ function Clothes() {
 			colorCheck = [...colorCheck, color];
 		}
 		setColorCheck(colorCheck);
-	}
+	};
 	function handleSizeCheck(size) {
 		if (sizeCheck.includes(size)) {
 			sizeCheck = sizeCheck.filter(item => item !== size);
@@ -94,7 +101,7 @@ function Clothes() {
 			sizeCheck = [...sizeCheck, size];
 		}
 		setSizeCheck(sizeCheck);
-	}
+	};
 	function handleBrandCheck(brand) {
 		if (brandCheck.includes(brand)) {
 			brandCheck = brandCheck.filter(item => item !== brand);
@@ -102,7 +109,7 @@ function Clothes() {
 			brandCheck = [...brandCheck, brand];
 		}
 		setBrandCheck(brandCheck);
-	}
+	};
 	function handlePriceCheck(price) {
 		if (priceCheck.some(item => item.id === price.id)) {
 			priceCheck = priceCheck.filter(item => item.id !== price.id);
@@ -110,16 +117,7 @@ function Clothes() {
 			priceCheck = [...priceCheck, price];
 		}
 		setPriceCheck(priceCheck);
-	}
-
-	function resetFilter() {
-		isFilterOpen = false;
-		itemsFound = false;
-		priceCheck = [];
-		sizeCheck = [];
-		colorCheck = [];
-		brandCheck = [];
-	}
+	};
 
 	useEffect(() => {
 		setItems(() => {
@@ -139,9 +137,9 @@ function Clothes() {
 					(priceCheck.some((price) => {
 						let isSelectedMax = price.max && cloth.price <= price.max || !price.max;
 						let isSelectedMin = price.min && cloth.price >= price.min || !price.min;
-
 						return isSelectedMax && isSelectedMin;
 					}) || priceCheck == 0)
+
 				return isSelected;
 			});
 
@@ -152,12 +150,11 @@ function Clothes() {
 		} else {
 			setItemsFound(false);
 		};
-		// return () => resetFilter(type);
 	}, [colorCheck, sizeCheck, brandCheck, priceCheck, type]);
 
-	// useEffect(() => {
-	// 	resetFilter()
-	// }, [type])
+	useEffect(() => {
+		resetFilter()
+	}, [type])
 
 	return (
 		<div className='products-page' data-test-id={`products-page-${type}`}>
@@ -208,7 +205,7 @@ function Clothes() {
 										</div>
 										<div className="filter-main__items">
 											{arrColor.map(item => <div key={item} className="filter-main-items__item" >
-												<input type="checkbox" onChange={() => handleColorCheck(item)} value={item} />
+												<input type="checkbox" checked={colorCheck.includes(item)} onChange={() => handleColorCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
 										</div>
@@ -219,7 +216,7 @@ function Clothes() {
 										</div>
 										<div className="filter-main__items">
 											{arrSize.map(item => <div key={item} className="filter-main-items__item">
-												<input type="checkbox" onChange={() => handleSizeCheck(item)} value={item} />
+												<input type="checkbox" checked={sizeCheck.includes(item)} onChange={() => handleSizeCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
 										</div>
@@ -230,7 +227,7 @@ function Clothes() {
 										</div>
 										<div className="filter-main__items">
 											{arrBrand.map(item => <div key={item} className="filter-main-items__item">
-												<input type="checkbox" onChange={() => handleBrandCheck(item)} value={item} />
+												<input type="checkbox" checked={brandCheck.includes(item)} onChange={() => handleBrandCheck(item)} value={item} />
 												<label >{item}</label>
 											</div>)}
 										</div>
@@ -241,7 +238,7 @@ function Clothes() {
 										</div>
 										<div className="filter-main__items">
 											{arrPrice.map(item => <div key={item.id} className="filter-main-items__item">
-												<input type="checkbox" onChange={() => handlePriceCheck(item)} value={item} />
+												<input type="checkbox" checked={priceCheck.includes(item)} onChange={() => handlePriceCheck(item)} value={item} />
 												<label >${item.min} - ${item.max}</label>
 											</div>)}
 										</div>

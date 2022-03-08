@@ -4,7 +4,6 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/footer/footer';
 import share from '../img/share.png';
 import arrowblack from '../img/arrowblack.png';
-import StarYellow from '../img/starYellow.png';
 import arrowleft from '../img/arrowleft.png';
 import arrowright from '../img/arrowright.png';
 import sizeguide from '../img/sizeguide.png';
@@ -59,7 +58,6 @@ function ProductPage(props) {
 		}
 		console.log('img and color', arrImageWithColor)
 	});
-
 
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
