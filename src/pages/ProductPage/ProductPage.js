@@ -49,8 +49,10 @@ function ProductPage(props) {
 	let [selectedColor, isSelectedColor] = useState(item.images[0].color);
 
 	useEffect(() => {
-		// setSelectedSize(item.sizes[0])
-	})
+		setSelectedSize(item.sizes[0]);
+		isSelectedColor(item.images[0].color);
+	}, [id]);
+
 	item.images.forEach(img => {
 		if (!arrColor.includes(img.color)) {
 			arrColor.push(img.color)
