@@ -28,8 +28,6 @@ import Rating from '../../components/rating/rating';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-
-
 const logo = [
 	{ img: logo01, },
 	{ img: logo02, },
@@ -52,7 +50,6 @@ function ProductPage(props) {
 		setSelectedSize(item.sizes[0]);
 		isSelectedColor(item.images[0].color);
 	}, [id]);
-
 	item.images.forEach(img => {
 		if (!arrColor.includes(img.color)) {
 			arrColor.push(img.color)
