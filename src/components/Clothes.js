@@ -124,21 +124,21 @@ function Clothes() {
 			items = allClothes.filter((cloth) => {
 				let isSelected = false;
 				isSelected =
-					cloth.images.some((image) => {
-						return colorCheck.length == 0 || colorCheck.includes(image.color);
-					})
+					(cloth.images.some((image) => {
+						return colorCheck.length === 0 || colorCheck.includes(image.color);
+					}))
 					&&
-					cloth.sizes.some((size) => {
-						return sizeCheck.length == 0 || sizeCheck.includes(size);
-					})
+					(cloth.sizes.some((size) => {
+						return sizeCheck.length === 0 || sizeCheck.includes(size);
+					}))
 					&&
-					(brandCheck.length == 0 || brandCheck.includes(cloth.brand))
+					(brandCheck.length === 0 || brandCheck.includes(cloth.brand))
 					&&
 					(priceCheck.some((price) => {
-						let isSelectedMax = price.max && cloth.price <= price.max || !price.max;
-						let isSelectedMin = price.min && cloth.price >= price.min || !price.min;
+						let isSelectedMax = (price.max && cloth.price <= price.max) || !price.max;
+						let isSelectedMin = (price.min && cloth.price >= price.min) || !price.min;
 						return isSelectedMax && isSelectedMin;
-					}) || priceCheck == 0)
+					}) || priceCheck.length === 0)
 
 				return isSelected;
 			});
