@@ -153,7 +153,7 @@
 	display: none;
 }
 .filter-main.visible {
-	max-height: 318px;
+	// max-height: 318px;
 	display: block;
 	background-color: #f8f8f8;
 	margin: 0px 0px 32px 0px;
@@ -166,10 +166,14 @@
 .filter-main-columns {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	&__column {
 		flex: 1 1 25%;
 		padding: 0px 0px 0px 42px;
 		margin: 24px 0px 29px 0px;
+		@media (max-width: 780px) {
+			flex: 1 1 50%;
+		}
 	}
 }
 .filter-main-column {
@@ -195,7 +199,7 @@
 			line-height: 34px;
 			color: #121212;
 			opacity: 0.8;
-			margin: 0px 0px 0px 10px;
+			margin: 0px 0px 0px 5px;
 		}
 	}
 }

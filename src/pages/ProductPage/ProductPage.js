@@ -2,17 +2,12 @@ import './css/ProductPage.css';
 import '../Categories/css/Clothes.css'
 import Header from '../../components/Header/Header';
 import Footer from '../../components/footer/footer';
-
 import share from '../img/share.png';
 import arrowblack from '../img/arrowblack.png';
 import StarYellow from '../img/starYellow.png';
 import arrowleft from '../img/arrowleft.png';
 import arrowright from '../img/arrowright.png';
 import sizeguide from '../img/sizeguide.png';
-import paramtype01 from '../img/productcolor/01.jpg';
-import paramtype02 from '../img/productcolor/02.jpg';
-import paramtype03 from '../img/productcolor/03.jpg';
-import paramtype04 from '../img/productcolor/04.jpg';
 import heart from '../img/heart.png';
 import scale from '../img/scale.png';
 import delivery from '../img/delivery.png';
@@ -26,12 +21,15 @@ import logo05 from '../img/logo/05.png';
 import logo06 from '../img/logo/06.png';
 import logo07 from '../img/logo/07.png';
 import write from '../img/write.png';
-
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import SliderProduct from '../../components/sliderproduct/SliderProduct';
 import SliderRelated from '../../components/sliderrelared/SliderRelated';
 import { getItem } from '../../products';
 import Rating from '../../components/rating/rating';
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
+
+
 
 const logo = [
 	{ img: logo01, },
@@ -46,7 +44,23 @@ const logo = [
 function ProductPage(props) {
 	let { type, id } = useParams();
 	let item = getItem(type, id);
-	console.log("itemrating", item.rating);
+	let arrColor = [];
+	let arrImageWithColor = [];
+	let [selectedSize, setSelectedSize] = useState(item.sizes[0]);
+	let [selectedColor, isSelectedColor] = useState(item.images[0].color);
+
+	useEffect(() => {
+		// setSelectedSize(item.sizes[0])
+	})
+	item.images.forEach(img => {
+		if (!arrColor.includes(img.color)) {
+			arrColor.push(img.color)
+			arrImageWithColor.push(img)
+		}
+		console.log('img and color', arrImageWithColor)
+	});
+
+
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
@@ -56,11 +70,15 @@ function ProductPage(props) {
 						<div className="container">
 							<div className="categories-top-block__links">
 								<div className="link-home">
-									<div className="link-home__title">Home</div>
+									<Link to='/' className="link-home__title">Home</Link>
 									<div className="link-home__image">
 										<img src={arrowblack} alt="arrowblack" />
 									</div>
-									<div className="link-home__categoties">{type.toUpperCase()}</div>
+									<Link to={`/${type}`} className="link-home__categoties">{type}</Link>
+									<div className="link-home__image">
+										<img src={arrowblack} alt="arrowblack" />
+									</div>
+									<div className="link-home__categoties">{item.name}</div>
 								</div>
 								<div className="link-share__items">
 									<div className="link-share-item__image">
@@ -75,6 +93,7 @@ function ProductPage(props) {
 									<div className="reviews__image">
 										<Rating ratingProps={item.rating} />
 									</div>
+									<div className="reviews__text">{item.reviews.length} reviews</div>
 								</div>
 								<div className="avilability__rows">
 									<div className="avilability-row">
@@ -105,41 +124,22 @@ function ProductPage(props) {
 									<div className="product-info__parametrs">
 										<div className="product-info-parametrs__colors">
 											<div className="parametrs-colors__text">Color:</div>
-											<div className="parametrs-colors__color">Blue</div>
+											<div className="parametrs-colors__color">{selectedColor}</div>
 										</div>
 										<div className="product-info-parametrs__type">
 											<div className="parametrs-type__columns">
-												<div className="parametrs-type__column">
-													<div className="parametrs-type-column__image">
-														<img src={paramtype01} alt="paramtype01" />
-													</div>
-												</div>
-												<div className="parametrs-type__column">
-													<div className="parametrs-type-column__image">
-														<img src={paramtype02} alt="paramtype02" />
-													</div>
-												</div>
-												<div className="parametrs-type__column">
-													<div className="parametrs-type-column__image">
-														<img src={paramtype03} alt="paramtype03" />
-													</div>
-												</div>
-												<div className="parametrs-type__column">
-													<div className="parametrs-type-column__image">
-														<img src={paramtype04} alt="paramtype04" />
-													</div>
-												</div>
+												{arrImageWithColor.map(item =>
+													<div key={item.color} className={classNames("parametrs-type-column__image", { border: selectedColor === item.color })} onClick={() => isSelectedColor(item.color)}>
+														<img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" />
+													</div>)}
 											</div>
 										</div>
 										<div className="product-info-parametrs__sizes">
 											<div className="parametrs-sizes__text">Size:</div>
-											<div className="parametrs-sizes__size">S</div>
+											<div className="parametrs-sizes__size" >{selectedSize}</div>
 										</div>
-										<div className="product-info-parametrs__type-sizes">
-											<button className="type-sizes__block">XS</button>
-											<button className="type-sizes__block s">S</button>
-											<button className="type-sizes__block">XS</button>
-											<button className="type-sizes__block">XS</button>
+										<div className="product-info-parametrs__type-sizes ">
+											{item.sizes.map(item => <div key={item} className={classNames("type-sizes__block", { border: selectedSize === item })} onClick={() => setSelectedSize(item)}>{item}</div>)}
 										</div>
 										<div className="product-info-parametrs__guide">
 											<div className="parametrs-guide__image">
@@ -196,7 +196,7 @@ function ProductPage(props) {
 									</div>
 									<div className="product-info__additional">
 										<div className="product-info-additional__title">ADDITIONAL INFORMATION</div>
-										<div className="product-info-additional__item">Color: {item.images.map(item => <span key={item.id}>{item.color}</span>)} </div>
+										<div className="product-info-additional__item">Color: {arrImageWithColor.map(item => <span key={item.color}>{item.color}</span>)} </div>
 										<div className="product-info-additional__item">Size: <span key={item.id}>{item.sizes.join(', ')}</span></div>
 										<div className="product-info-additional__item">Material:	<span key={item.id}>{item.material}</span></div>
 									</div>
@@ -219,61 +219,19 @@ function ProductPage(props) {
 											</div>
 										</div>
 										{item.reviews.map(item => <div className="product-info-reviews__private" key={item.id}>
-
 											<div className="product-info-reviews-private__title">
 												<div className="product-info-reviews-private-title__name">{item.name}</div>
 												<div className="reviews revers">
 													<div className="reviews__image">
-														{/* <img src={StarYellow} alt="staryellow" /> */}
 														<Rating ratingProps={item.rating} />
 													</div>
-													{/* <div className="reviews__image">
-														<img src={StarYellow} alt="staryellow" />
-													</div>
-													<div className="reviews__image">
-														<img src={StarYellow} alt="staryellow" />
-													</div>
-													<div className="reviews__image">
-														<img src={StarYellow} alt="staryellow" />
-													</div>
-													<div className="reviews__image">
-														<img src={StarYellow} alt="staryellow" />
-													</div> */}
 													<div className="reviews__text text-revers">3 months ago</div>
 												</div>
 											</div>
 											<div className="product-info-reviews-private__text">
 												{item.text}
 											</div>
-
 										</div>)}
-
-										{/* <div className="product-info-reviews__private">
-											<div className="product-info-reviews-private__block">
-												<div className="product-info-reviews-private__title">
-													<div className="product-info-reviews-private-title__name">ShAmAn design</div>
-													<div className="reviews revers">
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__image">
-															<img src={StarYellow} alt="staryellow" />
-														</div>
-														<div className="reviews__text text-revers">2 months ago</div>
-													</div>
-												</div>
-												<div className="product-info-reviews-private__text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti</div>
-											</div>
-										</div> */}
 									</div>
 								</div>
 							</div>
@@ -298,7 +256,7 @@ function ProductPage(props) {
 				</div>
 				<Footer />
 			</div>
-		</div>
+		</div >
 	);
 }
 export default ProductPage;

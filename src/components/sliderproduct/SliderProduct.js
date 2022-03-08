@@ -18,7 +18,6 @@ function SliderProduct() {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	let { type, id } = useParams();
 	let items = getItem(type, id);
-	console.log(items)
 	return (
 		<>
 			<div className="product-image__column big">

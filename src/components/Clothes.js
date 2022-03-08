@@ -6,7 +6,7 @@ import viewlist from '../pages/img/viewlist.png';
 import viewgrid from '../pages/img/viewgrid.png';
 import share from '../pages/img/share.png';
 import arrowblack from '../pages/img/arrowblack.png'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
@@ -27,6 +27,7 @@ function Clothes() {
 		{
 			id: 1,
 			min: 1500,
+			max: 3000,
 		},
 		{
 			id: 2,
@@ -111,14 +112,14 @@ function Clothes() {
 		setPriceCheck(priceCheck);
 	}
 
-	// function resetFilter() {
-	// isFilterOpen = false;
-	// itemsFound = false;
-	// priceCheck = [];
-	// sizeCheck = [];
-	// colorCheck = [];
-	// brandCheck = [];
-	// }
+	function resetFilter() {
+		isFilterOpen = false;
+		itemsFound = false;
+		priceCheck = [];
+		sizeCheck = [];
+		colorCheck = [];
+		brandCheck = [];
+	}
 
 	useEffect(() => {
 		setItems(() => {
@@ -151,7 +152,12 @@ function Clothes() {
 		} else {
 			setItemsFound(false);
 		};
+		// return () => resetFilter(type);
 	}, [colorCheck, sizeCheck, brandCheck, priceCheck, type]);
+
+	// useEffect(() => {
+	// 	resetFilter()
+	// }, [type])
 
 	return (
 		<div className='products-page' data-test-id={`products-page-${type}`}>
@@ -162,7 +168,7 @@ function Clothes() {
 						<div className="container">
 							<div className="categories-top-block__links">
 								<div className="link-home">
-									<div className="link-home__title">Home </div>
+									<Link to='/' className="link-home__title">Home </Link>
 									<div className="link-home__image">
 										<img src={arrowblack} alt="arrowblack" />
 									</div>
