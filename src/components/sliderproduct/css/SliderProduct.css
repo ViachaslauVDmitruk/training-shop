@@ -15,7 +15,7 @@
 }
 
 .mySwiper {
-  max-height: 515px;
+  height: 515px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;

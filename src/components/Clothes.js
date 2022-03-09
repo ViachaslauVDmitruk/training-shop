@@ -57,6 +57,19 @@ function Clothes() {
 		},
 	];
 
+	// function resetFilter() {
+	// 	toggleFilter(false);
+	// 	setItemsFound(false);
+	// 	setColorCheck(colorCheck = []);
+	// 	setBrandCheck(brandCheck = []);
+	// 	setPriceCheck(priceCheck = []);
+	// 	setSizeCheck(sizeCheck = []);
+	// 	console.log("resetfilter");
+	// 	console.log('colorcheck', colorCheck);
+	// 	console.log('sizecheck', sizeCheck);
+	// 	console.log('pricecheck', priceCheck);
+	// 	console.log('brandckeck', brandCheck);
+	// }
 
 	const [isFilterOpen, toggleFilter] = useState(false);
 	const [itemsFound, setItemsFound] = useState(false);
@@ -112,11 +125,25 @@ function Clothes() {
 		setPriceCheck(priceCheck);
 	};
 
-	useEffect(() => {
 
+	useEffect(() => {
+		toggleFilter(false);
+		setItemsFound(false);
+		setColorCheck([]);
+		setBrandCheck([]);
+		setPriceCheck([]);
+		setSizeCheck([]);
+		// console.log("resetfilter");
+		// console.log('colorcheck', colorCheck);
+		// console.log('colorcheck', colorCheck);
+		// console.log('sizecheck', sizeCheck);
+		// console.log('pricecheck', priceCheck);
+		// console.log('brandckeck', brandCheck);
+	}, [type])
+
+	useEffect(() => {
 		setItems(() => {
 			return allClothes.filter((cloth) => {
-				// let isSelected = false;
 				let isSelected =
 					(cloth.images.some((image) => {
 						return colorCheck.length === 0 || colorCheck.includes(image.color);
@@ -143,24 +170,6 @@ function Clothes() {
 			setItemsFound(false);
 		};
 	}, [colorCheck, sizeCheck, brandCheck, priceCheck, allClothes]);
-
-	useEffect(() => {
-		// resetFilter()
-		// console.log('colorcheck before', colorCheck);
-		// console.log('sizecheck before', sizeCheck);
-		toggleFilter(false);
-		setItemsFound(false);
-		// setSizeCheck([]);
-		setColorCheck(colorCheck = []);
-		setBrandCheck(brandCheck = []);
-		setPriceCheck(priceCheck = []);
-		setSizeCheck(sizeCheck = []);
-		// sizeCheck.length = 0;
-		console.log("resetfilter");
-		// console.log('resetcolorlength', resetColor.length)
-		console.log('colorcheck', colorCheck);
-		// console.log('sizecheck', sizeCheck);
-	}, [type])
 
 	return (
 		<div className='products-page' data-test-id={`products-page-${type}`}>
@@ -222,7 +231,7 @@ function Clothes() {
 										</div>
 										<div data-test-id={'filters-size'} className="filter-main__items">
 											{arrSize.map(item => <div data-test-id={`filter-size-${item}`} key={item} className="filter-main-items__item">
-												<input type="checkbox" onChange={() => handleSizeCheck(item)} value={item} />
+												<input type="checkbox" checked={sizeCheck.includes(item)} onChange={() => handleSizeCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
 										</div>
