@@ -45,19 +45,24 @@ function ProductPage(props) {
 	let arrImageWithColor = [];
 	let [selectedSize, setSelectedSize] = useState(item.sizes[0]);
 	let [selectedColor, isSelectedColor] = useState(item.images[0].color);
-	useEffect(() => {
-		return () => {
-			resetSelectedOption()
-		}
-	}, [id]);
 
-	function resetSelectedOption() {
-		// setSelectedSize(item.sizes[0]);
-		// isSelectedColor(item.images[0].color);
-		setSelectedSize([]);
-		isSelectedColor([]);
-		// selectedSize = item.sizes[0]
-	}
+	useEffect(() => {
+		setSelectedSize(item.sizes[0]);
+		isSelectedColor(item.images[0].color);
+	}, [item]);
+
+	// function resetSelectedOption() {
+	// setSelectedSize(item.sizes[0]);
+	// isSelectedColor(item.images[0].color);
+	// setSelectedSize([]);
+	// isSelectedColor([]);
+	// firstParam()
+	// };
+
+	// function firstParam() {
+	// 	setSelectedSize(item.sizes[0]);
+	// 	isSelectedColor(item.images[0].color);
+	// };
 	// setSelectedSize(item.sizes[0]);
 	// isSelectedColor(item.images[0].color);
 

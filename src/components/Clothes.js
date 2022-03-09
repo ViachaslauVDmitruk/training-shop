@@ -57,20 +57,6 @@ function Clothes() {
 		},
 	];
 
-	// function resetFilter() {
-	// 	toggleFilter(false);
-	// 	setItemsFound(false);
-	// 	setColorCheck(colorCheck = []);
-	// 	setBrandCheck(brandCheck = []);
-	// 	setPriceCheck(priceCheck = []);
-	// 	setSizeCheck(sizeCheck = []);
-	// 	console.log("resetfilter");
-	// 	console.log('colorcheck', colorCheck);
-	// 	console.log('sizecheck', sizeCheck);
-	// 	console.log('pricecheck', priceCheck);
-	// 	console.log('brandckeck', brandCheck);
-	// }
-
 	const [isFilterOpen, toggleFilter] = useState(false);
 	const [itemsFound, setItemsFound] = useState(false);
 
@@ -125,7 +111,6 @@ function Clothes() {
 		setPriceCheck(priceCheck);
 	};
 
-
 	useEffect(() => {
 		toggleFilter(false);
 		setItemsFound(false);
@@ -133,12 +118,6 @@ function Clothes() {
 		setBrandCheck([]);
 		setPriceCheck([]);
 		setSizeCheck([]);
-		// console.log("resetfilter");
-		// console.log('colorcheck', colorCheck);
-		// console.log('colorcheck', colorCheck);
-		// console.log('sizecheck', sizeCheck);
-		// console.log('pricecheck', priceCheck);
-		// console.log('brandckeck', brandCheck);
 	}, [type])
 
 	useEffect(() => {
