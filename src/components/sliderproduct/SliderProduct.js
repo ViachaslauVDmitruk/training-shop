@@ -8,7 +8,6 @@ import "swiper/css/thumbs";
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
-import img01 from './img/imagebig.jpg';
 import arrowsliderup from '../..//pages/img/arrowsliderup.png';
 import arrowsliderdown from '../../pages/img/arrowsliderdown.png';
 import { getItem } from "../../products";
@@ -62,21 +61,6 @@ function SliderProduct() {
 						className="mySwiper"
 					>
 						{items.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
-						{/* <SwiperSlide>
-							<img src={img01} alt="img01" />
-						</SwiperSlide> */}
-						{/* <SwiperSlide>
-							<img src={img01} alt="img01" />
-						</SwiperSlide> */}
-						{/* <SwiperSlide>
-							<img src={img01} alt="img01" />
-						</SwiperSlide> */}
-						{/* <SwiperSlide>
-							<img src={img01} alt="img01" />
-						</SwiperSlide> */}
-						{/* <SwiperSlide>
-							<img src={img01} alt="img01" />
-						</SwiperSlide> */}
 					</Swiper>
 				</div>
 			</div>
