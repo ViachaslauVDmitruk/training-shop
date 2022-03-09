@@ -216,7 +216,7 @@ function Clothes() {
 										</div>
 										<div className="filter-main__items">
 											{arrSize.map(item => <div key={item} className="filter-main-items__item">
-												<input type="checkbox" checked={sizeCheck.includes(item)} onChange={() => handleSizeCheck(item)} value={item} />
+												<input type="checkbox" onChange={() => handleSizeCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
 										</div>
@@ -238,7 +238,7 @@ function Clothes() {
 										</div>
 										<div className="filter-main__items">
 											{arrPrice.map(item => <div key={item.id} className="filter-main-items__item">
-												<input type="checkbox" checked={priceCheck.includes(item)} onChange={() => handlePriceCheck(item)} value={item} />
+												<input type="checkbox" checked={priceCheck.some(elem => elem.id === item.id)} onChange={() => handlePriceCheck(item)} value={item} />
 												<label >${item.min} - ${item.max}</label>
 											</div>)}
 										</div>

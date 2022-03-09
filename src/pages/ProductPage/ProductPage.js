@@ -51,7 +51,6 @@ function ProductPage(props) {
 		isSelectedColor(item.images[0].color);
 	}
 
-
 	useEffect(() => {
 		resetSelect()
 	}, [id]);
