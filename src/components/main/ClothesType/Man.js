@@ -21,7 +21,7 @@ function ClothesMan(props) {
 						<div className="navigate-menu__column">
 							<nav className="navigate-menu__list">
 								<ul className="navigate-menu__links">
-									{MAIN_CLOTHES_BLOCK_MENU.map(item => <li key={item.particularName} onClick={() => setParticular(item.particularName)} > <div className='navigate-menu__link' >{item.name}</div></li>)}
+									{MAIN_CLOTHES_BLOCK_MENU.map(item => <li key={item.particularName} data-test-id={`clothes-men-${item.particularName}`} onClick={() => setParticular(item.particularName)} > <div className='navigate-menu__link' >{item.name}</div></li>)}
 								</ul>
 							</nav>
 						</div>

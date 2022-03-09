@@ -57,14 +57,7 @@ function Clothes() {
 		},
 	];
 
-	function resetFilter() {
-		toggleFilter(false);
-		setItemsFound(false);
-		setPriceCheck(priceCheck = []);
-		setSizeCheck(sizeCheck = []);
-		setColorCheck(colorCheck = []);
-		setBrandCheck(brandCheck = []);
-	}
+
 	const [isFilterOpen, toggleFilter] = useState(false);
 	const [itemsFound, setItemsFound] = useState(false);
 
@@ -120,10 +113,11 @@ function Clothes() {
 	};
 
 	useEffect(() => {
+
 		setItems(() => {
-			items = allClothes.filter((cloth) => {
-				let isSelected = false;
-				isSelected =
+			return allClothes.filter((cloth) => {
+				// let isSelected = false;
+				let isSelected =
 					(cloth.images.some((image) => {
 						return colorCheck.length === 0 || colorCheck.includes(image.color);
 					}))
@@ -142,18 +136,30 @@ function Clothes() {
 
 				return isSelected;
 			});
-
-			return items;
 		});
 		if (colorCheck.length || sizeCheck.length || brandCheck.length || priceCheck.length) {
 			setItemsFound(true);
 		} else {
 			setItemsFound(false);
 		};
-	}, [colorCheck, sizeCheck, brandCheck, priceCheck, type]);
+	}, [colorCheck, sizeCheck, brandCheck, priceCheck, allClothes]);
 
 	useEffect(() => {
-		resetFilter()
+		// resetFilter()
+		// console.log('colorcheck before', colorCheck);
+		// console.log('sizecheck before', sizeCheck);
+		toggleFilter(false);
+		setItemsFound(false);
+		// setSizeCheck([]);
+		setColorCheck(colorCheck = []);
+		setBrandCheck(brandCheck = []);
+		setPriceCheck(priceCheck = []);
+		setSizeCheck(sizeCheck = []);
+		// sizeCheck.length = 0;
+		console.log("resetfilter");
+		// console.log('resetcolorlength', resetColor.length)
+		console.log('colorcheck', colorCheck);
+		// console.log('sizecheck', sizeCheck);
 	}, [type])
 
 	return (
@@ -184,7 +190,7 @@ function Clothes() {
 					<div className="filter-block">
 						<div className="container">
 							<div className="filter-block-items">
-								<div className={classNames('filter-item-filter', { visible: isFilterOpen })}
+								<div data-test-id='filter-button' className={classNames('filter-item-filter', { visible: isFilterOpen })}
 									onClick={toggleFilterMode} >
 									Filter
 								</div>
@@ -197,14 +203,14 @@ function Clothes() {
 									</div>
 								</div>
 							</div>
-							<div className={classNames("filter-main", { visible: isFilterOpen })}>
+							<div data-test-id={`filters-${type}`} className={classNames("filter-main", { visible: isFilterOpen })}>
 								<div className="filter-main-columns">
 									<div className="filter-main-columns__column">
 										<div className="filter-main-column__title">
 											Color
 										</div>
-										<div className="filter-main__items">
-											{arrColor.map(item => <div key={item} className="filter-main-items__item" >
+										<div data-test-id={'filters-color'} className="filter-main__items">
+											{arrColor.map(item => <div data-test-id={`filter-color-${item}`} key={item} className="filter-main-items__item" >
 												<input type="checkbox" checked={colorCheck.includes(item)} onChange={() => handleColorCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
@@ -214,8 +220,8 @@ function Clothes() {
 										<div className="filter-main-column__title">
 											Size
 										</div>
-										<div className="filter-main__items">
-											{arrSize.map(item => <div key={item} className="filter-main-items__item">
+										<div data-test-id={'filters-size'} className="filter-main__items">
+											{arrSize.map(item => <div data-test-id={`filter-size-${item}`} key={item} className="filter-main-items__item">
 												<input type="checkbox" onChange={() => handleSizeCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
@@ -225,8 +231,8 @@ function Clothes() {
 										<div className="filter-main-column__title">
 											Brand
 										</div>
-										<div className="filter-main__items">
-											{arrBrand.map(item => <div key={item} className="filter-main-items__item">
+										<div data-test-id={'filters-brand'} className="filter-main__items">
+											{arrBrand.map(item => <div data-test-id={`filter-brand-${item}`} key={item} className="filter-main-items__item">
 												<input type="checkbox" checked={brandCheck.includes(item)} onChange={() => handleBrandCheck(item)} value={item} />
 												<label >{item}</label>
 											</div>)}
