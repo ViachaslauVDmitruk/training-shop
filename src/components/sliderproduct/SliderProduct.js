@@ -62,9 +62,9 @@ function SliderProduct() {
 						className="mySwiper"
 					>
 						{items.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
-						<SwiperSlide>
+						{/* <SwiperSlide>
 							<img src={img01} alt="img01" />
-						</SwiperSlide>
+						</SwiperSlide> */}
 						{/* <SwiperSlide>
 							<img src={img01} alt="img01" />
 						</SwiperSlide> */}

@@ -46,10 +46,6 @@ function ProductPage(props) {
 	let [selectedSize, setSelectedSize] = useState(item.sizes[0]);
 	let [selectedColor, isSelectedColor] = useState(item.images[0].color);
 
-	function resetSelect() {
-
-	}
-
 	useEffect(() => {
 		setSelectedSize(item.sizes[0]);
 		isSelectedColor(item.images[0].color);
