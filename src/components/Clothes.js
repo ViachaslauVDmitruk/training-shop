@@ -191,8 +191,8 @@ function Clothes() {
 									</div>
 								</div>
 							</div>
-							<div data-test-id={`filters-${type}`} className={classNames("filter-main", { visible: isFilterOpen })}>
-								<div className="filter-main-columns">
+							<div className={classNames("filter-main", { visible: isFilterOpen })}>
+								<div data-test-id={`filters-${type}`} className="filter-main-columns">
 									<div className="filter-main-columns__column">
 										<div className="filter-main-column__title">
 											Color
