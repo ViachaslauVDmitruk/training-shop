@@ -13,6 +13,7 @@ import arrowsliderdown from '../../pages/img/arrowsliderdown.png';
 import { getItem } from "../../products";
 import { useParams } from "react-router-dom";
 
+
 function SliderProduct() {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	let { type, id } = useParams();

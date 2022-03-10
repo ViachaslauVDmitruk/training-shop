@@ -51,28 +51,11 @@ function ProductPage(props) {
 		isSelectedColor(item.images[0].color);
 	}, [item]);
 
-	// function resetSelectedOption() {
-	// setSelectedSize(item.sizes[0]);
-	// isSelectedColor(item.images[0].color);
-	// setSelectedSize([]);
-	// isSelectedColor([]);
-	// firstParam()
-	// };
-
-	// function firstParam() {
-	// 	setSelectedSize(item.sizes[0]);
-	// 	isSelectedColor(item.images[0].color);
-	// };
-	// setSelectedSize(item.sizes[0]);
-	// isSelectedColor(item.images[0].color);
-
-
 	item.images.forEach(img => {
 		if (!arrColor.includes(img.color)) {
 			arrColor.push(img.color)
 			arrImageWithColor.push(img)
 		}
-		console.log('img and color', arrImageWithColor)
 	});
 
 	return (

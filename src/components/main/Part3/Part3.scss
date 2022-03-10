@@ -83,9 +83,12 @@
 		justify-content: center;
 	}
 	&__button {
+		color: #121212;
 		height: 48px;
 		min-width: 100%;
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		margin: 48px 0px 0px 0px;
 		background: #f8f8f8;
 		border: 2px solid #f8f8f8;
@@ -94,7 +97,7 @@
 		font-size: 13px;
 		line-height: 15px;
 		text-align: center;
-		margin: 48px 0px 0px 0px;
+		// margin: 48px 0px 0px 0px;
 	}
 }
 .card-item {

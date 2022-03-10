@@ -198,7 +198,7 @@ function Clothes() {
 											Color
 										</div>
 										<div data-test-id={'filters-color'} className="filter-main__items">
-											{arrColor.map(item => <div data-test-id={`filter-color-${item}`} key={item} className="filter-main-items__item" >
+											{arrColor.map(item => <div data-test-id={`filter-color-${item}`} key={item} className={classNames("filter-main-items__item", { active: colorCheck.includes(item) })} >
 												<input type="checkbox" checked={colorCheck.includes(item)} onChange={() => handleColorCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
@@ -209,7 +209,7 @@ function Clothes() {
 											Size
 										</div>
 										<div data-test-id={'filters-size'} className="filter-main__items">
-											{arrSize.map(item => <div data-test-id={`filter-size-${item}`} key={item} className="filter-main-items__item">
+											{arrSize.map(item => <div data-test-id={`filter-size-${item}`} key={item} className={classNames("filter-main-items__item", { active: sizeCheck.includes(item) })}>
 												<input type="checkbox" checked={sizeCheck.includes(item)} onChange={() => handleSizeCheck(item)} value={item} />
 												<label>{item}</label>
 											</div>)}
@@ -220,7 +220,7 @@ function Clothes() {
 											Brand
 										</div>
 										<div data-test-id={'filters-brand'} className="filter-main__items">
-											{arrBrand.map(item => <div data-test-id={`filter-brand-${item}`} key={item} className="filter-main-items__item">
+											{arrBrand.map(item => <div data-test-id={`filter-brand-${item}`} key={item} className={classNames("filter-main-items__item", { active: brandCheck.includes(item) })}>
 												<input type="checkbox" checked={brandCheck.includes(item)} onChange={() => handleBrandCheck(item)} value={item} />
 												<label >{item}</label>
 											</div>)}
@@ -231,7 +231,7 @@ function Clothes() {
 											Prise
 										</div>
 										<div className="filter-main__items">
-											{arrPrice.map(item => <div key={item.id} className="filter-main-items__item">
+											{arrPrice.map(item => <div key={item.id} className={classNames("filter-main-items__item", { active: priceCheck.some(elem => elem.id === item.id) })}>
 												<input type="checkbox" checked={priceCheck.some(elem => elem.id === item.id)} onChange={() => handlePriceCheck(item)} value={item} />
 												<label >${item.min} - ${item.max}</label>
 											</div>)}
