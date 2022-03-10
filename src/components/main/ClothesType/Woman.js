@@ -4,6 +4,7 @@ import { getItemsByType } from '../../../products';
 import CardItem from '../../CardItem/CardItem';
 import { MAIN_CLOTHES_BLOCK_MENU } from '../../../particular';
 import { useState } from 'react';
+import classNames from 'classnames';
 
 function ClothesWoman() {
 	let related = getItemsByType('women').slice(0);
@@ -21,7 +22,7 @@ function ClothesWoman() {
 						<div className="navigate-menu__column">
 							<nav className="navigate-menu__list">
 								<ul className="navigate-menu__links">
-									{MAIN_CLOTHES_BLOCK_MENU.map(item => <li key={item.particularName} data-test-id={`clothes-women-${item.particularName}`} onClick={() => setParticular(item.particularName)} > <div className='navigate-menu__link' >{item.name}</div></li>)}
+									{MAIN_CLOTHES_BLOCK_MENU.map(item => <li key={item.particularName} data-test-id={`clothes-women-${item.particularName}`} onClick={() => setParticular(item.particularName)} > <div className={classNames('navigate-menu__link', { selected: item.particularName === particular })} >{item.name}</div></li>)}
 								</ul>
 							</nav>
 						</div>
