@@ -10,6 +10,7 @@ import globe from './img/header/globe01.svg';
 import shoppingbag from './img/header/shoppingbag01.svg';
 import user from './img/header/user01.svg';
 import { useState } from 'react';
+import Cart from '../cart/cart';
 
 const headerNavMenu = [
 	{ id: 1, link: "About Us", },
@@ -23,6 +24,7 @@ const headerNavMenu = [
 
 function Header() {
 	const [isMenuOpen, toggleMenu] = useState(false);
+	const [isCartOpen, toggleCart] = useState(false);
 	function toggleMenuMode() {
 		toggleMenu(!isMenuOpen);
 	}
@@ -99,7 +101,7 @@ function Header() {
 								<div className="header-bottom__icon">
 									<img src={user} alt="user" />
 								</div>
-								<div className="header-bottom__icon">
+								<div className="header-bottom__icon" onClick={() => toggleCart(!isCartOpen)}>
 									<img src={shoppingbag} alt="shoppingbag" />
 								</div>
 								<div data-test-id='burger-menu-btn' className={classNames('burger-menu-btn', { visible: isMenuOpen })}
@@ -108,12 +110,11 @@ function Header() {
 									<span></span>
 								</div>
 							</div>
-
 						</div>
-
 					</div>
 				</div>
 			</div>
+			<Cart active={isCartOpen} setActive={toggleCart} />
 		</div >
 	);
 }

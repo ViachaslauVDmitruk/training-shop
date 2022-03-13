@@ -62,6 +62,7 @@ function ProductPage(props) {
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
 				<Header />
+				{/* <Cart /> */}
 				<div className="main">
 					<div className="categories__top-block">
 						<div className="container">

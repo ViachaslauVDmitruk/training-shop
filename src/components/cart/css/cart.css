@@ -1,0 +1,303 @@
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 40;
+  width: 100%;
+  -webkit-transform: translate(100%);
+          transform: translate(100%);
+  -webkit-transition: 0.4s all;
+  transition: 0.4s all;
+}
+
+.cart_visible {
+  -webkit-transform: translate(0);
+          transform: translate(0);
+  -webkit-transition: 0.4s all;
+  transition: 0.4s all;
+}
+
+.mask {
+  background: rgba(18, 18, 18, 0.4);
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  z-index: 30;
+}
+
+@media (max-width: 425px) {
+  .mask {
+    display: none;
+  }
+}
+
+.shoppingcart {
+  max-width: 388px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 30;
+  top: 0;
+  right: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #ffffff;
+}
+
+@media (max-width: 425px) {
+  .shoppingcart {
+    min-width: 100%;
+    top: 0;
+    right: 0;
+  }
+}
+
+.shoppingcart__header {
+  background-color: #121212;
+}
+
+.shoppingcart__main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.shoppingcart__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 13px 0px;
+}
+
+.shoppingcart__info {
+  font-size: 15px;
+  line-height: 130%;
+  color: #121212;
+  margin: 16px 0px 20px;
+}
+
+.shoppingcart__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 12px 0px;
+  border-bottom: solid 2px #e6e6e6;
+}
+
+.shopping-container {
+  margin: 0px 20px;
+}
+
+.shoppingcart-top__title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.shoppingcart-top__close {
+  color: #ffffff;
+}
+
+.shoppingcart-top__close svg {
+  color: #ffffff;
+}
+
+.shoppingcart-item__image {
+  max-height: 104px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.shoppingcart-item__image img {
+  height: 100%;
+}
+
+.shopping-item__params {
+  width: 241px;
+  margin: 0px 0px 0px 16px;
+}
+
+.shopping-item-params__name {
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+  opacity: 0.6;
+  margin: 0px 0px 4px 0px;
+}
+
+.shopping-item-params__colorsize {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #121212;
+  margin: 0px 0px 28px 0px;
+}
+
+.shopping-item-params__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.shopping-item-params-info__number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 81px;
+  height: 32px;
+}
+
+.shopping-item-params-info__price {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+}
+
+.shopping-item-params-info-number__add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  padding: 4.5px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 33.333%;
+          flex: 0 0 33.333%;
+  background-color: #f8f8f8;
+}
+
+.shopping-item-params-info-number__amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 4.5px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 33.333%;
+          flex: 0 0 33.333%;
+  background-color: #f8f8f8;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.shoppingcart__totalprice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0px 0px 14px 0px;
+}
+
+.shoppingcart-totalprice__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+}
+
+.shoppingcart-totalprice__pricetotal {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+.shoppingcart-button__further {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.9;
+  background-color: #121212;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 17px 0px;
+  margin: 12px 0px 12px 0px;
+}
+
+.shoppingcart-button__view {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  opacity: 0.9;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 17px 0px;
+  background: #f8f8f8;
+  margin: 0px 0px 24px 0px;
+}
