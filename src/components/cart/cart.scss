@@ -91,10 +91,12 @@
 
 .shoppingcart-item {
 	&__image {
+		max-width: 83px;
 		max-height: 104px;
 		// width: 100%;
 		object-fit: contain;
 		img {
+			display: block;
 			height: 100%;
 		}
 	}

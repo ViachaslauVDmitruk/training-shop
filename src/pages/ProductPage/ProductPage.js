@@ -27,6 +27,8 @@ import { getItem } from '../../products';
 import Rating from '../../components/rating/rating';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+import { addToCart } from '../../redux/Shopping/shopping-actions';
 
 const logo = [
 	{ img: logo01, },
@@ -38,7 +40,7 @@ const logo = [
 	{ img: logo07, },
 ]
 
-function ProductPage(props) {
+function ProductPage({ props, addToCart, productData }) {
 	let { type, id } = useParams();
 	let item = getItem(type, id);
 	let arrColor = [];
@@ -62,7 +64,6 @@ function ProductPage(props) {
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
 				<Header />
-				{/* <Cart /> */}
 				<div className="main">
 					<div className="categories__top-block">
 						<div className="container">
@@ -149,7 +150,7 @@ function ProductPage(props) {
 									<div className="product-info__cost">
 										<div className="product-info-cost__block">$ {item.price}</div>
 										<div className="product-info-cost__row">
-											<button className="product-info__addcard">Add to card</button>
+											<button onClick={() => addToCart(item.id)} className="product-info__addcard">Add to card</button>
 											<div className="protuct-info-cost__image">
 												<img src={heart} alt="heart" />
 											</div>
@@ -257,4 +258,11 @@ function ProductPage(props) {
 		</div >
 	);
 }
-export default ProductPage;
+
+const mapDispatchToProps = dispatch => {
+	return {
+		addToCart: (id) => dispatch(addToCart(id))
+	}
+}
+
+export default connect(null, mapDispatchToProps)(ProductPage);

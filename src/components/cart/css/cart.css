@@ -127,12 +127,14 @@
 }
 
 .shoppingcart-item__image {
+  max-width: 83px;
   max-height: 104px;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
 .shoppingcart-item__image img {
+  display: block;
   height: 100%;
 }
 

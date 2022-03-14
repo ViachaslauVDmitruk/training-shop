@@ -101,8 +101,9 @@ function Header() {
 								<div className="header-bottom__icon">
 									<img src={user} alt="user" />
 								</div>
-								<div className="header-bottom__icon" onClick={() => toggleCart(!isCartOpen)}>
+								<div className="header-bottom__icon cartcount" onClick={() => toggleCart(!isCartOpen)}>
 									<img src={shoppingbag} alt="shoppingbag" />
+									<div className="shoppingcount">10</div>
 								</div>
 								<div data-test-id='burger-menu-btn' className={classNames('burger-menu-btn', { visible: isMenuOpen })}
 									onClick={toggleMenuMode}

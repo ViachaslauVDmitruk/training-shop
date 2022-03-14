@@ -226,6 +226,26 @@
   display: block;
 }
 
+.cartcount {
+  position: relative;
+}
+
+.cartcount .shoppingcount {
+  top: 0;
+  right: 0;
+  height: 15px;
+  width: 15px;
+  font-weight: 700;
+  position: absolute;
+  border-radius: 50%;
+  text-align: center;
+  color: #ffff;
+  font-size: 8px;
+  line-height: 17px;
+  background-color: #121212;
+  opacity: 1;
+}
+
 /*--------------menu-burger---------------*/
 .burger-menu-btn {
   width: 20px;

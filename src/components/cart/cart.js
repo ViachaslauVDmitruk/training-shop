@@ -1,24 +1,26 @@
 import './css/cart.css'
-import imgCard from '../sliderproduct/img/01.jpg';
-import imgTrash from './img/trash.png';
-import imgMinus from './img/minus.png';
-import imgPlus from './img/plus.png';
+// import imgCard from '../sliderproduct/img/01.jpg';
+// import imgTrash from './img/trash.png';
+// import imgMinus from './img/minus.png';
+// import imgPlus from './img/plus.png';
 import imgExit from './img/close.png';
 import classNames from 'classnames';
+import CartItem from './cartItem';
+import { connect } from 'react-redux';
 
-function Cart(active, setActive) {
+function Cart({ products, active, setActive }) {
 
 	return (
-		<div className={classNames('cart', { "cart_visible": active.active === true })} onClick={() => active.setActive(!active.active)}>
+		<div className={classNames('cart', { "cart_visible": active === true })} onClick={() => setActive(false)}>
 			<div className="mask"></div>
-			<div className="shoppingcart">
+			<div className="shoppingcart" onClick={e => e.stopPropagation()}>
 				<div className="shoppingcart__header">
 					<div className="shopping-container">
 						<div className='shoppingcart__top'>
 							<div className="shoppingcart-top__title">
 								Shopping cart
 							</div>
-							<div className="shoppingcart-top__close">
+							<div className="shoppingcart-top__close" onClick={() => setActive(false)}>
 								<img src={imgExit} alt="imgCard" />
 							</div>
 						</div>
@@ -27,7 +29,7 @@ function Cart(active, setActive) {
 				<div className='shoppingcart__main'>
 					<div className="shopping-container">
 						<div className="shoppingcart__info">Item in Cart</div>
-						<div className="shoppingcart__item">
+						{/* <div className="shoppingcart__item">
 							<div className="shoppingcart-item__image">
 								<img src={imgCard} alt="imgCard" />
 							</div>
@@ -50,7 +52,9 @@ function Cart(active, setActive) {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> */}
+						{products.map(item => (<CartItem key={item.id} productData={item} />))}
+
 					</div>
 				</div>
 				<div className="shoppingcart__fotter">
@@ -67,4 +71,12 @@ function Cart(active, setActive) {
 		</div >
 	);
 }
-export default Cart;
+
+const mapStateToProps = state => {
+
+	return {
+		products: state.shop.products,
+	}
+}
+
+export default connect(mapStateToProps)(Cart);
