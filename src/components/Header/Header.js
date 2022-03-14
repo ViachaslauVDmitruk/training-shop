@@ -9,8 +9,10 @@ import search from './img/header/search01.svg';
 import globe from './img/header/globe01.svg';
 import shoppingbag from './img/header/shoppingbag01.svg';
 import user from './img/header/user01.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Cart from '../cart/cart';
+import { connect } from 'react-redux';
+
 
 const headerNavMenu = [
 	{ id: 1, link: "About Us", },
@@ -22,12 +24,21 @@ const headerNavMenu = [
 	{ id: 7, link: "Contact", },
 ]
 
-function Header() {
+function Header({ cart }) {
+	const [cartCount, setCartCount] = useState(0);
 	const [isMenuOpen, toggleMenu] = useState(false);
 	const [isCartOpen, toggleCart] = useState(false);
 	function toggleMenuMode() {
 		toggleMenu(!isMenuOpen);
 	}
+
+	useEffect(() => {
+		let count = 0;
+		cart.forEach(item => {
+			count += item.qty;
+		})
+		setCartCount(count);
+	}, [cart, cartCount])
 
 	return (
 		<div className='header' data-test-id='header'>
@@ -103,7 +114,7 @@ function Header() {
 								</div>
 								<div className="header-bottom__icon cartcount" onClick={() => toggleCart(!isCartOpen)}>
 									<img src={shoppingbag} alt="shoppingbag" />
-									<div className="shoppingcount">10</div>
+									<div className="shoppingcount">{cartCount}</div>
 								</div>
 								<div data-test-id='burger-menu-btn' className={classNames('burger-menu-btn', { visible: isMenuOpen })}
 									onClick={toggleMenuMode}
@@ -120,4 +131,10 @@ function Header() {
 	);
 }
 
-export default Header;
+const mapStateToProps = state => {
+	return {
+		cart: state.shop.cart,
+	}
+}
+
+export default connect(mapStateToProps)(Header);
