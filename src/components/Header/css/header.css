@@ -228,6 +228,7 @@
 
 .cartcount {
   position: relative;
+  cursor: pointer;
 }
 
 .cartcount .shoppingcount {

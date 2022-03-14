@@ -5,7 +5,7 @@ import imgMinus from './img/minus.png';
 import imgPlus from './img/plus.png';
 
 function CartItem({ productData }) {
-	console.log(typeof (productData.images));
+	// console.log(typeof (productData.images));
 	return (
 		<div className="shoppingcart__item">
 			<div className="shoppingcart-item__image">
