@@ -48,7 +48,7 @@ function Cart({ cart, active, setActive }) {
 					<div className="shopping-container">
 						<div className="shoppingcart__totalprice">
 							<div className="shoppingcart-totalprice__text">Total</div>
-							<div className="shoppingcart-totalprice__pricetotal">$333</div>
+							<div className="shoppingcart-totalprice__pricetotal">${totalPrice}</div>
 						</div>
 						<div className="shoppingcart-button__further">Further</div>
 						<div className="shoppingcart-button__view">View cart</div>

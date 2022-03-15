@@ -3,9 +3,25 @@ import './css/cart.css'
 import imgTrash from './img/trash.png';
 import imgMinus from './img/minus.png';
 import imgPlus from './img/plus.png';
+import { useEffect, useState } from 'react';
 
 function CartItem({ productData }) {
+	const [totalPrice, setTotalPrice] = useState(0);
+	const [totalItem, setTotalItem] = useState(0);
+
 	console.log(productData);
+
+	useEffect(() => {
+		let items = 0;
+		let price = 0;
+
+		items += productData.qty;
+		price += productData.qty * productData.price;
+
+		setTotalItem(items);
+		setTotalPrice(price);
+	}, [productData, totalItem, totalPrice, setTotalItem, setTotalPrice])
+
 	return (
 		<div className="shoppingcart__item">
 			<div className="shoppingcart-item__image">
@@ -19,12 +35,12 @@ function CartItem({ productData }) {
 						<div className="shopping-item-params-info-number__add">
 							<img src={imgMinus} alt="imgCard" />
 						</div>
-						<div className="shopping-item-params-info-number__amount">1</div>
+						<div className="shopping-item-params-info-number__amount">{totalItem}</div>
 						<div className="shopping-item-params-info-number__add">
 							<img src={imgPlus} alt="imgCard" />
 						</div>
 					</div>
-					<div className="shopping-item-params-info__price">$ {productData.price}</div>
+					<div className="shopping-item-params-info__price">$ {totalPrice}</div>
 					<div className="shopping-item-params-info__trash">
 						<img src={imgTrash} alt="imgCard" />
 					</div>
