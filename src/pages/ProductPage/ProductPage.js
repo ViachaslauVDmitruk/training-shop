@@ -47,10 +47,12 @@ function ProductPage({ props, addToCart, productData }) {
 	let arrImageWithColor = [];
 	let [selectedSize, setSelectedSize] = useState(item.sizes[0]);
 	let [selectedColor, isSelectedColor] = useState(item.images[0].color);
+	let [selectedImage, setSelectedImage] = useState(item.images[0].url);
 
 	useEffect(() => {
 		setSelectedSize(item.sizes[0]);
 		isSelectedColor(item.images[0].color);
+		setSelectedImage(item.images[0].url);
 	}, [item]);
 
 	item.images.forEach(img => {
@@ -128,7 +130,11 @@ function ProductPage({ props, addToCart, productData }) {
 										<div className="product-info-parametrs__type">
 											<div className="parametrs-type__columns">
 												{arrImageWithColor.map(item =>
-													<div key={item.color} className={classNames("parametrs-type-column__image", { border: selectedColor === item.color })} onClick={() => isSelectedColor(item.color)}>
+													<div key={item.color} className={classNames("parametrs-type-column__image", { border: selectedColor === item.color })} onClick={() => {
+														isSelectedColor(item.color);
+														setSelectedImage(item.url);
+													}
+													}>
 														<img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" />
 													</div>)}
 											</div>
@@ -150,7 +156,7 @@ function ProductPage({ props, addToCart, productData }) {
 									<div className="product-info__cost">
 										<div className="product-info-cost__block">$ {item.price}</div>
 										<div className="product-info-cost__row">
-											<button onClick={() => addToCart(item.id)} className="product-info__addcard">Add to card</button>
+											<button onClick={() => addToCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name)} className="product-info__addcard">Add to card</button>
 											<div className="protuct-info-cost__image">
 												<img src={heart} alt="heart" />
 											</div>
@@ -260,8 +266,10 @@ function ProductPage({ props, addToCart, productData }) {
 }
 
 const mapDispatchToProps = dispatch => {
+
 	return {
-		addToCart: (id) => dispatch(addToCart(id))
+		addToCart: (item, color, size, image, price, name) => dispatch(addToCart(item, color, size, image, price, name))
+
 	}
 }
 

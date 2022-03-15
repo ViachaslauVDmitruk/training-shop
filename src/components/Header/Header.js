@@ -39,7 +39,6 @@ function Header({ cart }) {
 		})
 		setCartCount(count);
 	}, [cart, cartCount])
-
 	return (
 		<div className='header' data-test-id='header'>
 			<div className="header__top">
@@ -114,7 +113,7 @@ function Header({ cart }) {
 								</div>
 								<div className="header-bottom__icon cartcount" onClick={() => toggleCart(!isCartOpen)}>
 									<img src={shoppingbag} alt="shoppingbag" />
-									<div className="shoppingcount">{cartCount}</div>
+									<div className={classNames("shoppingcount", { visiblecount: cartCount })}>{cartCount}</div>
 								</div>
 								<div data-test-id='burger-menu-btn' className={classNames('burger-menu-btn', { visible: isMenuOpen })}
 									onClick={toggleMenuMode}

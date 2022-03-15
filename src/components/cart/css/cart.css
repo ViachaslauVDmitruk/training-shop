@@ -177,6 +177,11 @@
           justify-content: space-between;
 }
 
+.shoppingcart__scroll {
+  max-height: 680px;
+  overflow-y: scroll;
+}
+
 .shopping-item-params-info__number {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -132,6 +132,13 @@
 		justify-content: space-between;
 	}
 }
+.shoppingcart {
+	&__scroll {
+		max-height: 680px;
+		overflow-y: scroll;
+	}
+}
+
 .shopping-item-params-info {
 	&__number {
 		display: flex;

@@ -1,14 +1,24 @@
 import './css/cart.css'
-// import imgCard from '../sliderproduct/img/01.jpg';
-// import imgTrash from './img/trash.png';
-// import imgMinus from './img/minus.png';
-// import imgPlus from './img/plus.png';
 import imgExit from './img/close.png';
 import classNames from 'classnames';
 import CartItem from './cartItem';
 import { connect } from 'react-redux';
+import { useEffect, useState } from 'react';
 
-function Cart({ products, active, setActive }) {
+function Cart({ cart, active, setActive }) {
+	const [totalPrice, setTotalPrice] = useState(0);
+	const [totalItem, setTotalItem] = useState(0);
+
+	useEffect(() => {
+		let items = 0;
+		let price = 0;
+		cart.forEach(item => {
+			items += item.qty;
+			price += item.qty * item.price;
+		})
+		setTotalItem(items);
+		setTotalPrice(price);
+	}, [cart, totalItem, totalPrice, setTotalItem, setTotalPrice])
 
 	return (
 		<div className={classNames('cart', { "cart_visible": active === true })} onClick={() => setActive(false)}>
@@ -29,32 +39,9 @@ function Cart({ products, active, setActive }) {
 				<div className='shoppingcart__main'>
 					<div className="shopping-container">
 						<div className="shoppingcart__info">Item in Cart</div>
-						{/* <div className="shoppingcart__item">
-							<div className="shoppingcart-item__image">
-								<img src={imgCard} alt="imgCard" />
-							</div>
-							<div className="shopping-item__params">
-								<div className="shopping-item-params__name">Women's tracksuit Q109</div>
-								<div className="shopping-item-params__colorsize">Blue, S</div>
-								<div className="shopping-item-params__info">
-									<div className="shopping-item-params-info__number">
-										<div className="shopping-item-params-info-number__add">
-											<img src={imgMinus} alt="imgCard" />
-										</div>
-										<div className="shopping-item-params-info-number__amount">1</div>
-										<div className="shopping-item-params-info-number__add">
-											<img src={imgPlus} alt="imgCard" />
-										</div>
-									</div>
-									<div className="shopping-item-params-info__price">$333</div>
-									<div className="shopping-item-params-info__trash">
-										<img src={imgTrash} alt="imgCard" />
-									</div>
-								</div>
-							</div>
-						</div> */}
-						{products.map(item => (<CartItem key={item.id} productData={item} />))}
-
+						<div className="shoppingcart__scroll">
+							{cart.map(item => (<CartItem key={item.id + item.color + item.size} productData={item} />))}
+						</div>
 					</div>
 				</div>
 				<div className="shoppingcart__fotter">
@@ -75,7 +62,7 @@ function Cart({ products, active, setActive }) {
 const mapStateToProps = state => {
 
 	return {
-		products: state.shop.products,
+		cart: state.shop.cart,
 	}
 }
 

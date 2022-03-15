@@ -5,15 +5,15 @@ import imgMinus from './img/minus.png';
 import imgPlus from './img/plus.png';
 
 function CartItem({ productData }) {
-	// console.log(typeof (productData.images));
+	console.log(productData);
 	return (
 		<div className="shoppingcart__item">
 			<div className="shoppingcart-item__image">
-				<img src={`https://training.cleverland.by/shop${productData.images[0].url}`} alt="imgCard" />
+				<img src={`https://training.cleverland.by/shop${productData.image}`} alt="imgCard" />
 			</div>
 			<div className="shopping-item__params">
 				<div className="shopping-item-params__name">{productData.name}</div>
-				<div className="shopping-item-params__colorsize">Blue, S</div>
+				<div className="shopping-item-params__colorsize">{productData.color}, {productData.size}</div>
 				<div className="shopping-item-params__info">
 					<div className="shopping-item-params-info__number">
 						<div className="shopping-item-params-info-number__add">
