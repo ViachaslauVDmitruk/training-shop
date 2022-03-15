@@ -1333,21 +1333,24 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 			const inCart = state.cart.find((item) => {
 				return (item.id === action.payload.id) && (item.color === action.payload.color) && (item.size === action.payload.size)
 			});
-			console.log('action.payload.color', action.payload.color);
-			console.log('action.payload.id', action.payload.id);
-			console.log('action.payload.price', action.payload.price);
-			console.log('action.payload.name', action.payload.name);
-			console.log('action.payload.image', action.payload.image);
+
+			// console.log('action.payload.price', action.payload.price);
+			// console.log('action.payload.name', action.payload.name);
+
 			return {
 				...state,
 				// cart: inCart ? state.cart.map(item => item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item) : [...state.cart, { ...item, qty: 1 }]
 				cart: inCart ? state.cart.map(item => item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item) : [...state.cart, { ...item, qty: 1 }]
 			};
 		case actionTypes.REMOVE_FROM_CART:
+			// console.log('action.payload.color', action.payload.color);
+			// console.log('action.payload.id', action.payload.id);
+			// console.log('action.payload.size', action.payload.size);
+			// console.log('cart action', state.cart);
 
 			return {
 				...state,
-				cart: state.cart.filter(item => item.id !== action.payload.id)
+				cart: state.cart.filter(item => ((item.id !== action.payload.id) || (item.color !== action.payload.color) || (item.size !== action.payload.size)))
 			};
 		case actionTypes.ADJUST_QTY:
 			return {

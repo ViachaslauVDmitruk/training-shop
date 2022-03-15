@@ -19,7 +19,7 @@ function Cart({ cart, active, setActive }) {
 		setTotalItem(items);
 		setTotalPrice(price);
 	}, [cart, totalItem, totalPrice, setTotalItem, setTotalPrice])
-
+	console.log('cart', cart)
 	return (
 		<div className={classNames('cart', { "cart_visible": active === true })} onClick={() => setActive(false)}>
 			<div className="mask"></div>

@@ -4,12 +4,14 @@ import imgTrash from './img/trash.png';
 import imgMinus from './img/minus.png';
 import imgPlus from './img/plus.png';
 import { useEffect, useState } from 'react';
+import { removeFromCart } from '../../redux/Shopping/shopping-actions';
+import { connect } from 'react-redux'
 
-function CartItem({ productData }) {
+function CartItem({ productData, removeFromCart }) {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalItem, setTotalItem] = useState(0);
 
-	console.log(productData);
+	// console.log(productData);
 
 	useEffect(() => {
 		let items = 0;
@@ -21,6 +23,7 @@ function CartItem({ productData }) {
 		setTotalItem(items);
 		setTotalPrice(price);
 	}, [productData, totalItem, totalPrice, setTotalItem, setTotalPrice])
+	console.log('productdata', productData);
 
 	return (
 		<div className="shoppingcart__item">
@@ -41,7 +44,7 @@ function CartItem({ productData }) {
 						</div>
 					</div>
 					<div className="shopping-item-params-info__price">$ {totalPrice}</div>
-					<div className="shopping-item-params-info__trash">
+					<div onClick={() => removeFromCart(productData.id, productData.color, productData.size)} className="shopping-item-params-info__trash">
 						<img src={imgTrash} alt="imgCard" />
 					</div>
 				</div>
@@ -50,4 +53,10 @@ function CartItem({ productData }) {
 	)
 }
 
-export default CartItem;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		removeFromCart: (id, color, size) => dispatch(removeFromCart(id, color, size))
+	}
+}
+
+export default connect(null, mapDispatchToProps)(CartItem);

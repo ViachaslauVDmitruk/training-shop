@@ -14,11 +14,14 @@ export const addToCart = (itemID, itemColor, itemSize, itemImage, itemPrice, ite
 	}
 }
 
-export const removeFromCart = (itemID) => {
+export const removeFromCart = (itemID, itemColor, itemSize) => {
 	return {
 		type: actionTypes.REMOVE_FROM_CART,
 		payload: {
 			id: itemID,
+			color: itemColor,
+			size: itemSize,
+
 		}
 	}
 }
