@@ -1,5 +1,4 @@
 import './css/cart.css'
-// import imgCard from '../sliderproduct/img/01.jpg';
 import imgTrash from './img/trash.png';
 import imgMinus from './img/minus.png';
 import imgPlus from './img/plus.png';
@@ -11,19 +10,14 @@ function CartItem({ productData, removeFromCart }) {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalItem, setTotalItem] = useState(0);
 
-	// console.log(productData);
-
 	useEffect(() => {
 		let items = 0;
 		let price = 0;
-
 		items += productData.qty;
 		price += productData.qty * productData.price;
-
 		setTotalItem(items);
 		setTotalPrice(price);
 	}, [productData, totalItem, totalPrice, setTotalItem, setTotalPrice])
-	console.log('productdata', productData);
 
 	return (
 		<div className="shoppingcart__item">
