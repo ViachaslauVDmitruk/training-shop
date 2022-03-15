@@ -28,7 +28,7 @@ import Rating from '../../components/rating/rating';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import { addToCart } from '../../redux/Shopping/shopping-actions';
+import { addToCart, removeFromCart } from '../../redux/Shopping/shopping-actions';
 
 const logo = [
 	{ img: logo01, },
@@ -40,7 +40,7 @@ const logo = [
 	{ img: logo07, },
 ]
 
-function ProductPage({ props, addToCart, productData }) {
+function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	let { type, id } = useParams();
 	let item = getItem(type, id);
 	let arrColor = [];
@@ -48,12 +48,20 @@ function ProductPage({ props, addToCart, productData }) {
 	let [selectedSize, setSelectedSize] = useState(item.sizes[0]);
 	let [selectedColor, isSelectedColor] = useState(item.images[0].color);
 	let [selectedImage, setSelectedImage] = useState(item.images[0].url);
+	let [inCart, setInCart] = useState(false);
 
 	useEffect(() => {
 		setSelectedSize(item.sizes[0]);
 		isSelectedColor(item.images[0].color);
 		setSelectedImage(item.images[0].url);
+		setInCart(false);
 	}, [item]);
+
+	useEffect(() => {
+		setInCart(() => {
+			return cart.find(item => (item.size === selectedSize && item.color === selectedColor))
+		})
+	}, [selectedColor, selectedSize, cart, setInCart]);
 
 	item.images.forEach(img => {
 		if (!arrColor.includes(img.color)) {
@@ -61,6 +69,11 @@ function ProductPage({ props, addToCart, productData }) {
 			arrImageWithColor.push(img)
 		}
 	});
+	function inCartToggleMode() {
+		if (cart.some(item => ((item.color === selectedColor) && (item.size === selectedSize)))) {
+			setInCart(!inCart)
+		} else { setInCart(inCart) }
+	}
 
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
@@ -156,7 +169,16 @@ function ProductPage({ props, addToCart, productData }) {
 									<div className="product-info__cost">
 										<div className="product-info-cost__block">$ {item.price}</div>
 										<div className="product-info-cost__row">
-											<button onClick={() => addToCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name)} className="product-info__addcard">Add to card</button>
+											<button onClick={() => { addToCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { notincart: !inCart })}>
+												<div className="buttoncart">
+													Add to cart
+												</div>
+											</button>
+											<button onClick={() => { removeFromCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { incart: inCart })}>
+												<div className="buttoncart">
+													Remove from cart
+												</div>
+											</button>
 											<div className="protuct-info-cost__image">
 												<img src={heart} alt="heart" />
 											</div>
@@ -265,12 +287,20 @@ function ProductPage({ props, addToCart, productData }) {
 	);
 }
 
-const mapDispatchToProps = dispatch => {
 
+const mapStateToProps = state => {
 	return {
-		addToCart: (item, color, size, image, price, name) => dispatch(addToCart(item, color, size, image, price, name))
-
+		cart: state.shop.cart,
 	}
 }
 
-export default connect(null, mapDispatchToProps)(ProductPage);
+const mapDispatchToProps = dispatch => {
+
+	return {
+		addToCart: (item, color, size, image, price, name) => dispatch(addToCart(item, color, size, image, price, name)),
+		removeFromCart: (id, color, size) => dispatch(removeFromCart(id, color, size)),
+	}
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps, null)(ProductPage);
