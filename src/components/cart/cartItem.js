@@ -28,7 +28,7 @@ function CartItem({ productData, removeFromCart, adjustQty }) {
 		setTotalPrice(price);
 		setTotalItem(items);
 		adjustQty(productData.id, productData.color, productData.size, items)
-	}
+	};
 
 	return (
 		<div data-test-id='cart-card' className="shoppingcart__item">
