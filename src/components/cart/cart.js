@@ -14,7 +14,7 @@ function Cart({ cart, active, setActive }) {
 		let price = 0;
 		cart.forEach(item => {
 			items += item.qty;
-			price += item.qty * item.price;
+			price = Math.round(((Math.round((item.qty * item.price) * 100)) / 100 + price) * 100) / 100;
 		})
 		setTotalItem(items);
 		setTotalPrice(price);
@@ -52,7 +52,7 @@ function Cart({ cart, active, setActive }) {
 								<div className="shoppingcart-totalprice__pricetotal">${totalPrice}</div>
 							</div>
 							<div className="shoppingcart-button__further">Further</div>
-							<div className="shoppingcart-button__view">View cart</div>
+							<div className="shoppingcart-button__view" onClick={() => setActive(false)}>View cart</div>
 						</div>
 					</div>
 				</div>

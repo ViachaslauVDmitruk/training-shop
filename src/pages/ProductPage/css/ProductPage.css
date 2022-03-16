@@ -458,6 +458,12 @@
   color: #ffffff;
   opacity: 0.9;
   padding: 17px 24px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.notincart:hover {
+  background-color: #ff9901;
 }
 
 .incart {
@@ -478,6 +484,12 @@
   color: #ffffff;
   opacity: 0.9;
   padding: 17px 24px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.incart:hover {
+  background-color: #ff9901;
 }
 
 .protuct-info-cost__image {

@@ -26,11 +26,13 @@ export const removeFromCart = (itemID, itemColor, itemSize) => {
 	}
 }
 
-export const adjustQty = (itemID, value) => {
+export const adjustQty = (itemID, itemColor, itemSize, value) => {
 	return {
 		type: actionTypes.ADJUST_QTY,
 		payload: {
 			id: itemID,
+			color: itemColor,
+			size: itemSize,
 			qty: value,
 		}
 	}

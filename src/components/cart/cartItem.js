@@ -2,22 +2,33 @@ import './css/cart.css'
 import imgTrash from './img/trash.png';
 import imgMinus from './img/minus.png';
 import imgPlus from './img/plus.png';
-import { useEffect, useState } from 'react';
-import { removeFromCart } from '../../redux/Shopping/shopping-actions';
+import { useState } from 'react';
+import { adjustQty, removeFromCart } from '../../redux/Shopping/shopping-actions';
 import { connect } from 'react-redux'
 
-function CartItem({ productData, removeFromCart }) {
-	const [totalPrice, setTotalPrice] = useState(0);
-	const [totalItem, setTotalItem] = useState(0);
+function CartItem({ productData, removeFromCart, adjustQty }) {
+	const [totalPrice, setTotalPrice] = useState(productData.price);
+	const [totalItem, setTotalItem] = useState(1);
+	let items = 1;
+	let price = 0;
 
-	useEffect(() => {
-		let items = 0;
-		let price = 0;
-		items += productData.qty;
-		price += productData.qty * productData.price;
-		setTotalItem(items);
+	function itemPlus(count) {
+		items = 1 + count
+		price = (Math.round((items * productData.price) * 100)) / 100;
 		setTotalPrice(price);
-	}, [productData, totalItem, totalPrice, setTotalItem, setTotalPrice])
+		setTotalItem(items);
+		adjustQty(productData.id, productData.color, productData.size, items)
+	}
+	function itemMinus(count) {
+		if (count === 1) {
+			return
+		};
+		items = count - 1
+		price = (Math.round((items * productData.price) * 100)) / 100;
+		setTotalPrice(price);
+		setTotalItem(items);
+		adjustQty(productData.id, productData.color, productData.size, items)
+	}
 
 	return (
 		<div className="shoppingcart__item">
@@ -29,11 +40,11 @@ function CartItem({ productData, removeFromCart }) {
 				<div className="shopping-item-params__colorsize">{productData.color}, {productData.size}</div>
 				<div className="shopping-item-params__info">
 					<div className="shopping-item-params-info__number">
-						<div className="shopping-item-params-info-number__add">
+						<div className="shopping-item-params-info-number__add" onClick={() => itemMinus(totalItem)}>
 							<img src={imgMinus} alt="imgCard" />
 						</div>
 						<div className="shopping-item-params-info-number__amount">{totalItem}</div>
-						<div className="shopping-item-params-info-number__add">
+						<div className="shopping-item-params-info-number__add" onClick={() => itemPlus(totalItem)}>
 							<img src={imgPlus} alt="imgCard" />
 						</div>
 					</div>
@@ -49,7 +60,8 @@ function CartItem({ productData, removeFromCart }) {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		removeFromCart: (id, color, size) => dispatch(removeFromCart(id, color, size))
+		removeFromCart: (id, color, size) => dispatch(removeFromCart(id, color, size)),
+		adjustQty: (id, color, size, qty) => dispatch(adjustQty(id, color, size, qty))
 	}
 }
 

@@ -1318,10 +1318,6 @@ const INITIAL_STATE = {
 const shopReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case actionTypes.ADD_TO_CART:
-			// const item = state.products.find(prod => prod.id === action.payload.id);
-			// const itemFiltered = item.map((cloth) => {
-			// 	return cloth.images.filter(img => img.color === action.payload.color) && (cloth.sizes.filter(size => size.sizes === action.payload.sizes))
-			// })
 			const item = {
 				color: action.payload.color,
 				size: action.payload.size,
@@ -1331,33 +1327,29 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				price: action.payload.price,
 			}
 			const inCart = state.cart.find((item) => {
+
 				return (item.id === action.payload.id) && (item.color === action.payload.color) && (item.size === action.payload.size)
 			});
 
-			// console.log('action.payload.price', action.payload.price);
-			// console.log('action.payload.name', action.payload.name);
-
 			return {
 				...state,
-				// cart: inCart ? state.cart.map(item => item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item) : [...state.cart, { ...item, qty: 1 }]
 				cart: inCart ? state.cart.map(item => item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item) : [...state.cart, { ...item, qty: 1 }]
 			};
 		case actionTypes.REMOVE_FROM_CART:
-			// console.log('action.payload.color', action.payload.color);
-			// console.log('action.payload.id', action.payload.id);
-			// console.log('action.payload.size', action.payload.size);
-			// console.log('cart action', state.cart);
 
 			return {
 				...state,
 				cart: state.cart.filter(item => ((item.id !== action.payload.id) || (item.color !== action.payload.color) || (item.size !== action.payload.size)))
 			};
 		case actionTypes.ADJUST_QTY:
+
 			return {
 				...state,
-				cart: state.cart.map(item => item.id === action.payload.id ? { ...item, qty: action.payload.qty } : item)
+				cart: state.cart.map(item => ((item.id === action.payload.id) && (item.color === action.payload.color) && (item.size === action.payload.size)) ? { ...item, qty: action.payload.qty } : item)
+
 			};
 		case actionTypes.LOAD_CURRENT_ITEM:
+
 			return {
 				...state,
 				currentItem: action.payload,

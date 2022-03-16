@@ -200,6 +200,10 @@
   color: #121212;
 }
 
+.shopping-item-params-info__trash {
+  padding: 0px 10px 0px 0px;
+}
+
 .shopping-item-params-info-number__add {
   display: -webkit-box;
   display: -ms-flexbox;
