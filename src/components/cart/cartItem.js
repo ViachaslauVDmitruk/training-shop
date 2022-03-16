@@ -40,17 +40,17 @@ function CartItem({ productData, removeFromCart, adjustQty }) {
 				<div className="shopping-item-params__colorsize">{productData.color}, {productData.size}</div>
 				<div className="shopping-item-params__info">
 					<div className="shopping-item-params-info__number">
-						<button className="shopping-item-params-info-number__add" onClick={() => itemMinus(totalItem)}>
-							<img data-test-id='minus-product' src={imgMinus} alt="imgCard" />
+						<button data-test-id='minus-product' className="shopping-item-params-info-number__add" onClick={() => itemMinus(totalItem)}>
+							<img src={imgMinus} alt="imgCard" />
 						</button>
 						<div className="shopping-item-params-info-number__amount">{totalItem}</div>
-						<button className="shopping-item-params-info-number__add" onClick={() => itemPlus(totalItem)}>
-							<img data-test-id='plus-product' src={imgPlus} alt="imgCard" />
+						<button data-test-id='plus-product' className="shopping-item-params-info-number__add" onClick={() => itemPlus(totalItem)}>
+							<img src={imgPlus} alt="imgCard" />
 						</button>
 					</div>
 					<div className="shopping-item-params-info__price">$ {totalPrice}</div>
-					<div onClick={() => removeFromCart(productData.id, productData.color, productData.size)} className="shopping-item-params-info__trash">
-						<img data-test-id='remove-product' src={imgTrash} alt="imgCard" />
+					<div data-test-id='remove-product' onClick={() => removeFromCart(productData.id, productData.color, productData.size)} className="shopping-item-params-info__trash">
+						<img src={imgTrash} alt="imgCard" />
 					</div>
 				</div>
 			</div>
