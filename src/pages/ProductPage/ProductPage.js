@@ -170,14 +170,10 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 										<div className="product-info-cost__block">$ {item.price}</div>
 										<div className="product-info-cost__row">
 											<button data-test-id='add-cart-button' onClick={() => { addToCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { notincart: !inCart })}>
-												<div className="buttoncart">
-													Add to card
-												</div>
+												Add to card
 											</button>
 											<button data-test-id='add-cart-button' onClick={() => { removeFromCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { incart: inCart })}>
-												<div className="buttoncart">
-													Remove card
-												</div>
+												Remove to card
 											</button>
 											<div className="protuct-info-cost__image">
 												<img src={heart} alt="heart" />

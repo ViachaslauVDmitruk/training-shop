@@ -36,7 +36,15 @@ function Header({ cart }) {
 		let count = 0;
 		count = cart.length
 		setCartCount(count);
-	}, [cart, cartCount])
+	}, [cart, cartCount]);
+	useEffect(() => {
+		if (isCartOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'unset';
+		}
+	})
+
 	return (
 		<div className='header' data-test-id='header'>
 			<div className="header__top">
