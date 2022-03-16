@@ -31,7 +31,7 @@ function CartItem({ productData, removeFromCart, adjustQty }) {
 	}
 
 	return (
-		<div className="shoppingcart__item">
+		<div data-test-id='cart-card' className="shoppingcart__item">
 			<div className="shoppingcart-item__image">
 				<img src={`https://training.cleverland.by/shop${productData.image}`} alt="imgCard" />
 			</div>
@@ -40,16 +40,16 @@ function CartItem({ productData, removeFromCart, adjustQty }) {
 				<div className="shopping-item-params__colorsize">{productData.color}, {productData.size}</div>
 				<div className="shopping-item-params__info">
 					<div className="shopping-item-params-info__number">
-						<div className="shopping-item-params-info-number__add" onClick={() => itemMinus(totalItem)}>
+						<div data-test-id='minus-product' className="shopping-item-params-info-number__add" onClick={() => itemMinus(totalItem)}>
 							<img src={imgMinus} alt="imgCard" />
 						</div>
 						<div className="shopping-item-params-info-number__amount">{totalItem}</div>
-						<div className="shopping-item-params-info-number__add" onClick={() => itemPlus(totalItem)}>
+						<div data-test-id='plus-product' className="shopping-item-params-info-number__add" onClick={() => itemPlus(totalItem)}>
 							<img src={imgPlus} alt="imgCard" />
 						</div>
 					</div>
 					<div className="shopping-item-params-info__price">$ {totalPrice}</div>
-					<div onClick={() => removeFromCart(productData.id, productData.color, productData.size)} className="shopping-item-params-info__trash">
+					<div data-test-id='remove-product' onClick={() => removeFromCart(productData.id, productData.color, productData.size)} className="shopping-item-params-info__trash">
 						<img src={imgTrash} alt="imgCard" />
 					</div>
 				</div>

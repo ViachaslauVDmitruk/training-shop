@@ -109,7 +109,7 @@ function Header({ cart }) {
 								<div className="header-bottom__icon">
 									<img src={user} alt="user" />
 								</div>
-								<div className="header-bottom__icon cartcount" onClick={() => toggleCart(!isCartOpen)}>
+								<div data-test-id='cart-button' className="header-bottom__icon cartcount" onClick={() => toggleCart(!isCartOpen)}>
 									<img src={shoppingbag} alt="shoppingbag" />
 									<div className={classNames("shoppingcount", { visiblecount: cartCount })}>{cartCount}</div>
 								</div>

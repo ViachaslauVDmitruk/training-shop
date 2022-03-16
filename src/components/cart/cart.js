@@ -23,7 +23,7 @@ function Cart({ cart, active, setActive }) {
 	return (
 		<div className={classNames('cart', { "cart_visible": active === true })} onClick={() => setActive(false)}>
 			<div className="mask"></div>
-			<div className="shoppingcart" onClick={e => e.stopPropagation()}>
+			<div data-test-id='cart' className="shoppingcart" onClick={e => e.stopPropagation()}>
 				<div className="shoppingcart__header">
 					<div className="shopping-container">
 						<div className='shoppingcart__top'>
