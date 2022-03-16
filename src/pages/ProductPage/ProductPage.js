@@ -172,7 +172,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 											<button data-test-id='add-cart-button' onClick={() => { addToCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { notincart: !inCart })}>
 												Add to card
 											</button>
-											<button data-test-id='add-cart-button' onClick={() => { removeFromCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { incart: inCart })}>
+											<button onClick={() => { removeFromCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { incart: inCart })}>
 												Remove to card
 											</button>
 											<div className="protuct-info-cost__image">
