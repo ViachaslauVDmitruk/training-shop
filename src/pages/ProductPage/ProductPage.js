@@ -49,7 +49,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	let [selectedColor, isSelectedColor] = useState(item.images[0].color);
 	let [selectedImage, setSelectedImage] = useState(item.images[0].url);
 	let [inCart, setInCart] = useState(false);
-
+	console.log('item.id', item.id);
 	useEffect(() => {
 		setSelectedSize(item.sizes[0]);
 		isSelectedColor(item.images[0].color);
@@ -59,9 +59,9 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 
 	useEffect(() => {
 		setInCart(() => {
-			return cart.find(item => (item.size === selectedSize && item.color === selectedColor))
+			return cart.find(elem => ((elem.color === selectedColor) && (elem.size === selectedSize) && (elem.id === item.id)))
 		})
-	}, [selectedColor, selectedSize, cart, setInCart]);
+	}, [selectedColor, selectedSize, cart, setInCart, item]);
 
 	item.images.forEach(img => {
 		if (!arrColor.includes(img.color)) {
@@ -69,11 +69,14 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 			arrImageWithColor.push(img)
 		}
 	});
+
 	function inCartToggleMode() {
-		if (cart.some(item => ((item.color === selectedColor) && (item.size === selectedSize)))) {
+		if (cart.some(elem => ((elem.color === selectedColor) && (elem.size === selectedSize) && (elem.id === item.id)))) {
 			setInCart(!inCart)
-		} else { setInCart(inCart) }
-	}
+		} else {
+			setInCart(inCart)
+		}
+	};
 
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
