@@ -306,11 +306,12 @@
 }
 
 .border {
-  border: solid 2px #121212;
+  outline: solid 2px #121212;
 }
 
 .parametrs-type-column__image {
   margin: 0px 16px 0px 0px;
+  cursor: pointer;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
   max-height: auto;
@@ -385,6 +386,7 @@
   margin: 0px 16px 0px 0px;
   padding: 0px 5px;
   background-color: #f3f0f0;
+  cursor: pointer;
 }
 
 .type-sizes__block:last-child {
@@ -460,6 +462,7 @@
   padding: 17px 24px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  cursor: pointer;
 }
 
 .notincart:hover {
@@ -486,6 +489,7 @@
   padding: 17px 24px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  cursor: pointer;
 }
 
 .incart:hover {

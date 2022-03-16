@@ -224,11 +224,12 @@
 	}
 }
 .border {
-	border: solid 2px #121212;
+	outline: solid 2px #121212;
 }
 .parametrs-type-column {
 	&__image {
 		margin: 0px 16px 0px 0px;
+		cursor: pointer;
 		&:last-child {
 			margin: 0;
 		}
@@ -286,6 +287,7 @@
 		margin: 0px 16px 0px 0px;
 		padding: 0px 5px;
 		background-color: #f3f0f0;
+		cursor: pointer;
 		&:last-child {
 			margin: 0;
 		}
@@ -353,6 +355,7 @@
 	opacity: 0.9;
 	padding: 17px 24px;
 	box-sizing: border-box;
+	cursor: pointer;
 }
 .incart {
 	&:hover {
@@ -372,6 +375,7 @@
 	opacity: 0.9;
 	padding: 17px 24px;
 	box-sizing: border-box;
+	cursor: pointer;
 }
 .protuct-info-cost {
 	&__image {

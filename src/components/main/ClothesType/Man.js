@@ -4,6 +4,7 @@ import CardItem from '../../CardItem/CardItem';
 import { getItemsByType } from '../../../products';
 import { MAIN_CLOTHES_BLOCK_MENU } from '../../../particular';
 import { useState } from 'react';
+import classNames from 'classnames';
 
 function ClothesMan(props) {
 	let related = getItemsByType('men');
@@ -21,7 +22,7 @@ function ClothesMan(props) {
 						<div className="navigate-menu__column">
 							<nav className="navigate-menu__list">
 								<ul className="navigate-menu__links">
-									{MAIN_CLOTHES_BLOCK_MENU.map(item => <li key={item.particularName} data-test-id={`clothes-men-${item.particularName}`} onClick={() => setParticular(item.particularName)} > <div className='navigate-menu__link' >{item.name}</div></li>)}
+									{MAIN_CLOTHES_BLOCK_MENU.map(item => <li key={item.particularName} data-test-id={`clothes-men-${item.particularName}`} onClick={() => setParticular(item.particularName)} > <div className={classNames('navigate-menu__link', { selected: item.particularName === particular })} >{item.name}</div></li>)}
 								</ul>
 							</nav>
 						</div>

@@ -18,7 +18,7 @@ function Cart({ cart, active, setActive }) {
 		})
 		setTotalItem(items);
 		setTotalPrice(price);
-	}, [cart, totalItem, totalPrice, setTotalItem, setTotalPrice])
+	}, [cart, totalItem, totalPrice, setTotalItem, setTotalPrice]);
 
 	return (
 		<div className={classNames('cart', { "cart_visible": active === true })} onClick={() => setActive(false)}>
@@ -36,24 +36,24 @@ function Cart({ cart, active, setActive }) {
 						</div>
 					</div>
 				</div>
+				<div className="shopping-container">
+					<div className={classNames("shoppingcart__info", { disable: totalItem === 0 })} >Item in Cart</div>
+				</div>
 				<div className={classNames("shoppingcart-empty", { notempty: totalItem })}>
 					<div className='shoppingcart__main'>
 						<div className="shopping-container">
-							<div className="shoppingcart__info">Item in Cart</div>
-							<div className="shoppingcart__scroll">
-								{cart.map(item => (<CartItem key={item.id + item.color + item.size} productData={item} />))}
-							</div>
+							{cart.map(item => (<CartItem key={item.id + item.color + item.size} productData={item} />))}
 						</div>
 					</div>
-					<div className="shoppingcart__fotter">
-						<div className="shopping-container">
-							<div className="shoppingcart__totalprice">
-								<div className="shoppingcart-totalprice__text">Total</div>
-								<div className="shoppingcart-totalprice__pricetotal">${totalPrice}</div>
-							</div>
-							<div className="shoppingcart-button__further">Further</div>
-							<div className="shoppingcart-button__view" onClick={() => setActive(false)}>View cart</div>
+				</div>
+				<div className={classNames("shoppingcart__fotter", { disable: totalItem === 0 })} >
+					<div className="shopping-container">
+						<div className="shoppingcart__totalprice">
+							<div className="shoppingcart-totalprice__text">Total</div>
+							<div className="shoppingcart-totalprice__pricetotal">${totalPrice}</div>
 						</div>
+						<div className="shoppingcart-button__further">Further</div>
+						<div className="shoppingcart-button__view" onClick={() => setActive(false)}>View cart</div>
 					</div>
 				</div>
 				<div className={classNames("shoppingcart-empty", { empty: totalItem === 0 })}>
