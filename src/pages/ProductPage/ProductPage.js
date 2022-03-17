@@ -69,7 +69,6 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 			arrImageWithColor.push(img)
 		}
 	});
-
 	function inCartToggleMode() {
 		if (cart.some(elem => ((elem.color === selectedColor) && (elem.size === selectedSize) && (elem.id === item.id)))) {
 			setInCart(!inCart)
