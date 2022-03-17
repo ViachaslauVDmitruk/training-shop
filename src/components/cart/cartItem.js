@@ -40,13 +40,13 @@ function CartItem({ productData, removeFromCart, adjustQty }) {
 				<div className="shopping-item-params__colorsize">{productData.color}, {productData.size}</div>
 				<div className="shopping-item-params__info">
 					<div className="shopping-item-params-info__number">
-						<button data-test-id='minus-product' className="shopping-item-params-info-number__add" onClick={() => itemMinus(totalItem)}>
+						<div data-test-id='minus-product' className="shopping-item-params-info-number__add" onClick={() => itemMinus(totalItem)}>
 							<img src={imgMinus} alt="imgCard" />
-						</button>
+						</div>
 						<div className="shopping-item-params-info-number__amount">{totalItem}</div>
-						<button data-test-id='plus-product' className="shopping-item-params-info-number__add" onClick={() => itemPlus(totalItem)}>
+						<div data-test-id='plus-product' className="shopping-item-params-info-number__add" onClick={() => itemPlus(totalItem)}>
 							<img src={imgPlus} alt="imgCard" />
-						</button>
+						</div>
 					</div>
 					<div className="shopping-item-params-info__price">$ {totalPrice}</div>
 					<div data-test-id='remove-product' onClick={() => removeFromCart(productData.id, productData.color, productData.size)} className="shopping-item-params-info__trash">

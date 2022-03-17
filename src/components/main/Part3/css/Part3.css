@@ -206,6 +206,16 @@
   color: #121212;
 }
 
+.parth3-item-box__discount {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  opacity: 0.8;
+  text-decoration: line-through;
+  color: #121212;
+  padding: 0px 40px 0px 0px;
+}
+
 .parth3-item-box__grade img {
   height: 14px;
 }

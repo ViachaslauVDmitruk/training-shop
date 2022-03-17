@@ -5,9 +5,11 @@ import Rating from '../rating/rating';
 
 function CardItem(props) {
 	let isDiscount;
+	let newCost = null;
 	function discountMode() {
 		if (props.discount) {
 			isDiscount = true;
+			newCost = props.cost - (Math.round(props.cost * (parseInt(props.discount) / 100)) * 100) / 100;
 		} else {
 			isDiscount = false;
 		}
@@ -22,6 +24,7 @@ function CardItem(props) {
 			<div className="parth3-item__title">{props.name}</div>
 			<div className="parth3-item__box">
 				<div className="parth3-item-box__cost">{`${'$'} ${props.cost}`}</div>
+				<div className="parth3-item-box__discount">{newCost}</div>
 				<div className="parth3-item-box__grade">
 					<Rating ratingProps={props.rating} />
 				</div>
