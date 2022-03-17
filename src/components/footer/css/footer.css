@@ -106,6 +106,8 @@
   font-weight: 500;
   font-size: 13px;
   line-height: 18px;
+  color: #ffff;
+  opacity: 0.8;
 }
 
 .footer__input::-webkit-input-placeholder {
@@ -157,6 +159,7 @@
   opacity: 0.9;
   border: 1px solid #ffffff;
   background-color: #121212;
+  cursor: pointer;
 }
 
 .footer-top-social__list {
