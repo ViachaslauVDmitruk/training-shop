@@ -135,9 +135,7 @@
 }
 .discount-block {
 	display: none;
-}
-.discount-block.visible {
-	display: block;
+	// display: block;
 	position: absolute;
 	background: #e91e63;
 	color: #f8f8f8;
@@ -149,29 +147,38 @@
 	top: 0;
 	left: 0;
 }
-
+.discount-block.visible {
+	display: block;
+}
 .parth3-item-box {
+	&__cost-discount {
+		display: flex;
+	}
 	&__cost {
 		font-weight: 700;
 		font-size: 14px;
 		line-height: 16px;
 		color: #121212;
+		margin: 0px 10px 0px 0px;
 	}
 	&__discount {
+		display: none;
 		font-weight: 500;
 		font-size: 14px;
 		line-height: 16px;
 		opacity: 0.8;
 		text-decoration: line-through;
 		color: #121212;
-		padding: 0px 40px 0px 0px;
+		.visible {
+			display: block;
+		}
 	}
-
 	&__grade {
 		img {
 			height: 14px;
 		}
 	}
 }
-.parth3-item-box {
+.parth3-item-box__discount.visible {
+	display: block;
 }

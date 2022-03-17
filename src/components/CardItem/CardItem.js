@@ -23,8 +23,10 @@ function CardItem(props) {
 			</div>
 			<div className="parth3-item__title">{props.name}</div>
 			<div className="parth3-item__box">
-				<div className="parth3-item-box__cost">{`${'$'} ${props.cost}`}</div>
-				<div className="parth3-item-box__discount">{newCost}</div>
+				<div className='parth3-item-box__cost-discount'>
+					<div className="parth3-item-box__cost">{`${'$'} ${props.cost}`}</div>
+					<div className={classNames("parth3-item-box__discount", { visible: isDiscount })} >$ {newCost}</div>
+				</div>
 				<div className="parth3-item-box__grade">
 					<Rating ratingProps={props.rating} />
 				</div>

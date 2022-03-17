@@ -49,7 +49,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	let [selectedColor, isSelectedColor] = useState(item.images[0].color);
 	let [selectedImage, setSelectedImage] = useState(item.images[0].url);
 	let [inCart, setInCart] = useState(false);
-	console.log('item.id', item.id);
+
 	useEffect(() => {
 		setSelectedSize(item.sizes[0]);
 		isSelectedColor(item.images[0].color);
@@ -172,10 +172,10 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 										<div className="product-info-cost__block">$ {item.price}</div>
 										<div className="product-info-cost__row">
 											<button data-test-id='add-cart-button' onClick={() => { addToCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { notincart: !inCart })}>
-												Add to card
+												Add to cart
 											</button>
 											<button onClick={() => { removeFromCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { incart: inCart })}>
-												Remove to card
+												Remove from cart
 											</button>
 											<div className="protuct-info-cost__image">
 												<img src={heart} alt="heart" />
