@@ -38,9 +38,11 @@ export const adjustQty = (itemID, itemColor, itemSize, value) => {
 	}
 }
 
-export const loadCurrentItem = (item) => {
-	return {
-		type: actionTypes.LOAD_CURRENT_ITEM,
-		payload: item,
-	}
-}
+// export const get
+
+// export const loadCurrentItem = (item) => {
+// 	return {
+// 		type: actionTypes.LOAD_CURRENT_ITEM,
+// 		payload: item,
+// 	}
+// }

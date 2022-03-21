@@ -18,6 +18,11 @@ function SliderProduct() {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	let { type, id } = useParams();
 	let items = getItem(type, id);
+	// let [items, setItems] = useState(getItem(type, id));
+
+	// useEffect(() => {
+	// 	setThumbsSwiper(null)
+	// }, [type, id])
 
 	return (
 		<>
@@ -29,10 +34,13 @@ function SliderProduct() {
 						"--swiper-pagination-color": "#121212",
 					}
 					}
+					// slider.active = items.image[0].url;
+					// initialSlide={0}
 					spaceBetween={10}
 					navigation={true}
 					thumbs={{ swiper: thumbsSwiper }}
 					modules={[FreeMode, Navigation, Thumbs]}
+
 					className="product-page mySwiper2"
 				>
 					{items.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
@@ -49,6 +57,8 @@ function SliderProduct() {
 				</div>
 				<div className="product-vertical">
 					<Swiper
+						initialSlide={0}
+
 						direction={"vertical"}
 						onSwiper={setThumbsSwiper}
 						spaceBetween={16}

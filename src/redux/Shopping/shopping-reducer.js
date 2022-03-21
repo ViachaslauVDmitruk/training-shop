@@ -1348,12 +1348,12 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				cart: state.cart.map(item => ((item.id === action.payload.id) && (item.color === action.payload.color) && (item.size === action.payload.size)) ? { ...item, qty: action.payload.qty } : item)
 
 			};
-		case actionTypes.LOAD_CURRENT_ITEM:
+		// case actionTypes.LOAD_CURRENT_ITEM:
 
-			return {
-				...state,
-				currentItem: action.payload,
-			};
+		// 	return {
+		// 		...state,
+		// 		currentItem: action.payload,
+		// 	};
 		default:
 			return state;
 	}
