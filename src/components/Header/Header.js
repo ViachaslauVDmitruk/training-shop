@@ -12,6 +12,7 @@ import user from './img/header/user01.svg';
 import { useState, useEffect } from 'react';
 import Cart from '../cart/cart';
 import { connect } from 'react-redux';
+import Loader from '../Loader/loader';
 
 
 const headerNavMenu = [
@@ -132,6 +133,7 @@ function Header({ cart }) {
 				</div>
 			</div>
 			<Cart active={isCartOpen} setActive={toggleCart} />
+			<Loader />
 		</div >
 	);
 }

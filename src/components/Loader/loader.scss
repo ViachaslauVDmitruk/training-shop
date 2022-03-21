@@ -1,0 +1,12 @@
+.loader {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	top: 50%;
+	width: 100%;
+	z-index: 50;
+	img {
+		height: 150px;
+		display: block;
+	}
+}
