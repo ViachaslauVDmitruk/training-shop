@@ -5,6 +5,7 @@ import ProductPage from './pages/ProductPage/ProductPage';
 import Clothes from './components/Clothes';
 
 function App() {
+
 	return (
 		<div className='app' data-test-id='app'>
 			<Routes>

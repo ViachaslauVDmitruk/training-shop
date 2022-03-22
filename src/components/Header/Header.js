@@ -13,6 +13,7 @@ import { useState, useEffect } from 'react';
 import Cart from '../cart/cart';
 import { connect } from 'react-redux';
 import Loader from '../Loader/loader';
+import Error from '../error/Error';
 
 
 const headerNavMenu = [
@@ -134,6 +135,7 @@ function Header({ cart }) {
 			</div>
 			<Cart active={isCartOpen} setActive={toggleCart} />
 			<Loader />
+			<Error />
 		</div >
 	);
 }
