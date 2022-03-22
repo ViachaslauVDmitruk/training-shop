@@ -1,15 +1,32 @@
 import { Link, } from 'react-router-dom';
 import '../Part3/css/Part3.css'
 import CardItem from '../../CardItem/CardItem';
-import { getItemsByType } from '../../../products';
+// import { getItemsByType } from '../../../products';
 import { MAIN_CLOTHES_BLOCK_MENU } from '../../../particular';
 import { useState } from 'react';
 import classNames from 'classnames';
+import { useSelector } from 'react-redux'
+import { createSelector } from 'reselect'
 
-function ClothesMan(props) {
-	let related = getItemsByType('men');
+const particularModeSelector = createSelector(
+	(state) => {
+		return state.shop.products;
+	},
+	(_, particular) => particular,
+	(products, particular2) => {
+		let newProduct = products ? (products['men'] || []).filter(item => item.particulars[particular2] === true) : [];
+		console.log('newProduct', newProduct);
+
+		return newProduct;
+	}
+);
+
+function ClothesMan() {
+	// let related = getItemsByType('men');
 	let [particular, setParticular] = useState(MAIN_CLOTHES_BLOCK_MENU[0].particularName);
-	let particularMode = related.filter(item => item.particulars[particular] === true);
+	// let particularMode = related.filter(item => item.particulars[particular] === true);
+	const particularMode = useSelector((state) => particularModeSelector(state, particular));
+	console.log('particularMode', particularMode);
 
 	return (
 		<div className='clothes' data-test-id={`clothes-${'men'}`}>

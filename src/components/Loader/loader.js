@@ -4,7 +4,7 @@ import './css/loader.css';
 function Loader() {
 
 	return (
-		<div className="loader">
+		<div data-test-id='loader' className="loader">
 			<img src={imgLoader} alt="loader" />
 		</div>
 	)

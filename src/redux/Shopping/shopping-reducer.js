@@ -4,15 +4,31 @@ const INITIAL_STATE = {
 	products: {},
 	cart: [],
 	currentItem: null,
+	isError: false,
+	isLoading: true,
 }
 
 const shopReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case actionTypes.GET_PRODUCTS:
+			console.log('get products', action.payload)
+			return {
+				...state,
+				isLoading: true,
+			}
+		case actionTypes.GET_PRODUCTS_ERROR:
+			console.log('error', action.payload)
+			return {
+				...state,
+				isError: true,
+				isLoading: false,
+			}
+		case actionTypes.GET_PRODUCTS_SUCCESS:
 			console.log('action.payload get products', action.payload)
 			return {
 				...state,
-				products: { ...state.products, ...action.payload }
+				products: action.payload,
+				isLoading: false,
 			};
 		case actionTypes.ADD_TO_CART:
 			const item = {
@@ -45,13 +61,8 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				cart: state.cart.map(item => ((item.id === action.payload.id) && (item.color === action.payload.color) && (item.size === action.payload.size)) ? { ...item, qty: action.payload.qty } : item)
 
 			};
-		// case actionTypes.LOAD_CURRENT_ITEM:
-
-		// 	return {
-		// 		...state,
-		// 		currentItem: action.payload,
-		// 	};
 		default:
+
 			return state;
 	}
 };

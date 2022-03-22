@@ -1,14 +1,24 @@
 import axios from "axios";
-import { put, call } from 'redux-saga/effects';
-import { getProducts, productsRequestError } from "../Shopping/shopping-actions";
+import { put, call, takeLatest, delay } from 'redux-saga/effects';
+import { getProducts, getProductsError, getProductsSuccess, } from "../Shopping/shopping-actions";
+import { LOAD_DATA } from "../Shopping/shopping-types";
 
-function* productsRequestWorker() {
+export function* productsRequestWorker() {
 	try {
+		yield put(getProducts())
 		const { data } = yield call(axios.get, "https://training.cleverland.by/shop/products");
-		yield put(getProducts(data));
+		yield delay(2000);
+		yield put(getProductsSuccess(data));
+		// yield put(productsRequestSuccess('false'));
 	} catch (err) {
-		yield put(productsRequestError(err.message));
+		console.log(err);
+		yield put(getProductsError())
+		// yield put(productsRequestError('true'));
 	}
 }
 
-export default productsRequestWorker;
+export function* productsRequestWatcher() {
+	yield takeLatest(LOAD_DATA, productsRequestWorker)
+}
+
+// export default productsRequestWorker;

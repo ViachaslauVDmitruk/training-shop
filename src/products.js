@@ -1313,7 +1313,7 @@ const PRODUCTS = {
 	],
 };
 function getItem(productType, id) {
-	return PRODUCTS[productType.toLowerCase()].find(item => item.id === id);
+	return [productType.toLowerCase()].find(item => item.id === id);
 }
 
 function getItemsByType(productType) {

@@ -11,10 +11,9 @@ import shoppingbag from './img/header/shoppingbag01.svg';
 import user from './img/header/user01.svg';
 import { useState, useEffect } from 'react';
 import Cart from '../cart/cart';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import Loader from '../Loader/loader';
 import Error from '../error/Error';
-
 
 const headerNavMenu = [
 	{ id: 1, link: "About Us", },
@@ -30,6 +29,8 @@ function Header({ cart }) {
 	const [cartCount, setCartCount] = useState(0);
 	const [isMenuOpen, toggleMenu] = useState(false);
 	const [isCartOpen, toggleCart] = useState(false);
+	const { isError, isLoading } = useSelector(store => store.shop);
+
 	function toggleMenuMode() {
 		toggleMenu(!isMenuOpen);
 	}
@@ -46,6 +47,10 @@ function Header({ cart }) {
 			document.body.style.overflow = 'unset';
 		}
 	})
+	// useEffect(() => {
+	// 	{ isLoading }
+	// 	{ isError }
+	// }, [store])
 
 	return (
 		<div className='header' data-test-id='header'>
@@ -134,8 +139,8 @@ function Header({ cart }) {
 				</div>
 			</div>
 			<Cart active={isCartOpen} setActive={toggleCart} />
-			<Loader />
-			<Error />
+			{isLoading && <Loader />}
+			{isError && <Error />}
 		</div >
 	);
 }

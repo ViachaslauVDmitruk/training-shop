@@ -2,9 +2,9 @@ import './css/error.css';
 
 function Error() {
 	return (
-		<div className="container">
+		<div data-test-id='error' className="container">
 			<div className="error">
-				Ошибка полученя данных
+				Ошибка получения данных
 			</div>
 		</div>
 	)
