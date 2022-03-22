@@ -38,6 +38,21 @@ export const adjustQty = (itemID, itemColor, itemSize, value) => {
 	}
 }
 
+export const getProducts = (data) => {
+	return {
+		type: actionTypes.GET_PRODUCTS,
+		payload: data,
+	}
+}
+
+export const productsRequestError = () => {
+	return {
+		type: actionTypes.PRODUCTS_REQUEST_ERROR,
+		payload: {
+
+		}
+	}
+}
 // export const get
 
 // export const loadCurrentItem = (item) => {
