@@ -23,11 +23,10 @@ import write from '../img/write.png';
 import { Link, useParams } from 'react-router-dom';
 import SliderProduct from '../../components/sliderproduct/SliderProduct';
 import SliderRelated from '../../components/sliderrelared/SliderRelated';
-import { getItem } from '../../products';
 import Rating from '../../components/rating/rating';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../../redux/Shopping/shopping-actions';
 
 const logo = [
@@ -42,7 +41,9 @@ const logo = [
 
 function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	let { type, id } = useParams();
-	let item = getItem(type, id);
+	let setItem = useSelector(store => store.shop.products[type]);
+	let item = setItem.find(item => item.id === id);
+
 	let arrColor = [];
 	let arrImageWithColor = [];
 	let [selectedSize, setSelectedSize] = useState(item.sizes[0]);
@@ -55,6 +56,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 		isSelectedColor(item.images[0].color);
 		setSelectedImage(item.images[0].url);
 		setInCart(false);
+		window.scrollTo(0, 0);
 	}, [item]);
 
 	useEffect(() => {

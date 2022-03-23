@@ -1,36 +1,30 @@
 import { Link } from 'react-router-dom';
 import '../Part3/css/Part3.css';
-// import { getItemsByType } from '../../../products';
 import CardItem from '../../CardItem/CardItem';
 import { MAIN_CLOTHES_BLOCK_MENU } from '../../../particular';
 import { useState } from 'react';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux'
-import { createSelector } from 'reselect'
-
-
-const particularModeSelector = createSelector(
-	(state) => {
-		return state.shop.products;
-	},
-	(_, particular) => particular,
-	(products, particular2) => {
-		let newProduct = products ? (products['women'] || []).filter(item => item.particulars[particular2] === true) : [];
-		console.log('newProduct', newProduct);
-
-		return newProduct;
-	}
-);
-
-
+// import { createSelector } from 'reselect'
+// const particularModeSelector = createSelector(
+// 	(state) => {
+// 		return state.shop.products;
+// 	},
+// 	(_, particular) => particular,
+// 	(products, particular2) => {
+// 		let newProduct = products ? (products['women'] || []).filter(item => item.particulars[particular2] === true) : [];
+// 		return newProduct;
+// 	}
+// );
 // let particularMode = createSelector((store) => store.shop.products['woman']);
 // console.log('particularMode', particularMode)
 
 
 function ClothesWoman() {
+	let related = useSelector(store => store.shop.products.women);
 	let [particular, setParticular] = useState(MAIN_CLOTHES_BLOCK_MENU[0].particularName);
-	const particularMode = useSelector((state) => particularModeSelector(state, particular));
-	console.log('particularMode', particularMode);
+	let particularMode = (related || []).filter(item => item.particulars[particular] === true);
+	// const particularMode = useSelector((state) => particularModeSelector(state, particular));
 
 	return (
 		<div className='clothes' data-test-id={`clothes-${'women'}`}>

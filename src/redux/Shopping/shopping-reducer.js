@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 const shopReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case actionTypes.GET_PRODUCTS:
-			console.log('get products', action.payload)
+
 			return {
 				...state,
 				isLoading: true,
@@ -24,7 +24,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				isLoading: false,
 			}
 		case actionTypes.GET_PRODUCTS_SUCCESS:
-			console.log('action.payload get products', action.payload)
+
 			return {
 				...state,
 				products: action.payload,

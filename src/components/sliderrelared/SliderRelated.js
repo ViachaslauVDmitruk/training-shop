@@ -6,12 +6,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper";
 import { useParams } from "react-router-dom";
-import { getItemsByType } from "../../products";
+// import { getItemsByType } from "../../products";
 import CardItem from "../CardItem/CardItem";
+import { useSelector } from "react-redux";
 
 function SliderRelated(props) {
 	let { type } = useParams();
-	let related = getItemsByType(type);
+	// let related = getItemsByType(type);
+	let related = useSelector(store => store.shop.products[type]);
 
 	return (
 		<>

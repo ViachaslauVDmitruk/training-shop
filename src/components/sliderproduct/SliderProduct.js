@@ -10,19 +10,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import arrowsliderup from '../..//pages/img/arrowsliderup.png';
 import arrowsliderdown from '../../pages/img/arrowsliderdown.png';
-import { getItem } from "../../products";
 import { useParams } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 
 function SliderProduct() {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	let { type, id } = useParams();
-	let items = getItem(type, id);
-	// let [items, setItems] = useState(getItem(type, id));
-
-	// useEffect(() => {
-	// 	setThumbsSwiper(null)
-	// }, [type, id])
+	let setItem = useSelector(store => store.shop.products[type])
+	let items = setItem.find(item => item.id === id);
 
 	return (
 		<>
@@ -40,7 +35,6 @@ function SliderProduct() {
 					navigation={true}
 					thumbs={{ swiper: thumbsSwiper }}
 					modules={[FreeMode, Navigation, Thumbs]}
-
 					className="product-page mySwiper2"
 				>
 					{items.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
@@ -58,7 +52,6 @@ function SliderProduct() {
 				<div className="product-vertical">
 					<Swiper
 						initialSlide={0}
-
 						direction={"vertical"}
 						onSwiper={setThumbsSwiper}
 						spaceBetween={16}
@@ -70,8 +63,7 @@ function SliderProduct() {
 						}}
 						watchSlidesProgress={true}
 						modules={[FreeMode, Navigation, Thumbs]}
-						className="mySwiper"
-					>
+						className="mySwiper">
 						{items.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
 					</Swiper>
 				</div>

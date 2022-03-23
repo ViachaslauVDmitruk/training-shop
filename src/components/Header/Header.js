@@ -47,10 +47,6 @@ function Header({ cart }) {
 			document.body.style.overflow = 'unset';
 		}
 	})
-	// useEffect(() => {
-	// 	{ isLoading }
-	// 	{ isError }
-	// }, [store])
 
 	return (
 		<div className='header' data-test-id='header'>

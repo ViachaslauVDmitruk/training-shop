@@ -121,6 +121,7 @@
 
 .shoppingcart-top__close {
   color: #ffffff;
+  cursor: pointer;
 }
 
 .shoppingcart-top__close svg {
