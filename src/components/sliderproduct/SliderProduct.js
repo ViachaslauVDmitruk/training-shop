@@ -17,7 +17,7 @@ function SliderProduct() {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	let { type, id } = useParams();
 	let setItem = useSelector(store => store.shop.products[type])
-	let items = setItem.find(item => item.id === id);
+	let items = setItem?.find(item => item.id === id);
 
 	return (
 		<>
@@ -37,7 +37,7 @@ function SliderProduct() {
 					modules={[FreeMode, Navigation, Thumbs]}
 					className="product-page mySwiper2"
 				>
-					{items.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
+					{items?.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
 				</Swiper>
 			</div>
 			<div className="product-image__column left">
@@ -64,7 +64,7 @@ function SliderProduct() {
 						watchSlidesProgress={true}
 						modules={[FreeMode, Navigation, Thumbs]}
 						className="mySwiper">
-						{items.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
+						{items?.images.map(item => <SwiperSlide key={item.id}><img src={`https://training.cleverland.by/shop${item.url}`} alt="imgCard" /></SwiperSlide>)}
 					</Swiper>
 				</div>
 			</div>

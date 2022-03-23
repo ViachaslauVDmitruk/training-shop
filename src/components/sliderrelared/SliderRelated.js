@@ -6,13 +6,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper";
 import { useParams } from "react-router-dom";
-// import { getItemsByType } from "../../products";
 import CardItem from "../CardItem/CardItem";
 import { useSelector } from "react-redux";
 
 function SliderRelated(props) {
 	let { type } = useParams();
-	// let related = getItemsByType(type);
 	let related = useSelector(store => store.shop.products[type]);
 
 	return (
@@ -46,7 +44,7 @@ function SliderRelated(props) {
 						}
 					}}
 					className="mySwiperRelated">
-					{related.map(item => <SwiperSlide key={item.id} id={item.id}>
+					{related?.map(item => <SwiperSlide key={item.id} id={item.id}>
 						<div className="card-slider">
 							<CardItem productType={type} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} discount={item.discount} rating={item.rating} />
 						</div>

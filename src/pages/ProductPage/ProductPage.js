@@ -42,22 +42,30 @@ const logo = [
 function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	let { type, id } = useParams();
 	let setItem = useSelector(store => store.shop.products[type]);
-	let item = setItem.find(item => item.id === id);
-
+	let item = setItem?.find(item => item.id === id);
 	let arrColor = [];
 	let arrImageWithColor = [];
-	let [selectedSize, setSelectedSize] = useState(item.sizes[0]);
-	let [selectedColor, isSelectedColor] = useState(item.images[0].color);
-	let [selectedImage, setSelectedImage] = useState(item.images[0].url);
 	let [inCart, setInCart] = useState(false);
+	let [selectedSize, setSelectedSize] = useState();
+	let [selectedColor, isSelectedColor] = useState();
+	let [selectedImage, setSelectedImage] = useState();
 
 	useEffect(() => {
-		setSelectedSize(item.sizes[0]);
-		isSelectedColor(item.images[0].color);
-		setSelectedImage(item.images[0].url);
-		setInCart(false);
+		if (item) {
+			setSelectedSize(item.sizes[0]);
+			isSelectedColor(item.images[0].color);
+			setSelectedImage(item.images[0].url);
+			setInCart(false);
+		}
 		window.scrollTo(0, 0);
 	}, [item]);
+
+	item?.images.forEach(img => {
+		if (!arrColor.includes(img.color)) {
+			arrColor.push(img.color)
+			arrImageWithColor.push(img)
+		}
+	});
 
 	useEffect(() => {
 		setInCart(() => {
@@ -65,12 +73,6 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 		})
 	}, [selectedColor, selectedSize, cart, setInCart, item]);
 
-	item.images.forEach(img => {
-		if (!arrColor.includes(img.color)) {
-			arrColor.push(img.color)
-			arrImageWithColor.push(img)
-		}
-	});
 	function inCartToggleMode() {
 		if (cart.some(elem => ((elem.color === selectedColor) && (elem.size === selectedSize) && (elem.id === item.id)))) {
 			setInCart(!inCart)
@@ -96,7 +98,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 									<div className="link-home__image">
 										<img src={arrowblack} alt="arrowblack" />
 									</div>
-									<div className="link-home__categoties">{item.name}</div>
+									{item ? <div className="link-home__categoties">{item.name}</div> : <></>}
 								</div>
 								<div className="link-share__items">
 									<div className="link-share-item__image">
@@ -105,14 +107,14 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 									<div className="link-share-item__title">Share</div>
 								</div>
 							</div>
-							<div className="categories-top-block__title product-name">{item.name}</div>
+							{item ? <div className="categories-top-block__title product-name">{item.name}</div> : <></>}
 							<div className="product-availability">
-								<div className="reviews">
+								{item ? <div className="reviews">
 									<div className="reviews__image">
 										<Rating ratingProps={item.rating} />
 									</div>
 									<div className="reviews__text">{item.reviews.length} reviews</div>
-								</div>
+								</div> : <></>}
 								<div className="avilability__rows">
 									<div className="avilability-row">
 										<div className="avilability-row__items">
@@ -160,9 +162,9 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 											<div className="parametrs-sizes__text">Size:</div>
 											<div className="parametrs-sizes__size" >{selectedSize}</div>
 										</div>
-										<div className="product-info-parametrs__type-sizes ">
+										{item ? <div className="product-info-parametrs__type-sizes ">
 											{item.sizes.map(item => <div key={item} className={classNames("type-sizes__block", { border: selectedSize === item })} onClick={() => setSelectedSize(item)}>{item}</div>)}
-										</div>
+										</div> : <></>}
 										<div className="product-info-parametrs__guide">
 											<div className="parametrs-guide__image">
 												<img src={sizeguide} alt="sizeguide" />
@@ -171,7 +173,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 										</div>
 									</div>
 									<div className="product-info__cost">
-										<div className="product-info-cost__block">$ {item.price}</div>
+										{item ? <div className="product-info-cost__block">$ {item.price}</div> : <></>}
 										<div className="product-info-cost__row">
 											<button data-test-id='add-cart-button' onClick={() => { addToCart(item.id, selectedColor, selectedSize, selectedImage, item.price, item.name); inCartToggleMode() }} className={classNames("product-info__addcard", { notincart: !inCart })}>
 												Add to cart
@@ -224,20 +226,20 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 									<div className="product-info__additional">
 										<div className="product-info-additional__title">ADDITIONAL INFORMATION</div>
 										<div className="product-info-additional__item">Color: {arrImageWithColor.map(item => <span key={item.color}>{item.color}</span>)} </div>
-										<div className="product-info-additional__item">Size: <span key={item.id}>{item.sizes.join(', ')}</span></div>
-										<div className="product-info-additional__item">Material:	<span key={item.id}>{item.material}</span></div>
+										{item ? <div className="product-info-additional__item">Size: <span key={item.id}>{item.sizes.join(', ')}</span></div> : <></>}
+										{item ? <div className="product-info-additional__item">Material:	<span key={item.id}>{item.material}</span></div> : <></>}
 									</div>
 									<div className="product-info__reviews">
 										<div className="product-info-reviews__title">
 											Reviews
 										</div>
 										<div className="product-info-reviews__row">
-											<div className="reviews">
+											{item ? <div className="reviews">
 												<div className="reviews__image">
 													<Rating ratingProps={item.rating} />
 												</div>
 												<div className="reviews__text">{item.reviews.length} reviews</div>
-											</div>
+											</div> : <></>}
 											<div className="product-info-reviews-row__write">
 												<div className="product-info-write__image">
 													<img src={write} alt="write" />
@@ -245,7 +247,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 												<div className="product-info-write__text">Write a review</div>
 											</div>
 										</div>
-										{item.reviews.map(item => <div className="product-info-reviews__private" key={item.id}>
+										{item?.reviews.map(item => <div className="product-info-reviews__private" key={item.id}>
 											<div className="product-info-reviews-private__title">
 												<div className="product-info-reviews-private-title__name">{item.name}</div>
 												<div className="reviews revers">

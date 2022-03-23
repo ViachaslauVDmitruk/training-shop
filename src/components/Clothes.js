@@ -16,6 +16,7 @@ function Clothes() {
 	let { type } = useParams();
 	let allClothes = useSelector(store => store.shop.products[type]);
 	let newAllClothes = useSelector(store => store.shop.products[type]);
+
 	let [items, setItems] = useState(newAllClothes);
 	let [colorCheck, setColorCheck] = useState([]);
 	let [sizeCheck, setSizeCheck] = useState([]);
@@ -63,7 +64,8 @@ function Clothes() {
 	function toggleFilterMode() {
 		toggleFilter(!isFilterOpen);
 	};
-	allClothes.forEach(item => {
+
+	allClothes?.forEach(item => {
 		item.images.forEach(item => {
 			if (!arrColor.includes(item.color)) {
 				arrColor.push(item.color)
@@ -122,26 +124,28 @@ function Clothes() {
 
 	useEffect(() => {
 		setItems(() => {
-			return allClothes.filter((cloth) => {
-				let isSelected =
-					(cloth.images.some((image) => {
-						return colorCheck.length === 0 || colorCheck.includes(image.color);
-					}))
-					&&
-					(cloth.sizes.some((size) => {
-						return sizeCheck.length === 0 || sizeCheck.includes(size);
-					}))
-					&&
-					(brandCheck.length === 0 || brandCheck.includes(cloth.brand))
-					&&
-					(priceCheck.some((price) => {
-						let isSelectedMax = (price.max && cloth.price <= price.max) || !price.max;
-						let isSelectedMin = (price.min && cloth.price >= price.min) || !price.min;
-						return isSelectedMax && isSelectedMin;
-					}) || priceCheck.length === 0)
+			if (allClothes) {
+				return allClothes.filter((cloth) => {
+					let isSelected =
+						(cloth.images.some((image) => {
+							return colorCheck.length === 0 || colorCheck.includes(image.color);
+						}))
+						&&
+						(cloth.sizes.some((size) => {
+							return sizeCheck.length === 0 || sizeCheck.includes(size);
+						}))
+						&&
+						(brandCheck.length === 0 || brandCheck.includes(cloth.brand))
+						&&
+						(priceCheck.some((price) => {
+							let isSelectedMax = (price.max && cloth.price <= price.max) || !price.max;
+							let isSelectedMin = (price.min && cloth.price >= price.min) || !price.min;
+							return isSelectedMax && isSelectedMin;
+						}) || priceCheck.length === 0)
 
-				return isSelected;
-			});
+					return isSelected;
+				});
+			}
 		});
 		if (colorCheck.length || sizeCheck.length || brandCheck.length || priceCheck.length) {
 			setItemsFound(true);
@@ -191,7 +195,7 @@ function Clothes() {
 									</div>
 								</div>
 							</div>
-							<div className={classNames("filter-main", { visible: isFilterOpen })}>
+							{allClothes ? <div className={classNames("filter-main", { visible: isFilterOpen })}>
 								<div data-test-id={`filters-${type}`} className="filter-main-columns">
 									<div className="filter-main-columns__column">
 										<div className="filter-main-column__title">
@@ -238,8 +242,8 @@ function Clothes() {
 										</div>
 									</div>
 								</div>
-							</div>
-							<div className={classNames("filter-found", { visible: itemsFound })}>
+							</div> : <></>}
+							{items ? <div className={classNames("filter-found", { visible: itemsFound })}>
 								<div className="filter-found__number">
 									{items.length} items Found
 								</div>
@@ -255,13 +259,13 @@ function Clothes() {
 								{priceCheck.map(item => <div key={item.id} className="filter-found__brand">
 									Price: ${item.min} - ${item.max}
 								</div>)}
-							</div>
+							</div> : <></>}
 						</div>
 					</div>
 					<div className="container">
 						<div className="card-area">
 							<div className="card-grid">
-								{items.map(item => <CardItem productType={type} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} discount={item.discount} rating={item.rating} />)}
+								{items?.map(item => <CardItem productType={type} key={item.id} id={item.id} name={item.name} cost={item.price} imgCard={item.images[0].url} discount={item.discount} rating={item.rating} />)}
 							</div>
 						</div>
 					</div>
