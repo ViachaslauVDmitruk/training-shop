@@ -11,7 +11,7 @@ import shoppingbag from './img/header/shoppingbag01.svg';
 import user from './img/header/user01.svg';
 import { useState, useEffect } from 'react';
 import Cart from '../cart/cart';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 const headerNavMenu = [
 	{ id: 1, link: "About Us", },
@@ -24,6 +24,7 @@ const headerNavMenu = [
 ]
 
 function Header({ cart }) {
+	let isReadyCart = useSelector(store => store.shop.products);
 	const [cartCount, setCartCount] = useState(0);
 	const [isMenuOpen, toggleMenu] = useState(false);
 	const [isCartOpen, toggleCart] = useState(false);
@@ -131,7 +132,7 @@ function Header({ cart }) {
 					</div>
 				</div>
 			</div>
-			<Cart active={isCartOpen} setActive={toggleCart} />
+			{isReadyCart ? <Cart active={isCartOpen} setActive={toggleCart} /> : <></>}
 		</div >
 	);
 }

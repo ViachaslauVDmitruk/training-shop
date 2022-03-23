@@ -85,7 +85,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
 				<Header />
-				<div className="main">
+				{item ? <div className="main">
 					<div className="categories__top-block">
 						<div className="container">
 							<div className="categories-top-block__links">
@@ -282,7 +282,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> : <></>}
 				<Footer />
 			</div>
 		</div >
