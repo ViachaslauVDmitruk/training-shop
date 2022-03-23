@@ -10,13 +10,13 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
-import { getItemsByType } from '../products';
 import { useSelector } from 'react-redux';
 
 function Clothes() {
 	let { type } = useParams();
 	let allClothes = useSelector(store => store.shop.products[type]);
-	let [items, setItems] = useState(getItemsByType(type));
+	let newAllClothes = useSelector(store => store.shop.products[type]);
+	let [items, setItems] = useState(newAllClothes);
 	let [colorCheck, setColorCheck] = useState([]);
 	let [sizeCheck, setSizeCheck] = useState([]);
 	let [brandCheck, setBrandCheck] = useState([]);
