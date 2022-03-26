@@ -28,6 +28,7 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { connect, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../../redux/Shopping/shopping-actions';
+import Review from '../../components/review/review';
 
 const logo = [
 	{ img: logo01, },
@@ -49,6 +50,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	let [selectedSize, setSelectedSize] = useState();
 	let [selectedColor, isSelectedColor] = useState();
 	let [selectedImage, setSelectedImage] = useState();
+	const [isOpen, setIsOpen] = useState(false);
 
 	useEffect(() => {
 		if (item) {
@@ -85,7 +87,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
 				<Header />
-				{item ? <div className="main">
+				{item && <div className="main">
 					<div className="categories__top-block">
 						<div className="container">
 							<div className="categories-top-block__links">
@@ -226,26 +228,27 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 									<div className="product-info__additional">
 										<div className="product-info-additional__title">ADDITIONAL INFORMATION</div>
 										<div className="product-info-additional__item">Color: {arrImageWithColor.map(item => <span key={item.color}>{item.color}</span>)} </div>
-										{item ? <div className="product-info-additional__item">Size: <span key={item.id}>{item.sizes.join(', ')}</span></div> : <></>}
-										{item ? <div className="product-info-additional__item">Material:	<span key={item.id}>{item.material}</span></div> : <></>}
+										<div className="product-info-additional__item">Size: <span key={item.id}>{item.sizes.join(', ')}</span></div>
+										<div className="product-info-additional__item">Material:	<span key={item.id}>{item.material}</span></div>
 									</div>
 									<div className="product-info__reviews">
 										<div className="product-info-reviews__title">
 											Reviews
 										</div>
 										<div className="product-info-reviews__row">
-											{item ? <div className="reviews">
+											<div className="reviews">
 												<div className="reviews__image">
 													<Rating ratingProps={item.rating} />
 												</div>
 												<div className="reviews__text">{item.reviews.length} reviews</div>
-											</div> : <></>}
+											</div>
 											<div className="product-info-reviews-row__write">
-												<div className="product-info-write__image">
+												<div className="product-info-write__image" onClick={() => setIsOpen(true)}>
 													<img src={write} alt="write" />
 												</div>
 												<div className="product-info-write__text">Write a review</div>
 											</div>
+											{isOpen && <Review active={isOpen} setActive={setIsOpen} />}
 										</div>
 										{item?.reviews.map(item => <div className="product-info-reviews__private" key={item.id}>
 											<div className="product-info-reviews-private__title">
@@ -282,7 +285,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 							</div>
 						</div>
 					</div>
-				</div> : <></>}
+				</div>}
 				<Footer />
 			</div>
 		</div >
