@@ -50,7 +50,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	let [selectedSize, setSelectedSize] = useState();
 	let [selectedColor, isSelectedColor] = useState();
 	let [selectedImage, setSelectedImage] = useState();
-	const [isOpen, setIsOpen] = useState(false);
+	const [isReviewOpen, setIsReviewOpen] = useState(false);
 
 	useEffect(() => {
 		if (item) {
@@ -83,9 +83,18 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 		}
 	};
 
+	useEffect(() => {
+		if (isReviewOpen) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'unset';
+		}
+	});
+
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
+				{isReviewOpen && <Review active={isReviewOpen} setActive={setIsReviewOpen} />}
 				<Header />
 				{item && <div className="main">
 					<div className="categories__top-block">
@@ -242,13 +251,12 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 												</div>
 												<div className="reviews__text">{item.reviews.length} reviews</div>
 											</div>
-											<div className="product-info-reviews-row__write">
-												<div className="product-info-write__image" onClick={() => setIsOpen(true)}>
+											<div className="product-info-reviews-row__write" onClick={() => setIsReviewOpen(true)}>
+												<div className="product-info-write__image" >
 													<img src={write} alt="write" />
 												</div>
 												<div className="product-info-write__text">Write a review</div>
 											</div>
-											{isOpen && <Review active={isOpen} setActive={setIsOpen} />}
 										</div>
 										{item?.reviews.map(item => <div className="product-info-reviews__private" key={item.id}>
 											<div className="product-info-reviews-private__title">

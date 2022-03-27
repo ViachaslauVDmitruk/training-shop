@@ -43,7 +43,7 @@ function Header({ cart }) {
 		} else {
 			document.body.style.overflow = 'unset';
 		}
-	})
+	});
 
 	return (
 		<div className='header' data-test-id='header'>

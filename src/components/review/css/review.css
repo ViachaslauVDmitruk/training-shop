@@ -1,1 +1,113 @@
-/* No CSS */
+.review {
+  background-color: rgba(80, 77, 77, 0.123);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.review-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  background-color: #fff;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 450px;
+  border: solid 2px #121212;
+  border-radius: 15px;
+}
+
+.review-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  margin: 20px 0px 20px 0px;
+  letter-spacing: 1.2px;
+}
+
+.review-rating__star {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0px 0px 20px 0px;
+}
+
+.review-rating__star li {
+  margin: 0px 10px 0px 0px;
+}
+
+.review-rating__star li:last-child {
+  margin: 0;
+}
+
+.review-input-name {
+  height: 40px;
+  margin: 0px 0px 20px 0px;
+}
+
+.review-input-name input {
+  height: 100%;
+  width: 300px;
+  border-radius: 10px;
+  padding: 0px 0px 0px 10px;
+}
+
+.review-input-text {
+  height: 300px;
+  text-align: start;
+  margin: 0px 0px 20px 0px;
+}
+
+.review-input-text input {
+  height: 100%;
+  width: 300px;
+  border-radius: 10px;
+  padding: 0px 0px 0px 10px;
+  text-align: start;
+}
+
+.review-sendbutton {
+  height: 40px;
+  width: 180px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background-color: #121212;
+  color: #fff;
+  margin: 0px 0px 20px 0px;
+}
+
+.review-sendbutton:hover {
+  background-color: #e6e6e6;
+  color: #121212;
+  opacity: 0.9;
+}
+
+.review-sendbutton:active {
+  background: #9c9c9c;
+  color: #fff;
+}
