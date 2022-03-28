@@ -1,17 +1,19 @@
-import imgStar from './img/star.svg';
+import imgLoader from './img/loadersmall.gif';
 import './css/review.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import TextError from './TextError';
+import ErrorReview from './errorReview';
+import { useDispatch } from 'react-redux';
+import { getReviewInfo } from '../../redux/review/review-actions';
 
 const initialValues = {
 	name: '',
 	text: '',
+	rating: '',
 }
-const onSubmit = values => {
-	console.log('formik values', values)
-	console.log('formik errors', values.errors)
-	console.log('formik errors')
+const onSubmit = (values, onSubmitProps) => {
+	onSubmitProps.setSubmitting(false);
 }
 
 const validationSchema = Yup.object({
@@ -19,66 +21,74 @@ const validationSchema = Yup.object({
 	text: Yup.string().required('Required review'),
 })
 
-function Review({ active, setActive }) {
+function Review({ active, setActive, id }) {
+	const dispatch = useDispatch();
+
+	function getReviewData(id, name, text, rating) {
+		dispatch(getReviewInfo(id, name, text, rating));
+	}
 
 	return (
 		<Formik
 			initialValues={initialValues}
 			onSubmit={onSubmit}
-			validationSchema={validationSchema}>
-			<div className="review" onClick={() => setActive(false)} >
-				<div className="review-form" onClick={e => e.stopPropagation()}>
+			validationSchema={validationSchema}
+		>
+			{formik => {
+				console.log('formik values', formik.values)
+				return (
 					<Form>
-						<div className="review-title">Write a review</div>
-						<div className="review-rating">
-							<ul className="review-rating__star">
-								<li>
-									<img src={imgStar} alt="amgStar" />
-								</li>
-								<li>
-									<img src={imgStar} alt="amgStar" />
-								</li>
-								<li>
-									<img src={imgStar} alt="amgStar" />
-								</li>
-								<li>
-									<img src={imgStar} alt="amgStar" />
-								</li>
-								<li>
-									<img src={imgStar} alt="amgStar" />
-								</li>
-							</ul>
+						<div className="review" onClick={() => setActive(false)} >
+							<div className="review-form" onClick={e => e.stopPropagation()}>
+								<div className="review-title">Write a review</div>
+								<div className="review-rating">
+									<div className="review-rating__star">
+										<Field id="star-rating__5" type="radio" className='star-rating__item' name="rating" value="5" />
+										<label htmlFor="star-rating__5" className='star-rating__laber'></label>
+										<Field id="star-rating__4" type="radio" className='star-rating__item' name="rating" value="4" />
+										<label htmlFor="star-rating__4" className='star-rating__laber'></label>
+										<Field id="star-rating__3" type="radio" className='star-rating__item' name="rating" value="3" />
+										<label htmlFor="star-rating__3" className='star-rating__laber'></label>
+										<Field id="star-rating__2" type="radio" className='star-rating__item' name="rating" value="2" />
+										<label htmlFor="star-rating__2" className='star-rating__laber'></label>
+										<Field id="star-rating__1" type="radio" className='star-rating__item' name="rating" value="1" defaultChecked />
+										<label htmlFor="star-rating__1" className='star-rating__laber'></label>
+									</div>
+								</div>
+								<div className='review-input-name'>
+									<Field
+										type="text"
+										id="name"
+										name="name"
+										placeholder="Enter your name"
+										autoComplete='off'
+									/>
+									<ErrorMessage name='name' component={TextError} />
+								</div>
+								<div className='review-input-text'>
+									<Field
+										as="textarea"
+										type="text"
+										id="text" name="text"
+										placeholder="Enter your review"
+									/>
+									<ErrorMessage name='text' component={TextError} />
+								</div>
+								<button
+									className='review-sendbutton'
+									type="submit"
+									disabled={formik.isSubmitting || !formik.isValid}
+									onClick={() => { getReviewData(id, formik.values.name, formik.values.text, formik.values.rating) }}
+								>
+									<span><img src={imgLoader} alt="loader" /></span>
+									Send
+								</button>
+								<ErrorReview />
+							</div>
 						</div>
-						<div className='review-input-name'>
-							<Field
-								type="text"
-								id="name"
-								name="name"
-								placeholder="Enter your name"
-								autoComplete='off'
-							// {...formik.getFieldProps('name')}
-							/>
-							{/* {formik.touched.name && formik.errors.name ? <div className='error-form'>{formik.errors.name}</div> : null} */}
-							<ErrorMessage name='name' component={TextError} />
-						</div>
-						<div className='review-input-text'>
-							<Field
-								as="textarea"
-								type="text"
-								id="text" name="text"
-								placeholder="Enter your review"
-							// {...formik.getFieldProps('text')}
-							/>
-							{/* {formik.touched.text && formik.errors.text ? <div className='error-form'>{formik.errors.text}</div> : null} */}
-							<ErrorMessage name='text' component={TextError} />
-						</div>
-						<button
-							className='review-sendbutton'
-							type="submit"> Send
-						</button>
 					</Form>
-				</div>
-			</div>
+				)
+			}}
 		</Formik>
 	)
 }
