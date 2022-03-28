@@ -63,7 +63,7 @@
 
 .review-input-name {
   height: 40px;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 30px 0px;
 }
 
 .review-input-name input {
@@ -73,18 +73,51 @@
   padding: 0px 0px 0px 10px;
 }
 
+.review-input-name input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.review-input-name input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.review-input-name input:focus::-ms-input-placeholder {
+  opacity: 0;
+}
+
+.review-input-name input:focus::placeholder {
+  opacity: 0;
+}
+
 .review-input-text {
   height: 300px;
   text-align: start;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 30px 0px;
 }
 
-.review-input-text input {
+.review-input-text textarea {
   height: 100%;
   width: 300px;
   border-radius: 10px;
-  padding: 0px 0px 0px 10px;
-  text-align: start;
+  padding: 15px 0px 0px 10px;
+  resize: none;
+  border: solid 2px;
+}
+
+.review-input-text textarea:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.review-input-text textarea:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.review-input-text textarea:focus::-ms-input-placeholder {
+  opacity: 0;
+}
+
+.review-input-text textarea:focus::placeholder {
+  opacity: 0;
 }
 
 .review-sendbutton {
@@ -110,4 +143,11 @@
 .review-sendbutton:active {
   background: #9c9c9c;
   color: #fff;
+}
+
+.error-form {
+  text-align: left;
+  font-size: 14px;
+  color: red;
+  padding: 5px 0px 0px 0px;
 }
