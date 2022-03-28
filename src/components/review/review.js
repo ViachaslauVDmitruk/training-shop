@@ -56,9 +56,7 @@ function Review({ active, setActive }) {
 							name="name"
 							placeholder="Enter your name"
 							autoComplete='off'
-							onChange={formik.handleChange}
-							onBlur={formik.handleBlur}
-							value={formik.values.name} />
+							{...formik.getFieldProps('name')} />
 						{formik.touched.name && formik.errors.name ? <div className='error-form'>{formik.errors.name}</div> : null}
 					</div>
 					<div className='review-input-text'>
@@ -66,9 +64,7 @@ function Review({ active, setActive }) {
 							type="text"
 							id="text" name="text"
 							placeholder="Enter your review"
-							onChange={formik.handleChange}
-							onBlur={formik.handleBlur}
-							value={formik.values.text} />
+							{...formik.getFieldProps('text')} />
 						{formik.touched.text && formik.errors.text ? <div className='error-form'>{formik.errors.text}</div> : null}
 					</div>
 					{!formik.errors.name && !formik.errors.text ?
