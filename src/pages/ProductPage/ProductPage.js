@@ -94,7 +94,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
-				{isReviewOpen && <Review active={isReviewOpen} setActive={setIsReviewOpen} />}
+				{isReviewOpen && <Review active={isReviewOpen} setActive={setIsReviewOpen} id={id} />}
 				<Header />
 				{item && <div className="main">
 					<div className="categories__top-block">
@@ -300,7 +300,6 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	);
 }
 
-
 const mapStateToProps = state => {
 	return {
 		cart: state.shop.cart,
@@ -314,6 +313,5 @@ const mapDispatchToProps = dispatch => {
 		removeFromCart: (id, color, size) => dispatch(removeFromCart(id, color, size)),
 	}
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps, null)(ProductPage);

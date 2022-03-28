@@ -59,7 +59,7 @@ export const getProducts = (success) => {
 	}
 }
 
-export const fetchProducts = () => {
+export const loadData = () => {
 	return {
 		type: actionTypes.LOAD_DATA
 	}

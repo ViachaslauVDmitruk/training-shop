@@ -5,7 +5,7 @@ import ProductPage from './pages/ProductPage/ProductPage';
 import Clothes from './components/Clothes';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchProducts } from './redux/Shopping/shopping-actions';
+import { loadData } from './redux/Shopping/shopping-actions';
 import Loader from './components/Loader/loader';
 import Error from './components/error/Error';
 
@@ -14,7 +14,7 @@ function App() {
 	const { isError, isLoading } = useSelector(store => store.shop);
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchProducts())
+		dispatch(loadData())
 	}, [dispatch])
 
 	return (
