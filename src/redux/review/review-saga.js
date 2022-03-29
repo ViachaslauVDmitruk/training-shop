@@ -1,18 +1,27 @@
 import axios from "axios";
-import { put, call, takeLatest } from 'redux-saga/effects';
-import { getProducts, getProductsError, getProductsSuccess, } from "../Shopping/shopping-actions";
+import { put, call, takeLatest, select } from 'redux-saga/effects';
+import { uploadReview, uploadReviewError, uploadReviewSuccess } from "./review-actions";
 import { UPLOAD_DATA } from "./review-types";
+export { REVIEW_STATE } from './review-reducer'
 
-export function* productsRequestWorker() {
+export function* reviewPostWorker() {
+	const review = yield select(s => s.review)
 	try {
-		yield put(getProducts())
-		const { data } = yield call(axios.get, "https://training.cleverland.by/shop/products");
-		yield put(getProductsSuccess(data));
+		yield put(uploadReview())
+		yield call(axios.post, "https://training.cleverland.by/shop/product/review",
+			{
+				id: review.id,
+				name: review.name,
+				text: review.text,
+				rating: review.rating,
+			}
+		);
+		yield put(uploadReviewSuccess());
 	} catch (err) {
-		yield put(getProductsError())
+		yield put(uploadReviewError)
 	}
 }
 
-export function* productsRequestWatcher() {
-	yield takeLatest(UPLOAD_DATA, productsRequestWorker)
+export function* reviewPostWatcher() {
+	yield takeLatest(UPLOAD_DATA, reviewPostWorker)
 }

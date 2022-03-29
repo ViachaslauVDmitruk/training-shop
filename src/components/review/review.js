@@ -5,12 +5,12 @@ import * as Yup from 'yup';
 import TextError from './TextError';
 import ErrorReview from './errorReview';
 import { useDispatch } from 'react-redux';
-import { getReviewInfo } from '../../redux/review/review-actions';
+import { getReviewInfo, uploadData } from '../../redux/review/review-actions';
 
 const initialValues = {
 	name: '',
 	text: '',
-	rating: '',
+	rating: '1',
 }
 const onSubmit = (values, onSubmitProps) => {
 	onSubmitProps.setSubmitting(false);
@@ -26,6 +26,7 @@ function Review({ active, setActive, id }) {
 
 	function getReviewData(id, name, text, rating) {
 		dispatch(getReviewInfo(id, name, text, rating));
+		dispatch(uploadData());
 	}
 
 	return (
@@ -35,7 +36,6 @@ function Review({ active, setActive, id }) {
 			validationSchema={validationSchema}
 		>
 			{formik => {
-				console.log('formik values', formik.values)
 				return (
 					<Form>
 						<div className="review" onClick={() => setActive(false)} >
@@ -51,7 +51,7 @@ function Review({ active, setActive, id }) {
 										<label htmlFor="star-rating__3" className='star-rating__laber'></label>
 										<Field id="star-rating__2" type="radio" className='star-rating__item' name="rating" value="2" />
 										<label htmlFor="star-rating__2" className='star-rating__laber'></label>
-										<Field id="star-rating__1" type="radio" className='star-rating__item' name="rating" value="1" defaultChecked />
+										<Field id="star-rating__1" type="radio" className='star-rating__item' name="rating" value="1" />
 										<label htmlFor="star-rating__1" className='star-rating__laber'></label>
 									</div>
 								</div>
@@ -80,7 +80,7 @@ function Review({ active, setActive, id }) {
 									disabled={formik.isSubmitting || !formik.isValid}
 									onClick={() => { getReviewData(id, formik.values.name, formik.values.text, formik.values.rating) }}
 								>
-									<span><img src={imgLoader} alt="loader" /></span>
+									{<span><img src={imgLoader} alt="loader" /></span>}
 									Send
 								</button>
 								<ErrorReview />

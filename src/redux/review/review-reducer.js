@@ -9,40 +9,51 @@ export const REVIEW_STATE = {
 	isLoading: false,
 }
 
-const reviewReducer = (state = REVIEW_STATE, action) => {
+const reviewReducer = (store = REVIEW_STATE, action) => {
 	switch (action.type) {
-		case actionTypes.GET_ID_PRODUCT:
+		case actionTypes.UPLOAD_DATA:
 
 			return {
-				...state,
+				...store,
+				isLoading: true,
+			}
+		case actionTypes.UPLOAD_REVIEW:
+
+			return {
+				...store,
 				isLoading: true,
 			}
 		case actionTypes.GET_REVIEW_INFO:
 
 			return {
-				...state,
-				isLoading: true,
+				...store,
+				id: action.payload.id,
+				name: action.payload.name,
+				text: action.payload.text,
+				rating: action.payload.rating,
 			}
 		case actionTypes.UPLOAD_REVIEW_ERROR:
-			console.log('error', action.payload)
-
+			console.log('UPLOAD_REVIEW_ERROR')
 			return {
-				...state,
+				...store,
 				isError: true,
 				isLoading: false,
 			}
 		case actionTypes.UPLOAD_REVIEW_SUCCESS:
-			console.log('success', action.payload)
-
+			console.log('UPLOAD_REVIEW_SUCCESS')
 			return {
-				...state,
-				isError: true,
+				...store,
+				isError: false,
 				isLoading: false,
+				id: '',
+				name: '',
+				text: '',
+				rating: '',
 			}
 
 		default:
 
-			return state;
+			return store;
 	}
 };
 

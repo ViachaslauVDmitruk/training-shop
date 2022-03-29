@@ -7,20 +7,32 @@ export const getReviewInfo = (reiewID, reviewName, reviewText, reviewRating) => 
 			id: reiewID,
 			name: reviewName,
 			text: reviewText,
-			rating: reviewRating
+			rating: reviewRating,
 		}
 	}
 }
 
-export const upLoadReviewError = () => {
+export const uploadReviewError = () => {
+
+	return {
+		type: actionTypes.UPLOAD_REVIEW_ERROR,
+	}
+}
+export const uploadReviewSuccess = () => {
 
 	return {
 		type: actionTypes.UPLOAD_REVIEW_SUCCESS,
 	}
 }
-export const upLoadReviewSuccess = () => {
+export const uploadReview = () => {
 
 	return {
-		type: actionTypes.UPLOAD_REVIEW_SUCCESS,
+		type: actionTypes.UPLOAD_REVIEW,
+	}
+}
+
+export const uploadData = () => {
+	return {
+		type: actionTypes.UPLOAD_DATA,
 	}
 }

@@ -17,7 +17,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				isLoading: true,
 			}
 		case actionTypes.GET_PRODUCTS_ERROR:
-			console.log('error', action.payload)
+
 			return {
 				...state,
 				isError: true,
