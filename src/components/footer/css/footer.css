@@ -67,6 +67,7 @@
 }
 
 .footer-top__button {
+  cursor: pointer;
   display: block;
   height: 32px;
   margin: 0px 12px 0px;
@@ -75,7 +76,7 @@
 @media (max-width: 660px) {
   .footer-top__button {
     height: 32px;
-    margin: 0 auto;
+    margin: 20px auto 0px auto;
   }
 }
 
@@ -160,6 +161,24 @@
   border: 1px solid #ffffff;
   background-color: #121212;
   cursor: pointer;
+}
+
+.footer-button__btn:active {
+  color: #050505;
+  background-color: #f8f8f8;
+}
+
+.footer-button__btn span {
+  position: absolute;
+  display: block;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.footer-button__btn span img {
+  display: block;
+  height: 100%;
 }
 
 .footer-top-social__list {

@@ -1,0 +1,8 @@
+.successsubscribe {
+  position: absolute;
+  color: green;
+  font-size: 12px;
+  text-align: center;
+  top: -16px;
+  z-index: 3;
+}
