@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import TextError from './TextError';
 import ErrorReview from './errorReview';
 import { useDispatch, useSelector } from 'react-redux';
-import { sendLoadData } from '../../redux/review/review-actions';
+import { sendLoadData } from '../../redux/sending/sending-actions';
 import { useEffect } from 'react';
 
 const initialValues = {
@@ -25,7 +25,7 @@ const validationSchema = Yup.object({
 
 function Review({ active, setActive, id }) {
 	const dispatch = useDispatch();
-	const { isLoader, isError, isClose } = useSelector(store => store.review);
+	const { isLoader, isError, isClose } = useSelector(store => store.send);
 
 	function getReviewData(id, name, text, rating) {
 		dispatch(sendLoadData(id, name, text, rating));

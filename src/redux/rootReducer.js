@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import reviewReducer from "./review/review-reducer";
+import sendingReducer from './sending/sending-reducer';
 import shopReducer from './Shopping/shopping-reducer';
 const rootReducer = combineReducers({
 	shop: shopReducer,
-	review: reviewReducer
+	send: sendingReducer,
 });
 
 export default rootReducer;
