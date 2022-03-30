@@ -16,7 +16,7 @@ import img04 from './img/04.png';
 import img05 from './img/05.png';
 import img06 from './img/06.png';
 import img07 from './img/07.png';
-import imgLoader from '../review/img/loadersmall.gif';
+import imgLoader from './img/loadersmall.gif';
 
 import imgcontact01 from './img/contact/01.png';
 import imgcontact02 from './img/contact/02.png';
@@ -167,10 +167,11 @@ function Footer() {
 													data-test-id="footer-subscribe-mail-button"
 													type="submit"
 													className="footer-button__btn"
-													disabled={formik.isSubmitting || !formik.isValid}
+													disabled={formik.isSubmitting || !formik.isValid || !formik.dirty}
 													onClick={() => { dispatch(sendEmail(formik.mail, 2)) }}
 												>
-													{isLoader && <span><img src={imgLoader} alt="loader" /></span>}Join  us
+													{isLoader && <span><img src={imgLoader} alt="loader" /></span>}
+													Join  us
 												</button>
 											</div>
 										</div>

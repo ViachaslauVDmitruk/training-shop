@@ -88,6 +88,7 @@
 }
 .footer-button {
 	&__btn {
+		position: relative;
 		display: block;
 		height: 100%;
 		width: 108px;
@@ -99,7 +100,7 @@
 		color: #ffff;
 		opacity: 0.9;
 		border: 1px solid #ffffff;
-		background-color: #121212;
+		background-color: #000000;
 		cursor: pointer;
 		&:active {
 			color: #050505;
@@ -108,8 +109,8 @@
 		span {
 			position: absolute;
 			display: block;
-			height: 100%;
-			top: 0;
+			height: 20px;
+			top: 5px;
 			left: 0;
 			img {
 				display: block;
