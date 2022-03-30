@@ -1,13 +1,18 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
-import ErrorReview from '../../review/errorReview';
+import { sendEmail } from '../../../redux/sending/sending-actions';
 import './css/Part5.css';
+
 import img01 from './img/01.png';
 import img02 from './img/02.png';
+import imgLoader from './img/loadersmall.gif';
+import TextError from '../../review/TextError';
+import ErrorSubscibe from './errorSubscribe';
+import SuccessSubscibe from './successSubscribe';
 
 const initialValues = {
-	email: '',
-
+	mail: '',
 }
 const onSubmit = (values, onSubmitProps) => {
 	onSubmitProps.setSubmitting(false);
@@ -15,10 +20,12 @@ const onSubmit = (values, onSubmitProps) => {
 }
 
 const validationSchema = Yup.object({
-	email: Yup.string().email('Incorrect email format').required('Required name'),
+	mail: Yup.string().email('Incorrect email format').required('Required name'),
 })
 
 function Part5() {
+	const { isLoader, isError, isSubscibe, form } = useSelector(store => store.send);
+	const dispatch = useDispatch();
 
 	return (
 		<Formik
@@ -27,6 +34,7 @@ function Part5() {
 			validationSchema={validationSchema}
 		>
 			{formik => {
+
 				return (
 					<Form>
 						<div className="Parth5">
@@ -39,22 +47,28 @@ function Part5() {
 									</div>
 									<div className="center-column__form">
 										<Field
+											data-test-id="main-subscribe-mail-field"
 											autoComplete="off"
 											id="email"
 											type="text"
-											name="email"
+											name="mail"
 											placeholder="Enter your email"
 											className="input"
 										/>
-										<ErrorMessage name="email" />
+										<ErrorMessage name="mail" component={TextError} />
 									</div>
 									<div className="center-column__button">
+										{isError && (form === 1) && <ErrorSubscibe />}
+										{isSubscibe && (form === 1) && <SuccessSubscibe />}
 										<button
+											data-test-id="main-subscribe-mail-button"
 											type="submit"
 											className="center-column-button__btn"
 											disabled={formik.isSubmitting || !formik.isValid}
-										>Subscribe</button>
-										<ErrorReview />
+											onClick={() => { dispatch(sendEmail(formik.mail, 1)) }}
+										>
+											{isLoader && <span><img src={imgLoader} alt="loader" /></span>}
+											Subscribe</button>
 									</div>
 								</div>
 								<div className="parth5-images__item item_woman">
