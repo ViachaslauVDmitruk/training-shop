@@ -32,8 +32,7 @@ function Review({ active, setActive, id }) {
 	};
 
 	useEffect(() => {
-		console.log('isClose', isClose)
-		if (isClose) {
+		if (isClose && !isLoader) {
 			setActive(false)
 		}
 	});
@@ -90,7 +89,7 @@ function Review({ active, setActive, id }) {
 									data-test-id="review-submit-button"
 									className='review-sendbutton'
 									type="submit"
-									disabled={formik.isSubmitting || !formik.isValid}
+									disabled={formik.isSubmitting || !formik.isValid || !formik.dirty}
 									onClick={() => { getReviewData(id, formik.values.name, formik.values.text, formik.values.rating) }}
 								>
 									{isLoader && <span><img src={imgLoader} alt="loader" /></span>}

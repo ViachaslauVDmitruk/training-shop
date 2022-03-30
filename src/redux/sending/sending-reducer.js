@@ -24,6 +24,7 @@ const sendingReducer = (store = REVIEW_STATE, action) => {
 				text: action.payload.text,
 				rating: action.payload.rating,
 				isLoader: true,
+				isClose: false,
 			}
 		case actionTypes.SEND_EMAIL:
 

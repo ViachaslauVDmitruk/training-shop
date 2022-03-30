@@ -11,7 +11,7 @@ export function* reviewPostWorker(action) {
 			id: action.payload.id,
 			name: action.payload.name,
 			text: action.payload.text,
-			rating: action.payload.rating,
+			rating: Number(action.payload.rating),
 		});
 		yield put(uploadSuccess());
 		yield put(closeReviewForm());

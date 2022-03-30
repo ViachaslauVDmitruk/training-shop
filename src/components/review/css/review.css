@@ -116,6 +116,7 @@
   background-color: #121212;
   color: #fff;
   margin: 0px 0px 20px 0px;
+  cursor: pointer;
 }
 
 .review-sendbutton:active {
@@ -126,7 +127,7 @@
 .review-sendbutton span {
   position: absolute;
   display: block;
-  height: 35px;
+  height: 100%;
   top: 0;
   left: 0;
 }
