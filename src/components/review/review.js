@@ -4,8 +4,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import TextError from './TextError';
 import ErrorReview from './errorReview';
-import { useDispatch } from 'react-redux';
-import { getReviewInfo, uploadData } from '../../redux/review/review-actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { sendLoadData } from '../../redux/review/review-actions';
+import { useEffect } from 'react';
 
 const initialValues = {
 	name: '',
@@ -14,6 +15,7 @@ const initialValues = {
 }
 const onSubmit = (values, onSubmitProps) => {
 	onSubmitProps.setSubmitting(false);
+	onSubmitProps.resetForm();
 }
 
 const validationSchema = Yup.object({
@@ -23,11 +25,18 @@ const validationSchema = Yup.object({
 
 function Review({ active, setActive, id }) {
 	const dispatch = useDispatch();
+	const { isLoader, isError, isClose } = useSelector(store => store.review);
 
 	function getReviewData(id, name, text, rating) {
-		dispatch(getReviewInfo(id, name, text, rating));
-		dispatch(uploadData());
-	}
+		dispatch(sendLoadData(id, name, text, rating));
+	};
+
+	useEffect(() => {
+		console.log('isClose', isClose)
+		if (isClose) {
+			setActive(false)
+		}
+	});
 
 	return (
 		<Formik
@@ -36,6 +45,7 @@ function Review({ active, setActive, id }) {
 			validationSchema={validationSchema}
 		>
 			{formik => {
+
 				return (
 					<Form>
 						<div className="review" onClick={() => setActive(false)} >
@@ -80,15 +90,16 @@ function Review({ active, setActive, id }) {
 									disabled={formik.isSubmitting || !formik.isValid}
 									onClick={() => { getReviewData(id, formik.values.name, formik.values.text, formik.values.rating) }}
 								>
-									{<span><img src={imgLoader} alt="loader" /></span>}
+									{isLoader && <span><img src={imgLoader} alt="loader" /></span>}
 									Send
 								</button>
-								<ErrorReview />
+								{isError && <ErrorReview />}
 							</div>
 						</div>
 					</Form>
 				)
-			}}
+			}
+			}
 		</Formik>
 	)
 }

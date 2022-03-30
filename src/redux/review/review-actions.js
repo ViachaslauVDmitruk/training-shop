@@ -1,17 +1,5 @@
 import * as actionTypes from './review-types';
 
-export const getReviewInfo = (reiewID, reviewName, reviewText, reviewRating) => {
-	return {
-		type: actionTypes.GET_REVIEW_INFO,
-		payload: {
-			id: reiewID,
-			name: reviewName,
-			text: reviewText,
-			rating: reviewRating,
-		}
-	}
-}
-
 export const uploadReviewError = () => {
 
 	return {
@@ -30,9 +18,21 @@ export const uploadReview = () => {
 		type: actionTypes.UPLOAD_REVIEW,
 	}
 }
+export const closeReviewForm = () => {
 
-export const uploadData = () => {
 	return {
-		type: actionTypes.UPLOAD_DATA,
+		type: actionTypes.CLOSE_REVIEW_FORM,
+	}
+}
+
+export const sendLoadData = (reiewID, reviewName, reviewText, reviewRating) => {
+	return {
+		type: actionTypes.SEND_LOAD_DATA,
+		payload: {
+			id: reiewID,
+			name: reviewName,
+			text: reviewText,
+			rating: reviewRating,
+		}
 	}
 }
