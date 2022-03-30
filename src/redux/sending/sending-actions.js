@@ -37,12 +37,12 @@ export const sendLoadData = (reiewID, reviewName, reviewText, reviewRating) => {
 	}
 }
 
-export const sendEmail = (subscribeMail) => {
+export const sendEmail = (subscribeMail, number) => {
 	return {
 		type: actionTypes.SEND_EMAIL,
 		payload: {
 			mail: subscribeMail,
-
+			form: number,
 		}
 	}
 }

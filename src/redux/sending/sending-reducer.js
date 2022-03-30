@@ -6,9 +6,11 @@ export const REVIEW_STATE = {
 	text: '',
 	rating: '',
 	mail: '',
+	form: '',
 	isError: false,
 	isLoader: false,
 	isClose: false,
+	isSubscibe: false,
 }
 
 const sendingReducer = (store = REVIEW_STATE, action) => {
@@ -28,7 +30,9 @@ const sendingReducer = (store = REVIEW_STATE, action) => {
 			return {
 				...store,
 				mail: action.payload.mail,
+				form: action.payload.form,
 				isLoader: true,
+				isSubscibe: false,
 			}
 		case actionTypes.UPLOAD:
 
@@ -39,19 +43,20 @@ const sendingReducer = (store = REVIEW_STATE, action) => {
 			}
 
 		case actionTypes.UPLOAD_ERROR:
-			console.log('UPLOAD_ERROR')
+
 			return {
 				...store,
 				isError: true,
 				isLoader: false,
 			}
 		case actionTypes.UPLOAD_SUCCESS:
-			console.log('UPLOAD_SUCCESS')
+
 			return {
 				...store,
 				isError: false,
 				isLoader: false,
 				isClose: true,
+				isSubscibe: true,
 				id: '',
 				name: '',
 				text: '',
@@ -59,12 +64,18 @@ const sendingReducer = (store = REVIEW_STATE, action) => {
 				mail: '',
 			}
 		case actionTypes.CLOSE_REVIEW_FORM:
-			console.log('CLOSE_REVIEW_FORM')
+
 			return {
 				...store,
 				isClose: false,
+				id: '',
+				name: '',
+				text: '',
+				rating: '',
+				mail: '',
+				isSubscibe: false,
+				isError: false,
 			}
-
 		default:
 
 			return store;
