@@ -1,5 +1,6 @@
 import axios from "axios";
-import { put, call, takeLatest } from 'redux-saga/effects';
+import { put, call, takeLatest, delay } from 'redux-saga/effects';
+import { getProducts, getProductsError, getProductsSuccess } from "../Shopping/shopping-actions";
 import { closeReviewForm, upload, uploadError, uploadSuccess } from "./sending-actions";
 import { SEND_EMAIL, SEND_LOAD_DATA } from "./sending-types";
 
@@ -14,10 +15,14 @@ export function* reviewPostWorker(action) {
 		});
 		yield put(uploadSuccess());
 		yield put(closeReviewForm());
+		yield put(getProducts())
+		const { data } = yield call(axios.get, "https://training.cleverland.by/shop/products");
+		yield put(getProductsSuccess(data));
 	} catch (err) {
-		console.log(err)
 		yield put(uploadError());
+		yield put(getProductsError());
 	}
+
 }
 export function* subscribePostWorker(action) {
 	try {
@@ -26,10 +31,12 @@ export function* subscribePostWorker(action) {
 			mail: action.payload.mail,
 		});
 		yield put(uploadSuccess());
+		yield delay(2000);
 		yield put(closeReviewForm());
 	} catch (err) {
-		console.log(err)
 		yield put(uploadError());
+		yield delay(2000);
+		yield put(closeReviewForm());
 	}
 }
 
