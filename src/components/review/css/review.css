@@ -118,12 +118,6 @@
   margin: 0px 0px 20px 0px;
 }
 
-.review-sendbutton:hover {
-  background-color: #e6e6e6;
-  color: #121212;
-  opacity: 0.9;
-}
-
 .review-sendbutton:active {
   background: #9c9c9c;
   color: #fff;

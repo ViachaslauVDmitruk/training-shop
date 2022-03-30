@@ -49,7 +49,7 @@ function Review({ active, setActive, id }) {
 				return (
 					<Form>
 						<div className="review" onClick={() => setActive(false)} >
-							<div className="review-form" onClick={e => e.stopPropagation()}>
+							<div data-test-id="review-modal" className="review-form" onClick={e => e.stopPropagation()}>
 								<div className="review-title">Write a review</div>
 								<div className="review-rating">
 									<div className="review-rating__star">
@@ -67,6 +67,7 @@ function Review({ active, setActive, id }) {
 								</div>
 								<div className='review-input-name'>
 									<Field
+										data-test-id="review-name-field"
 										type="text"
 										id="name"
 										name="name"
@@ -77,6 +78,7 @@ function Review({ active, setActive, id }) {
 								</div>
 								<div className='review-input-text'>
 									<Field
+										data-test-id="review-text-field"
 										as="textarea"
 										type="text"
 										id="text" name="text"
@@ -85,6 +87,7 @@ function Review({ active, setActive, id }) {
 									<ErrorMessage name='text' component={TextError} />
 								</div>
 								<button
+									data-test-id="review-submit-button"
 									className='review-sendbutton'
 									type="submit"
 									disabled={formik.isSubmitting || !formik.isValid}

@@ -251,7 +251,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 												</div>
 												<div className="reviews__text">{item.reviews.length} reviews</div>
 											</div>
-											<div className="product-info-reviews-row__write" onClick={() => setIsReviewOpen(true)}>
+											<div data-test-id="review-button" className="product-info-reviews-row__write" onClick={() => setIsReviewOpen(true)}>
 												<div className="product-info-write__image" >
 													<img src={write} alt="write" />
 												</div>
