@@ -18,17 +18,16 @@ function Part5() {
 	const initialValues = {
 		mail: '',
 	};
-
 	const validationSchema = Yup.object({
 		mail: Yup.string()
 			.matches(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/, 'Incorrect characters')
 			.email('Incorrect email format')
 			.required('Required name'),
 	});
-
 	const onSubmit = (values, onSubmitProps) => {
 		let successCallback = () => onSubmitProps.resetForm();
 		dispatch(sendEmail(values.mail, 1, successCallback));
+		onSubmitProps.setSubmitting(false);
 	};
 
 	return (
