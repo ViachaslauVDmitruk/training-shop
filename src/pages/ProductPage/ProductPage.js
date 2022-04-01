@@ -94,7 +94,7 @@ function ProductPage({ props, addToCart, productData, removeFromCart, cart }) {
 	return (
 		<div className="product-page" data-test-id={`product-page-${type}`}>
 			<div className="wrapper">
-				{isReviewOpen && <Review active={isReviewOpen} setActive={setIsReviewOpen} id={id} />}
+				{isReviewOpen && <Review active={isReviewOpen} setActive={setIsReviewOpen} id={id} type={type} />}
 				<Header />
 				{item && <div className="main">
 					<div className="categories__top-block">
