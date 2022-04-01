@@ -67,6 +67,7 @@ function Part5() {
 											data-test-id="main-subscribe-mail-button"
 											type="submit"
 											className="center-column-button__btn"
+											disabled={formik.isSubmitting || !formik.isValid || !formik.dirty}
 										>
 											{isLoader && <span><img src={imgLoader} alt="loader" /></span>}
 											Subscribe</button>

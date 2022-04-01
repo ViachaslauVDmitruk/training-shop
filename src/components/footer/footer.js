@@ -170,6 +170,7 @@ function Footer() {
 													data-test-id="footer-subscribe-mail-button"
 													type="submit"
 													className="footer-button__btn"
+													disabled={formik.isSubmitting || !formik.isValid || !formik.dirty}
 												>
 													{isLoader && <span><img src={imgLoader} alt="loader" /></span>}
 													Join  us
