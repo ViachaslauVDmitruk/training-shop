@@ -1,6 +1,6 @@
 import axios from "axios";
 import { put, call, takeLatest, delay } from 'redux-saga/effects';
-import { getProducts, getProductsError, getProductsSuccess } from "../Shopping/shopping-actions";
+import { getProductById, getProducts, getProductsError } from "../Shopping/shopping-actions";
 import { closeReviewForm, upload, uploadError, uploadSuccess } from "./sending-actions";
 import { SEND_EMAIL, SEND_LOAD_DATA } from "./sending-types";
 
@@ -16,8 +16,8 @@ export function* reviewPostWorker(action) {
 		yield put(uploadSuccess());
 		yield put(closeReviewForm());
 		yield put(getProducts());
-		const { data } = yield call(axios.get, `https://training.cleverland.by/shop/products`);
-		yield put(getProductsSuccess(data));
+		const { data } = yield call(axios.get, `https://training.cleverland.by/shop/product/${action.payload.id}`);
+		yield put(getProductById(data, action.payload.type));
 	} catch (err) {
 		yield put(uploadError());
 		yield put(getProductsError());

@@ -61,6 +61,17 @@ export const getProducts = (success) => {
 
 export const loadData = () => {
 	return {
-		type: actionTypes.LOAD_DATA
+		type: actionTypes.LOAD_DATA,
+	}
+}
+
+export const getProductById = (dataItem, typeItem) => {
+
+	return {
+		type: actionTypes.GET_PRODUCT_BY_ID,
+		payload: {
+			data: dataItem,
+			type: typeItem,
+		}
 	}
 }

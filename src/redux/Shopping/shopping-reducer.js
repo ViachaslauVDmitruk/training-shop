@@ -30,6 +30,26 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				products: action.payload,
 				isLoading: false,
 			};
+		case actionTypes.GET_PRODUCT_BY_ID:
+
+			return {
+				...state,
+				isLoading: false,
+				products: {
+					...state.products,
+					[action.payload.type]: [
+						...state.products[action.payload.type].map((item) => {
+							if (item.id === action.payload.data.id) {
+
+								return action.payload.data
+							} else {
+
+								return item
+							}
+						})
+					]
+				}
+			}
 		case actionTypes.ADD_TO_CART:
 			const item = {
 				color: action.payload.color,
