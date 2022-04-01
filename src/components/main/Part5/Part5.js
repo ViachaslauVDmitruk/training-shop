@@ -11,14 +11,8 @@ import TextError from '../../review/TextError';
 import ErrorSubscibe from './errorSubscribe';
 import SuccessSubscibe from './successSubscribe';
 
-// const onSubmit = (values, onSubmitProps) => {
-// 	onSubmitProps.setSubmitting(false);
-// 	onSubmitProps.resetForm({ values: '' });
-// 	console.log('value', onSubmitProps.resetForm.values)
-// }
-
 function Part5() {
-	const { isLoader, isError, isSubscibe, isClose, form } = useSelector(store => store.send);
+	const { isLoader, isError, isSubscibe, form } = useSelector(store => store.send);
 	const dispatch = useDispatch();
 
 	const initialValues = {
@@ -33,9 +27,8 @@ function Part5() {
 	});
 
 	const onSubmit = (values, onSubmitProps) => {
-		dispatch(sendEmail(values.mail, 1))
-		onSubmitProps.setSubmitting(false);
-		onSubmitProps.resetForm();
+		let successCallback = () => onSubmitProps.resetForm();
+		dispatch(sendEmail(values.mail, 1, successCallback));
 	};
 
 	return (

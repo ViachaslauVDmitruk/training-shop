@@ -25,10 +25,11 @@ export const closeReviewForm = () => {
 	}
 }
 
-export const sendLoadData = (reiewID, reviewName, reviewText, reviewRating) => {
+export const sendLoadData = (reiewType, reiewID, reviewName, reviewText, reviewRating) => {
 	return {
 		type: actionTypes.SEND_LOAD_DATA,
 		payload: {
+			type: reiewType,
 			id: reiewID,
 			name: reviewName,
 			text: reviewText,
@@ -37,12 +38,13 @@ export const sendLoadData = (reiewID, reviewName, reviewText, reviewRating) => {
 	}
 }
 
-export const sendEmail = (subscribeMail, number) => {
+export const sendEmail = (subscribeMail, number, callback) => {
 	return {
 		type: actionTypes.SEND_EMAIL,
 		payload: {
 			mail: subscribeMail,
 			form: number,
+			clear: callback,
 		}
 	}
 }

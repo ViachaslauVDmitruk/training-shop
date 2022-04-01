@@ -15,8 +15,8 @@ export function* reviewPostWorker(action) {
 		});
 		yield put(uploadSuccess());
 		yield put(closeReviewForm());
-		yield put(getProducts())
-		const { data } = yield call(axios.get, "https://training.cleverland.by/shop/products");
+		yield put(getProducts());
+		const { data } = yield call(axios.get, `https://training.cleverland.by/shop/products`);
 		yield put(getProductsSuccess(data));
 	} catch (err) {
 		yield put(uploadError());
@@ -31,6 +31,7 @@ export function* subscribePostWorker(action) {
 			mail: action.payload.mail,
 		});
 		yield put(uploadSuccess());
+		yield (action.payload.clear());
 		yield delay(2000);
 		yield put(closeReviewForm());
 	} catch (err) {

@@ -1,6 +1,7 @@
 import * as actionTypes from './sending-types';
 
 export const REVIEW_STATE = {
+	type: '',
 	id: '',
 	name: '',
 	text: '',
@@ -19,6 +20,7 @@ const sendingReducer = (store = REVIEW_STATE, action) => {
 
 			return {
 				...store,
+				type: action.payload.type,
 				id: action.payload.id,
 				name: action.payload.name,
 				text: action.payload.text,
