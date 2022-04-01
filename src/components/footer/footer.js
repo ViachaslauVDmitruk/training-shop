@@ -118,29 +118,31 @@ const footerContactUs = [
 	},
 ]
 
-const initialValues = {
-	mail: '',
-}
-const onSubmit = (values, onSubmitProps) => {
-	onSubmitProps.setSubmitting(false);
-	onSubmitProps.resetForm();
-}
-
-const validationSchema = Yup.object({
-	mail: Yup.string().email('Incorrect email format').required('Required name'),
-})
-
-
 function Footer() {
 	const { isLoader, isError, isSubscibe, form } = useSelector(store => store.send);
 	const dispatch = useDispatch();
 
+	const initialValues = {
+		mail: '',
+	};
+	const onSubmit = (values, onSubmitProps) => {
+		dispatch(sendEmail(values.mail, 2));
+		onSubmitProps.setSubmitting(false);
+	};
+	const validationSchema = Yup.object({
+		mail: Yup.string()
+			.email('Incorrect email format')
+			.matches(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/, 'Incorrect characters')
+			.required('Required name'),
+	});
+
 	return (
 		<Formik
-			initialValues={initialValues}
+			initialValues={!isSubscibe ? initialValues : null}
 			onSubmit={onSubmit}
 			validationSchema={validationSchema}
 		>
+
 			{formik => {
 
 				return (
@@ -167,8 +169,6 @@ function Footer() {
 													data-test-id="footer-subscribe-mail-button"
 													type="submit"
 													className="footer-button__btn"
-													disabled={formik.isSubmitting || !formik.isValid || !formik.dirty}
-													onClick={() => { dispatch(sendEmail(formik.mail, 2)) }}
 												>
 													{isLoader && <span><img src={imgLoader} alt="loader" /></span>}
 													Join  us

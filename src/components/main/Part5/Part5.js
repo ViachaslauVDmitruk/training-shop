@@ -11,21 +11,32 @@ import TextError from '../../review/TextError';
 import ErrorSubscibe from './errorSubscribe';
 import SuccessSubscibe from './successSubscribe';
 
-const initialValues = {
-	mail: '',
-}
-const onSubmit = (values, onSubmitProps) => {
-	onSubmitProps.setSubmitting(false);
-	onSubmitProps.resetForm();
-}
-
-const validationSchema = Yup.object({
-	mail: Yup.string().email('Incorrect email format').required('Required name'),
-})
+// const onSubmit = (values, onSubmitProps) => {
+// 	onSubmitProps.setSubmitting(false);
+// 	onSubmitProps.resetForm({ values: '' });
+// 	console.log('value', onSubmitProps.resetForm.values)
+// }
 
 function Part5() {
-	const { isLoader, isError, isSubscibe, form } = useSelector(store => store.send);
+	const { isLoader, isError, isSubscibe, isClose, form } = useSelector(store => store.send);
 	const dispatch = useDispatch();
+
+	const initialValues = {
+		mail: '',
+	};
+
+	const validationSchema = Yup.object({
+		mail: Yup.string()
+			.matches(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/, 'Incorrect characters')
+			.email('Incorrect email format')
+			.required('Required name'),
+	});
+
+	const onSubmit = (values, onSubmitProps) => {
+		dispatch(sendEmail(values.mail, 1))
+		onSubmitProps.setSubmitting(false);
+		onSubmitProps.resetForm();
+	};
 
 	return (
 		<Formik
@@ -64,8 +75,6 @@ function Part5() {
 											data-test-id="main-subscribe-mail-button"
 											type="submit"
 											className="center-column-button__btn"
-											disabled={formik.isSubmitting || !formik.isValid || !formik.dirty}
-											onClick={() => { dispatch(sendEmail(formik.mail, 1)) }}
 										>
 											{isLoader && <span><img src={imgLoader} alt="loader" /></span>}
 											Subscribe</button>
