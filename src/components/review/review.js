@@ -8,27 +8,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { sendLoadData } from '../../redux/sending/sending-actions';
 import { useEffect } from 'react';
 
-const initialValues = {
-	name: '',
-	text: '',
-	rating: '1',
-}
-const onSubmit = (values, onSubmitProps) => {
-	onSubmitProps.setSubmitting(false);
-	onSubmitProps.resetForm();
-}
 
-const validationSchema = Yup.object({
-	name: Yup.string().required('Required name'),
-	text: Yup.string().required('Required review'),
-})
 
-function Review({ active, setActive, id }) {
+function Review({ active, setActive, id, type }) {
 	const dispatch = useDispatch();
 	const { isLoader, isError, isClose } = useSelector(store => store.send);
 
-	function getReviewData(id, name, text, rating) {
-		dispatch(sendLoadData(id, name, text, rating));
+	function getReviewData(type, id, name, text, rating) {
+		dispatch(sendLoadData(type, id, name, text, rating));
 	};
 
 	useEffect(() => {
@@ -36,6 +23,20 @@ function Review({ active, setActive, id }) {
 			setActive(false)
 		}
 	});
+
+	const initialValues = {
+		name: '',
+		text: '',
+		rating: '1',
+	}
+	const onSubmit = (values, onSubmitProps) => {
+		onSubmitProps.setSubmitting(false);
+	}
+
+	const validationSchema = Yup.object({
+		name: Yup.string().required('Required name'),
+		text: Yup.string().required('Required review'),
+	})
 
 	return (
 		<Formik
@@ -90,7 +91,7 @@ function Review({ active, setActive, id }) {
 									className='review-sendbutton'
 									type="submit"
 									disabled={formik.isSubmitting || !formik.isValid || !formik.dirty}
-									onClick={() => { getReviewData(id, formik.values.name, formik.values.text, formik.values.rating) }}
+									onClick={() => { getReviewData(type, id, formik.values.name, formik.values.text, formik.values.rating) }}
 								>
 									{isLoader && <span><img src={imgLoader} alt="loader" /></span>}
 									Send

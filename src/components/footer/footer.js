@@ -126,7 +126,8 @@ function Footer() {
 		mail: '',
 	};
 	const onSubmit = (values, onSubmitProps) => {
-		dispatch(sendEmail(values.mail, 2));
+		let successCallback = () => onSubmitProps.resetForm();
+		dispatch(sendEmail(values.mail, 2, successCallback));
 		onSubmitProps.setSubmitting(false);
 	};
 	const validationSchema = Yup.object({
