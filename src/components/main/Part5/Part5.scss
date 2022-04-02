@@ -103,6 +103,13 @@
 		letter-spacing: 0.06em;
 		opacity: 0.9;
 		cursor: pointer;
+		&:active {
+			background: #9c9c9c;
+			color: #fff;
+		}
+		&:disabled {
+			background-color: #6b6a6a;
+		}
 		span {
 			position: absolute;
 			display: block;

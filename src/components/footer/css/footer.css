@@ -169,6 +169,10 @@
   background-color: #f8f8f8;
 }
 
+.footer-button__btn:disabled {
+  background-color: #6b6a6a;
+}
+
 .footer-button__btn span {
   position: absolute;
   display: block;

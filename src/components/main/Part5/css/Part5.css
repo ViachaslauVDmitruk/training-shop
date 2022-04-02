@@ -160,6 +160,15 @@
   cursor: pointer;
 }
 
+.center-column-button__btn:active {
+  background: #9c9c9c;
+  color: #fff;
+}
+
+.center-column-button__btn:disabled {
+  background-color: #6b6a6a;
+}
+
 .center-column-button__btn span {
   position: absolute;
   display: block;

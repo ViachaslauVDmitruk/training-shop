@@ -124,6 +124,10 @@
   color: #fff;
 }
 
+.review-sendbutton:disabled {
+  background-color: #6b6a6a;
+}
+
 .review-sendbutton span {
   position: absolute;
   display: block;

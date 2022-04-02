@@ -106,6 +106,9 @@
 			color: #050505;
 			background-color: #f8f8f8;
 		}
+		&:disabled {
+			background-color: #6b6a6a;
+		}
 		span {
 			position: absolute;
 			display: block;
