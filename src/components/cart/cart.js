@@ -4,10 +4,16 @@ import classNames from 'classnames';
 import CartItem from './cartItem';
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
+import DeliveryInfo from './deliveryInfo';
 
 function Cart({ cart, active, setActive }) {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalItem, setTotalItem] = useState(0);
+	const [deliveryInfo, setDeliveryInfo] = useState(false);
+
+	function handlerFurther() {
+		setDeliveryInfo(true);
+	}
 
 	useEffect(() => {
 		let items = 0;
@@ -18,7 +24,11 @@ function Cart({ cart, active, setActive }) {
 		})
 		setTotalItem(items);
 		setTotalPrice(price);
-	}, [cart, totalItem, totalPrice, setTotalItem, setTotalPrice]);
+		if (!active) {
+			setDeliveryInfo(false);
+		}
+	}, [cart, totalItem, totalPrice, setTotalItem, setTotalPrice, active]);
+
 
 	return (
 		<div className={classNames('cart', { "cart_visible": active === true })} onClick={() => setActive(false)}>
@@ -37,23 +47,30 @@ function Cart({ cart, active, setActive }) {
 					</div>
 				</div>
 				<div className="shopping-container">
-					<div className={classNames("shoppingcart__info", { disable: totalItem === 0 })} >Item in Cart</div>
+					<div className={classNames("shoppingcart__info", { disable: totalItem === 0 })} >
+						<div className='shopping-info__item active'>Item in Cart </div>
+						<span> / </span>
+						<div className='shopping-info__item'> Delivery info</div>
+						<span> / </span>
+						<div className='shopping-info__item'> Payment</div>
+					</div>
 				</div>
-				<div className={classNames("shoppingcart-empty", { notempty: totalItem })}>
+				{!deliveryInfo ? <div className={classNames("shoppingcart-empty", { notempty: totalItem })}>
 					<div className='shoppingcart__main'>
 						<div className="shopping-container">
 							{cart.map(item => (<CartItem key={item.id + item.color + item.size} productData={item} />))}
 						</div>
 					</div>
-				</div>
+				</div> : null}
+				{deliveryInfo ? <DeliveryInfo /> : null}
 				<div className={classNames("shoppingcart__fotter", { disable: totalItem === 0 })} >
 					<div className="shopping-container">
 						<div className="shoppingcart__totalprice">
 							<div className="shoppingcart-totalprice__text">Total</div>
 							<div className="shoppingcart-totalprice__pricetotal">${totalPrice}</div>
 						</div>
-						<div className="shoppingcart-button__further">Further</div>
-						<div className="shoppingcart-button__view" onClick={() => setActive(false)}>View cart</div>
+						<div className="shoppingcart-button__further" onClick={() => setDeliveryInfo(true)}>Further</div>
+						<div className="shoppingcart-button__view" onClick={() => setDeliveryInfo(false)}>View cart</div>
 					</div>
 				</div>
 				<div className={classNames("shoppingcart-empty", { empty: totalItem === 0 })}>

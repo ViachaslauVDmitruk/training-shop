@@ -1,0 +1,143 @@
+.delivery-info {
+	padding: 0px 24px;
+	flex: 1 1;
+	display: flex;
+   flex-direction: column;
+   overflow-y: auto;
+}
+.choose-method {
+	margin: 0px 0px 36px 0px;
+		&__title {
+			margin: 10px 0px 0px 0px;
+			padding: 0px 0px 12px 0px;
+			font-size: 14px;
+			line-height: 22px;
+			color: #000000;
+			border-bottom: solid 2px #e6e6e6;
+		}
+		&__radio {
+			border-bottom: solid 2px #e6e6e6;
+			padding: 12px 0px 12px 0px;
+		}
+		&__item {
+			display: none;
+		}
+}
+.radio-lable{
+font-size: 14px;
+line-height: 22px;
+color: #000000;
+display: inline-block;
+position: relative;
+cursor: pointer;
+&::before {
+	content: "";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #000000;
+	border-radius: 50%;
+	margin: 0px 15px -3px 0px;
+}
+&::after{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: #000000;
+	top: 5px;
+	left: 5px;
+	opacity: 0;
+}
+}
+.choose-method__item:checked + .radio-lable::after{
+	opacity: 1;
+}
+
+.choose-info {
+		&__item {
+			height: 48px;
+			margin: 0px 0px 36px 0px;
+		}
+		&__input {
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: #f8f8f8;
+			border: none;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 18px;
+			color: black;
+			&::placeholder {
+				color: #121212;
+				opacity: 0.4;
+				padding: 0px 0px 0px 16px;
+			}
+			&:focus::placeholder {
+				opacity: 0;
+			}
+		}
+		&__title {
+			font-weight: 600;
+			font-size: 12px;
+			line-height: 18px;
+			display: flex;
+			align-items: center;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			color: #121212;
+			margin: 0px 0px 8px 0px;
+		}
+		.house {
+			display: flex;
+			.choose-info__input{
+				flex: 1 1 50%;
+				margin: 0px 8px 0px 0px;
+				&:last-child{
+					margin: 0;
+				}
+			}
+		}
+}
+.house {
+}
+.choose-postcode {
+}
+.agree-information {
+	margin: 4px 0px 64px 0px;
+	font-size: 14px;
+line-height: 22px;
+color: #121212;
+display: flex;
+cursor: pointer;
+}
+.check-agree {
+	display: none;
+
+}
+.check-box {
+	display: inline-block;
+	width: 22px;
+	height: 18px;
+	background: #FFFFFF;
+	border: 1px solid #E6E6E6;
+	position: relative;
+	&::before{
+		content: url(/src/components/cart/img/Check.png);
+		position: absolute;
+		display: inline-block;
+		opacity: 0;
+		top:50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+.check-agree-text {
+	margin: 0px 0px 0px 7px ;
+}
+.check-agree:checked + .check-box::before {
+	opacity: 1;
+}
