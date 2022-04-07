@@ -4,8 +4,7 @@ import TextErrorDelivery from './errorDelivery';
 import imgLogo01 from './img/01.png';
 import imgLogo02 from './img/02.png';
 import imgLogo03 from './img/03.png';
-import imgEye01 from './img/eye.png';
-import imgEye02 from './img/eyeSlash.png';
+
 
 function Payment() {
 	const initialValues = {
@@ -21,19 +20,10 @@ function Payment() {
 		onSubmitProps.setSubmitting(false);
 	};
 	const validationSchema = Yup.object({
-		phone: Yup.string().matches(/^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/, 'Неверный номер').max(9, 'Неверный номер').required('Поле должно быть заполнено'),
 		mail: Yup.string()
 			.email('Incorrect email format')
 			.matches(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/, 'Incorrect characters')
 			.required('Поле должно быть заполнено'),
-		adress: Yup
-			.object({
-				country: Yup.string().required('Поле должно быть заполнено'),
-				city: Yup.string().required('Поле должно быть заполнено'),
-				street: Yup.string().required('Поле должно быть заполнено'),
-				house: Yup.string().required('Поле должно быть заполнено'),
-			}),
-		check: Yup.string().required('Вы должны согласиться на обработку личной информации')
 	});
 
 	return (

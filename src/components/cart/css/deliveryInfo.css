@@ -71,6 +71,16 @@
   opacity: 1;
 }
 
+.radio-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.radio-button img {
+  display: inline-block;
+}
+
 .choose-info__item {
   height: 48px;
   margin: 0px 0px 36px 0px;
@@ -86,30 +96,27 @@
   font-size: 16px;
   line-height: 18px;
   color: black;
+  padding: 0px 0px 0px 16px;
 }
 
 .choose-info__input::-webkit-input-placeholder {
   color: #121212;
   opacity: 0.4;
-  padding: 0px 0px 0px 16px;
 }
 
 .choose-info__input:-ms-input-placeholder {
   color: #121212;
   opacity: 0.4;
-  padding: 0px 0px 0px 16px;
 }
 
 .choose-info__input::-ms-input-placeholder {
   color: #121212;
   opacity: 0.4;
-  padding: 0px 0px 0px 16px;
 }
 
 .choose-info__input::placeholder {
   color: #121212;
   opacity: 0.4;
-  padding: 0px 0px 0px 16px;
 }
 
 .choose-info__input:focus::-webkit-input-placeholder {
@@ -150,14 +157,14 @@
   display: flex;
 }
 
-.choose-info .house .choose-info__input {
+.choose-info .house .choose-info-house {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 50%;
           flex: 1 1 50%;
   margin: 0px 8px 0px 0px;
 }
 
-.choose-info .house .choose-info__input:last-child {
+.choose-info .house .choose-info-house:last-child {
   margin: 0;
 }
 

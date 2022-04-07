@@ -5,15 +5,12 @@ import CartItem from './cartItem';
 import { connect } from 'react-redux';
 import { useEffect, useState } from 'react';
 import DeliveryInfo from './deliveryInfo';
+// import Payment from './payment';
 
 function Cart({ cart, active, setActive }) {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalItem, setTotalItem] = useState(0);
 	const [deliveryInfo, setDeliveryInfo] = useState(false);
-
-	function handlerFurther() {
-		setDeliveryInfo(true);
-	}
 
 	useEffect(() => {
 		let items = 0;
@@ -28,7 +25,6 @@ function Cart({ cart, active, setActive }) {
 			setDeliveryInfo(false);
 		}
 	}, [cart, totalItem, totalPrice, setTotalItem, setTotalPrice, active]);
-
 
 	return (
 		<div className={classNames('cart', { "cart_visible": active === true })} onClick={() => setActive(false)}>
@@ -48,9 +44,9 @@ function Cart({ cart, active, setActive }) {
 				</div>
 				<div className="shopping-container">
 					<div className={classNames("shoppingcart__info", { disable: totalItem === 0 })} >
-						<div className='shopping-info__item active'>Item in Cart </div>
+						<div className={classNames('shopping-info__item', { active: !deliveryInfo })}>Item in Cart </div>
 						<span> / </span>
-						<div className='shopping-info__item'> Delivery info</div>
+						<div className={classNames('shopping-info__item', { active: deliveryInfo })}> Delivery info</div>
 						<span> / </span>
 						<div className='shopping-info__item'> Payment</div>
 					</div>
@@ -63,13 +59,19 @@ function Cart({ cart, active, setActive }) {
 					</div>
 				</div> : null}
 				{deliveryInfo ? <DeliveryInfo /> : null}
+				{/* {deliveryInfo ? <Payment /> : null} */}
 				<div className={classNames("shoppingcart__fotter", { disable: totalItem === 0 })} >
 					<div className="shopping-container">
 						<div className="shoppingcart__totalprice">
 							<div className="shoppingcart-totalprice__text">Total</div>
 							<div className="shoppingcart-totalprice__pricetotal">${totalPrice}</div>
 						</div>
-						<div className="shoppingcart-button__further" onClick={() => setDeliveryInfo(true)}>Further</div>
+						{!deliveryInfo ? <div className="shoppingcart-button__further" onClick={() => setDeliveryInfo(true)}>Further</div> : null}
+						{deliveryInfo ? <button
+							type="submit"
+							className="shoppingcart-button__further" >
+							Further
+						</button> : null}
 						<div className="shoppingcart-button__view" onClick={() => setDeliveryInfo(false)}>View cart</div>
 					</div>
 				</div>
