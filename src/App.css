@@ -3,7 +3,7 @@
 *:after {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	font-family: Spartan;
+	font-family: Spartan, sans-serif;
 	font-weight: 400;
 }
 
