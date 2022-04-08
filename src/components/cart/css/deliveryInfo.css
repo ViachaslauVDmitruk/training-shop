@@ -75,6 +75,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  cursor: pointer;
 }
 
 .radio-button img {
@@ -169,7 +170,7 @@
 }
 
 .agree-information {
-  margin: 4px 0px 64px 0px;
+  margin: 4px 0px 4px 0px;
   font-size: 14px;
   line-height: 22px;
   color: #121212;
@@ -177,6 +178,10 @@
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
+}
+
+.agree-information__block {
+  margin: 0px 0px 64px 0px;
 }
 
 .check-agree {

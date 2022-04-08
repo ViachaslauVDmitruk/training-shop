@@ -57,6 +57,7 @@ cursor: pointer;
 }
 .radio-button {
 	display: flex;
+	cursor: pointer;
 	img {
 		display: inline-block;
 	}
@@ -112,12 +113,17 @@ cursor: pointer;
 .choose-postcode {
 }
 .agree-information {
-	margin: 4px 0px 64px 0px;
+	margin: 4px 0px 4px 0px;
 	font-size: 14px;
 line-height: 22px;
 color: #121212;
 display: flex;
 cursor: pointer;
+}
+.agree-information {
+	&__block {
+		margin: 0px 0px 64px 0px;
+	}
 }
 .check-agree {
 	display: none;
