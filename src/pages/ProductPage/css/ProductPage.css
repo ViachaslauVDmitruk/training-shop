@@ -230,6 +230,7 @@
   .rigth {
     width: 100%;
     margin: 0;
+    padding: 0;
   }
 }
 
@@ -420,6 +421,15 @@
   border-bottom: 2px solid #e6e6e6;
 }
 
+@media (max-width: 465px) {
+  .product-info__cost {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .product-info__addcard {
   display: none;
 }
@@ -432,6 +442,12 @@
   color: #121212;
 }
 
+@media (max-width: 465px) {
+  .product-info-cost__block {
+    margin: 16px 0px 0px 0px;
+  }
+}
+
 .product-info-cost__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -442,7 +458,14 @@
   margin: 32px 0px 32px 24px;
 }
 
+@media (max-width: 465px) {
+  .product-info-cost__row {
+    margin: 16px 0px 16px 0px;
+  }
+}
+
 .notincart {
+  min-width: 190px;
   display: block;
   font-weight: 500;
   font-size: 13px;
@@ -454,22 +477,33 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #ffffff;
   opacity: 0.9;
-  padding: 17px 24px;
+  padding: 17px 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   cursor: pointer;
 }
 
 .notincart:hover {
-  background-color: #ff9901;
+  background-color: #E6E6E6;
+  color: #121212;
+}
+
+.notincart:active {
+  background-color: #9C9C9C;
+  color: #FFFFFF;
+  opacity: 0.9;
 }
 
 .incart {
+  min-width: 190px;
   display: block;
   font-weight: 500;
   font-size: 13px;
@@ -481,19 +515,28 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #ffffff;
   opacity: 0.9;
-  padding: 17px 24px;
+  padding: 17px 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   cursor: pointer;
 }
 
 .incart:hover {
-  background-color: #ff9901;
+  background-color: #E6E6E6;
+  color: #121212;
+}
+
+.incart:active {
+  background-color: #9C9C9C;
+  color: #FFFFFF;
+  opacity: 0.9;
 }
 
 .protuct-info-cost__image {
