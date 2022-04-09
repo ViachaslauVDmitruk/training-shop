@@ -1,5 +1,6 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Field, ErrorMessage } from 'formik';
+import reactInputMask from 'react-input-mask';
+
 import TextErrorDelivery from './errorDelivery';
 import imgLogo01 from './img/01.png';
 import imgLogo02 from './img/02.png';
@@ -7,33 +8,7 @@ import imgLogo03 from './img/03.png';
 
 
 function Payment(props) {
-	// const initialValues = {
-	// 	method: 'Card',
-	// 	mail: '',
-	// 	card: '',
-	// 	cardDate: '',
-	// 	cardCVV: '',
-	// };
-	// const onSubmit = (values, onSubmitProps) => {
-	// let successCallback = () => onSubmitProps.resetForm();
-	// dispatch(sendEmail(values.mail, 2, successCallback));
-	// onSubmitProps.setSubmitting(false);
-	// };
-	// const validationSchema = Yup.object({
-	// 	mail: Yup.string()
-	// 		.email('Incorrect email format')
-	// 		.matches(/^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/, 'Incorrect characters')
-	// 		.required('Поле должно быть заполнено'),
-	// });
-
-	// return (
-	// 	<Formik
-	// 		initialValues={initialValues}
-	// 		onSubmit={onSubmit}
-	// 		validationSchema={validationSchema}
-	// 	>
-	// 		{formik => {
-	// 			console.log('touched', formik.touched.adress?.country)
+	console.log('leangth', props.formik.values.cardCVV.length)
 	return (
 		<div className="delivery-info">
 			<div className="choose-method">
@@ -90,54 +65,61 @@ function Payment(props) {
 				</div >
 			</div>
 			<div className="choose-info">
-				{(props.formik.values.paymentMethod === "Paypal") &&
+				{(props.formik.values.paymentMethod === "PayPal") &&
 					<div>
-						<lable label htmlFor="mail" className='choose-info__title'>E-mail</lable>
+						<div className='choose-info__title'>E-mail</div>
 						<div className='choose-info__item'>
 
 							<Field
 								type="text"
 								id="mail"
-								name="cashEail"
+								name="cashEmail"
 								className="choose-info__input"
 								placeholder="e-mail"
 								style={props.formik.touched.cashEmail ? { border: "1px solid red" } : null}
 							/>
-							<ErrorMessage name="mail" component={TextErrorDelivery} />
+							<ErrorMessage name="cashEmail" component={TextErrorDelivery} />
 						</div>
 					</div>}
 				{(props.formik.values.paymentMethod === "Card") && <div>
-					<label htmlFor="adress" className='choose-info__title'>Card</label>
+					<div className='choose-info__title'>Card</div>
 					<div className='choose-info__item'>
 						<Field
+							as={reactInputMask}
 							type="text"
 							id="adress"
 							name="card"
 							className="choose-info__input"
 							placeholder="---- ---- ---- ----"
-							style={props.formik.touched.country ? { border: "1px solid red" } : null}
+							mask={"9999 9999 9999 9999"}
+							style={props.formik.touched.card && !props.formik.values.card ? { border: "1px solid red" } : null}
 						/>
-						<ErrorMessage name="adress.country" component={TextErrorDelivery} />
+						<ErrorMessage name="card" component={TextErrorDelivery} />
 					</div>
 					<div className='choose-info__item house'>
 						<div className='choose-info-house'>
 							<Field
+								// as={reactInputMask}
 								type="text"
 								name="cardDate"
 								className="choose-info__input"
 								placeholder="MM/YY"
-								style={props.formik.touched.cardDate ? { border: "1px solid red" } : null}
+								// mask={"99/99"}
+								style={props.formik.touched.cardDate && !props.formik.values.cardData ? { border: "1px solid red" } : { border: "none" }}
 							/>
-							<ErrorMessage name="adress.house" component={TextErrorDelivery} />
+							<ErrorMessage name="cardDate" component={TextErrorDelivery} />
 						</div>
 						<div className='choose-info-house'>
 							<Field
+								// as={reactInputMask}
 								type="text"
 								name="cardCVV"
 								className="choose-info__input"
 								placeholder="CVV"
-								style={props.formik.touched.cardCVV ? { border: "1px solid red" } : null}
+								// mask={"999"}
+								style={props.formik.touched.cardCVV && !props.formik.values.cardCVV ? { border: "1px solid red" } : null}
 							/>
+							<ErrorMessage name="cardCVV" component={TextErrorDelivery} />
 						</div>
 					</div>
 				</div>}

@@ -55,21 +55,46 @@ function Cart({ cart, active, setActive }) {
 		// dispatch(sendEmail(values.mail, 2, successCallback));
 		onSubmitProps.setSubmitting(false);
 	};
+	const regExMail = /^[_a-z0-9-\\+-]+(\.[_a-z0-9-]\+)*@[a-z0-9-]+(\.[a-z0-9-]\+)*(\.[a-z]{2,4})$/i;
+	const regExPhone = /^(\+375|80)\s\((29|25|44|33)\)\s[0-9]{3}[0-9]{2}[0-9]{2}$/;
+
 	const validationSchema = Yup.object({
-		phone: Yup.string().matches(/^(\+375|80)\s\((29|25|44|33)\)\s[0-9]{3}[0-9]{2}[0-9]{2}$/, 'Неверный номер').required('Поле должно быть заполнено'),
+		phone: Yup.string()
+			.matches(regExPhone, 'Неверный номер')
+			.required('Поле должно быть заполнено'),
 		mail: Yup.string()
 			.email('Incorrect email format')
-			.matches(/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i, 'Incorrect characters')
+			.matches(regExMail, 'Incorrect characters')
 			.required('Поле должно быть заполнено'),
-		country: Yup.string().required('Поле должно быть заполнено'),
-		city: Yup.string().required('Поле должно быть заполнено'),
-		street: Yup.string().required('Поле должно быть заполнено'),
-		house: Yup.string().required('Поле должно быть заполнено'),
-		postcode: Yup.string().required('Поле должно быть заполнено'),
-		check: Yup.string().required('Вы должны согласиться на обработку личной информации')
+		country: Yup.string()
+			.required('Поле должно быть заполнено'),
+		city: Yup.string()
+			.required('Поле должно быть заполнено'),
+		street: Yup.string()
+			.required('Поле должно быть заполнено'),
+		house: Yup.string()
+			.required('Поле должно быть заполнено'),
+		postcode: Yup.string()
+			.required('Поле должно быть заполнено'),
+		check: Yup.string()
+			.required('Вы должны согласиться на обработку личной информации'),
+		cashEmail: Yup.string()
+			.email('Incorrect email format')
+			.matches(regExMail, 'Incorrect characters')
+			.required('Поле должно быть заполнено'),
+		card: Yup.string()
+			.matches(/^[\d\s]+$/, 'Некорректный номер')
+			.min(19, 'Должно быть 16 цифр')
+			.max(19, 'Должно быть 16 цифр')
+			.required('Поле должно быть заполнено'),
+		cardDate: Yup.string()
+			.required('Поле должно быть заполнено'),
+		cardCVV: Yup.string()
+			.matches(/^\d+$/, 'Только цифры')
+			.min(3, "Минимум 3 цифры")
+			.max(4, 'максимум 4 цифры')
+			.required('Поле должно быть заполнено'),
 	});
-
-
 
 	return (
 		<Formik
@@ -77,9 +102,8 @@ function Cart({ cart, active, setActive }) {
 			onSubmit={onSubmit}
 			validationSchema={validationSchema}
 		>
-
 			{formik => {
-				console.log('values', formik.values)
+				console.log('values', formik)
 				return (
 					<Form>
 						<div className={classNames('cart', { "cart_visible": active === true })} onClick={() => setActive(false)}>
@@ -126,6 +150,16 @@ function Cart({ cart, active, setActive }) {
 											type="submit"
 											className="shoppingcart-button__further" >
 											Further
+										</button> : null}
+										{deliveryInfo ? <button
+											type="submit"
+											className="shoppingcart-button__further" >
+											Further
+										</button> : null}
+										{deliveryInfo ? <button
+											type="submit"
+											className="shoppingcart-button__further" >
+											Check out
 										</button> : null}
 										<div className="shoppingcart-button__view" onClick={() => setDeliveryInfo(false)}>View cart</div>
 									</div>

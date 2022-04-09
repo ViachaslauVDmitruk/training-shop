@@ -55,7 +55,6 @@ export const getProductsError = (error) => {
 export const getProducts = (success) => {
 	return {
 		type: actionTypes.GET_PRODUCTS,
-
 	}
 }
 
@@ -73,5 +72,20 @@ export const getProductById = (dataItem, typeItem) => {
 			data: dataItem,
 			type: typeItem,
 		}
+	}
+}
+
+export const getCountries = (dataItems) => {
+
+	return {
+		type: actionTypes.GET_COUNTRIES,
+		payload: dataItems,
+	}
+}
+
+export const requestDataCountries = () => {
+
+	return {
+		type: actionTypes.REQUEST_DATA_COUNTRIES,
 	}
 }
