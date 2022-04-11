@@ -3,18 +3,37 @@ import reactInputMask from 'react-input-mask';
 import './css/deliveryInfo.css';
 import TextErrorDelivery from './errorDelivery';
 import StorePickupData from './storeAdressInfo';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TotalPrice from './totalPrise';
 import DeliveryPayButton from './devileryPayButton';
+import { useDispatch } from 'react-redux';
+import { requestDataCountries } from '../../redux/Shopping/shopping-actions';
 
 function DeliveryInfo(props) {
+  const dispatch = useDispatch();
+  console.log('props delivery', props);
   useEffect(() => {
     if (props.formik.values.deliveryMethod === 'Pickup from post offices') {
       props.formik.setValues({ ...props.formik.values, country: 'Беларусь' });
     } else {
       props.formik.setValues({ ...props.formik.values, country: '' });
     }
-  }, [props.formik.values.deliveyMethod, props.formik]);
+  }, [props.formik.values.deliveryMethod]);
+
+  // useEffect(() => {
+  //   setIsDisableButton(() => {
+  //     if (
+  //       props.formik.values.deliveryMethod &&
+  //       props.formik.values.country &&
+  //       props.formik.values.city &&
+  //       props.formik.values.house &&
+  //       props.formik.values.phone &&
+  //       props.formik.values.mail &&
+  //       props.formik.values.check
+  //     )
+  //       return true;
+  //   });
+  // }, [props.formik.values]);
 
   return (
     <div className="delivery-info">
@@ -53,6 +72,7 @@ function DeliveryInfo(props) {
                 name="deliveryMethod"
                 className="choose-method__item"
                 value="Store pickup"
+                onClick={() => dispatch(requestDataCountries())}
               />
               <span className="radio-lable">Store pickup</span>
             </label>
@@ -91,7 +111,7 @@ function DeliveryInfo(props) {
             />
             <ErrorMessage name="mail" component={TextErrorDelivery} />
           </div>
-          {props.formik.values.method !== 'Store pickup' && (
+          {props.formik.values.deliveryMethod !== 'Store pickup' && (
             <div>
               <div htmlFor="adress" className="choose-info__title">
                 Adress
@@ -116,22 +136,6 @@ function DeliveryInfo(props) {
                   <ErrorMessage name="country" component={TextErrorDelivery} />
                 </div>
               }
-              {props.formik.values.method === 'Express delivery' && (
-                <div className="choose-info__item">
-                  <Field
-                    autoComplete="off"
-                    type="text"
-                    id="adress"
-                    name="country"
-                    className="choose-info__input"
-                    placeholder="Country"
-                    style={
-                      props.formik.touched.country && !props.formik.values.country ? { border: '1px solid red' } : null
-                    }
-                  ></Field>
-                  <ErrorMessage name="country" component={TextErrorDelivery} />
-                </div>
-              )}
               <div className="choose-info__item">
                 <Field
                   autoComplete="off"
@@ -183,11 +187,9 @@ function DeliveryInfo(props) {
             </div>
           )}
         </div>
-        {props.formik.values.method === 'Pickup from post offices' && (
+        {props.formik.values.deliveryMethod === 'Pickup from post offices' && (
           <div className="choose-postcode">
-            <label htmlFor="post-code" className="choose-info__title">
-              Post code
-            </label>
+            <div className="choose-info__title">Post code</div>
             <div className="choose-info__item">
               <Field
                 autoComplete="off"
@@ -206,7 +208,7 @@ function DeliveryInfo(props) {
             </div>
           </div>
         )}
-        {props.formik.values.method === 'Store pickup' && (
+        {props.formik.values.deliveryMethod === 'Store pickup' && (
           <div>
             <StorePickupData formik={props.formik} />
           </div>
@@ -217,7 +219,7 @@ function DeliveryInfo(props) {
               <Field type="checkbox" id="check" name="check" className="check-agree" />
               <span
                 className="check-box"
-                style={!props.formik.values.check ? { border: '1px solid red' } : null}
+                style={!props.formik.isValid || !props.formik.dirty ? { border: '1px solid red' } : null}
               ></span>
               <span className="check-agree-text">I agree to the processing of my personal information</span>
             </label>
@@ -226,12 +228,27 @@ function DeliveryInfo(props) {
         </div>
       </div>
       <TotalPrice totalPrice={props.totalPrice} />
-      <DeliveryPayButton type={'onSubmit'} title={props.title} step={3} setStep={props.setStep} />
+      <DeliveryPayButton
+        type={'onSubmit'}
+        title={props.title}
+        step={3}
+        setStep={props.setStep}
+        formik={props.formik}
+        isSubmitting={props.formik.isSubmitting}
+        isValid={props.formik.isValid}
+        dirty={props.formik.dirty}
+        // isDisableButton={isDisableButton}
+      />
+
+      {/* <button
+        className="shoppingcart-button__further"
+        disabled={props.isSubmitting || !props.isValid || !props.dirty}
+        onClick={() => props.setStep(3)}
+      >
+        {props.title}
+      </button> */}
     </div>
   );
-  // 		}}
-  // 	</Formik >
-  // )
 }
 
 export default DeliveryInfo;

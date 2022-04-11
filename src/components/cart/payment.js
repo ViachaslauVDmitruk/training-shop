@@ -10,10 +10,10 @@ import imgLogo03 from './img/03.png';
 import TotalPrice from './totalPrise';
 
 function Payment(props) {
-  useEffect(() => {
-    props.formik.values.paymentMethod = 'Card';
-  }, [props.formik.values]);
-
+  // useEffect(() => {
+  //   props.formik.values.paymentMethod = 'Card';
+  // }, [props.formik.values]);
+  console.log('props delivery', props);
   return (
     <div className="delivery-info">
       <div className="wrapper-info">
@@ -28,14 +28,21 @@ function Payment(props) {
           </div>
           <div className="choose-method__radio">
             <label htmlFor="choise_2" className="radio-button">
-              <Field type="radio" id="choise_2" name="paymentMethod" className="choose-method__item" value="Card" />
+              <Field
+                type="radio"
+                id="choise_2"
+                name="paymentMethod"
+                className="choose-method__item"
+                value="Visa"
+                checked
+              />
               <span className="radio-lable"></span>
               <img src={imgLogo02} alt="imgLogo" />
             </label>
           </div>
           <div className="choose-method__radio">
             <label htmlFor="choise_3" className="radio-button">
-              <Field type="radio" id="choise_3" name="paymentMethod" className="choose-method__item" value="Card" />
+              <Field type="radio" id="choise_3" name="paymentMethod" className="choose-method__item" value="Master" />
               <span className="radio-lable"></span>
               <img src={imgLogo03} alt="imgLogo" />
             </label>
@@ -59,7 +66,9 @@ function Payment(props) {
                   className="choose-info__input"
                   placeholder="e-mail"
                   style={
-                    props.formik.touched.cashEmail && props.formik.values.cashEmail ? { border: '1px solid red' } : null
+                    props.formik.touched.cashEmail && !props.formik.values.cashEmail
+                      ? { border: '1px solid red' }
+                      : null
                   }
                 />
                 <ErrorMessage name="cashEmail" component={TextErrorDelivery} />
@@ -120,7 +129,15 @@ function Payment(props) {
       </div>
       <TotalPrice totalPrice={props.totalPrice} />
 
-      <DeliveryPayButton title={props.formik.values.paymentMethod !== 'Cash' ? props.titleOne : props.titleTwo} />
+      <DeliveryPayButton
+        type={'onSubmit'}
+        step={4}
+        setStep={props.setStep}
+        title={props.formik.values.paymentMethod !== 'Cash' ? props.titleOne : props.titleTwo}
+        isSubmitting={props.formik.isSubmitting}
+        isValid={props.formik.isValid}
+        dirty={props.formik.dirty}
+      />
     </div>
   );
   // 		}}

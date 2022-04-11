@@ -239,6 +239,10 @@
 		padding: 17px 0px;
 		margin: 12px 0px 12px 0px;
 		cursor: pointer;
+		&:disabled {
+			background-color:#E6E6E6;
+			color:#121212
+		}
 	}
 
 	&__view {

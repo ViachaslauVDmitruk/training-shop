@@ -5,7 +5,8 @@ import { requestDataCountries } from '../../redux/Shopping/shopping-actions';
 
 function StorePickupData({ formik }) {
   const countries = useSelector((store) => store.shop.countries);
-  const dispatch = useDispatch();
+
+  console.log('countries', countries);
   return (
     <div className="info">
       <div className="choose-info__title">Adress of store</div>
@@ -17,9 +18,9 @@ function StorePickupData({ formik }) {
           name="country"
           className="choose-info__input"
           placeholder="Counrty"
-          style={formik.touched.country ? { border: '1px solid red' } : null}
-          onClick={() => dispatch(requestDataCountries())}
+          style={formik.touched.country && !formik.values.country ? { border: '1px solid red' } : null}
         >
+          <option></option>
           {countries.map((item) => {
             return (
               <option key={item.id} value={item.name}>
