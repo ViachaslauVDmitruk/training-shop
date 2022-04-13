@@ -1,1 +1,69 @@
-.adventage-menu__items{display:flex;justify-content:space-between;align-items:center;padding:32px 0px}.adventage-menu__items li{display:flex;align-items:center;justify-content:center}@media (max-width: 600px){.adventage-menu__items{flex-direction:column}.adventage-menu__items li{width:250px;margin:0px 0px 15px 0px}.adventage-menu__items li:last-child{margin:0}}.advantage-menu-items__icon img{height:40px;padding:5px}.advantage-menu-items__columns{margin:0px 0px 0px 8px}.advantage-column{color:#121212}.advantage-column__title{font-weight:600;font-size:12px;line-height:13px;letter-spacing:0.06em;text-transform:uppercase;margin:0px 0px 4px 0px}.advantage-column__text{font-weight:500;font-size:12px;line-height:22px;opacity:0.9}
+.adventage-menu__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 32px 0px;
+}
+
+.adventage-menu__items li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .adventage-menu__items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .adventage-menu__items li {
+    width: 250px;
+    margin: 0px 0px 15px 0px;
+  }
+  .adventage-menu__items li:last-child {
+    margin: 0;
+  }
+}
+
+.advantage-menu-items__icon img {
+  height: 40px;
+  padding: 5px;
+}
+
+.advantage-menu-items__columns {
+  margin: 0px 0px 0px 8px;
+}
+
+.advantage-column {
+  color: #121212;
+}
+
+.advantage-column__title {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0px 0px 4px 0px;
+}
+
+.advantage-column__text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+  opacity: 0.9;
+}
