@@ -132,9 +132,7 @@ function Payment(props) {
 			<TotalPrice totalPrice={props.totalPrice} />
 			<DeliveryPayButton
 				type={'submit'}
-				step={4}
-				setStep={props.setStep}
-				title={props.formik.values.paymentMethod !== 'Cash' ? props.titleOne : props.titleTwo}
+				title={props.formik.values.paymentMethod !== 'Cash' ? 'Check out' : 'Ready'}
 				formik={props.formik}
 				isSubmitting={props.formik.isSubmitting}
 				isValid={props.formik.isValid}

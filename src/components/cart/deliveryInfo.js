@@ -203,9 +203,7 @@ function DeliveryInfo(props) {
 			<TotalPrice totalPrice={props.totalPrice} />
 			<DeliveryPayButton
 				type={'onSubmit'}
-				title={props.title}
-				step={3}
-				setStep={props.setStep}
+				title={'Further'}
 				formik={props.formik}
 				isSubmitting={props.formik.isSubmitting}
 				isValid={props.formik.isValid}
