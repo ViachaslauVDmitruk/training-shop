@@ -131,7 +131,7 @@ function Payment(props) {
 			</div>
 			<TotalPrice totalPrice={props.totalPrice} />
 			<DeliveryPayButton
-				type={'onSubmit'}
+				type={'submit'}
 				step={4}
 				setStep={props.setStep}
 				title={props.formik.values.paymentMethod !== 'Cash' ? props.titleOne : props.titleTwo}

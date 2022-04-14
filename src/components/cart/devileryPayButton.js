@@ -1,14 +1,13 @@
 function DeliveryPayButton(props) {
 	return (
 		<button
-			// type="submit"
+			type="submit"
 			className="shoppingcart-button__further"
-			type={props.type}
-			disabled={props.isSubmitting || !props.isValid || !props.dirty}
-			onClick={() => props.setStep(props.step)}
+			disabled={props.isSubmitting || !props.isValid || !props.dirty
+			}
 		>
 			{props.title}
-		</button>
+		</button >
 	);
 }
 

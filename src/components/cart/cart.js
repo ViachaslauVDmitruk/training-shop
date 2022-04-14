@@ -82,28 +82,7 @@ function Cart({ cart, active, setActive }) {
 		cardCVV: '',
 	};
 
-	const onSubmit = (values, onSubmitProps) => {
-		// let successCallback = () => onSubmitProps.resetForm();
 
-		// console.log('onSubmit props', onSubmitProps)
-		console.log("onSubmit props", onSubmitProps)
-		// switch (step) {
-		// 	case 1:
-		// 		console.log("onSubmit sart case 1", step)
-		// 		setStep(2);
-		// 		console.log('onSubmitProps.setSubmitting', onSubmitProps.setSubmitting)
-		// 		break;
-		// 	case 2:
-		// 		console.log("onSubmit sart case 2", step)
-		// 		setStep(3);
-		// 		break;
-		// 	case 3: setStep(4);
-		// 		break;
-		// 	default:
-		// 		return null;
-		// }
-		// onSubmitProps.setSubmitting(false);
-	};
 
 	const regExMail = /^[_a-z0-9-\\+-]+(\.[_a-z0-9-]\+)*@[a-z0-9-]+(\.[a-z0-9-]\+)*(\.[a-z]{2,4})$/i;
 	const regExPhone = /^(\+375|80)\s\((29|25|44|33)\)\s[0-9]{3}[0-9]{2}[0-9]{2}$/;
@@ -238,17 +217,55 @@ function Cart({ cart, active, setActive }) {
 	const validationSchema = (step) => {
 		switch (step) {
 			case 1:
-				console.log('valid case 1')
-				return Yup.object({});
+				return Yup.object().shape({});
 			case 2:
-				console.log('valid case 2')
 				return validSchemaStepTwo;
 			case 3:
-				console.log('valid case 3')
 				return validSchemaStepThree;
 			default:
-				return Yup.object({});
+				return Yup.object({}).shape({});
 		}
+	};
+
+	const onSubmit = (values, onSubmitProps) => {
+		// let successCallback = () => onSubmitProps.resetForm();
+
+		onSubmitProps.setTouched({
+			phone: false,
+			mail: false,
+			country: false,
+			city: false,
+			street: false,
+			house: false,
+			apartment: false,
+			postcode: false,
+			storeAdress: false,
+			check: false,
+			cashEmail: false,
+			card: false,
+			cardDate: false,
+			cardCVV: false,
+		})
+		switch (step) {
+			case 1:
+
+				setStep(2);
+
+				// onSubmitProps.validateForm();
+				onSubmitProps.setSubmitting(false);
+				break;
+			case 2:
+				onSubmitProps.validateForm();
+				console.log("onSubmit sart case 2", step)
+				setStep(3);
+				break;
+			case 3: setStep(4);
+				console.log("onSubmit sart case 3", step)
+				break;
+			default:
+				return null;
+		}
+		onSubmitProps.setSubmitting(false);
 	};
 
 	function resetClosingForm(reset) {
@@ -256,7 +273,7 @@ function Cart({ cart, active, setActive }) {
 		reset.resetForm();
 		setStep(1);
 	}
-	console.log('step', step)
+
 	return (
 		<Formik
 			initialValues={initialValues}
@@ -297,7 +314,7 @@ function Cart({ cart, active, setActive }) {
 										{step === 1 && <TotalPrice totalPrice={totalPrice} />}
 										{step === 1 && (
 											<DeliveryPayButton
-												type={'submit'}
+												type={'button'}
 												title={'Further'}
 												step={2}
 												setStep={setStep}
