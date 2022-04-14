@@ -100,3 +100,18 @@ export const sendPaymentData = (dataPayment, cartItems, price) => {
 		}
 	}
 }
+
+export const getPaymentResult = (result) => {
+
+	return {
+		type: actionTypes.GET_PAYMENT_RESULT,
+		payload: result
+	}
+}
+
+export const clearCart = () => {
+
+	return {
+		type: actionTypes.CLEAR_CART,
+	}
+}

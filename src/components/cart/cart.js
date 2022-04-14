@@ -2,7 +2,7 @@ import './css/cart.css';
 import imgExit from './img/close.png';
 import classNames from 'classnames';
 import CartItem from './cartItem';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -11,14 +11,16 @@ import Payment from './payment';
 import TotalPrice from './totalPrise';
 import ViewCartButton from './viewCartButton';
 import DeliveryPayButton from './devileryPayButton';
-import { sendPaymentData } from '../../redux/Shopping/shopping-actions';
+import { clearCart, sendPaymentData } from '../../redux/Shopping/shopping-actions';
+import PaymentResult from './paymentResult';
 
 function Cart({ cart, active, setActive }) {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalItem, setTotalItem] = useState(0);
 	const [deliveryInfo, setDeliveryInfo] = useState(false);
 	const [step, setStep] = useState(1);
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
+	const result = useSelector(state => state.shop.paymentMessage.data);
 
 	const currentStep = (step, props) => {
 		switch (step) {
@@ -31,7 +33,6 @@ function Cart({ cart, active, setActive }) {
 				return <DeliveryInfo
 					formik={props}
 					totalPrice={totalPrice}
-					title={'Further'}
 					step={step}
 					setStep={setStep}
 				/>;
@@ -40,11 +41,17 @@ function Cart({ cart, active, setActive }) {
 				return <Payment
 					formik={props}
 					totalPrice={totalPrice}
-					titleOne={'Check out'}
-					titleTwo={'Ready'}
 					step={step}
 					setStep={setStep}
 				/>;
+			}
+			case 4: {
+				return <PaymentResult
+					formik={props}
+					step={step}
+					setStep={setStep}
+					reset={resetClosingForm}
+				/>
 			}
 			default:
 				return null;
@@ -83,8 +90,6 @@ function Cart({ cart, active, setActive }) {
 		cardDate: '',
 		cardCVV: '',
 	};
-
-
 
 	const regExMail = /^[_a-z0-9-\\+-]+(\.[_a-z0-9-]\+)*@[a-z0-9-]+(\.[a-z0-9-]\+)*(\.[a-z]{2,4})$/i;
 	const regExPhone = /^(\+375|80)\s\((29|25|44|33)\)\s[0-9]{3}[0-9]{2}[0-9]{2}$/;
@@ -201,21 +206,15 @@ function Cart({ cart, active, setActive }) {
 		})
 		switch (step) {
 			case 1:
-
 				setStep(2);
-
-				// onSubmitProps.validateForm();
-				onSubmitProps.setSubmitting(false);
 				break;
 			case 2:
-				onSubmitProps.validateForm();
-				console.log("onSubmit sart case 2", step)
 				setStep(3);
 				break;
 			case 3: setStep(4);
-				console.log("onSubmit sart case 3", step)
 				dispatch(sendPaymentData(values, cart, totalPrice));
 				break;
+
 			default:
 				return null;
 		}
@@ -226,6 +225,9 @@ function Cart({ cart, active, setActive }) {
 		setActive(false);
 		reset.resetForm();
 		setStep(1);
+		if (result.message === 'success') {
+			dispatch(clearCart());
+		}
 	}
 
 	return (
@@ -234,7 +236,7 @@ function Cart({ cart, active, setActive }) {
 			onSubmit={onSubmit}
 			validationSchema={validationSchema(step)}>
 			{(formik) => {
-				console.log('formik', formik.values.email)
+				// console.log('formik', formik.values.email)
 				return (
 					<Form>
 						<div className={classNames('cart', { cart_visible: active === true })} onClick={() => setActive(false)}>
@@ -277,7 +279,7 @@ function Cart({ cart, active, setActive }) {
 												dirty={true}
 											/>
 										)}
-										<ViewCartButton active={deliveryInfo} step={step} setStep={setStep} />
+										{step !== 4 && <ViewCartButton active={deliveryInfo} step={step} setStep={setStep} />}
 									</div>
 								</div>
 								<div className={classNames('shoppingcart-empty', { empty: totalItem === 0 })}>

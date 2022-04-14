@@ -1,6 +1,6 @@
 import axios from "axios";
 import { put, call, takeLatest } from 'redux-saga/effects';
-import { getCountries, getProducts, getProductsError, getProductsSuccess, } from "../Shopping/shopping-actions";
+import { getCountries, getPaymentResult, getProducts, getProductsError, getProductsSuccess, } from "../Shopping/shopping-actions";
 import { LOAD_DATA, REQUEST_DATA_COUNTRIES, SEND_PAYMENT_DATA } from "../Shopping/shopping-types";
 
 export function* productsRequestWorker() {
@@ -25,7 +25,7 @@ export function* countriesRequestWorker() {
 export function* sendPaymentDataWorker(action) {
 	console.log('send payment data action', action)
 	try {
-		yield call(axios.post, "https://training.cleverland.by/shop/cart", {
+		const response = yield call(axios.post, "https://training.cleverland.by/shop/cart", {
 			products: [
 				...action.payload.cart.map((item) => {
 
@@ -38,7 +38,7 @@ export function* sendPaymentDataWorker(action) {
 				})
 			],
 			deliveryMethod: action.payload.data.deliveryMethod,
-			paymentMethod: action.payload.data.paymentMethod,
+			paymentMethod: action.payload.data.paymentMethod === "Visa" || "Master",
 			totalPrice: action.payload.totalPrice,
 			phone: `+${Number(action.payload.data.phone.replace(/\D+/g, ""))}`,
 			email: action.payload.data.email,
@@ -54,6 +54,7 @@ export function* sendPaymentDataWorker(action) {
 			cardDate: action.payload.data.cardDate,
 			cardCVV: action.payload.data.cardCVV,
 		})
+		yield put(getPaymentResult(response));
 	} catch (err) {
 
 	}

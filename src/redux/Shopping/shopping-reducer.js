@@ -1,3 +1,4 @@
+import cart from '../../components/cart/cart';
 import * as actionTypes from './shopping-types';
 
 const INITIAL_STATE = {
@@ -7,6 +8,7 @@ const INITIAL_STATE = {
 	isError: false,
 	isLoading: true,
 	countries: [],
+	paymentMessage: {},
 }
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -88,6 +90,20 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				...state,
 				countries: action.payload,
 			}
+		case actionTypes.GET_PAYMENT_RESULT:
+
+			return {
+				...state,
+				paymentMessage: action.payload,
+			}
+
+		case actionTypes.CLEAR_CART:
+
+			return {
+				...state,
+				cart: [],
+			}
+
 		default:
 
 			return state;
