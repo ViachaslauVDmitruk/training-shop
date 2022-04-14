@@ -81,18 +81,18 @@ function DeliveryInfo(props) {
 						/>
 						<ErrorMessage name="phone" component={TextErrorDelivery} />
 					</div>
-					<label htmlFor="mail" className="choose-info__title">
+					<div className="choose-info__title">
 						E-mail
-					</label>
+					</div>
 					<div className="choose-info__item">
 						<Field
 							autoComplete="off"
 							type="text"
-							id="mail"
-							name="mail"
+							id="email"
+							name="email"
 							className="choose-info__input"
 							placeholder="e-mail"
-							style={props.formik.touched.mail && !props.formik.values.mail ? { border: '1px solid red' } : null}
+							style={props.formik.touched.email && !props.formik.values.email ? { border: '1px solid red' } : null}
 						/>
 						<ErrorMessage name="mail" component={TextErrorDelivery} />
 					</div>

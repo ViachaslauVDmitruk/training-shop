@@ -1,7 +1,7 @@
 import axios from "axios";
 import { put, call, takeLatest } from 'redux-saga/effects';
 import { getCountries, getProducts, getProductsError, getProductsSuccess, } from "../Shopping/shopping-actions";
-import { LOAD_DATA, REQUEST_DATA_COUNTRIES } from "../Shopping/shopping-types";
+import { LOAD_DATA, REQUEST_DATA_COUNTRIES, SEND_PAYMENT_DATA } from "../Shopping/shopping-types";
 
 export function* productsRequestWorker() {
 	try {
@@ -14,7 +14,6 @@ export function* productsRequestWorker() {
 }
 
 export function* countriesRequestWorker() {
-	console.log('start')
 	try {
 		const { data } = yield call(axios.get, "https://training.cleverland.by/shop/countries");
 		yield put(getCountries(data));
@@ -23,10 +22,52 @@ export function* countriesRequestWorker() {
 	}
 }
 
+export function* sendPaymentDataWorker(action) {
+	console.log('send payment data action', action)
+	try {
+		yield call(axios.post, "https://training.cleverland.by/shop/cart", {
+			products: [
+				...action.payload.cart.map((item) => {
+
+					return {
+						name: item.name,
+						size: item.size,
+						color: item.color,
+						qty: item.qty,
+					}
+				})
+			],
+			deliveryMethod: action.payload.data.deliveryMethod,
+			paymentMethod: action.payload.data.paymentMethod,
+			totalPrice: action.payload.totalPrice,
+			phone: `+${Number(action.payload.data.phone.replace(/\D+/g, ""))}`,
+			email: action.payload.data.email,
+			country: action.payload.data.country,
+			cashEmail: action.payload.data.cashEmail,
+			city: action.payload.data.city,
+			street: action.payload.data.street,
+			house: action.payload.data.house,
+			apartment: action.payload.data.apartment,
+			postcode: action.payload.data.postcode,
+			storeAddress: action.payload.data.storeAddress,
+			card: action.payload.data.card,
+			cardDate: action.payload.data.cardDate,
+			cardCVV: action.payload.data.cardCVV,
+		})
+	} catch (err) {
+
+	}
+}
+
+
 export function* productsRequestWatcher() {
 	yield takeLatest(LOAD_DATA, productsRequestWorker);
 }
 
 export function* countriesRequestWatcher() {
 	yield takeLatest(REQUEST_DATA_COUNTRIES, countriesRequestWorker);
+}
+
+export function* sendPaymentDataWatcher() {
+	yield takeLatest(SEND_PAYMENT_DATA, sendPaymentDataWorker);
 }

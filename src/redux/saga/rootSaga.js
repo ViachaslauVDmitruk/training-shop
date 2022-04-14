@@ -1,5 +1,9 @@
 import { all } from 'redux-saga/effects';
-import { countriesRequestWatcher, productsRequestWatcher } from ".";
+import {
+	countriesRequestWatcher,
+	productsRequestWatcher,
+	sendPaymentDataWatcher
+} from ".";
 import { postWatcher } from '../sending/sending-saga';
 
 export default function* rootSaga() {
@@ -7,5 +11,6 @@ export default function* rootSaga() {
 		(productsRequestWatcher()),
 		(postWatcher()),
 		(countriesRequestWatcher()),
+		(sendPaymentDataWatcher()),
 	])
 }

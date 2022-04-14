@@ -89,3 +89,14 @@ export const requestDataCountries = () => {
 		type: actionTypes.REQUEST_DATA_COUNTRIES,
 	}
 }
+
+export const sendPaymentData = (dataPayment, cartItems, price) => {
+	return {
+		type: actionTypes.SEND_PAYMENT_DATA,
+		payload: {
+			data: dataPayment,
+			cart: cartItems,
+			totalPrice: price,
+		}
+	}
+}
