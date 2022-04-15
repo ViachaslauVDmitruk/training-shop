@@ -214,7 +214,12 @@ function Cart({ cart, active, setActive }) {
 			case 3: setStep(4);
 				dispatch(sendPaymentData(values, cart, totalPrice));
 				break;
-
+			case 4:
+				if (result.message === "success") {
+					resetClosingForm(onSubmitProps);
+					dispatch(clearCart());
+				}
+				break;
 			default:
 				return null;
 		}
@@ -225,7 +230,7 @@ function Cart({ cart, active, setActive }) {
 		setActive(false);
 		reset.resetForm();
 		setStep(1);
-		if (result.message === 'success') {
+		if (result?.message === 'success') {
 			dispatch(clearCart());
 		}
 	}
@@ -253,7 +258,7 @@ function Cart({ cart, active, setActive }) {
 									</div>
 								</div>
 								<div className="shopping-container">
-									<div className={classNames('shoppingcart__info', { disable: totalItem === 0 })}>
+									<div className={classNames('shoppingcart__info', { disable: totalItem === 0 || step === 4 })}>
 										<div className={classNames('shopping-info__item', { active: step === 1 })}>Item in Cart </div>
 										<span> / </span>
 										<div className={classNames('shopping-info__item', { active: step === 2 })}> Delivery info</div>
