@@ -3,7 +3,7 @@ import reactInputMask from 'react-input-mask';
 import './css/deliveryInfo.css';
 import TextErrorDelivery from './errorDelivery';
 import StorePickupData from './storeAdressInfo';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import TotalPrice from './totalPrise';
 import DeliveryPayButton from './devileryPayButton';
 import { useDispatch } from 'react-redux';
@@ -19,7 +19,7 @@ function DeliveryInfo(props) {
 			props.formik.setValues({ ...props.formik.values, country: '' });
 		}
 	}, [props.formik.values.deliveryMethod]);
-	// console.log('props delivery', props);
+
 	return (
 		<div className="delivery-info">
 			<div className="wrapper-info">
