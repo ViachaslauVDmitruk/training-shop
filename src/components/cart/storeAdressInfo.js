@@ -1,10 +1,31 @@
 import { Field, ErrorMessage } from 'formik';
 import TextErrorDelivery from './errorDelivery';
 import { useDispatch, useSelector } from 'react-redux';
-import { requestDataCountries } from '../../redux/Shopping/shopping-actions';
+import { requestAdressStore } from '../../redux/Shopping/shopping-actions';
+import { useEffect } from 'react';
 
-function StorePickupData({ formik }) {
+function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 	const countries = useSelector((store) => store.shop.countries);
+	const adressStore = useSelector((store) => store.shop.storeAdress.data);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (formik.values.storeAdress.length > 2) {
+			dispatch(requestAdressStore(formik.values.country, formik.values.storeAdress));
+
+			setIsFindStore(() => {
+				let foundedItem = adressStore?.find(item => {
+					if (item.city.toLowerCase() === formik.values.storeAdress.toLowerCase()) {
+
+						return true;
+					}
+				}
+				);
+
+				return foundedItem?.city || 'empty';
+			})
+		}
+	}, [formik.values.country, formik.values.storeAdress]);
 
 	return (
 		<div className="info">
@@ -13,7 +34,7 @@ function StorePickupData({ formik }) {
 				<Field
 					as="select"
 					type="text"
-					id="storeAdress"
+					id="country"
 					name="country"
 					className="choose-info__input"
 					placeholder="Counrty"
@@ -28,17 +49,27 @@ function StorePickupData({ formik }) {
 						);
 					})}
 				</Field>
-				<ErrorMessage name="storeAdress" component={TextErrorDelivery} />
+				<ErrorMessage name="country" component={TextErrorDelivery} />
 			</div>
 			<div className="choose-info__item">
 				<Field
-					type="text"
-					id="storeAdress"
+					autoComplete="off"
+					list="storeAdress"
 					name="storeAdress"
 					className="choose-info__input"
 					placeholder="Store adress"
-					style={formik.touched.storeAdress ? { border: "1px solid red" } : null}
+					disabled={!formik.values.country}
+					style={formik.touched.storeAdress && !formik.values.storeAdress ? { border: "1px solid red" } : null}
 				/>
+				{formik.values.storeAdress
+					&&
+					<datalist id="storeAdress"					>
+						{adressStore?.map((item) => {
+							return (<option key={item._id} value={item.city}>{item.city}</option>)
+						})
+						}
+					</datalist>}
+
 				<ErrorMessage name="storeAdress" component={TextErrorDelivery} />
 			</div>
 		</div>

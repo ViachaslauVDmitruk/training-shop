@@ -8,6 +8,7 @@ import TotalPrice from './totalPrise';
 import DeliveryPayButton from './devileryPayButton';
 import { useDispatch } from 'react-redux';
 import { requestDataCountries } from '../../redux/Shopping/shopping-actions';
+import ViewCartButton from './viewCartButton';
 
 function DeliveryInfo(props) {
 	const dispatch = useDispatch();
@@ -19,7 +20,8 @@ function DeliveryInfo(props) {
 			props.formik.setValues({ ...props.formik.values, country: '' });
 		}
 	}, [props.formik.values.deliveryMethod]);
-
+	// console.log('delivery isfindconst', props.isFindStore)
+	// console.log('delivery setisfind const', props.setIsFindStore)
 	return (
 		<div className="delivery-info">
 			<div className="wrapper-info">
@@ -94,7 +96,7 @@ function DeliveryInfo(props) {
 							placeholder="e-mail"
 							style={props.formik.touched.email && !props.formik.values.email ? { border: '1px solid red' } : null}
 						/>
-						<ErrorMessage name="mail" component={TextErrorDelivery} />
+						<ErrorMessage name="email" component={TextErrorDelivery} />
 					</div>
 					{props.formik.values.deliveryMethod !== 'Store pickup' && (
 						<div>
@@ -183,7 +185,11 @@ function DeliveryInfo(props) {
 				)}
 				{props.formik.values.deliveryMethod === 'Store pickup' && (
 					<div>
-						<StorePickupData formik={props.formik} />
+						<StorePickupData
+							formik={props.formik}
+							isFindStore={props.isFindStore}
+							setIsFindStore={props.setIsFindStore}
+						/>
 					</div>
 				)}
 				<div>
@@ -202,13 +208,13 @@ function DeliveryInfo(props) {
 			</div>
 			<TotalPrice totalPrice={props.totalPrice} />
 			<DeliveryPayButton
-				type={'onSubmit'}
 				title={'Further'}
 				formik={props.formik}
 				isSubmitting={props.formik.isSubmitting}
 				isValid={props.formik.isValid}
 				dirty={props.formik.dirty}
 			/>
+			<ViewCartButton step={1} setStep={props.setStep} />
 		</div>
 	);
 }
