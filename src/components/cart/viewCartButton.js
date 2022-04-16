@@ -1,6 +1,6 @@
 function ViewCartButton({ step, setStep, type }) {
 	return (
-		<button type='submit' className="shoppingcart-button__view" onClick={() => setStep(1)}>
+		<button type='button' className="shoppingcart-button__view" onClick={() => setStep(step)}>
 			View cart
 		</button>
 	);

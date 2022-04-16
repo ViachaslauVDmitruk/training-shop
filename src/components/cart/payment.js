@@ -10,11 +10,11 @@ import imgLogo03 from './img/03.png';
 import imgEye01 from './img/eye.png';
 import imgEye02 from './img/eyeSlash.png';
 import TotalPrice from './totalPrise';
+import ViewCartButton from './viewCartButton';
 
 function Payment(props) {
 	const [isTypePassword, setIsTypePassword] = useState(true);
 
-	// console.log('props payment', props);
 	return (
 		<div className="delivery-info">
 			<div className="wrapper-info">
@@ -114,7 +114,6 @@ function Payment(props) {
 										className="choose-info__input"
 										placeholder="CVV"
 										style={props.formik.touched.cardCVV && !props.formik.values.cardCVV ? { border: '1px solid red' } : null}
-
 									/>
 									{isTypePassword && <div className='cvv-img' onClick={() => setIsTypePassword(false)} >
 										<img src={imgEye01} alt="imgEye" />
@@ -138,6 +137,7 @@ function Payment(props) {
 				isValid={props.formik.isValid}
 				dirty={props.formik.dirty}
 			/>
+			<ViewCartButton step={2} setStep={props.setStep} />
 		</div>
 	);
 }
