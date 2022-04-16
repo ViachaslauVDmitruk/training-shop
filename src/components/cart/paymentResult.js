@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import DeliveryPayButton from "./devileryPayButton";
 import ViewCartButton from "./viewCartButton";
 
 
@@ -8,15 +7,19 @@ function PaymentResult(props) {
 	const textError = (result) => {
 		switch (result) {
 			case 'request-error':
-				return 'request-error'
 
+				return 'request-error'
 			case 'underfunded':
+
 				return 'There are not enough funds \n to pay for the order'
 			case 'bank-error':
+
 				return 'Failed to pay for the order, the problem is on the side of the bank'
 			case 'timeout':
+
 				return 'timeout'
 			default:
+
 				return null;
 		}
 	}
@@ -51,19 +54,10 @@ function PaymentResult(props) {
 				<button
 					type="submit"
 					className="shoppingcart-button__further"
-				// onClick={() => props.reset(props.formik)}
 				>
 					{result?.message === 'success' ? 'Back to shopping' : 'Back to payment'}
 				</button >
-
-
-
-				{/* <DeliveryPayButton
-					isSubmitting={false}
-					isValid={true}
-					dirty={true}
-				/> */}
-				{(result?.message !== 'success') && <ViewCartButton />}
+				{(result?.message !== 'success') && <ViewCartButton step={1} setStep={props.setStep} />}
 			</div>
 		</>
 	)
