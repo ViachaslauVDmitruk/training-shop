@@ -1,7 +1,7 @@
 import axios from "axios";
 import { put, call, takeLatest } from 'redux-saga/effects';
-import { getCountries, getPaymentResult, getProducts, getProductsError, getProductsSuccess, } from "../Shopping/shopping-actions";
-import { LOAD_DATA, REQUEST_DATA_COUNTRIES, SEND_PAYMENT_DATA } from "../Shopping/shopping-types";
+import { getAdressStore, getCountries, getPaymentResult, getProducts, getProductsError, getProductsSuccess, } from "../Shopping/shopping-actions";
+import { LOAD_DATA, REQUEST_ADRESS_STORE, REQUEST_DATA_COUNTRIES, SEND_PAYMENT_DATA } from "../Shopping/shopping-types";
 
 export function* productsRequestWorker() {
 	try {
@@ -22,8 +22,19 @@ export function* countriesRequestWorker() {
 	}
 }
 
+export function* adressStoreRequesWorker(action) {
+	try {
+		const responseAdress = yield call(axios.post, "https://training.cleverland.by/shop/search/cities", {
+			city: action.payload.city,
+			country: action.payload.country,
+		});
+		yield put(getAdressStore(responseAdress));
+	} catch (err) {
+
+	}
+}
+
 export function* sendPaymentDataWorker(action) {
-	console.log('send payment data action', action)
 	try {
 		const response = yield call(axios.post, "https://training.cleverland.by/shop/cart", {
 			products: [
@@ -53,12 +64,13 @@ export function* sendPaymentDataWorker(action) {
 			card: action.payload.data.card,
 			cardDate: action.payload.data.cardDate,
 			cardCVV: action.payload.data.cardCVV,
-		})
+		});
 		yield put(getPaymentResult(response));
 	} catch (err) {
 
 	}
 }
+
 
 
 export function* productsRequestWatcher() {
@@ -69,6 +81,11 @@ export function* countriesRequestWatcher() {
 	yield takeLatest(REQUEST_DATA_COUNTRIES, countriesRequestWorker);
 }
 
+export function* adressStoreRequestWatcher() {
+	yield takeLatest(REQUEST_ADRESS_STORE, adressStoreRequesWorker);
+}
+
 export function* sendPaymentDataWatcher() {
 	yield takeLatest(SEND_PAYMENT_DATA, sendPaymentDataWorker);
 }
+

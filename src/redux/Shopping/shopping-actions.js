@@ -115,3 +115,22 @@ export const clearCart = () => {
 		type: actionTypes.CLEAR_CART,
 	}
 }
+
+export const requestAdressStore = (setCountry, setCity) => {
+
+	return {
+		type: actionTypes.REQUEST_ADRESS_STORE,
+		payload: {
+			country: setCountry,
+			city: setCity,
+		}
+	}
+}
+
+export const getAdressStore = (data) => {
+
+	return {
+		type: actionTypes.GET_ADRESS_STORE,
+		payload: data,
+	}
+}

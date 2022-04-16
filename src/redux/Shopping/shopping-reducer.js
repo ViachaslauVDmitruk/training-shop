@@ -8,6 +8,7 @@ const INITIAL_STATE = {
 	isLoading: true,
 	countries: [],
 	paymentMessage: {},
+	storeAdress: [],
 }
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -88,6 +89,13 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				countries: action.payload,
+			}
+
+		case actionTypes.GET_ADRESS_STORE:
+
+			return {
+				...state,
+				storeAdress: action.payload,
 			}
 		case actionTypes.GET_PAYMENT_RESULT:
 
