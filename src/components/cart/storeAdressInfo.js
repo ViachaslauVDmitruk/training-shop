@@ -1,8 +1,8 @@
+import { useEffect } from 'react';
 import { Field, ErrorMessage } from 'formik';
-import TextErrorDelivery from './errorDelivery';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestAdressStore } from '../../redux/Shopping/shopping-actions';
-import { useEffect } from 'react';
+import TextErrorDelivery from './errorDelivery';
 
 function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 	const countries = useSelector((store) => store.shop.countries);
@@ -14,18 +14,12 @@ function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 			dispatch(requestAdressStore(formik.values.country, formik.values.storeAdress));
 
 			setIsFindStore(() => {
-				let foundedItem = adressStore?.find(item => {
-					if (item.city.toLowerCase() === formik.values.storeAdress.toLowerCase()) {
+				let foundedItem = adressStore?.find(item => item.city.toLowerCase() === formik.values.storeAdress.toLowerCase())
 
-						return true;
-					}
-				}
-				);
-
-				return foundedItem?.city || 'empty';
-			})
-		}
-	}, [formik.values.country, formik.values.storeAdress]);
+				return foundedItem?.city || 'empty'
+			});
+		};
+	}, [formik.values.country, formik.values.storeAdress, dispatch, adressStore, setIsFindStore]);
 
 	return (
 		<div className="info">
@@ -38,9 +32,13 @@ function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 					name="country"
 					className="choose-info__input"
 					placeholder="Counrty"
+					onClick={() => {
+						(formik.touched.storeAdress = false);
+						(formik.values.storeAdress = '');
+					}}
 					style={formik.touched.country && !formik.values.country ? { border: '1px solid red' } : null}
 				>
-					<option key={formik.values.deliveryMethod}></option>
+					<option placeholder="Counrty"></option>
 					{countries.map((item) => {
 						return (
 							<option key={item.name} value={item.name}>
@@ -63,7 +61,7 @@ function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 				/>
 				{formik.values.storeAdress
 					&&
-					<datalist id="storeAdress"					>
+					<datalist id="storeAdress">
 						{adressStore?.map((item) => {
 							return (<option key={item._id} value={item.city}>{item.city}</option>)
 						})
