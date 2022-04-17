@@ -1,12 +1,13 @@
-function DeliveryPayButton(props) {
+function DeliveryPayButton({ formik, title }) {
 	return (
 		<button
 			type="submit"
 			className="shoppingcart-button__further"
-			disabled={props.isSubmitting || !props.isValid || !props.dirty
+			onClick={() =>
+				(formik.isValid ? formik.values.check : formik.values.check = '')
 			}
 		>
-			{props.title}
+			{title}
 		</button >
 	);
 }

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
+import DeliveryPayButton from "./devileryPayButton";
 import ViewCartButton from "./viewCartButton";
-
 
 function PaymentResult(props) {
 	const result = useSelector(store => store.shop.paymentMessage.data);
@@ -51,13 +51,9 @@ function PaymentResult(props) {
 				</div>}
 			</div>
 			<div className="shopping-container">
-				<button
-					type="submit"
-					className="shoppingcart-button__further"
-				>
-					{result?.message === 'success' ? 'Back to shopping' : 'Back to payment'}
-				</button >
-				{(result?.message !== 'success') && <ViewCartButton step={1} setStep={props.setStep} />}
+				<DeliveryPayButton title={result?.message === 'success' ? 'Back to shopping' : 'Back to payment'} formik={props.formik} />
+				{(result?.message !== 'success') &&
+					<ViewCartButton step={1} setStep={props.setStep} />}
 			</div>
 		</>
 	)
