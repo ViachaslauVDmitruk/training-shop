@@ -1,17 +1,19 @@
-import './css/cart.css';
-import imgExit from './img/close.png';
-import classNames from 'classnames';
-import CartItem from './cartItem';
+import * as Yup from 'yup';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import { clearCart, sendPaymentData } from '../../redux/Shopping/shopping-actions';
+
 import DeliveryInfo from './deliveryInfo';
 import Payment from './payment';
 import TotalPrice from './totalPrise';
 import DeliveryPayButton from './devileryPayButton';
-import { clearCart, sendPaymentData } from '../../redux/Shopping/shopping-actions';
 import PaymentResult from './paymentResult';
+import imgExit from './img/close.png';
+import classNames from 'classnames';
+import CartItem from './cartItem';
+
+import './css/cart.css';
 
 function Cart({ cart, active, setActive }) {
 	const [totalPrice, setTotalPrice] = useState(0);
@@ -24,11 +26,13 @@ function Cart({ cart, active, setActive }) {
 	const currentStep = (step, props) => {
 		switch (step) {
 			case 1: {
+
 				return cart.map((item) => (
 					<CartItem key={item.id + item.color + item.size} productData={item} totalItem={totalItem} />
 				));
 			}
 			case 2: {
+
 				return <DeliveryInfo
 					formik={props}
 					totalPrice={totalPrice}
@@ -39,6 +43,7 @@ function Cart({ cart, active, setActive }) {
 				/>;
 			}
 			case 3: {
+
 				return <Payment
 					formik={props}
 					totalPrice={totalPrice}
@@ -47,11 +52,11 @@ function Cart({ cart, active, setActive }) {
 				/>;
 			}
 			case 4: {
+
 				return <PaymentResult
 					formik={props}
 					step={step}
 					setStep={setStep}
-					reset={resetClosingForm}
 				/>
 			}
 			default:
@@ -104,10 +109,9 @@ function Cart({ cart, active, setActive }) {
 		country: Yup.string().required('Поле должно быть заполнено'),
 
 		city: Yup.string().when('deliveryMethod', {
-			is: 'Pickup from post offices' || 'Express delivery',
+			is: (deliveryMethod) => deliveryMethod === 'Pickup from post offices' || deliveryMethod === 'Express delivery',
 			then: Yup.string()
 				.required('Поле должно быть заполнено'),
-			otherwise: Yup.string().transform(x => undefined),
 		}),
 
 		storeAdress: Yup.string().when('deliveryMethod', {
@@ -115,66 +119,58 @@ function Cart({ cart, active, setActive }) {
 			then: Yup.string()
 				.matches(isFindStore, 'Здесь рыбы нет!')
 				.required('Поле должно быть заполнено'),
-			otherwise: Yup.string().transform(x => undefined),
 		}),
 
 		street: Yup.string().when('deliveryMethod', {
-			is: 'Pickup from post offices' || 'Express delivery',
+			is: (deliveryMethod) => deliveryMethod === 'Pickup from post offices' || deliveryMethod === 'Express delivery',
 			then: Yup.string()
 				.required('Поле должно быть заполнено'),
-			otherwise: Yup.string().transform(x => undefined),
 		}),
 
 		house: Yup.string().when('deliveryMethod', {
-			is: 'Pickup from post offices' || 'Express delivery',
+			is: (deliveryMethod) => deliveryMethod === 'Pickup from post offices' || deliveryMethod === 'Express delivery',
 			then: Yup.string()
 				.required('Поле должно быть заполнено'),
-			otherwise: Yup.string().transform(x => undefined),
 		}),
 
 		postcode: Yup.string().when('deliveryMethod', {
 			is: 'Pickup from post offices',
 			then: Yup.string().required('Поле должно быть заполнено'),
-			otherwise: Yup.string().transform(x => undefined),
 		}),
 		check: Yup.boolean().required('Вы должны согласиться на обработку личной информации'),
 	});
 
 	let validSchemaStepThree = Yup.object().shape({
 		cashEmail: Yup.string().when('paymentMethod', {
-			is: 'Paypal',
+			is: 'PayPal',
 			then: Yup.string()
 				.email('Incorrect email format')
 				.matches(regExMail, 'Incorrect characters')
 				.required('Поле должно быть заполнено'),
-			otherwise: Yup.string().transform(x => undefined),
 		}),
 
 		card: Yup.string().when('paymentMethod', {
-			is: 'Visa',
+			is: (paymentMethod) => paymentMethod === 'Visa' || paymentMethod === 'Master',
 			then: Yup.string()
 				.matches(regExCard, 'Некорректный номер')
 				.min(19, 'Должно быть 16 цифр')
 				.max(19, 'Должно быть 16 цифр')
 				.required('Поле должно быть заполнено'),
-			otherwise: Yup.string().transform(x => undefined),
 		}),
 
 		cardDate: Yup.string().when('paymentMethod', {
-			is: 'Visa',
+			is: (paymentMethod) => paymentMethod === 'Visa' || paymentMethod === 'Master',
 			then: Yup.string()
 				.matches(regExCardDate, 'Некорректная дата').required('Поле должно быть заполнено'),
-			otherwise: Yup.string().transform(x => undefined),
 		}),
 
 		cardCVV: Yup.string().when('paymentMethod', {
-			is: 'Visa',
+			is: (paymentMethod) => paymentMethod === 'Visa' || paymentMethod === 'Master',
 			then: Yup.string()
 				.matches(regExCVV, 'Только цифры').required('Поле должно быть заполнено')
 				.min(3, 'Минимум 3 цифры')
 				.max(4, 'максимум 4 цифры')
 				.required('Поле должно быть заполнено'),
-			otherwise: Yup.string().transform(x => undefined),
 		}),
 	});
 
@@ -201,7 +197,7 @@ function Cart({ cart, active, setActive }) {
 	}
 
 	const onSubmit = (values, onSubmitProps) => {
-		console.log('onSubmitProps', values)
+
 		onSubmitProps.setTouched({
 			phone: false,
 			email: false,
@@ -231,16 +227,15 @@ function Cart({ cart, active, setActive }) {
 				setStep(4);
 				break;
 			case 4:
-				setStep(5);
-				if (result.message === "success") {
+				if (result?.message === "success") {
 					resetClosingForm(onSubmitProps);
 					dispatch(clearCart());
+				} else {
+					setStep(3);
 				}
 				break;
-			case 5:
-				setStep(3);
-				break
 			default:
+
 				return null;
 		}
 		onSubmitProps.setSubmitting(false);
@@ -252,13 +247,11 @@ function Cart({ cart, active, setActive }) {
 			onSubmit={onSubmit}
 			validationSchema={validationSchema(step)}>
 			{(formik) => {
-				// console.log('formik', formik)
+
 				return (
 					<Form>
-						<div className={classNames('cart', { cart_visible: active === true })}
-						//  onClick={() => setActive(false)}
-						>
-							<div className="mask"></div>
+						<div className={classNames('cart', { cart_visible: active === true })}>
+							<div className="mask" onClick={() => setActive(false)}></div>
 							<div data-test-id="cart" className="shoppingcart" onClick={(e) => e.stopPropagation()}>
 								<div className="shoppingcart__header">
 									<div className="shopping-container">
@@ -288,13 +281,9 @@ function Cart({ cart, active, setActive }) {
 										{step === 1 && <TotalPrice totalPrice={totalPrice} />}
 										{step === 1 && (
 											<DeliveryPayButton
-												type={'button'}
 												title={'Further'}
-												step={2}
+												formik={formik}
 												setStep={setStep}
-												isSubmitting={false}
-												isValid={true}
-												dirty={true}
 											/>
 										)}
 									</div>
