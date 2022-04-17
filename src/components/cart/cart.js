@@ -74,7 +74,7 @@ function Cart({ cart, active, setActive }) {
 		deliveryMethod: 'Pickup from post offices',
 		phone: '',
 		email: '',
-		country: '',
+		country: 'Беларусь',
 		city: '',
 		street: '',
 		house: '',
@@ -92,7 +92,7 @@ function Cart({ cart, active, setActive }) {
 	const regExMail = /^[_a-z0-9-\\+-][^\s]+(\.[_a-z0-9-]\+)*@[a-z0-9-]+(\.[a-z0-9-]\+)*(\.[a-z]{2,4})$/i;
 	const regExPhone = /^(\+375|80)\s\((29|25|44|33)\)\s[0-9]{3}[0-9]{2}[0-9]{2}$/;
 	const regExCard = /^[\d\s]+$/;
-	const regExCardDate = /^(0\d|1[0-2])\/\d{2}$/;
+	const regExCardDate = /^(0\d|1[0-2])\/(([2-9][2-9])|[3-9]\d)$/;
 	const regExCVV = /^\d+$/;
 
 	let validSchemaStepTwo = Yup.object().shape({
@@ -201,7 +201,7 @@ function Cart({ cart, active, setActive }) {
 	}
 
 	const onSubmit = (values, onSubmitProps) => {
-
+		console.log('onSubmitProps', values)
 		onSubmitProps.setTouched({
 			phone: false,
 			email: false,
@@ -218,6 +218,7 @@ function Cart({ cart, active, setActive }) {
 			cardDate: false,
 			cardCVV: false,
 		})
+
 		switch (step) {
 			case 1:
 				setStep(2);
@@ -251,7 +252,7 @@ function Cart({ cart, active, setActive }) {
 			onSubmit={onSubmit}
 			validationSchema={validationSchema(step)}>
 			{(formik) => {
-
+				// console.log('formik', formik)
 				return (
 					<Form>
 						<div className={classNames('cart', { cart_visible: active === true })}
