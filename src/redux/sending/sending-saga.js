@@ -25,6 +25,7 @@ export function* reviewPostWorker(action) {
 
 }
 export function* subscribePostWorker(action) {
+	console.log('subcribe action', action)
 	try {
 		yield put(upload());
 		yield call(axios.post, "https://training.cleverland.by/shop/email", {

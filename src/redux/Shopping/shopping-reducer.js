@@ -6,6 +6,9 @@ const INITIAL_STATE = {
 	currentItem: null,
 	isError: false,
 	isLoading: true,
+	countries: [],
+	paymentMessage: {},
+	storeAdress: [],
 }
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -81,6 +84,33 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 				cart: state.cart.map(item => ((item.id === action.payload.id) && (item.color === action.payload.color) && (item.size === action.payload.size)) ? { ...item, qty: action.payload.qty } : item)
 
 			};
+		case actionTypes.GET_COUNTRIES:
+
+			return {
+				...state,
+				countries: action.payload,
+			}
+
+		case actionTypes.GET_ADRESS_STORE:
+
+			return {
+				...state,
+				storeAdress: action.payload,
+			}
+		case actionTypes.GET_PAYMENT_RESULT:
+
+			return {
+				...state,
+				paymentMessage: action.payload,
+			}
+
+		case actionTypes.CLEAR_CART:
+
+			return {
+				...state,
+				cart: [],
+			}
+
 		default:
 
 			return state;

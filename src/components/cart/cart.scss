@@ -55,8 +55,9 @@
 	&__info {
 		font-size: 15px;
 		line-height: 130%;
-		color: #121212;
 		margin: 16px 0px 20px;
+		display: flex;
+		color: #E6E6E6;
 	}
 
 	&__item {
@@ -66,6 +67,24 @@
 		border-bottom: solid 2px #e6e6e6;
 	}
 }
+.shopping-info {
+	&__item {
+		margin: 0px 5px 0px 5px;
+		&:first-child {
+			margin: 0px 5px 0px 0px;
+		}
+		&:last-child {
+			margin: 0px 0px 0px 5px;
+		}
+		.active {
+			color: #121212;
+		}
+	}
+}
+.shopping-info__item.active {
+	color: #121212;
+}
+
 
 .shopping-container {
 	margin: 0px 20px;
@@ -181,6 +200,7 @@
 		display: flex;
 		justify-content: space-between;
 		margin: 14px 0px 14px 0px;
+		align-items: flex-end;
 	}
 }
 .shoppingcart-totalprice {
@@ -203,6 +223,7 @@
 }
 .shoppingcart-button {
 	&__further {
+		width: 100%;
 		font-weight: 500;
 		font-size: 13px;
 		line-height: 15px;
@@ -218,9 +239,14 @@
 		padding: 17px 0px;
 		margin: 12px 0px 12px 0px;
 		cursor: pointer;
+		&:disabled {
+			background-color:#E6E6E6;
+			color:#121212
+		}
 	}
 
 	&__view {
+		width: 100%;
 		font-weight: 500;
 		font-size: 13px;
 		line-height: 15px;
@@ -266,4 +292,16 @@
 }
 .disable {
 	display: none;
+}
+.shopping-result {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 22px;
+	text-align: center;
+	color: #000000;
+	margin: 24px 0px 0px 0px;
+	span {
+		display: block;
+		margin: 16px 0px 0px 0px;
+	}
 }
