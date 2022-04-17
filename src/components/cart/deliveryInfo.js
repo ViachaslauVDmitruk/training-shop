@@ -3,7 +3,6 @@ import reactInputMask from 'react-input-mask';
 import './css/deliveryInfo.css';
 import TextErrorDelivery from './errorDelivery';
 import StorePickupData from './storeAdressInfo';
-import { useEffect } from 'react';
 import TotalPrice from './totalPrise';
 import DeliveryPayButton from './devileryPayButton';
 import { useDispatch } from 'react-redux';
@@ -13,15 +12,6 @@ import ViewCartButton from './viewCartButton';
 function DeliveryInfo(props) {
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		if (props.formik.values.deliveryMethod === 'Pickup from post offices') {
-			props.formik.setValues({ ...props.formik.values, country: 'Беларусь' });
-		} else {
-			props.formik.setValues({ ...props.formik.values, country: '' });
-		}
-	}, [props.formik.values.deliveryMethod]);
-	// console.log('delivery isfindconst', props.isFindStore)
-	// console.log('delivery setisfind const', props.setIsFindStore)
 	return (
 		<div className="delivery-info">
 			<div className="wrapper-info">
@@ -35,6 +25,10 @@ function DeliveryInfo(props) {
 								name="deliveryMethod"
 								className="choose-method__item"
 								value="Pickup from post offices"
+								onClick={() => {
+									props.formik.setTouched({});
+									(props.formik.values.country = 'Беларусь');
+								}}
 							/>
 							<span className="radio-lable">Pickup from post offices</span>
 						</label>
@@ -47,6 +41,10 @@ function DeliveryInfo(props) {
 								name="deliveryMethod"
 								className="choose-method__item"
 								value="Express delivery"
+								onClick={() => {
+									props.formik.setTouched({});
+									(props.formik.values.country = '');
+								}}
 							/>
 							<span className="radio-lable">Express delivery</span>
 						</label>
@@ -59,7 +57,11 @@ function DeliveryInfo(props) {
 								name="deliveryMethod"
 								className="choose-method__item"
 								value="Store pickup"
-								onClick={() => dispatch(requestDataCountries())}
+								onClick={() => {
+									dispatch(requestDataCountries());
+									props.formik.setTouched({});
+								}
+								}
 							/>
 							<span className="radio-lable">Store pickup</span>
 						</label>
@@ -198,7 +200,7 @@ function DeliveryInfo(props) {
 							<Field type="checkbox" id="check" name="check" className="check-agree" />
 							<span
 								className="check-box"
-								style={props.formik.isValid && props.formik.check ? { border: '1px solid red' } : null}
+								style={!props.formik.isValid && props.formik.touched.check && !props.formik.check ? { border: '1px solid red' } : null}
 							></span>
 							<span className="check-agree-text">I agree to the processing of my personal information</span>
 						</label>
@@ -210,9 +212,6 @@ function DeliveryInfo(props) {
 			<DeliveryPayButton
 				title={'Further'}
 				formik={props.formik}
-				isSubmitting={props.formik.isSubmitting}
-				isValid={props.formik.isValid}
-				dirty={props.formik.dirty}
 			/>
 			<ViewCartButton step={1} setStep={props.setStep} />
 		</div>
