@@ -1,13 +1,15 @@
 import { Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+import { requestDataCountries } from '../../redux/Shopping/shopping-actions';
+
 import reactInputMask from 'react-input-mask';
-import './css/deliveryInfo.css';
 import TextErrorDelivery from './errorDelivery';
 import StorePickupData from './storeAdressInfo';
 import TotalPrice from './totalPrise';
 import DeliveryPayButton from './devileryPayButton';
-import { useDispatch } from 'react-redux';
-import { requestDataCountries } from '../../redux/Shopping/shopping-actions';
 import ViewCartButton from './viewCartButton';
+
+import './css/deliveryInfo.css';
 
 function DeliveryInfo(props) {
 	const dispatch = useDispatch();
@@ -27,7 +29,7 @@ function DeliveryInfo(props) {
 								value="Pickup from post offices"
 								onClick={() => {
 									props.formik.setTouched({});
-									(props.formik.values.country = 'Беларусь');
+									(props.formik.values.country = '');
 								}}
 							/>
 							<span className="radio-lable">Pickup from post offices</span>
@@ -60,6 +62,7 @@ function DeliveryInfo(props) {
 								onClick={() => {
 									dispatch(requestDataCountries());
 									props.formik.setTouched({});
+									(props.formik.values.country = '');
 								}
 								}
 							/>
@@ -114,6 +117,7 @@ function DeliveryInfo(props) {
 									className="choose-info__input"
 									placeholder="Country"
 									value={props.formik.values.country}
+									style={props.formik.touched.country && !props.formik.values.country ? { border: '1px solid red' } : null}
 								/>
 								<ErrorMessage name="country" component={TextErrorDelivery} />
 							</div>
