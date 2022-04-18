@@ -1,6 +1,5 @@
-function DeliveryPayButton({ formik, title }) {
+const DeliveryPayButton = ({ formik, title }) => 
 
-	return (
 		<button
 			type="submit"
 			className="shoppingcart-button__further"
@@ -10,7 +9,5 @@ function DeliveryPayButton({ formik, title }) {
 		>
 			{title}
 		</button >
-	);
-}
-
+	
 export default DeliveryPayButton;

@@ -1,11 +1,8 @@
 import './css/errorDelivery.css';
 
-function TextErrorDelivery(props) {
-	return (
+const TextErrorDelivery = (props) => 
 		<div className='error-delivary'>
 			{props.children}
 		</div>
-	)
-}
 
 export default TextErrorDelivery;
