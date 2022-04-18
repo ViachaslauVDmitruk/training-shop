@@ -4,7 +4,7 @@ import { requestDataCountries } from '../../redux/Shopping/shopping-actions';
 
 import reactInputMask from 'react-input-mask';
 import TextErrorDelivery from './errorDelivery';
-import StorePickupData from './storeAdressInfo';
+import StorePickupData from './storeAddressInfo';
 import TotalPrice from './totalPrise';
 import DeliveryPayButton from './devileryPayButton';
 import ViewCartButton from './viewCartButton';

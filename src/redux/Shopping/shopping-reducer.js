@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 	isLoading: true,
 	countries: [],
 	paymentMessage: {},
-	storeAdress: [],
+	storeAddress: [],
 }
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -95,7 +95,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
 
 			return {
 				...state,
-				storeAdress: action.payload,
+				storeAddress: action.payload,
 			}
 		case actionTypes.GET_PAYMENT_RESULT:
 

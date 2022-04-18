@@ -84,7 +84,7 @@ function Cart({ cart, active, setActive }) {
 		house: '',
 		apartment: '',
 		postcode: '',
-		storeAdress: '',
+		storeAddress: '',
 		check: '',
 		paymentMethod: 'Visa',
 		cashEmail: '',
@@ -113,7 +113,7 @@ function Cart({ cart, active, setActive }) {
 				.required('Поле должно быть заполнено'),
 		}),
 
-		storeAdress: Yup.string().when('deliveryMethod', {
+		storeAddress: Yup.string().when('deliveryMethod', {
 			is: 'Store pickup',
 			then: Yup.string()
 				.matches(isFindStore, 'Здесь рыбы нет!')
@@ -206,7 +206,7 @@ function Cart({ cart, active, setActive }) {
 			house: false,
 			apartment: false,
 			postcode: false,
-			storeAdress: false,
+			storeAddress: false,
 			check: false,
 			cashEmail: false,
 			card: false,

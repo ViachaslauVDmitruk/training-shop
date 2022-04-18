@@ -6,20 +6,20 @@ import TextErrorDelivery from './errorDelivery';
 
 function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 	const countries = useSelector((store) => store.shop.countries);
-	const adressStore = useSelector((store) => store.shop.storeAdress.data);
+	const adressStore = useSelector((store) => store.shop.storeAddress.data);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if (formik.values.storeAdress.length > 2) {
-			dispatch(requestAdressStore(formik.values.country, formik.values.storeAdress));
+		if (formik.values.storeAddress.length > 2) {
+			dispatch(requestAdressStore(formik.values.country, formik.values.storeAddress));
 
 			setIsFindStore(() => {
-				let foundedItem = adressStore?.find(item => item.city.toLowerCase() === formik.values.storeAdress.toLowerCase())
+				let foundedItem = adressStore?.find(item => item.city.toLowerCase() === formik.values.storeAddress.toLowerCase())
 
 				return foundedItem?.city || 'empty'
 			});
 		};
-	}, [formik.values.country, formik.values.storeAdress, dispatch, adressStore, setIsFindStore]);
+	}, [formik.values.country, formik.values.storeAddress, dispatch, adressStore, setIsFindStore]);
 
 	return (
 		<div className="info">
@@ -33,8 +33,8 @@ function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 					className="choose-info__input"
 					placeholder="Counrty"
 					onClick={() => {
-						(formik.touched.storeAdress = false);
-						(formik.values.storeAdress = '');
+						(formik.touched.storeAddress = false);
+						(formik.values.storeAddress = '');
 					}}
 					style={formik.touched.country && !formik.values.country ? { border: '1px solid red' } : null}
 				>
@@ -52,22 +52,22 @@ function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 			<div className="choose-info__item">
 				<Field
 					autoComplete="off"
-					list="storeAdress"
-					name="storeAdress"
+					list="storeAddress"
+					name="storeAddress"
 					className="choose-info__input"
 					placeholder="Store adress"
 					disabled={!formik.values.country}
-					style={formik.touched.storeAdress && !formik.values.storeAdress ? { border: "1px solid red" } : null}
+					style={formik.touched.storeAddress && !formik.values.storeAddress ? { border: "1px solid red" } : null}
 				/>
-				{formik.values.storeAdress
+				{formik.values.storeAddress
 					&&
-					<datalist id="storeAdress">
+					<datalist id="storeAddress">
 						{adressStore?.map((item) => {
 							return (<option key={item._id} value={item.city}>{item.city}</option>)
 						})
 						}
 					</datalist>}
-				<ErrorMessage name="storeAdress" component={TextErrorDelivery} />
+				<ErrorMessage name="storeAddress" component={TextErrorDelivery} />
 			</div>
 		</div>
 	);

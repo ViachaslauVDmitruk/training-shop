@@ -7,16 +7,16 @@ function PaymentResult(props) {
 		switch (result) {
 			case 'request-error':
 
-				return 'request-error'
+				{ return <div>'request-error'</div>; }
 			case 'underfunded':
 
-				return 'There are not enough funds \n to pay for the order'
+				{ return <div>'There are not enough funds \n to pay for the order'</div>; }
 			case 'bank-error':
 
-				return 'Failed to pay for the order, the problem is on the side of the bank'
+				{ return <div>'Failed to pay for the order, the problem is on the side of the bank'</div>; }
 			case 'timeout':
 
-				return 'timeout'
+				{ return <div>'timeout'</div>; }
 			default:
 
 				return null;
@@ -45,7 +45,7 @@ function PaymentResult(props) {
 						processed.
 					</div>
 					<div className="shopping-result">
-						{textError}
+						{textError()}
 					</div>
 				</div>}
 			</div>
