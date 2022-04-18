@@ -55,7 +55,6 @@ function Cart({ cart, active, setActive }) {
 
 				return <PaymentResult
 					formik={props}
-					step={step}
 					setStep={setStep}
 				/>
 			}
@@ -79,7 +78,7 @@ function Cart({ cart, active, setActive }) {
 		deliveryMethod: 'Pickup from post offices',
 		phone: '',
 		email: '',
-		country: 'Беларусь',
+		country: '',
 		city: '',
 		street: '',
 		house: '',

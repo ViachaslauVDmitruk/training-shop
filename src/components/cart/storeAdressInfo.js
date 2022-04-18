@@ -67,7 +67,6 @@ function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 						})
 						}
 					</datalist>}
-
 				<ErrorMessage name="storeAdress" component={TextErrorDelivery} />
 			</div>
 		</div>
