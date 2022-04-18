@@ -1,13 +1,13 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSelector } from "react-redux";
+import { Navigation } from "swiper";
+import { useParams } from "react-router-dom";
+import CardItem from "../CardItem/CardItem";
+
 import "./css/SliderRelated.css"
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation } from "swiper";
-import { useParams } from "react-router-dom";
-import CardItem from "../CardItem/CardItem";
-import { useSelector } from "react-redux";
 
 function SliderRelated(props) {
 	let { type } = useParams();
