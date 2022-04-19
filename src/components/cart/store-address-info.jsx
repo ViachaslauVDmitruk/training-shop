@@ -44,7 +44,7 @@ function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 					}}
 					style={formik.touched.country && !formik.values.country ? { border: '1px solid red' } : null}
 				>
-					<option placeholder="Counrty" style={{ color: "#121212", opacity: "0.4" }}>Country</option>
+					<option placeholder="Counrty" selected hidden>Country</option>
 					{countries.map((item) => {
 						return (
 							<option key={item.name} value={item.name}>
