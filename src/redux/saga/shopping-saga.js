@@ -65,7 +65,7 @@ export function* sendPaymentDataWorker(action) {
 			cardDate: action.payload.data.cardDate,
 			cardCVV: action.payload.data.cardCVV,
 		});
-		yield put(getPaymentResult(response));
+		yield put(getPaymentResult(response.data));
 	} catch (err) {
 
 	}

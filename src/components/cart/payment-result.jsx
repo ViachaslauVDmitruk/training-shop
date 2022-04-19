@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import DeliveryPayButton from "./devileryPayButton";
+import DeliveryPayButton from "./devilery-pay-button";
 
 function PaymentResult(props) {
-	const result = useSelector(store => store.shop.paymentMessage.data);
+	const result = useSelector(store => store.shop.paymentMessage);
 	const textError = (result) => {
 		switch (result) {
 			case 'request-error':

@@ -2,10 +2,10 @@ import { Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
 
 import reactInputMask from 'react-input-mask';
-import DeliveryPayButton from './devileryPayButton';
-import TotalPrice from './totalPrise';
-import ViewCartButton from './viewCartButton';
-import TextErrorDelivery from './errorDelivery';
+import DeliveryPayButton from './devilery-pay-button';
+import TotalPrice from './total-prise';
+import ViewCartButton from './view-cart-button';
+import TextErrorDelivery from './error-delivery';
 
 import imgLogo01 from './img/01.png';
 import imgLogo02 from './img/02.png';

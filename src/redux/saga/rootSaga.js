@@ -4,7 +4,7 @@ import {
 	countriesRequestWatcher,
 	productsRequestWatcher,
 	sendPaymentDataWatcher
-} from ".";
+} from "./shopping-saga";
 import { postWatcher } from '../sending/sending-saga';
 
 export default function* rootSaga() {

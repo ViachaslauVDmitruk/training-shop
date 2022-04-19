@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { Field, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestAdressStore } from '../../redux/Shopping/shopping-actions';
-import TextErrorDelivery from './errorDelivery';
+
+import TextErrorDelivery from './error-delivery';
 
 function StorePickupData({ formik, isFindStore, setIsFindStore }) {
 	const countries = useSelector((store) => store.shop.countries);

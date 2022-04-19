@@ -1,7 +1,8 @@
 import { useState } from "react";
-import classNames from 'classnames';
-import './css/Filter.css'
 import { getItemsByType } from "../../products";
+import classNames from 'classnames';
+
+import './css/Filter.css'
 
 function Filter() {
 	const [isMenuOpen, toggleMenu] = useState(false);
@@ -9,9 +10,7 @@ function Filter() {
 		toggleMenu(!isMenuOpen);
 	}
 	let item = getItemsByType(type);
-	console.log(item.images);
-	console.log(item);
-	console.log(getItemsByType);
+
 	return (
 
 		<div className={classNames("filter", { visible: isMenuOpen })} onClick={() => toggleMenu(false)}>

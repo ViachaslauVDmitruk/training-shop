@@ -2,18 +2,22 @@ import * as Yup from 'yup';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
+import classNames from 'classnames';
+
+import DeliveryInfo from './delivery-info';
+import Payment from './payment';
+import TotalPrice from './total-prise';
+import DeliveryPayButton from './devilery-pay-button';
+import PaymentResult from './payment-result';
+import CartItem from './cart-item';
+
+import { validSchemaStepThree, validSchemaStepTwo } from './valid-schema';
 import { clearCart, sendPaymentData } from '../../redux/Shopping/shopping-actions';
 
-import DeliveryInfo from './deliveryInfo';
-import Payment from './payment';
-import TotalPrice from './totalPrise';
-import DeliveryPayButton from './devileryPayButton';
-import PaymentResult from './paymentResult';
 import imgExit from './img/close.png';
-import classNames from 'classnames';
-import CartItem from './cartItem';
 
 import './css/cart.css';
+
 
 function Cart({ cart, active, setActive }) {
 	const [totalPrice, setTotalPrice] = useState(0);
@@ -21,7 +25,7 @@ function Cart({ cart, active, setActive }) {
 	const [step, setStep] = useState(1);
 	const [isFindStore, setIsFindStore] = useState();
 	const dispatch = useDispatch();
-	const result = useSelector(state => state.shop.paymentMessage.data);
+	const result = useSelector(state => state.shop.paymentMessage);
 
 	const currentStep = (step, props) => {
 		switch (step) {
@@ -93,93 +97,16 @@ function Cart({ cart, active, setActive }) {
 		cardCVV: '',
 	};
 
-	const regExMail = /^[_a-z0-9-\\+-][^\s]+(\.[_a-z0-9-]\+)*@[a-z0-9-]+(\.[a-z0-9-]\+)*(\.[a-z]{2,4})$/i;
-	const regExPhone = /^(\+375|80)\s\((29|25|44|33)\)\s[0-9]{3}[0-9]{2}[0-9]{2}$/;
-	const regExCard = /^[\d\s]+$/;
-	const regExCardDate = /^(0\d|1[0-2])\/(([2-9][2-9])|[3-9]\d)$/;
-	const regExCVV = /^\d+$/;
-
-	let validSchemaStepTwo = Yup.object().shape({
-		phone: Yup.string().matches(regExPhone, 'Неверный номер').required('Поле должно быть заполнено'),
-		email: Yup.string()
-			.email('Incorrect email format')
-			.matches(regExMail, 'Incorrect characters')
-			.required('Поле должно быть заполнено'),
-		country: Yup.string().required('Поле должно быть заполнено'),
-
-		city: Yup.string().when('deliveryMethod', {
-			is: (deliveryMethod) => deliveryMethod === 'Pickup from post offices' || deliveryMethod === 'Express delivery',
-			then: Yup.string()
-				.required('Поле должно быть заполнено'),
-		}),
-
-		storeAddress: Yup.string().when('deliveryMethod', {
-			is: 'Store pickup',
-			then: Yup.string()
-				.matches(isFindStore, 'Здесь рыбы нет!')
-				.required('Поле должно быть заполнено'),
-		}),
-
-		street: Yup.string().when('deliveryMethod', {
-			is: (deliveryMethod) => deliveryMethod === 'Pickup from post offices' || deliveryMethod === 'Express delivery',
-			then: Yup.string()
-				.required('Поле должно быть заполнено'),
-		}),
-
-		house: Yup.string().when('deliveryMethod', {
-			is: (deliveryMethod) => deliveryMethod === 'Pickup from post offices' || deliveryMethod === 'Express delivery',
-			then: Yup.string()
-				.required('Поле должно быть заполнено'),
-		}),
-
-		postcode: Yup.string().when('deliveryMethod', {
-			is: 'Pickup from post offices',
-			then: Yup.string().required('Поле должно быть заполнено'),
-		}),
-		check: Yup.boolean().required('Вы должны согласиться на обработку личной информации'),
-	});
-
-	let validSchemaStepThree = Yup.object().shape({
-		cashEmail: Yup.string().when('paymentMethod', {
-			is: 'PayPal',
-			then: Yup.string()
-				.email('Incorrect email format')
-				.matches(regExMail, 'Incorrect characters')
-				.required('Поле должно быть заполнено'),
-		}),
-
-		card: Yup.string().when('paymentMethod', {
-			is: (paymentMethod) => paymentMethod === 'Visa' || paymentMethod === 'Master',
-			then: Yup.string()
-				.matches(regExCard, 'Некорректный номер')
-				.min(19, 'Должно быть 16 цифр')
-				.max(19, 'Должно быть 16 цифр')
-				.required('Поле должно быть заполнено'),
-		}),
-
-		cardDate: Yup.string().when('paymentMethod', {
-			is: (paymentMethod) => paymentMethod === 'Visa' || paymentMethod === 'Master',
-			then: Yup.string()
-				.matches(regExCardDate, 'Некорректная дата').required('Поле должно быть заполнено'),
-		}),
-
-		cardCVV: Yup.string().when('paymentMethod', {
-			is: (paymentMethod) => paymentMethod === 'Visa' || paymentMethod === 'Master',
-			then: Yup.string()
-				.matches(regExCVV, 'Только цифры').required('Поле должно быть заполнено')
-				.min(3, 'Минимум 3 цифры')
-				.max(4, 'максимум 4 цифры')
-				.required('Поле должно быть заполнено'),
-		}),
-	});
-
 	const validationSchema = (step) => {
 		switch (step) {
 			case 1:
+
 				return Yup.object().shape({});
 			case 2:
-				return validSchemaStepTwo;
+
+				return validSchemaStepTwo(isFindStore);
 			case 3:
+
 				return validSchemaStepThree;
 			default:
 				return Yup.object({}).shape({});
@@ -271,7 +198,6 @@ function Cart({ cart, active, setActive }) {
 										<div className={classNames('shopping-info__item', { active: step === 3 })}> Payment</div>
 									</div>
 								</div>
-
 								<div className={classNames('shoppingcart-empty', { notempty: totalItem })}>
 									{currentStep(step, formik)}
 								</div>

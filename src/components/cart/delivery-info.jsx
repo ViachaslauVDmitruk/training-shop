@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 import { requestDataCountries } from '../../redux/Shopping/shopping-actions';
 
 import reactInputMask from 'react-input-mask';
-import TextErrorDelivery from './errorDelivery';
-import StorePickupData from './storeAddressInfo';
-import TotalPrice from './totalPrise';
-import DeliveryPayButton from './devileryPayButton';
-import ViewCartButton from './viewCartButton';
+import TextErrorDelivery from './error-delivery';
+import StorePickupData from './store-address-info';
+import TotalPrice from './total-prise';
+import DeliveryPayButton from './devilery-pay-button';
+import ViewCartButton from './view-cart-button';
 
-import './css/deliveryInfo.css';
+import './css/delivery-info.css';
 
 function DeliveryInfo(props) {
 	const dispatch = useDispatch();

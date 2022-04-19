@@ -1,14 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Home from './pages/Home';
 import ProductPage from './pages/ProductPage/ProductPage';
 import Clothes from './components/Clothes';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+
 import { loadData } from './redux/Shopping/shopping-actions';
 import Loader from './components/Loader/loader';
 import Error from './components/error/Error';
 
+import './App.css';
 
 function App() {
 	const { isError, isLoading } = useSelector(store => store.shop);
