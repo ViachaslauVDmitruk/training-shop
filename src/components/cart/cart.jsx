@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
 import classNames from 'classnames';
@@ -19,13 +19,14 @@ import imgExit from './img/close.png';
 import './css/cart.css';
 
 
-function Cart({ cart, active, setActive }) {
+function Cart({ active, setActive }) {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [totalItem, setTotalItem] = useState(0);
 	const [step, setStep] = useState(1);
 	const [isFindStore, setIsFindStore] = useState();
 	const dispatch = useDispatch();
 	const result = useSelector(state => state.shop.paymentMessage);
+	const cart = useSelector(state => state.shop.cart);
 
 	const currentStep = (step, props) => {
 		switch (step) {
@@ -240,10 +241,4 @@ function Cart({ cart, active, setActive }) {
 	);
 }
 
-const mapStateToProps = (state) => {
-	return {
-		cart: state.shop.cart,
-	};
-};
-
-export default connect(mapStateToProps)(Cart);
+export default Cart;

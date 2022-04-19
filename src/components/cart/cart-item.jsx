@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { adjustQty, removeFromCart, } from "../../redux/Shopping/shopping-actions";
 
 import imgTrash from "./img/trash.png";
@@ -8,9 +8,10 @@ import imgPlus from "./img/plus.png";
 
 import "./css/cart.css";
 
-function CartItem({ productData, removeFromCart, adjustQty }) {
+function CartItem({ productData }) {
 	const [totalPrice, setTotalPrice] = useState(productData.price);
 	const [totalItem, setTotalItem] = useState(1);
+	const dispatch = useDispatch();
 	let items = 1;
 	let price = 0;
 
@@ -19,7 +20,7 @@ function CartItem({ productData, removeFromCart, adjustQty }) {
 		price = Math.round(items * productData.price * 100) / 100;
 		setTotalPrice(price);
 		setTotalItem(items);
-		adjustQty(productData.id, productData.color, productData.size, items);
+		dispatch(adjustQty(productData.id, productData.color, productData.size, items));
 	}
 	function itemMinus(count) {
 		if (count === 1) {
@@ -29,7 +30,7 @@ function CartItem({ productData, removeFromCart, adjustQty }) {
 		price = Math.round(items * productData.price * 100) / 100;
 		setTotalPrice(price);
 		setTotalItem(items);
-		adjustQty(productData.id, productData.color, productData.size, items);
+		dispatch(adjustQty(productData.id, productData.color, productData.size, items));
 	}
 
 	return (
@@ -72,11 +73,11 @@ function CartItem({ productData, removeFromCart, adjustQty }) {
 						<div
 							data-test-id="remove-product"
 							onClick={() =>
-								removeFromCart(
+								dispatch(removeFromCart(
 									productData.id,
 									productData.color,
 									productData.size
-								)
+								))
 							}
 							className="shopping-item-params-info__trash"
 						>
@@ -89,11 +90,4 @@ function CartItem({ productData, removeFromCart, adjustQty }) {
 	);
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		removeFromCart: (id, color, size) => dispatch(removeFromCart(id, color, size)),
-		adjustQty: (id, color, size, qty) => dispatch(adjustQty(id, color, size, qty)),
-	};
-};
-
-export default connect(null, mapDispatchToProps)(CartItem);
+export default CartItem;
