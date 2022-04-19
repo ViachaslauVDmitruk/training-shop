@@ -55,7 +55,6 @@ export const getProductsError = (error) => {
 export const getProducts = (success) => {
 	return {
 		type: actionTypes.GET_PRODUCTS,
-
 	}
 }
 
@@ -73,5 +72,65 @@ export const getProductById = (dataItem, typeItem) => {
 			data: dataItem,
 			type: typeItem,
 		}
+	}
+}
+
+export const getCountries = (dataItems) => {
+
+	return {
+		type: actionTypes.GET_COUNTRIES,
+		payload: dataItems,
+	}
+}
+
+export const requestDataCountries = () => {
+
+	return {
+		type: actionTypes.REQUEST_DATA_COUNTRIES,
+	}
+}
+
+export const sendPaymentData = (dataPayment, cartItems, price) => {
+	return {
+		type: actionTypes.SEND_PAYMENT_DATA,
+		payload: {
+			data: dataPayment,
+			cart: cartItems,
+			totalPrice: price,
+		}
+	}
+}
+
+export const getPaymentResult = (result) => {
+
+	return {
+		type: actionTypes.GET_PAYMENT_RESULT,
+		payload: result
+	}
+}
+
+export const clearCart = () => {
+
+	return {
+		type: actionTypes.CLEAR_CART,
+	}
+}
+
+export const requestAdressStore = (setCountry, setCity) => {
+
+	return {
+		type: actionTypes.REQUEST_ADRESS_STORE,
+		payload: {
+			country: setCountry,
+			city: setCity,
+		}
+	}
+}
+
+export const getAdressStore = (data) => {
+
+	return {
+		type: actionTypes.GET_ADRESS_STORE,
+		payload: data,
 	}
 }
