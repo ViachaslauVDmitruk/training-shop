@@ -5,6 +5,7 @@ import { MAIN_CLOTHES_BLOCK_MENU } from '../../../particular';
 import { useState } from 'react';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux'
+import { PRODUCTS } from '../../../poduct';
 // import { createSelector } from 'reselect'
 // const particularModeSelector = createSelector(
 // 	(state) => {
@@ -18,7 +19,8 @@ import { useSelector } from 'react-redux'
 // );
 
 function ClothesMan() {
-	let related = useSelector(store => store.shop.products.men);
+	// let related = useSelector(store => store.shop.products.men);
+	let related = PRODUCTS.men;
 	let [particular, setParticular] = useState(MAIN_CLOTHES_BLOCK_MENU[0].particularName);
 	let particularMode = (related || []).filter(item => item.particulars[particular] === true);
 	// const particularMode = useSelector((state) => particularModeSelector(state, particular));

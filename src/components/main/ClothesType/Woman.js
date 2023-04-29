@@ -7,9 +7,11 @@ import CardItem from "../../CardItem/CardItem";
 import classNames from "classnames";
 
 import "../Part3/css/Part3.css";
+import { PRODUCTS } from "../../../poduct";
 
 function ClothesWoman() {
-	let related = useSelector((store) => store.shop.products.women);
+	// let related = useSelector((store) => store.shop.products.women);
+	let related = PRODUCTS.women;
 	let [particular, setParticular] = useState(
 		MAIN_CLOTHES_BLOCK_MENU[0].particularName
 	);

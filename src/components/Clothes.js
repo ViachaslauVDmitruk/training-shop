@@ -11,12 +11,15 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import CardItem from './CardItem/CardItem';
 import { useSelector } from 'react-redux';
+import { PRODUCTS } from '../poduct';
 
 function Clothes() {
 	let { type } = useParams();
-	let allClothes = useSelector(store => store.shop.products[type]);
-	let newAllClothes = useSelector(store => store.shop.products[type]);
-
+	// let allClothes = useSelector(store => store.shop.products[type]);
+	let allClothes = PRODUCTS[type];
+	// let newAllClothes = useSelector(store => store.shop.products[type]);
+	let newAllClothes = PRODUCTS[type];
+	console.log('clothes', allClothes)
 	let [items, setItems] = useState(newAllClothes);
 	let [colorCheck, setColorCheck] = useState([]);
 	let [sizeCheck, setSizeCheck] = useState([]);
