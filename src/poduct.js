@@ -1,3 +1,111 @@
+import srcTurtleneck01Multicolor01 from './product-images/men/turtleneck/multicolor/http___static.theiconic.com.au_p_levis-0531-6114581-3.jpg';
+import srcTurtleneck01Multicolor02 from './product-images/men/turtleneck/multicolor/http___static.theiconic.com.au_p_levis-0522-6114581-2.jpg';
+import srcTurtleneck01Multicolor03 from './product-images/men/turtleneck/multicolor/http___static.theiconic.com.au_p_levis-0541-6114581-4.jpg';
+import srcTurtleneck01Multicolor04 from './product-images/men/turtleneck/multicolor/http___static.theiconic.com.au_p_levis-0550-6114581-5.jpg';
+
+import srcTurtleneck02Camel01 from './product-images/men/turtleneck/camel/http___static.theiconic.com.au_p_abercrombie-fitch-0809-9365171-2.jpg';
+import srcTurtleneck02Camel02 from './product-images/men/turtleneck/camel/http___static.theiconic.com.au_p_abercrombie-fitch-0820-9365171-3.jpg';
+import srcTurtleneck02Camel03 from './product-images/men/turtleneck/camel/http___static.theiconic.com.au_p_abercrombie-fitch-0830-9365171-4.jpg';
+import srcTurtleneck02Camel04 from './product-images/men/turtleneck/camel/http___static.theiconic.com.au_p_abercrombie-fitch-0841-9365171-5.jpg';
+
+import srcTurtleneck03Black01 from './product-images/men/turtleneck/black/http___static.theiconic.com.au_p_calvin-klein-4303-9196681-1.jpg';
+import srcTurtleneck03Black02 from './product-images/men/turtleneck/black/http___static.theiconic.com.au_p_calvin-klein-4343-9196681-4.jpg';
+import srcTurtleneck03Black03 from './product-images/men/turtleneck/black/http___static.theiconic.com.au_p_calvin-klein-4392-9196681-3.jpg';
+
+import srcTurtleneck04White01 from './product-images/men/turtleneck/white/http___static.theiconic.com.au_p_abercrombie-fitch-6140-0565171-1.jpg';
+import srcTurtleneck04White02 from './product-images/men/turtleneck/white/http___static.theiconic.com.au_p_abercrombie-fitch-6149-0565171-2.jpg';
+
+import srcCardigan01Black01 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_staple-superior-8229-7615371-1.jpg';
+import srcCardigan01Black02 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_staple-superior-8230-7615371-2.jpg';
+import srcCardigan01Black03 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_staple-superior-8234-7615371-3.jpg';
+import srcCardigan01Black04 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_staple-superior-8250-7615371-5.jpg';
+import srcCardigan01Black05 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_staple-superior-8444-7615371-4.jpg';
+
+import srcCardigan01Grey01 from './product-images/men/cardigan/grey/http___static.theiconic.com.au_p_staple-superior-4455-1078611-5.jpg';
+import srcCardigan01Grey02 from './product-images/men/cardigan/grey/http___static.theiconic.com.au_p_staple-superior-4496-1078611-1.jpg';
+import srcCardigan01Grey03 from './product-images/men/cardigan/grey/http___static.theiconic.com.au_p_staple-superior-4620-1078611-3.jpg';
+import srcCardigan01Grey04 from './product-images/men/cardigan/grey/http___static.theiconic.com.au_p_staple-superior-4630-1078611-4.jpg';
+import srcCardigan01Grey05 from './product-images/men/cardigan/grey/http___static.theiconic.com.au_p_staple-superior-4635-1078611-2.jpg';
+
+import srcCardigan02Green01 from './product-images/men/cardigan/green/http___static.theiconic.com.au_p_oxford-4916-8707781-1.jpg';
+import srcCardigan02Green02 from './product-images/men/cardigan/green/http___static.theiconic.com.au_p_oxford-4918-8707781-2.jpg';
+import srcCardigan02Green03 from './product-images/men/cardigan/green/http___static.theiconic.com.au_p_oxford-4920-8707781-3.jpg';
+import srcCardigan02Green04 from './product-images/men/cardigan/green/http___static.theiconic.com.au_p_oxford-4925-8707781-5.jpg';
+
+import srcCardigan03Black01 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_jack-jones-0437-7871971-002.jpg';
+import srcCardigan03Black02 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_jack-jones-0441-7871971-002.jpg';
+import srcCardigan03Black03 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_jack-jones-0452-7871971-002.jpg';
+import srcCardigan03Black04 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_jack-jones-0553-7871971-002.jpg';
+import srcCardigan03Black05 from './product-images/men/cardigan/black/http___static.theiconic.com.au_p_jack-jones-0620-7871971-002.jpg';
+
+import srcCardigan03Darkgrey01 from './product-images/men/cardigan/dark-grey/http___static.theiconic.com.au_p_jack-jones-0166-8871971-1.jpg';
+import srcCardigan03Darkgrey02 from './product-images/men/cardigan/dark-grey/http___static.theiconic.com.au_p_jack-jones-0171-8871971-4.jpg';
+import srcCardigan03Darkgrey03 from './product-images/men/cardigan/dark-grey/http___static.theiconic.com.au_p_jack-jones-0313-8871971-2.jpg';
+import srcCardigan03Darkgrey04 from './product-images/men/cardigan/dark-grey/http___static.theiconic.com.au_p_jack-jones-0325-8871971-5.jpg';
+import srcCardigan03Darkgrey05 from './product-images/men/cardigan/dark-grey/http___static.theiconic.com.au_p_jack-jones-0340-8871971-3.jpg';
+
+import srcCardigan03Lightgrey01 from './product-images/men/cardigan/light-grey/http___static.theiconic.com.au_p_jack-jones-9614-9871971-1.jpg';
+import srcCardigan03Lightgrey02 from './product-images/men/cardigan/light-grey/http___static.theiconic.com.au_p_jack-jones-9623-9871971-2.jpg';
+import srcCardigan03Lightgrey03 from './product-images/men/cardigan/light-grey/http___static.theiconic.com.au_p_jack-jones-9633-9871971-3.jpg';
+import srcCardigan03Lightgrey04 from './product-images/men/cardigan/light-grey/http___static.theiconic.com.au_p_jack-jones-9652-9871971-5.jpg';
+
+import srcCardigan04Lightgrey01 from './product-images/men/cardigan/light-grey/http___static.theiconic.com.au_p_3333-6676-3847261-1.jpg';
+
+import srcSweater01Blackhearth01 from './product-images/men/sweater/black-heather/http___static.theiconic.com.au_p_calvin-klein-7476-2519771-1.jpg';
+import srcSweater01Blackhearth02 from './product-images/men/sweater/black-heather/http___static.theiconic.com.au_p_calvin-klein-7508-2519771-4.jpg';
+
+import srcSweater02White01 from './product-images/men/sweater/white/http___static.theiconic.com.au_p_polo-ralph-lauren-9174-2368471-1.jpg';
+import srcSweater02White02 from './product-images/men/sweater/white/http___static.theiconic.com.au_p_polo-ralph-lauren-9215-2368471-2.jpg';
+import srcSweater02White03 from './product-images/men/sweater/white/http___static.theiconic.com.au_p_polo-ralph-lauren-9234-2368471-4.jpg';
+
+import srcSweater03Grey01 from './product-images/men/sweater/grey/http___static.theiconic.com.au_p_polo-ralph-lauren-8789-1434811-1.jpg';
+import srcSweater03Grey02 from './product-images/men/sweater/grey/http___static.theiconic.com.au_p_polo-ralph-lauren-8826-1434811-2.jpg';
+import srcSweater03Grey03 from './product-images/men/sweater/grey/http___static.theiconic.com.au_p_polo-ralph-lauren-8867-1434811-4.jpg';
+
+import srcSweater04Greytar01 from './product-images/men/sweater/grey-tar/http___static.theiconic.com.au_p_calvin-klein-0529-9319771-1.jpg';
+import srcSweater04Greytar02 from './product-images/men/sweater/grey-tar/http___static.theiconic.com.au_p_calvin-klein-0540-9319771-2.jpg';
+import srcSweater04Greytar03 from './product-images/men/sweater/grey-tar/http___static.theiconic.com.au_p_calvin-klein-0550-9319771-3.jpg';
+import srcSweater04Greytar04 from './product-images/men/sweater/grey-tar/http___static.theiconic.com.au_p_calvin-klein-0560-9319771-4.jpg';
+import srcSweater04Greytar05 from './product-images/men/sweater/grey-tar/http___static.theiconic.com.au_p_calvin-klein-0571-9319771-5.jpg'
+
+import srcJumper01Grey01 from './product-images/men/jumper/grey/http___static.theiconic.com.au_p_staple-superior-4583-6579371-1.jpg';
+import srcJumper01Grey02 from './product-images/men/jumper/grey/http___static.theiconic.com.au_p_staple-superior-4593-6579371-2.jpg';
+import srcJumper01Grey03 from './product-images/men/jumper/grey/http___static.theiconic.com.au_p_staple-superior-4604-6579371-3.jpg';
+import srcJumper01Grey04 from './product-images/men/jumper/grey/http___static.theiconic.com.au_p_staple-superior-4614-6579371-4.jpg';
+import srcJumper01Grey05 from './product-images/men/jumper/grey/http___static.theiconic.com.au_p_staple-superior-4625-6579371-5.jpg'
+
+import srcJumper02Millitaygreen01 from './product-images/men/jumper/milliraty-green/http___static.theiconic.com.au_p_neuw-0860-7311871-5.jpg';
+import srcJumper02Millitaygreen02 from './product-images/men/jumper/milliraty-green/http___static.theiconic.com.au_p_neuw-1045-7311871-3.jpg';
+import srcJumper02Millitaygreen03 from './product-images/men/jumper/milliraty-green/http___static.theiconic.com.au_p_neuw-1048-7311871-2.jpg';
+
+import srcJumper03White01 from './product-images/men/jumper/white/http___static.theiconic.com.au_p_superdry-5019-6216091-1.jpg';
+import srcJumper03White02 from './product-images/men/jumper/white/http___static.theiconic.com.au_p_superdry-5019-6216091-1.jpg';
+import srcJumper03White03 from './product-images/men/jumper/white/http___static.theiconic.com.au_p_superdry-5024-6216091-3.jpg';
+
+import srcPullover01White01 from './product-images/men/pullover/white/http___static.theiconic.com.au_p_nike-9730-0239461-1.jpg';
+import srcPullover01White02 from './product-images/men/pullover/white/http___static.theiconic.com.au_p_nike-9764-0239461-2.jpg';
+import srcPullover01White03 from './product-images/men/pullover/white/http___static.theiconic.com.au_p_nike-9770-0239461-3.jpg';
+
+import srcPullover01Black01 from './product-images/men/pullover/black/http___static.theiconic.com.au_p_nike-0058-9139461-3.jpg';
+import srcPullover01Black02 from './product-images/men/pullover/black/http___static.theiconic.com.au_p_nike-0272-9139461-1.jpg';
+
+import srcPullover02Blue01 from './product-images/men/pullover/blue/http___static.theiconic.com.au_p_oxford-8862-4200281-1.jpg';
+import srcPullover02Blue02 from './product-images/men/pullover/blue/http___static.theiconic.com.au_p_oxford-8864-4200281-2.jpg';
+import srcPullover02Blue03 from './product-images/men/pullover/blue/http___static.theiconic.com.au_p_oxford-8867-4200281-3.jpg';
+import srcPullover02Blue04 from './product-images/men/pullover/blue/http___static.theiconic.com.au_p_oxford-8869-4200281-4.jpg';
+
+import srcPullover02Grey01 from './product-images/men/pullover/grey/http___static.theiconic.com.au_p_oxford-9066-9800281-4.jpg';
+import srcPullover02Grey02 from './product-images/men/pullover/grey/http___static.theiconic.com.au_p_oxford-9068-9800281-5.jpg';
+
+import srcPullover03Desert01 from './product-images/men/pullover/desert/http___static.theiconic.com.au_p_cotton-on-0040-1659151-1.jpg';
+import srcPullover03Ecru01 from './product-images/men/pullover/ecru/http___static.theiconic.com.au_p_cotton-on-9339-2814381-1.jpg';
+
+import srcPullover04Moss01 from './product-images/men/pullover/moss/http___static.theiconic.com.au_p_superdry-0119-9039781-1.jpg';
+import srcPullover04Marle01 from './product-images/men/pullover/marle/http___static.theiconic.com.au_p_superdry-1949-5429781-1.jpg';
+import srcPullover04Black01 from './product-images/men/pullover/black/http___static.theiconic.com.333333-6944-2570741-1.jpg';
+
+import srcPullover06Darkgrey01 from './product-images/men/pullover/dark-grey/http___static.theiconic.com.au_p_jack-jones-0437-6871971-1.jpg';
+
 export const PRODUCTS = {
 	men: [
 		{
@@ -39,14 +147,25 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Black',
-					url: '/media/6200e42d1c08840bc803ad24/RTLAAL003701_15010467_2_v1_2x.webp',
+					color: 'Camel',
+					url: srcTurtleneck02Camel01,
+
 					id: '62012eeb7d2312f4e7932f0e',
 				},
 				{
-					color: 'Black',
-					url: '/media/6200e42d1c08840bc803ad24/RTLAAL003701_15010466_1_v1_2x.webp',
+					color: 'Camel',
+					url: srcTurtleneck02Camel02,
 					id: '62012eef7d2312f4e7932f12',
+				},
+				{
+					color: 'Camel',
+					url: srcTurtleneck02Camel03,
+					id: '62012eef7d2312f4e7932f13',
+				},
+				{
+					color: 'Camel',
+					url: srcTurtleneck02Camel04,
+					id: '62012eef7d2312f4e7932f14',
 				},
 			],
 			id: '6200e42d1c08840bc803ad24',
@@ -70,49 +189,19 @@ export const PRODUCTS = {
 			reviews: [],
 			images: [
 				{
-					color: 'Blue',
-					url: '/media/6200e4b61c08840bc803ad27/RTLAAT977701_15404370_1_v1_2x.jpg',
-					id: '62012fb27d2312f4e7932f1e',
-				},
-				{
-					color: 'Blue',
-					url: '/media/6200e4b61c08840bc803ad27/RTLAAT977701_15404371_2_v1_2x.webp',
+					color: 'White',
+					url: srcJumper03White01,
 					id: '62012fb67d2312f4e7932f21',
 				},
 				{
-					color: 'Blue',
-					url: '/media/6200e4b61c08840bc803ad27/RTLAAT977701_15404372_3_v1_2x.webp',
+					color: 'White',
+					url: srcJumper03White02,
 					id: '62012fba7d2312f4e7932f24',
 				},
 				{
 					color: 'White',
-					url: '/media/6200e4b61c08840bc803ad27/RTLAAQ292301_15088108_3_v1_2x.jpg',
+					url: srcJumper03White03,
 					id: '620130687d2312f4e7932f2d',
-				},
-				{
-					color: 'White',
-					url: '/media/6200e4b61c08840bc803ad27/RTLAAQ292301_15088106_1_v1_2x.jpg',
-					id: '6201306c7d2312f4e7932f30',
-				},
-				{
-					color: 'White',
-					url: '/media/6200e4b61c08840bc803ad27/RTLAAQ292301_15088107_2_v1_2x.webp',
-					id: '6201306f7d2312f4e7932f33',
-				},
-				{
-					color: 'Brown',
-					url: '/media/6200e4b61c08840bc803ad27/RTLAAQ292401_15088112_3_v1_2x.webp',
-					id: '620130a57d2312f4e7932f36',
-				},
-				{
-					color: 'Brown',
-					url: '/media/6200e4b61c08840bc803ad27/RTLAAQ292401_15088111_2_v1_2x.webp',
-					id: '620130a97d2312f4e7932f39',
-				},
-				{
-					color: 'Brown',
-					url: '/media/6200e4b61c08840bc803ad27/RTLAAQ292401_15088110_1_v1_2x.jpg',
-					id: '620130ae7d2312f4e7932f3c',
 				},
 			],
 			id: '6200e4b61c08840bc803ad27',
@@ -136,19 +225,29 @@ export const PRODUCTS = {
 			reviews: [],
 			images: [
 				{
-					color: 'Green',
-					url: '/media/6200e5031c08840bc803ad2a/RTLAAQ293601_15017278_2_v1.webp',
+					color: 'White',
+					url: srcPullover01White01,
 					id: '6201311e7d2312f4e7932f3f',
 				},
 				{
-					color: 'Orange',
-					url: '/media/6200e5031c08840bc803ad2a/RTLAAQ292501_15088980_3_v1_2x.webp',
+					color: 'White',
+					url: srcPullover01White02,
 					id: '6201314b7d2312f4e7932f4f',
 				},
 				{
-					color: 'Orange',
-					url: '/media/6200e5031c08840bc803ad2a/RTLAAQ292501_15088979_2_v1_2x.webp',
+					color: 'White',
+					url: srcPullover01White03,
 					id: '6201314f7d2312f4e7932f52',
+				},
+				{
+					color: 'Black',
+					url: srcPullover01Black01,
+					id: '6201314f7d2312f4e7932f53',
+				},
+				{
+					color: 'Black',
+					url: srcPullover01Black02,
+					id: '6201314f7d2312f4e7932f54',
 				},
 			],
 			id: '6200e5031c08840bc803ad2a',
@@ -173,28 +272,18 @@ export const PRODUCTS = {
 			images: [
 				{
 					color: 'White',
-					url: '/media/6200e55e1c08840bc803ad2d/RTLAAV537501_15738022_3_v1_2x.webp',
+					url: srcSweater02White01,
 					id: '620131f67d2312f4e7932f55',
 				},
 				{
 					color: 'White',
-					url: '/media/6200e55e1c08840bc803ad2d/RTLAAV537501_15738021_2_v1_2x.webp',
+					url: srcSweater02White02,
 					id: '620131fb7d2312f4e7932f58',
 				},
 				{
-					color: 'Black',
-					url: '/media/6200e55e1c08840bc803ad2d/RTLAAV537401_15738018_3_v1_2x.webp',
+					color: 'White',
+					url: srcSweater02White03,
 					id: '620132187d2312f4e7932f5b',
-				},
-				{
-					color: 'Black',
-					url: '/media/6200e55e1c08840bc803ad2d/RTLAAV537401_15738017_2_v1_2x.webp',
-					id: '6201321c7d2312f4e7932f5e',
-				},
-				{
-					color: 'Black',
-					url: '/media/6200e55e1c08840bc803ad2d/RTLAAV537401_15738016_1_v1_2x.webp',
-					id: '620132207d2312f4e7932f61',
 				},
 			],
 			id: '6200e55e1c08840bc803ad2d',
@@ -207,7 +296,7 @@ export const PRODUCTS = {
 				isMostViewed: false,
 				isFeatured: true,
 			},
-			name: 'Джемпер CRETA',
+			name: 'Водолазка',
 			category: 'men',
 			brand: 'Mango Man',
 			material: 'Хлопок - 100%',
@@ -218,19 +307,14 @@ export const PRODUCTS = {
 			reviews: [],
 			images: [
 				{
-					color: 'Multicolor',
-					url: '/media/6200e65a1c08840bc803ad30/RTLABB930801_16256628_3_v1.webp',
+					color: 'white',
+					url: srcTurtleneck04White01,
 					id: '6203641877fffe0cd128c037',
 				},
 				{
-					color: 'Multicolor',
-					url: '/media/6200e65a1c08840bc803ad30/RTLABB930801_16256627_2_v1.webp',
+					color: 'White',
+					url: srcTurtleneck04White02,
 					id: '6203641c77fffe0cd128c03a',
-				},
-				{
-					color: 'Multicolor',
-					url: '/media/6200e65a1c08840bc803ad30/RTLABB930801_16256626_1_v1.webp',
-					id: '6203642177fffe0cd128c03d',
 				},
 			],
 			id: '6200e65a1c08840bc803ad30',
@@ -273,34 +357,19 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Blue',
-					url: '/media/6200e6bd1c08840bc803ad33/RTLAAT849301_15345587_3_v1.jpg',
+					color: 'Millitary Green',
+					url: srcJumper02Millitaygreen01,
 					id: '620364e677fffe0cd128c040',
 				},
 				{
-					color: 'Blue',
-					url: '/media/6200e6bd1c08840bc803ad33/RTLAAT849301_15345586_2_v1.jpg',
+					color: 'Millitary Green',
+					url: srcJumper02Millitaygreen02,
 					id: '620364ea77fffe0cd128c043',
 				},
 				{
-					color: 'Blue',
-					url: '/media/6200e6bd1c08840bc803ad33/RTLAAT849301_15345585_1_v1.jpg',
+					color: 'Millitary Green',
+					url: srcJumper02Millitaygreen03,
 					id: '620364ee77fffe0cd128c046',
-				},
-				{
-					color: 'Beige',
-					url: '/media/6200e6bd1c08840bc803ad33/RTLAAT849401_15514296_3_v1_2x.webp',
-					id: '6203652e77fffe0cd128c049',
-				},
-				{
-					color: 'Beige',
-					url: '/media/6200e6bd1c08840bc803ad33/RTLAAT849401_15514295_2_v1_2x.webp',
-					id: '6203653277fffe0cd128c04c',
-				},
-				{
-					color: 'Beige',
-					url: '/media/6200e6bd1c08840bc803ad33/RTLAAT849401_15514294_1_v1_2x.webp',
-					id: '6203653677fffe0cd128c04f',
 				},
 			],
 			id: '6200e6bd1c08840bc803ad33',
@@ -332,48 +401,53 @@ export const PRODUCTS = {
 			images: [
 				{
 					color: 'Black',
-					url: '/media/6200e74c1c08840bc803ad39/RTLAAX817901_15996787_3_v1_2x.webp',
+					url: srcCardigan01Black01,
 					id: '62039ad177fffe0cd128c18b',
 				},
 				{
 					color: 'Black',
-					url: '/media/6200e74c1c08840bc803ad39/RTLAAX817901_15996786_2_v1_2x.webp',
+					url: srcCardigan01Black02,
 					id: '62039ad577fffe0cd128c18e',
 				},
 				{
 					color: 'Black',
-					url: '/media/6200e74c1c08840bc803ad39/RTLAAX817901_15996785_1_v1_2x.webp',
+					url: srcCardigan01Black03,
 					id: '62039ad977fffe0cd128c191',
 				},
 				{
+					color: 'Black',
+					url: srcCardigan01Black04,
+					id: '62039ad977fffe0cd128c192',
+				},
+				{
+					color: 'Black',
+					url: srcCardigan01Black05,
+					id: '62039ad977fffe0cd128c193',
+				},
+				{
 					color: 'Grey',
-					url: '/media/6200e74c1c08840bc803ad39/RTLAAX818301_15996799_3_v1_2x.webp',
+					url: srcCardigan01Grey01,
 					id: '62039af077fffe0cd128c194',
 				},
 				{
 					color: 'Grey',
-					url: '/media/6200e74c1c08840bc803ad39/RTLAAX818301_15996798_2_v1_2x.webp',
+					url: srcCardigan01Grey02,
 					id: '62039af377fffe0cd128c197',
 				},
 				{
 					color: 'Grey',
-					url: '/media/6200e74c1c08840bc803ad39/RTLAAX818301_15996797_1_v1_2x.webp',
+					url: srcCardigan01Grey03,
 					id: '62039af677fffe0cd128c19a',
 				},
 				{
-					color: 'Blue',
-					url: '/media/6200e74c1c08840bc803ad39/RTLAAX818401_15996803_3_v1_2x.webp',
-					id: '62039b1377fffe0cd128c19d',
+					color: 'Grey',
+					url: srcCardigan01Grey04,
+					id: '62039af677fffe0cd128c20a',
 				},
 				{
-					color: 'Blue',
-					url: '/media/6200e74c1c08840bc803ad39/RTLAAX818401_15996802_2_v1_2x.webp',
-					id: '62039b1777fffe0cd128c1a0',
-				},
-				{
-					color: 'Blue',
-					url: '/media/6200e74c1c08840bc803ad39/RTLAAX818401_15996801_1_v1_2x.webp',
-					id: '62039b1b77fffe0cd128c1a3',
+					color: 'Grey',
+					url: srcCardigan01Grey05,
+					id: '62039af677fffe0cd128c21a',
 				},
 			],
 			id: '6200e74c1c08840bc803ad39',
@@ -407,14 +481,34 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'White',
-					url: '/media/6200e7bf1c08840bc803ad3c/RTLAAQ292301_15088106_1_v1_2x.webp',
+					color: 'Blue',
+					url: srcPullover02Blue01,
 					id: '6203ad5877fffe0cd128c1bc',
 				},
 				{
-					color: 'Brown',
-					url: '/media/6200e7bf1c08840bc803ad3c/RTLAAQ292401_15088110_1_v1_2x.webp',
+					color: 'Blue',
+					url: srcPullover02Blue02,
 					id: '6203ad6e77fffe0cd128c1bf',
+				},
+				{
+					color: 'Blue',
+					url: srcPullover02Blue03,
+					id: '6203ad6e77fffe0cd129c1bf',
+				},
+				{
+					color: 'Blue',
+					url: srcPullover02Blue04,
+					id: '6203ad6e77fffe0cd127c1bf',
+				},
+				{
+					color: 'Grey',
+					url: srcPullover02Grey01,
+					id: '6203ad6e77fffe0cd228c1bf',
+				},
+				{
+					color: 'Grey',
+					url: srcPullover02Grey02,
+					id: '6203ad6e77fffe0cd138c1bf',
 				},
 			],
 			id: '6200e7bf1c08840bc803ad3c',
@@ -446,8 +540,8 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'White',
-					url: '/media/6200ec21c110271da7220ffe/RTLAAM769101_14809275_1_v1_2x.webp',
+					color: 'Ligth Grey',
+					url: srcCardigan04Lightgrey01,
 					id: '6203af0c77fffe0cd128c1ee',
 				},
 			],
@@ -480,8 +574,8 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Turquoise',
-					url: '/media/6200ec21c110271da7221000/RTLAAQ293101_15088134_1_v1_2x.webp',
+					color: 'Dark Grey',
+					url: srcPullover06Darkgrey01,
 					id: '6203afd477fffe0cd128c1ff',
 				},
 			],
@@ -514,14 +608,29 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'White',
-					url: '/media/6200f157c110271da7221004/RTLAAV307501_15757686_1_v1_2x.webp',
+					color: 'Grey Tar',
+					url: srcSweater04Greytar01,
 					id: '6204f68d77fffe0cd128c5fb',
 				},
 				{
-					color: 'Blue',
-					url: '/media/6200f157c110271da7221004/RTLAAV307701_15757690_1_v1_2x.webp',
-					id: '6204f6a777fffe0cd128c5fe',
+					color: 'Grey Tar',
+					url: srcSweater04Greytar02,
+					id: '6204f68d77fffe0cd128c5fg',
+				},
+				{
+					color: 'Grey Tar',
+					url: srcSweater04Greytar03,
+					id: '6204f68d77fffe0cd128c5fh',
+				},
+				{
+					color: 'Grey Tar',
+					url: srcSweater04Greytar04,
+					id: '6204f68d77fffe0cd128c6fh',
+				},
+				{
+					color: 'Grey Tar',
+					url: srcSweater04Greytar05,
+					id: '6204f68d77fffe0cd128c7fh',
 				},
 			],
 			id: '6200f157c110271da7221004',
@@ -548,14 +657,24 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Blue',
-					url: '/media/6200f157c110271da7221006/RTLAAW434201_15635048_3_v1.webp',
+					color: 'Multicolor',
+					url: srcTurtleneck01Multicolor01,
 					id: '6204f78577fffe0cd128c613',
 				},
 				{
-					color: 'Black',
-					url: '/media/6200f157c110271da7221006/RTLAAW434001_15635038_1_v1.webp',
-					id: '6204f7a177fffe0cd128c616',
+					color: 'Multicolor',
+					url: srcTurtleneck01Multicolor02,
+					id: '6204f78577fffe0cd128c614',
+				},
+				{
+					color: 'Multicolor',
+					url: srcTurtleneck01Multicolor03,
+					id: '6204f78577fffe0cd128c615',
+				},
+				{
+					color: 'Multicolor',
+					url: srcTurtleneck01Multicolor04,
+					id: '6204f78577fffe0cd128c616',
 				},
 			],
 			id: '6200f157c110271da7221006',
@@ -580,9 +699,24 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Black',
-					url: '/media/6200f157c110271da7221008/RTLAAZ198101_16123200_3_v1_2x.webp',
+					color: 'Green',
+					url: srcCardigan02Green01,
 					id: '6204f8ea77fffe0cd128c62b',
+				},
+				{
+					color: 'Green',
+					url: srcCardigan02Green02,
+					id: '6204f8ea77fffe0cd129c62b',
+				},
+				{
+					color: 'Green',
+					url: srcCardigan02Green03,
+					id: '6204f8ea77fffe0cd130c62b',
+				},
+				{
+					color: 'Green',
+					url: srcCardigan02Green04,
+					id: '6204f8ea77fffe0cd131c62b',
 				},
 			],
 			id: '6200f157c110271da7221008',
@@ -614,14 +748,29 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'White',
-					url: '/media/6200f157c110271da722100a/RTLAAS623701_15457068_1_v1_2x.webp',
+					color: 'Grey',
+					url: srcJumper01Grey01,
 					id: '6204f95a77fffe0cd128c634',
 				},
 				{
-					color: 'Blue',
-					url: '/media/6200f157c110271da722100a/RTLAAS643401_15394541_2_v1_2x.webp',
+					color: 'Grey',
+					url: srcJumper01Grey02,
 					id: '6204f97277fffe0cd128c637',
+				},
+				{
+					color: 'Grey',
+					url: srcJumper01Grey03,
+					id: '6204f97277fffe0cd128c638',
+				},
+				{
+					color: 'Grey',
+					url: srcJumper01Grey04,
+					id: '6204f97277fffe0cd128c639',
+				},
+				{
+					color: 'Grey',
+					url: srcJumper01Grey05,
+					id: '6204f97277fffe0cd128c640',
 				},
 			],
 			id: '6200f157c110271da722100a',
@@ -639,10 +788,77 @@ export const PRODUCTS = {
 			reviews: [{ name: 'Ilya', text: 'Не подошёл по размеру', rating: 2, id: '62050b2a77fffe0cd128c7bd' }],
 			images: [
 				{
-					color: 'White',
-					url: '/media/6200f157c110271da722100c/RTLAAX972501_16094775_1_v1_2x.webp',
-					id: '62050b0e77fffe0cd128c7b9',
+					color: 'Dark Grey',
+					url: srcCardigan03Darkgrey01,
+					id: '62050b0e77fffe0cd128c7b09',
 				},
+				{
+					color: 'Dark Grey',
+					url: srcCardigan03Darkgrey02,
+					id: '62050b0e77fffe0cd128c7b10',
+				},
+				{
+					color: 'Dark Grey',
+					url: srcCardigan03Darkgrey03,
+					id: '62050b0e77fffe0cd128c7b11',
+				},
+				{
+					color: 'Dark Grey',
+					url: srcCardigan03Darkgrey04,
+					id: '62050b0e77fffe0cd128c7b12',
+				},
+				{
+					color: 'Dark Grey',
+					url: srcCardigan03Darkgrey05,
+					id: '62050b0e77fffe0cd128c7b13',
+				},
+				{
+					color: 'Light Grey',
+					url: srcCardigan03Lightgrey01,
+					id: '62050b0e77fffe0cd128c7b14',
+				},
+				{
+					color: 'Light Grey',
+					url: srcCardigan03Lightgrey02,
+					id: '62050b0e77fffe0cd128c7b15',
+				},
+				{
+					color: 'Light Grey',
+					url: srcCardigan03Lightgrey03,
+					id: '62050b0e77fffe0cd128c7b16',
+				},
+				{
+					color: 'Light Grey',
+					url: srcCardigan03Lightgrey04,
+					id: '62050b0e77fffe0cd128c7b17',
+				},
+				{
+					color: 'Black',
+					url: srcCardigan03Black01,
+					id: '62050b0e77fffe0cd128c7b18',
+				},
+				{
+					color: 'Black',
+					url: srcCardigan03Black02,
+					id: '62050b0e77fffe0cd128c7b19',
+				},
+				{
+					color: 'Black',
+					url: srcCardigan03Black03,
+					id: '62050b0e77fffe0cd128c7b20',
+				},
+				{
+					color: 'Black',
+					url: srcCardigan03Black04,
+					id: '62050b0e77fffe0cd128c7b21',
+				},
+				{
+					color: 'Black',
+					url: srcCardigan03Black05,
+					id: '62050b0e77fffe0cd128c7b22',
+				},
+
+
 			],
 			id: '6200f157c110271da722100c',
 		},
@@ -674,13 +890,18 @@ export const PRODUCTS = {
 			images: [
 				{
 					color: 'Grey',
-					url: '/media/6200f157c110271da7221014/RTLAAV537301_15738012_1_v1_2x.jpg',
+					url: srcSweater03Grey01,
 					id: '62050bab77fffe0cd128c7c2',
 				},
 				{
-					color: 'Black',
-					url: '/media/6200f157c110271da7221014/RTLAAV537401_15738016_1_v1_2x.webp',
-					id: '62050bc077fffe0cd128c7c5',
+					color: 'Grey',
+					url: srcSweater03Grey02,
+					id: '62050bab77fffe0cd128c7c3',
+				},
+				{
+					color: 'Grey',
+					url: srcSweater03Grey03,
+					id: '62050bab77fffe0cd128c7c4',
 				},
 			],
 			id: '6200f157c110271da7221014',
@@ -724,14 +945,19 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Vinous',
-					url: '/media/6200f157c110271da7221012/RTLAAQ285501_15017256_1_v1.jpg',
+					color: 'Moss',
+					url: srcPullover04Moss01,
 					id: '62050c8b77fffe0cd128c7da',
 				},
 				{
-					color: 'Beige',
-					url: '/media/6200f157c110271da7221012/RTLAAQ285401_15017253_1_v1.jpg',
+					color: 'Marle',
+					url: srcPullover04Marle01,
 					id: '62050cab77fffe0cd128c7dd',
+				},
+				{
+					color: 'Black',
+					url: srcPullover04Black01,
+					id: '62050cab77fffe0cd128c8dd',
 				},
 			],
 			id: '6200f157c110271da7221012',
@@ -758,13 +984,13 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Yellow',
-					url: '/media/6200f157c110271da722100e/RTLABA110601_16071291_1_v1.jpg',
+					color: 'Desert',
+					url: srcPullover03Desert01,
 					id: '6205107577fffe0cd128c80c',
 				},
 				{
-					color: 'Blue',
-					url: '/media/6200f157c110271da722100e/RTLAAQ293301_15017273_1_v1.webp',
+					color: 'Ecru',
+					url: srcPullover03Ecru01,
 					id: '6205109877fffe0cd128c80f',
 				},
 			],
@@ -778,7 +1004,7 @@ export const PRODUCTS = {
 				isMostViewed: false,
 				isFeatured: false,
 			},
-			name: 'Полувер',
+			name: 'Свитер',
 			category: 'men',
 			brand: 'Denim Culture',
 			material: 'Хлопок - 50%, Акрил - 50%',
@@ -791,9 +1017,14 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Green',
-					url: '/media/6200f157c110271da7221010/RTLAAX966901_16091402_1_v1_2x.webp',
+					color: 'Black Hearth',
+					url: srcSweater01Blackhearth01,
 					id: '6205117c77fffe0cd128c824',
+				},
+				{
+					color: 'Black Hearth',
+					url: srcSweater01Blackhearth02,
+					id: '6205117c77fffe0cd128c825',
 				},
 			],
 			id: '6200f157c110271da7221010',
@@ -820,14 +1051,19 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Blue',
-					url: '/media/6200f157c110271da7221016/RTLAAU294001_15685608_1_v1_2x.webp',
+					color: 'Black',
+					url: srcTurtleneck03Black01,
 					id: '6205121577fffe0cd128c888',
 				},
 				{
 					color: 'Black',
-					url: '/media/6200f157c110271da7221016/RTLAAU293501_15685601_2_v1_2x.webp',
+					url: srcTurtleneck03Black02,
 					id: '6205123177fffe0cd128c88b',
+				},
+				{
+					color: 'Black',
+					url: srcTurtleneck03Black03,
+					id: '6205123177fffe0cd128c89b',
 				},
 			],
 			id: '6200f157c110271da7221016',

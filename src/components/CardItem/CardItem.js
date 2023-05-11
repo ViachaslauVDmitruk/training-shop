@@ -18,7 +18,8 @@ function CardItem(props) {
 	return (
 		<Link to={`/${props.productType}/${props.id}`} className='cards-item' data-test-id={`clothes-card-${props.productType}`}>
 			<div className="parth3-item__image">
-				<img src={`https://training.cleverland.by/shop${props.imgCard}`} alt="imgCard" />
+				{/* <img src={`https://training.cleverland.by/shop${props.imgCard}`} alt="imgCard" /> */}
+				<img src={props.imgCard} alt="" />
 				<div className={classNames("discount-block", discountMode(), { visible: isDiscount },)}>{props.discount}</div>
 			</div>
 			<div className="parth3-item__title">{props.name}</div>

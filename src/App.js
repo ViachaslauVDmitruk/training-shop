@@ -12,16 +12,16 @@ import Error from './components/error/Error';
 import './App.css';
 
 function App() {
-	const { isError, isLoading } = useSelector(store => store.shop);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(loadData())
-	}, [dispatch])
+	// const { isError, isLoading } = useSelector(store => store.shop);
+	// const dispatch = useDispatch();
+	// useEffect(() => {
+	// 	dispatch(loadData())										get data from server
+	// }, [dispatch])
 
 	return (
 		<div className='app' data-test-id='app'>
-			{isLoading && <Loader />}
-			{isError && <Error />}
+			{/* {isLoading && <Loader />}
+			{isError && <Error />} */}
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path='/:type' element={<Clothes />}></Route>

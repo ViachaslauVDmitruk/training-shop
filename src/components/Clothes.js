@@ -19,7 +19,7 @@ function Clothes() {
 	let allClothes = PRODUCTS[type];
 	// let newAllClothes = useSelector(store => store.shop.products[type]);
 	let newAllClothes = PRODUCTS[type];
-	console.log('clothes', allClothes)
+
 	let [items, setItems] = useState(newAllClothes);
 	let [colorCheck, setColorCheck] = useState([]);
 	let [sizeCheck, setSizeCheck] = useState([]);
