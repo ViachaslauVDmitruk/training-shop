@@ -12,7 +12,7 @@ function Main() {
 		<div className="main">
 			<Part1 />
 			<Part2 />
-			{/* <ClothesWoman /> */}
+			<ClothesWoman />
 			<ClothesMan />
 			<Part4 />
 			<Part5 />
