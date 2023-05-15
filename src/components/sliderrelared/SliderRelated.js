@@ -8,10 +8,12 @@ import "./css/SliderRelated.css"
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { PRODUCTS } from "../../poduct";
 
 function SliderRelated(props) {
 	let { type } = useParams();
-	let related = useSelector(store => store.shop.products[type]);
+	// let related = useSelector(store => store.shop.products[type]);
+	let related = PRODUCTS[type];
 
 	return (
 		<>

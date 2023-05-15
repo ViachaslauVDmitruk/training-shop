@@ -38,7 +38,8 @@ function CartItem({ productData }) {
 			<div data-test-id="cart-card" className="shoppingcart__item">
 				<div className="shoppingcart-item__image">
 					<img
-						src={`https://training.cleverland.by/shop${productData.image}`}
+						// src={`https://training.cleverland.by/shop${productData.image}`}
+						src={productData.image}
 						alt="imgCard"
 					/>
 				</div>

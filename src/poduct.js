@@ -106,6 +106,48 @@ import srcPullover04Black01 from './product-images/men/pullover/black/http___sta
 
 import srcPullover06Darkgrey01 from './product-images/men/pullover/dark-grey/http___static.theiconic.com.au_p_jack-jones-0437-6871971-1.jpg';
 
+import srcDress01Multicolor01 from './product-images/women/dress/multicolor/http___static.theiconic.com.au_p_leo-lin-4248-8505481-1.jpg';
+import srcDress01Multicolor02 from './product-images/women/dress/multicolor/http___static.theiconic.com.au_p_leo-lin-4265-8505481-4.jpg';
+import srcDress01Multicolor03 from './product-images/women/dress/multicolor/http___static.theiconic.com.au_p_leo-lin-4271-8505481-5.jpg';
+
+import srcDress02Multicolor01 from './product-images/women/dress/multicolor/http___static.theiconic.com.3333-6222-5080781-1.jpg';
+import srcDress02Multicolor02 from './product-images/women/dress/multicolor/http___static.theiconic.com.3333-6229-5080781-2.jpg';
+import srcDress02Multicolor03 from './product-images/women/dress/multicolor/http___static.theiconic.com.3333-6235-5080781-3.jpg';
+import srcDress02Multicolor04 from './product-images/women/dress/multicolor/http___static.theiconic.com.3333-6241-5080781-4.jpg';
+import srcDress02Multicolor05 from './product-images/women/dress/multicolor/http___static.theiconic.com.a3333-6246-5080781-5.jpg'
+
+import srcPants01Brown01 from './product-images/women/pants/brown/http___static.theiconic.com.au_p_dazie-4550-0913431-1.jpg';
+import srcPants01Brown02 from './product-images/women/pants/brown/http___static.theiconic.com.au_p_dazie-4562-0913431-2.jpg';
+import srcPants01Brown03 from './product-images/women/pants/brown/http___static.theiconic.com.au_p_dazie-4576-0913431-3.jpg';
+import srcPants01Black01 from './product-images/women/pants/black/http___static.theiconic.com.au_p_dazie-0363-9337721-1.jpg';
+import srcPants01Black02 from './product-images/women/pants/black/http___static.theiconic.com.au_p_dazie-0377-9337721-3.jpg';
+
+import srcJeans01Blue01 from './product-images/women/jeans/http___static.theiconic.com.au_p_neuw-1803-6586971-1.jpg';
+import srcJeans01Blue02 from './product-images/women/jeans/http___static.theiconic.com.au_p_neuw-1815-6586971-2.jpg';
+import srcJeans01Blue03 from './product-images/women/jeans/http___static.theiconic.com.au_p_neuw-1848-6586971-5.jpg';
+
+import srcJeans02Black01 from './product-images/women/jeans/black/http___static.theiconic.com.au_p_the-fated-6123-3436881-1.jpg';
+import srcJeans02Black02 from './product-images/women/jeans/black/http___static.theiconic.com.au_p_the-fated-6125-3436881-2.jpg';
+import srcJeans02Black03 from './product-images/women/jeans/black/http___static.theiconic.com.au_p_the-fated-6130-3436881-4.jpg';
+
+import srcJacket01Black01 from './product-images/women/jacket/black/http___static.theiconic.com.au_p_the-north-face-6204-6359241-1.jpg';
+import srcJacket01Black02 from './product-images/women/jacket/black/http___static.theiconic.com.au_p_the-north-face-6204-6359241-2.jpg';
+import srcJacket01Black03 from './product-images/women/jacket/black/http___static.theiconic.com.au_p_the-north-face-6304-6359241-4.jpg';
+
+import srcJacket02Black01 from './product-images/women/jacket/black/http___static.theiconic.com.2222-1743-3220181-3.jpg';
+import srcJacket02Black02 from './product-images/women/jacket/black/http___static.theiconic.com.2222-1744-3220181-2.jpg';
+
+import srcSuit01Cherry01 from './product-images/women/sport-suit/cherry/http___static.theiconic.com.au_p_rec-gen-8307-1318961-1.jpg';
+import srcSuit02Black01 from './product-images/women/sport-suit/black/http___static.theiconic.com.au_p_unit-4639-9447041-1.jpg';
+import srcSuit02Black02 from './product-images/women/sport-suit/black/http___static.theiconic.com.au_p_unit-4641-9447041-2.jpg';
+import srcSuit02Black03 from './product-images/women/sport-suit/black//http___static.theiconic.com.au_p_unit-4644-9447041-3.jpg';
+import srcSuit02Black04 from './product-images/women/sport-suit/black/http___static.theiconic.com.au_p_unit-4646-9447041-4.jpg';
+import srcSuit02Black05 from './product-images/women/sport-suit/black/http___static.theiconic.com.au_p_unit-4649-9447041-5.jpg';
+
+import srcSwimsuit01Navy01 from './product-images/women/swimsuit/http___static.theiconic.com.au_p_speedo-3161-4905671-3.jpg';
+import srcSwimsuit01Navy02 from './product-images/women/swimsuit/http___static.theiconic.com.au_p_speedo-3271-4905671-1.jpg';
+import srcSwimsuit01Navy03 from './product-images/women/swimsuit/http___static.theiconic.com.au_p_speedo-3280-4905671-2.jpg';
+
 export const PRODUCTS = {
 	men: [
 		{
@@ -1109,8 +1151,28 @@ export const PRODUCTS = {
 			images: [
 				{
 					color: 'Multicolor',
-					url: '/media/620126dda5293589353a9c74/RTLAAO978301_14935848_1_v1_2x.jpg',
+					url: srcDress02Multicolor01,
 					id: '620512e977fffe0cd128c8ac',
+				},
+				{
+					color: 'Multicolor',
+					url: srcDress02Multicolor02,
+					id: '620512e977fffe0cd128c9ac',
+				},
+				{
+					color: 'Multicolor',
+					url: srcDress02Multicolor03,
+					id: '620512e977fffe0cd128c10ac',
+				},
+				{
+					color: 'Multicolor',
+					url: srcDress02Multicolor04,
+					id: '620512e977fffe0cd128c11ac',
+				},
+				{
+					color: 'Multicolor',
+					url: srcDress02Multicolor05,
+					id: '620512e977fffe0cd128c12ac',
 				},
 			],
 			id: '620126dda5293589353a9c74',
@@ -1153,14 +1215,29 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Black',
-					url: '/media/620126dda5293589353a9c75/RTLAAT332301_15495271_1_v1_2x.webp',
+					color: 'Brown',
+					url: srcPants01Brown01,
 					id: '620513c677fffe0cd128c98f',
 				},
 				{
-					color: 'Grey',
-					url: '/media/620126dda5293589353a9c75/RTLABB210301_16189560_1_v1.webp',
+					color: 'Brown',
+					url: srcPants01Brown02,
 					id: '620513dd77fffe0cd128c992',
+				},
+				{
+					color: 'Brown',
+					url: srcPants01Brown03,
+					id: '620513dd77fffe0cd128c993',
+				},
+				{
+					color: 'Black',
+					url: srcPants01Black01,
+					id: '620513dd77fffe0cd128c994',
+				},
+				{
+					color: 'Black',
+					url: srcPants01Black02,
+					id: '620513dd77fffe0cd128c995',
 				},
 			],
 			id: '620126dda5293589353a9c75',
@@ -1185,8 +1262,18 @@ export const PRODUCTS = {
 			images: [
 				{
 					color: 'Multicolor',
-					url: '/media/620126dda5293589353a9c76/RTLABD360301_16384317_1_v1_2x.webp',
+					url: srcDress01Multicolor01,
 					id: '6205147877fffe0cd128c9b3',
+				},
+				{
+					color: 'Multicolor',
+					url: srcDress01Multicolor02,
+					id: '6205147877fffe0cd128c9b4',
+				},
+				{
+					color: 'Multicolor',
+					url: srcDress01Multicolor03,
+					id: '6205147877fffe0cd128c9b5',
 				},
 			],
 			id: '620126dda5293589353a9c76',
@@ -1223,14 +1310,19 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Red',
-					url: '/media/620126dda5293589353a9c77/RTLAAO630301_14895077_1_v1_2x.webp',
+					color: 'Navy',
+					url: srcSwimsuit01Navy01,
 					id: '6205155b77fffe0cd128c9b6',
 				},
 				{
-					color: 'Black',
-					url: '/media/620126dda5293589353a9c77/RTLAAO630501_14895083_1_v1_2x.webp',
-					id: '6205157277fffe0cd128c9b9',
+					color: 'Navy',
+					url: srcSwimsuit01Navy02,
+					id: '6205157277fffe0cd128c9b10',
+				},
+				{
+					color: 'Navy',
+					url: srcSwimsuit01Navy03,
+					id: '6205157277fffe0cd128c9b11',
 				},
 			],
 			id: '620126dda5293589353a9c77',
@@ -1315,14 +1407,9 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Black',
-					url: '/media/620126dda5293589353a9c79/AD002EWLUHD0_12895739_1_v1_2x.webp',
+					color: 'Cherry',
+					url: srcSuit01Cherry01,
 					id: '620515f177fffe0cd128c9ce',
-				},
-				{
-					color: 'Blue',
-					url: '/media/620126dda5293589353a9c79/RTLAAT886601_15407757_1_v1_2x.webp',
-					id: '6205160177fffe0cd128c9d1',
 				},
 			],
 			id: '620126dda5293589353a9c79',
@@ -1379,8 +1466,28 @@ export const PRODUCTS = {
 			images: [
 				{
 					color: 'Black',
-					url: '/media/620126dda5293589353a9c78/RTLAAP963301_15028593_1_v1_2x.webp',
+					url: srcSuit02Black01,
 					id: '6205176b77fffe0cd128caf1',
+				},
+				{
+					color: 'Black',
+					url: srcSuit02Black02,
+					id: '6205176b77fffe0cd128caf2',
+				},
+				{
+					color: 'Black',
+					url: srcSuit02Black03,
+					id: '6205176b77fffe0cd128caf3',
+				},
+				{
+					color: 'Black',
+					url: srcSuit02Black04,
+					id: '6205176b77fffe0cd128caf4',
+				},
+				{
+					color: 'Black',
+					url: srcSuit02Black05,
+					id: '6205176b77fffe0cd128caf5',
 				},
 			],
 			id: '620126dda5293589353a9c78',
@@ -1424,17 +1531,17 @@ export const PRODUCTS = {
 			images: [
 				{
 					color: 'Black',
-					url: '/media/620126dda5293589353a9c7d/RTLAAX520301_15791304_1_v1.webp',
+					url: srcJacket01Black01,
 					id: '6205188a77fffe0cd128cb3e',
 				},
 				{
-					color: 'Green',
-					url: '/media/620126dda5293589353a9c7d/RTLAAX520301_15791304_1_v1 (1).webp',
+					color: 'Black',
+					url: srcJacket01Black02,
 					id: '620518b077fffe0cd128cb42',
 				},
 				{
-					color: 'White',
-					url: '/media/620126dda5293589353a9c7d/RTLAAX660101_15809707_1_gggv1.webp',
+					color: 'Black',
+					url: srcJacket01Black03,
 					id: '620518c277fffe0cd128cb45',
 				},
 			],
@@ -1472,14 +1579,19 @@ export const PRODUCTS = {
 			],
 			images: [
 				{
-					color: 'Black',
-					url: '/media/620126dda5293589353a9c7b/RTLAAQ793701_15078412_1_v1.webp',
+					color: 'Blue',
+					url: srcJeans01Blue01,
 					id: '6205198977fffe0cd128cb6c',
 				},
 				{
-					color: 'Black',
-					url: '/media/620126dda5293589353a9c7b/RTLAAQ793701_15078413_2_v1.webp',
+					color: 'Blue',
+					url: srcJeans01Blue02,
 					id: '6205199e77fffe0cd128cb6f',
+				},
+				{
+					color: 'Blue',
+					url: srcJeans01Blue03,
+					id: '6205199e77fffe0cd129cb6f',
 				},
 			],
 			id: '620126dda5293589353a9c7b',
@@ -1503,13 +1615,13 @@ export const PRODUCTS = {
 			reviews: [],
 			images: [
 				{
-					color: 'Brown',
-					url: '/media/620126dda5293589353a9c7c/RTLABB101301_16177596_2_v1.webp',
+					color: 'Black',
+					url: srcJacket02Black01,
 					id: '62051ad577fffe0cd128cc0f',
 				},
 				{
-					color: 'Brown',
-					url: '/media/620126dda5293589353a9c7c/RTLABB101301_16177595_1_v1.webp',
+					color: 'Black',
+					url: srcJacket02Black02,
 					id: '62051ad977fffe0cd128cc12',
 				},
 			],
@@ -1534,14 +1646,19 @@ export const PRODUCTS = {
 			reviews: [],
 			images: [
 				{
-					color: 'Blue',
-					url: '/media/620126dda5293589353a9c7a/RTLABB350001_16215215_2_v1.webp',
+					color: 'Black',
+					url: srcJeans02Black01,
 					id: '62051b8177fffe0cd128cf63',
 				},
 				{
-					color: 'Blue',
-					url: '/media/620126dda5293589353a9c7a/RTLABB350001_16215214_1_v1.webp',
+					color: 'Black',
+					url: srcJeans02Black02,
 					id: '62051b8477fffe0cd128cf66',
+				},
+				{
+					color: 'Black',
+					url: srcJeans02Black03,
+					id: '62051b8477fffe0cd128cf67',
 				},
 			],
 			id: '620126dda5293589353a9c7a',
